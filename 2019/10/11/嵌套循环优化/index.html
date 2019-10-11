@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/">
+    <link rel="canonical" href="http://blog.iwxyi.com/2019/10/11/嵌套循环优化/">
     
     
-    <title>0x3F3F3F3F | 云笺 | 一些技术摘要和写作技巧</title>
+    <title>嵌套循环优化 | 云笺 | 一些技术摘要和写作技巧</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="0x3f3f3f3f0x3f3f3f3f的十进制是1061109567，是10^9级别的（和0x7fffffff一个数量级），而一般场合下的数据都是小于10^9的，所以它可以作为无穷大使用而不致出现数据大于无穷大的情形。  另一方面，由于一般的数据都不会大于10^9，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上0x3f3f3f3f+0x3">
+    <meta name="description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);  分析从给出的代码可知，不论如何优化，testFunction">
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0x3F3F3F3F">
-<meta property="og:url" content="http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/index.html">
+<meta property="og:title" content="嵌套循环优化">
+<meta property="og:url" content="http://blog.iwxyi.com/2019/10/11/嵌套循环优化/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="0x3f3f3f3f0x3f3f3f3f的十进制是1061109567，是10^9级别的（和0x7fffffff一个数量级），而一般场合下的数据都是小于10^9的，所以它可以作为无穷大使用而不致出现数据大于无穷大的情形。  另一方面，由于一般的数据都不会大于10^9，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上0x3f3f3f3f+0x3">
+<meta property="og:description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);  分析从给出的代码可知，不论如何优化，testFunction">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T11:43:29.578Z">
+<meta property="og:updated_time" content="2019-10-11T11:52:03.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="0x3F3F3F3F">
-<meta name="twitter:description" content="0x3f3f3f3f0x3f3f3f3f的十进制是1061109567，是10^9级别的（和0x7fffffff一个数量级），而一般场合下的数据都是小于10^9的，所以它可以作为无穷大使用而不致出现数据大于无穷大的情形。  另一方面，由于一般的数据都不会大于10^9，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上0x3f3f3f3f+0x3">
+<meta name="twitter:title" content="嵌套循环优化">
+<meta name="twitter:description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);  分析从给出的代码可知，不论如何优化，testFunction">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -154,7 +154,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">0x3F3F3F3F</div>
+        <div class="flex-col header-title ellipsis">嵌套循环优化</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -194,19 +194,19 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#0x3f3f3f3f"><span class="post-toc-number">1.</span> <span class="post-toc-text">0x3f3f3f3f</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方案"><span class="post-toc-number">3.</span> <span class="post-toc-text">方案</span></a></li></ol>
         </nav>
     </aside>
    
-<article id="post-0x3F3F3F3F"
+<article id="post-嵌套循环优化"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">0x3F3F3F3F</h1>
+        <h1 class="post-card-title">嵌套循环优化</h1>
         <div class="post-meta">
             <i class="icon icon-lg icon-calendar-o"></i>
             发表于
-            <time class="post-time" title="2019-10-11 19:40:00" datetime="2019-10-11T11:40:00.000Z"  itemprop="datePublished">2019-10-11</time>
+            <time class="post-time" title="2019-10-11 19:50:00" datetime="2019-10-11T11:50:00.000Z"  itemprop="datePublished">2019-10-11</time>
 
             <br id="mybreak"/>
             
@@ -224,13 +224,82 @@
         </div>
         <div class="post-count-custom">
             <i class="icon icon-lg icon-comment-o"></i>
-            阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
+            阅读本文可能花费您&nbsp;<span class="post-count">2</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="0x3f3f3f3f"><a href="#0x3f3f3f3f" class="headerlink" title="0x3f3f3f3f"></a>0x3f3f3f3f</h1><p><code>0x3f3f3f3f</code>的十进制是<code>1061109567</code>，是<code>10^9</code>级别的（和<code>0x7fffffff</code>一个数量级），而一般场合下的数据都是小于<code>10^9</code>的，所以它可以作为无穷大使用而不致出现数据大于无穷大的情形。 </p>
-<p>另一方面，由于一般的数据都不会大于<code>10^9</code>，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上<code>0x3f3f3f3f</code>+<code>0x3f3f3f3f</code>=<code>2122219134</code>，这非常大但却没有超过<code>32-bit int</code>的表示范围，所以<code>0x3f3f3f3f</code>还满足了我们“无穷大加无穷大还是无穷大”的需求。</p>
-<p>最后，<code>0x3f3f3f3f</code>还能给我们带来一个意想不到的额外好处：<br>如果我们想要将某个数组清零，我们通常会使用<code>memset(a,0,sizeof(a))</code>，方便又高效，但是当我们想将某个数组全部赋值为无穷大时，就不能使用memset函数而得自己写循环了，因为<code>memset</code>是按字节操作的，它能够对数组清零是因为0的每个字节都是0（一般我们只有赋值为-1和0的时候才使用它）。现在好了，如果我们将无穷大设为<code>0x3f3f3f3f</code>，那么奇迹就发生了，<code>0x3f3f3f3f</code>的每个字节都是0x3f！所以要把一段内存全部置为无穷大，我们只需要<code>memset(a,0x3f,sizeof(a))</code>。</p>
-<p>所以在通常的场合下，<code>0x3f3f3f3f</code>真的是一个非常棒的选择！</p>
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请对以下的代码进行优化：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++)  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++)  </span><br><span class="line">            testFunction (i, j, k);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>从给出的代码可知，不论如何优化，testFunction执行的次数都是相同的，该部分不存在优化的可能。那么，代码的优化只能从循环变量i、j、k的实例化、初始化、比较、自增等方面的耗时上进行分析。</p>
+<p>首先，我们先分析原题代码循环变量在实例化、初始化、比较、自增等方面的耗时情况： </p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>实例化(次数)</th>
+<th>初始化(次数)</th>
+<th>比较(次数)</th>
+<th>自增(次数)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>1</td>
+<td>1</td>
+<td>1000</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>j</td>
+<td>1000</td>
+<td>1000</td>
+<td>1000 * 100</td>
+<td>1000 * 100</td>
+</tr>
+<tr>
+<td>k</td>
+<td>1000 * 100</td>
+<td>1000 * 100</td>
+<td>1000 * 100 * 10</td>
+<td>1000 * 100 * 10</td>
+</tr>
+</tbody></table>
+<p>该代码的性能优化就是尽可能减少循环变量i、j、k的实例化、初始化、比较、自增的次数，同时，不能引进其它可能的运算耗时。 </p>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++)  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">1000</span>; k++)  </span><br><span class="line">            testFunction (k, j, i);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>该方案主要是将循环次数最少的放到外面，循环次数最多的放里面，这样可以最大程度的（注：3个不同次数的循环变量共有6种排列组合情况，此种组合为最优）减少相关循环变量的实例化次数、初始化次数、比较次数、自增次数，方案耗时情况如下： </p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>实例化(次数)</th>
+<th>初始化(次数)</th>
+<th>比较(次数)</th>
+<th>自增(次数)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>1</td>
+<td>1</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>j</td>
+<td>10</td>
+<td>10</td>
+<td>10 * 100</td>
+<td>10 * 100</td>
+</tr>
+<tr>
+<td>k</td>
+<td>10 * 100</td>
+<td>10 * 100</td>
+<td>10 * 100 * 1000</td>
+<td>10 * 100 * 1000</td>
+</tr>
+</tbody></table>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -256,12 +325,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-11T11:43:29.578Z" itemprop="dateUpdated">2019-10-11 19:43:29</time>
+    最后更新：<time datetime="2019-10-11T11:52:03.575Z" itemprop="dateUpdated">2019-10-11 19:52:03</time>
 </span>
 
 
         
-        原文链接：<a href="/2019/10/11/0x3F3F3F3F/" target="_blank" rel="external">http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/</a>
+        原文链接：<a href="/2019/10/11/嵌套循环优化/" target="_blank" rel="external">http://blog.iwxyi.com/2019/10/11/嵌套循环优化/</a>
         
     </div>
     <footer>
@@ -293,7 +362,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/&title=《0x3F3F3F3F》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&title=《嵌套循环优化》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -303,22 +372,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/&title=《0x3F3F3F3F》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&title=《嵌套循环优化》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《0x3F3F3F3F》 — 云笺&url=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/&via=http://blog.iwxyi.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《嵌套循环优化》 — 云笺&url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&via=http://blog.iwxyi.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -338,21 +407,13 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/10/11/嵌套循环优化/" id="post-prev" class="post-nav-link">
-        <h4 class="title" >
-          上一篇：嵌套循环优化
-        </h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/10/10/正则二三事/" id="post-next" class="post-nav-link">
-        <h4 class="title" data-hover="下一篇：正则二三事">下一篇：正则二三事</h4>
+      <a href="/2019/10/11/0x3F3F3F3F/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：0x3F3F3F3F">下一篇：0x3F3F3F3F</h4>
       </a>
     </div>
   
@@ -475,7 +536,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/&title=《0x3F3F3F3F》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&title=《嵌套循环优化》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -485,22 +546,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/&title=《0x3F3F3F3F》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&title=《嵌套循环优化》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《0x3F3F3F3F》 — 云笺&url=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/&via=http://blog.iwxyi.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《嵌套循环优化》 — 云笺&url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&via=http://blog.iwxyi.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -511,7 +572,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aQZKDMAwEwP3/p7MvgMzYpnaxm1OKJODmICRLPz/x8QmOq1/eXy05v+zAwMB4LWNmcfe3vLrC/bf35y+pGBgYBzCSRdz/JvlX+2jy+2JgYGAkSV6bCOZhGgMDA6Nl5CEyKVP/LOBiYGC8kJEUsTPB9B/V4hgYGC9kzKRrT39+pL+BgYHxKsanPNqCc+xq9aowMDC2ZuQB7n48IimJ2+25ej0YGBibMubLxbwonSl0v/wXAwNja0ZCGksBx9LHse05DAyMExh5odimdKsC7rJNNwwMjNcy2uCYl6arQnANw8DA2I7RjlmMFbpjwbQI2RgYGJsy5oe9xnhJwZw/UAwMjHMYeWNgLEEc28mP0kcMDIwDGO1m/Uy5m2+rFS8DDAyMAxh5uGyD8sxCizMYGBgHMNot+FWBsn1Al0kkBgbG1ox85KIdfVjVKsgLYAwMjL0ZY6VpW+LOjJRFTU0MDIwjGatajHkKmIyXfUkKMTAwtma0yVweUtshszzdjLocGBgYmzLqYDc08tU+si/XwcDAOIaRL3dm++yRjTwMDIxNGTMlZd6wTDbaxopkDAyMExj5UaRoQ8li3mDI74uBgbET44kg226lLRjFwMDAOICRBMo8fretgnkkBgYGRjtIMR9A228xMDAw2u2wsfGLNkAveG9gYGC8ilEPN8RhN0/+8jYABgbGaYx2xKENkW2DM3kBDDY1MTAw3sf4BdByapilJEntAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3aSW7DQAwFUd//0somiwCOpPpk24DYpVXgaHpaEJxeL3wcf46zX95/f/8vv/b1iUOGDBmPZRyXBz/n7M7XH+IaHzxXhgwZGzDIS/AXOrtzehV5NxkyZMjgDJ4IkvNlyJAho8/g6SAhyZAhQwZhkCKWPDht2PHSd1ktLkOGjAcyeNf9+39/ZL4hQ4aMRzGO8CADyHSc2Xmf33vKkCFjNKOW2PEkkqeJ/URThgwZOzDS0pGPCmoBNw3uMmTImMq4PokMANJH8iAbhHIZMmRswyAlKB9epvfvjBxkyJAxm9EZJaYJYq0NF4ddGTJkbMnoDxoJb8EkVoYMGUMZfEiZtuRq6WC6BHY6iZUhQ8YgBh9S8gQxDaD9jyVDhozZDN7e4k1/EiI7jTa0LSJDhoxBjP7KRa1MrY0z0cBAhgwZ4xi1tteqq/otuX9qcRkyZIxjpElbupxR6+Snq2kyZMiYzSCv1Vm8WLUcdvMJZMiQMZrBG2e14MhHC7UFjmDOIEOGjIczagH0GsybZTy83mBkyJCxASNNAVMkD6lHeMiQIWM3Bk/I+DAgXpjA6aAMGTJ2YNRCGwmp6YpG2s5bEKFlyJDxEEYa7GoPSJPFWtIpQ4aM2Yw0yKaLXHxskAZcGTJk7MZIS1aeDvYXLNCyhQwZMmTghn6tVO638GTIkCGD35QEXF7i8jRUhgwZOzBIKOQjSV7Kpl3Am9RQhgwZQxmdNYv0AfGy16LSV4YMGY9l/ABkidE/lVMDqgAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
