@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);  分析从给出的代码可知，不论如何优化，testFunction">
+    <meta name="description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);">
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="嵌套循环优化">
 <meta property="og:url" content="http://blog.iwxyi.com/2019/10/11/嵌套循环优化/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);  分析从给出的代码可知，不论如何优化，testFunction">
+<meta property="og:description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T11:52:03.575Z">
+<meta property="og:updated_time" content="2019-10-11T11:59:43.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嵌套循环优化">
-<meta name="twitter:description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);  分析从给出的代码可知，不论如何优化，testFunction">
+<meta name="twitter:description" content="题目请对以下的代码进行优化： 1234for (int i = 0; i &amp;lt; 1000; i++)      for (int j = 0; j &amp;lt; 100; j++)          for (int k = 0; k &amp;lt; 10; k++)              testFunction (i, j, k);">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -230,6 +230,9 @@
             <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请对以下的代码进行优化：</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++)  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++)  </span><br><span class="line">            testFunction (i, j, k);</span><br></pre></td></tr></tbody></table></figure>
 
+<a id="more"></a>
+
+
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>从给出的代码可知，不论如何优化，testFunction执行的次数都是相同的，该部分不存在优化的可能。那么，代码的优化只能从循环变量i、j、k的实例化、初始化、比较、自增等方面的耗时上进行分析。</p>
 <p>首先，我们先分析原题代码循环变量在实例化、初始化、比较、自增等方面的耗时情况： </p>
 <table>
@@ -325,7 +328,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-11T11:52:03.575Z" itemprop="dateUpdated">2019-10-11 19:52:03</time>
+    最后更新：<time datetime="2019-10-11T11:59:43.497Z" itemprop="dateUpdated">2019-10-11 19:59:43</time>
 </span>
 
 
@@ -372,7 +375,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&title=《嵌套循环优化》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&title=《嵌套循环优化》 — 云笺&source=题目请对以下的代码进行优化：
+1234for (int i = 0; i &lt; 1000; i++)      for (int j = 0; j &..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -546,7 +550,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&title=《嵌套循环优化》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/11/嵌套循环优化/&title=《嵌套循环优化》 — 云笺&source=题目请对以下的代码进行优化：
+1234for (int i = 0; i &lt; 1000; i++)      for (int j = 0; j &..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
