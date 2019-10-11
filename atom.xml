@@ -5,9 +5,9 @@
   <subtitle>一些技术摘要和写作技巧</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.iwxyi.com/"/>
+  <link href="https://mrxy001.github.io/"/>
   <updated>2019-10-11T12:23:30.939Z</updated>
-  <id>http://blog.iwxyi.com/</id>
+  <id>https://mrxy001.github.io/</id>
   
   <author>
     <name>命燃芯乂</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>fread和fwrite转移文件数据</title>
-    <link href="http://blog.iwxyi.com/2019/10/11/fread%E5%92%8Cfwrite%E8%BD%AC%E7%A7%BB%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE/"/>
-    <id>http://blog.iwxyi.com/2019/10/11/fread和fwrite转移文件数据/</id>
+    <link href="https://mrxy001.github.io/2019/10/11/fread%E5%92%8Cfwrite%E8%BD%AC%E7%A7%BB%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE/"/>
+    <id>https://mrxy001.github.io/2019/10/11/fread和fwrite转移文件数据/</id>
     <published>2019-10-11T12:18:00.000Z</published>
     <updated>2019-10-11T12:23:30.939Z</updated>
     
@@ -34,19 +34,19 @@
     </summary>
     
     
-      <category term="Code" scheme="http://blog.iwxyi.com/categories/Code/"/>
+      <category term="Code" scheme="https://mrxy001.github.io/categories/Code/"/>
     
     
-      <category term="C" scheme="http://blog.iwxyi.com/tags/C/"/>
+      <category term="C" scheme="https://mrxy001.github.io/tags/C/"/>
     
-      <category term="文件" scheme="http://blog.iwxyi.com/tags/%E6%96%87%E4%BB%B6/"/>
+      <category term="文件" scheme="https://mrxy001.github.io/tags/%E6%96%87%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>嵌套循环优化</title>
-    <link href="http://blog.iwxyi.com/2019/10/11/%E5%B5%8C%E5%A5%97%E5%BE%AA%E7%8E%AF%E4%BC%98%E5%8C%96/"/>
-    <id>http://blog.iwxyi.com/2019/10/11/嵌套循环优化/</id>
+    <link href="https://mrxy001.github.io/2019/10/11/%E5%B5%8C%E5%A5%97%E5%BE%AA%E7%8E%AF%E4%BC%98%E5%8C%96/"/>
+    <id>https://mrxy001.github.io/2019/10/11/嵌套循环优化/</id>
     <published>2019-10-11T11:50:00.000Z</published>
     <updated>2019-10-11T12:12:58.428Z</updated>
     
@@ -60,19 +60,19 @@
     </summary>
     
     
-      <category term="Code" scheme="http://blog.iwxyi.com/categories/Code/"/>
+      <category term="Code" scheme="https://mrxy001.github.io/categories/Code/"/>
     
     
-      <category term="C" scheme="http://blog.iwxyi.com/tags/C/"/>
+      <category term="C" scheme="https://mrxy001.github.io/tags/C/"/>
     
-      <category term="优化" scheme="http://blog.iwxyi.com/tags/%E4%BC%98%E5%8C%96/"/>
+      <category term="优化" scheme="https://mrxy001.github.io/tags/%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>0x3F3F3F3F</title>
-    <link href="http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/"/>
-    <id>http://blog.iwxyi.com/2019/10/11/0x3F3F3F3F/</id>
+    <link href="https://mrxy001.github.io/2019/10/11/0x3F3F3F3F/"/>
+    <id>https://mrxy001.github.io/2019/10/11/0x3F3F3F3F/</id>
     <published>2019-10-11T11:40:00.000Z</published>
     <updated>2019-10-11T11:59:18.278Z</updated>
     
@@ -85,17 +85,17 @@
     </summary>
     
     
-      <category term="Code" scheme="http://blog.iwxyi.com/categories/Code/"/>
+      <category term="Code" scheme="https://mrxy001.github.io/categories/Code/"/>
     
     
-      <category term="C" scheme="http://blog.iwxyi.com/tags/C/"/>
+      <category term="C" scheme="https://mrxy001.github.io/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>正则二三事</title>
-    <link href="http://blog.iwxyi.com/2019/10/10/%E6%AD%A3%E5%88%99%E4%BA%8C%E4%B8%89%E4%BA%8B/"/>
-    <id>http://blog.iwxyi.com/2019/10/10/正则二三事/</id>
+    <link href="https://mrxy001.github.io/2019/10/10/%E6%AD%A3%E5%88%99%E4%BA%8C%E4%B8%89%E4%BA%8B/"/>
+    <id>https://mrxy001.github.io/2019/10/10/正则二三事/</id>
     <published>2019-10-10T11:40:00.000Z</published>
     <updated>2019-10-11T11:35:33.889Z</updated>
     
@@ -112,17 +112,17 @@
     </summary>
     
     
-      <category term="Code" scheme="http://blog.iwxyi.com/categories/Code/"/>
+      <category term="Code" scheme="https://mrxy001.github.io/categories/Code/"/>
     
     
-      <category term="RegExp" scheme="http://blog.iwxyi.com/tags/RegExp/"/>
+      <category term="RegExp" scheme="https://mrxy001.github.io/tags/RegExp/"/>
     
   </entry>
   
   <entry>
     <title>SQL查询及删除重复记录</title>
-    <link href="http://blog.iwxyi.com/2019/10/10/SQL%E6%9F%A5%E8%AF%A2%E5%8F%8A%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%AE%B0%E5%BD%95/"/>
-    <id>http://blog.iwxyi.com/2019/10/10/SQL查询及删除重复记录/</id>
+    <link href="https://mrxy001.github.io/2019/10/10/SQL%E6%9F%A5%E8%AF%A2%E5%8F%8A%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%AE%B0%E5%BD%95/"/>
+    <id>https://mrxy001.github.io/2019/10/10/SQL查询及删除重复记录/</id>
     <published>2019-10-10T10:38:00.000Z</published>
     <updated>2019-10-11T11:59:58.376Z</updated>
     
@@ -136,10 +136,10 @@
     </summary>
     
     
-      <category term="Code" scheme="http://blog.iwxyi.com/categories/Code/"/>
+      <category term="Code" scheme="https://mrxy001.github.io/categories/Code/"/>
     
     
-      <category term="SQL" scheme="http://blog.iwxyi.com/tags/SQL/"/>
+      <category term="SQL" scheme="https://mrxy001.github.io/tags/SQL/"/>
     
   </entry>
   
