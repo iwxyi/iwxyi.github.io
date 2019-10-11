@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>云笺</title>
   
-  <subtitle>一些技术摘要与写作技巧</subtitle>
+  <subtitle>一些技术摘要和写作技巧</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.iwxyi.com/"/>
