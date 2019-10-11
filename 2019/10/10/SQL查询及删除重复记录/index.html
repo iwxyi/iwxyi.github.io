@@ -12,18 +12,18 @@
   
   <meta name="keywords" content="编程,开发,软件,写作">
   
-  <meta name="description" content="1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断 12select * from peoplewhere peopleId in (select peopleId from people group by peopleId having count(peopleId) &amp;gt; 1)  2、删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有">
+  <meta name="description" content="1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断 12select * from peoplewhere peopleId in (select peopleId from people group by peopleId having count(peopleId) &amp;gt; 1)">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL查询及删除重复记录">
 <meta property="og:url" content="http://blog.iwxyi.com/2019/10/10/SQL查询及删除重复记录/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断 12select * from peoplewhere peopleId in (select peopleId from people group by peopleId having count(peopleId) &amp;gt; 1)  2、删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有">
+<meta property="og:description" content="1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断 12select * from peoplewhere peopleId in (select peopleId from people group by peopleId having count(peopleId) &amp;gt; 1)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-10T10:45:42.420Z">
+<meta property="og:updated_time" content="2019-10-11T02:57:31.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL查询及删除重复记录">
-<meta name="twitter:description" content="1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断 12select * from peoplewhere peopleId in (select peopleId from people group by peopleId having count(peopleId) &amp;gt; 1)  2、删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有">
+<meta name="twitter:description" content="1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断 12select * from peoplewhere peopleId in (select peopleId from people group by peopleId having count(peopleId) &amp;gt; 1)">
   
     <link rel="alternate" href="/atom.xml" title="云笺" type="application/atom+xml">
   
@@ -94,6 +94,8 @@
         <p>1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> people</span><br><span class="line"><span class="keyword">where</span> peopleId <span class="keyword">in</span> (<span class="keyword">select</span> peopleId <span class="keyword">from</span> people <span class="keyword">group</span> <span class="keyword">by</span> peopleId <span class="keyword">having</span> <span class="keyword">count</span>(peopleId) &gt; <span class="number">1</span>)</span><br></pre></td></tr></table></figure></div>
 
+<a id="more"></a>
+
 <p>2、删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有rowid最小的记录</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> people</span><br><span class="line"><span class="keyword">where</span> peopleId <span class="keyword">in</span> (<span class="keyword">select</span> peopleId <span class="keyword">from</span> people <span class="keyword">group</span> <span class="keyword">by</span> peopleId <span class="keyword">having</span> <span class="keyword">count</span>(peopleId) &gt; <span class="number">1</span>)</span><br><span class="line"><span class="keyword">and</span> <span class="keyword">rowid</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">min</span>(<span class="keyword">rowid</span>) <span class="keyword">from</span> people <span class="keyword">group</span> <span class="keyword">by</span> peopleId <span class="keyword">having</span> <span class="keyword">count</span>(peopleId )&gt;<span class="number">1</span>)</span><br></pre></td></tr></table></figure></div>
 
@@ -105,8 +107,6 @@
 
 <p>5、查找表中多余的重复记录（多个字段），不包含rowid最小的记录</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> vitae a</span><br><span class="line"><span class="keyword">where</span> (a.peopleId,a.seq) <span class="keyword">in</span> (<span class="keyword">select</span> peopleId,seq <span class="keyword">from</span> vitae <span class="keyword">group</span> <span class="keyword">by</span> peopleId,seq <span class="keyword">having</span> <span class="keyword">count</span>(*) &gt; <span class="number">1</span>)</span><br><span class="line"><span class="keyword">and</span> <span class="keyword">rowid</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">min</span>(<span class="keyword">rowid</span>) <span class="keyword">from</span> vitae <span class="keyword">group</span> <span class="keyword">by</span> peopleId,seq <span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span>)</span><br></pre></td></tr></table></figure></div>
-
-
       
     </div>
     
@@ -131,11 +131,6 @@
     
   </div>
   <div class="article-nav-block">
-    
-      <a href="/2019/10/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Hello World</div>
-        <strong class="article-nav-caption"></strong>
-      </a>
     
   </div>
 </nav>
@@ -217,15 +212,15 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
+            <a href="/2019/10/11/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/10/正则二三事/">正则二三事</a>
           </li>
         
           <li>
             <a href="/2019/10/10/SQL查询及删除重复记录/">SQL查询及删除重复记录</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/10/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -284,5 +279,5 @@ document.body.write(script);
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>
