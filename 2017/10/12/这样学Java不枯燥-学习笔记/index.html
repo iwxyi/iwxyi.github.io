@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/">
+    
+    
+    <title>这样学Java不枯燥-学习笔记 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="Java,游戏开发">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="12345678910import com.rupeng.game.GameCore;public class Main implements Runnable{	public static void main(String[] args) {		GameCore.start(new Main());	}	public void run() { // 游戏运行的函数		GameCore.alert">
+<meta name="keywords" content="Java,游戏开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="这样学Java不枯燥-学习笔记">
+<meta property="og:url" content="http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="12345678910import com.rupeng.game.GameCore;public class Main implements Runnable{	public static void main(String[] args) {		GameCore.start(new Main());	}	public void run() { // 游戏运行的函数		GameCore.alert">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T12:11:30.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="这样学Java不枯燥-学习笔记">
+<meta name="twitter:description" content="12345678910import com.rupeng.game.GameCore;public class Main implements Runnable{	public static void main(String[] args) {		GameCore.start(new Main());	}	public void run() { // 游戏运行的函数		GameCore.alert">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">这样学Java不枯燥-学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-这样学Java不枯燥-学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">这样学Java不枯燥-学习笔记</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2017-10-12 20:10:00" datetime="2017-10-12T12:10:00.000Z"  itemprop="datePublished">2017-10-12</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/学习笔记/">学习笔记</a></li></ul></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rupeng.game.GameCore;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		GameCore.start(<span class="keyword">new</span> Main());</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{ <span class="comment">// 游戏运行的函数</span></span><br><span class="line">		GameCore.alert(<span class="string">"Hello World"</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GameCore.pause(<span class="keyword">int</span> x) <span class="comment">// 暂停x毫秒</span></span><br><span class="line">GameCore.setGameTitle(<span class="keyword">char</span> * name); <span class="comment">// 设置名字</span></span><br><span class="line">GameCore.setGameSize(<span class="keyword">int</span> width, <span class="keyword">int</span> height); <span class="comment">// 设置宽高</span></span><br><span class="line">GameCore.alert(Object msg); <span class="comment">// 弹出提示框（整数、字符串都行）</span></span><br><span class="line">Dimension d = GameCore.getGameSize();  </span><br><span class="line"><span class="comment">// d.width 、 d.height （imprt java.awt.Demension;）</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GameCore.loadBgView(String imgName); <span class="comment">// 不重叠不拉伸显示图片。图片放到 src/Images 下面（注意大小写），可拖拽或者 ctrl+V粘贴</span></span><br><span class="line">playSound(String soundName, <span class="keyword">boolean</span> repeat); <span class="comment">// 播放音乐（仅支持mp3），音乐放到 src/Sounds 下面</span></span><br><span class="line">closeSound(String soundName); <span class="comment">// 关闭音乐播放（包括重复播放的）</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> a = <span class="number">99999L</span> <span class="comment">// 常数数字默认为整型，long赋值需要转换到int</span></span><br><span class="line"><span class="keyword">float</span> f = <span class="number">3.14</span> <span class="comment">// 这样写是错的，需要加个F或f</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s = GameCore.input(Object value, Object msg); <span class="comment">// 输入框（默认信息， 提示信息）</span></span><br><span class="line"><span class="keyword">boolean</span> b = GameCore.confirm(Object msg); <span class="comment">// 确认框（提示信息）</span></span><br><span class="line"><span class="keyword">int</span> i = Integer.parseInt(s); <span class="comment">// 输入的内容到整数</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createText</span><span class="params">(<span class="keyword">int</span> txtNum, String text)</span> <span class="comment">// 创建只读文本</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setTextPosition</span><span class="params">(<span class="keyword">int</span> txtNum, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> <span class="comment">// 修改文本位置</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setText</span><span class="params">(<span class="keyword">int</span> txtNum, String text)</span> <span class="comment">// 设置文本内容</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setTextColor</span><span class="params">(<span class="keyword">int</span> txtNum, Color color)</span> <span class="comment">// 设置文本颜色，color.RED、color.green、new color(int R, int G, int B)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setTextFontSize</span><span class="params">(<span class="keyword">int</span> txtNum, <span class="keyword">int</span> size)</span> <span class="comment">// 设置文本大小</span></span></span><br><span class="line"><span class="function">Point <span class="title">getTextPosition</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> num)</span> <span class="comment">// 获取文本位置（import java.awt.Point;）</span></span></span><br><span class="line"><span class="function">Dimension <span class="title">getTextSize</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> textNum)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hdieText</span><span class="params">(fina <span class="keyword">int</span> labelNum)</span> <span class="comment">// 隐藏文字</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showText</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> labelNum)</span> <span class="comment">// 显示文字</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createImage</span><span class="params">(<span class="keyword">int</span> num, String imgName)</span> <span class="comment">// 创建图片控件，图片放到 src/Images 里面（注意大小写）</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createImage</span><span class="params">(<span class="keyword">int</span> num)</span> <span class="comment">// 创建一个什么都不显示的图片</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setImageSource</span><span class="params">(<span class="keyword">int</span> num, String imgName)</span> <span class="comment">// 修改显示的图片源</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setImagePosition</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> <span class="comment">// 修改坐标</span></span></span><br><span class="line"><span class="function">Point <span class="title">getImagePosition</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> num)</span> <span class="comment">// 获得坐标</span></span></span><br><span class="line"><span class="function">Dimension <span class="title">getImagePosition</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> num)</span> <span class="comment">// 获得大小</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hideImage</span><span class="params">(<span class="keyword">int</span> num)</span> <span class="comment">// 隐藏图片</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showImage</span><span class="params">(<span class="keyword">int</span> num)</span> <span class="comment">// 显示图片</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">精灵文件位置：src/Sprites/精灵名字[]/精灵动作[]/i.png图片  按顺序放好（多选文件夹粘贴）（分层：工作空间—右上角倒三角—包表示法）</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createSprite</span><span class="params">(<span class="keyword">int</span> num, String spriteName)</span></span>; <span class="comment">// 创建精灵</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">palySpriteAnimate</span><span class="params">(<span class="keyword">int</span> spriteNum, String animateName, <span class="keyword">boolean</span> repeat)</span></span>; <span class="comment">// 播放精灵的动作</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setSpritePosition</span><span class="params">(<span class="keyword">int</span> spriteNum, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>; <span class="comment">// 设置精灵的位置</span></span><br><span class="line"><span class="function">Point <span class="title">getSpritePosition</span><span class="params">(<span class="keyword">int</span> spriteNum)</span></span>; <span class="comment">//获得精灵的位置</span></span><br><span class="line"><span class="function">Dimension <span class="title">getSpriteSize</span><span class="params">(<span class="keyword">int</span> spriteNum)</span></span>; <span class="comment">// 获取精灵尺寸</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hideSprite</span><span class="params">(<span class="keyword">int</span> spriteNum)</span></span>; <span class="comment">// 隐藏精灵</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showSprite</span><span class="params">(<span class="keyword">int</span> spriteNum)</span></span>; <span class="comment">// 显示精灵</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setSpriteFlipX</span><span class="params">(<span class="keyword">int</span> spriteNum, <span class="keyword">boolean</span> flipX)</span></span>; <span class="comment">// 是否进行X方向翻转（左右对称,fip为true时翻转，false时还原）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setSpriteFlipY</span><span class="params">(<span class="keyword">int</span> spriteNum, <span class="keyword">boolean</span> flipY)</span></span>; <span class="comment">// 是否设置Y方向翻转（上下对称）</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Java程序打包：拷贝bin和两个jar到单独的文件夹，拷贝jre，去掉src.zip、lib\ext\jfxrt.jar、bin\server、bin\jfxwebkit.dll，减小尺寸；</span><br><span class="line">创建一个.bat文件，内容：start jre\bin\javaw.exe -cp .\bin\ -Djava.ext.dirs=. Main1</span><br><span class="line">Main1 代表入口类，如果有包名则要写全名（xxx.Main1）</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String转int：Integer.parseInt("123")</span><br><span class="line">String相等：s1.equal(s2);   （必须用这种方式写）</span><br><span class="line">s1==s2 不使用原因： "abc"+"123" != "abc123" （初学者常犯错误）</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (i = 10) // Java中这么写是错误的，C语言可以</span><br><span class="line">if (b = true) // 这样是正确的</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">switch (表达式) // 表达式可以为byte/short/int/char，JDK5后可以是枚举，JDK7后可以是String类型</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GameCore.getPressedKeyCode(); // 获得用户当前按键（只适合“连续动作”，一次性触发最好用“事件驱动”）</span><br><span class="line">与KeyEvent中的值作比较：（import java.awt.event.KeyEvent;）</span><br><span class="line">用法：if ( key == KeyEvent.VK_UP )</span><br><span class="line">数字键：VK_0、VK_1……</span><br><span class="line">字母键：VK_A、VK_B……</span><br><span class="line">功能键：VK_F1、VK_F2……</span><br><span class="line">回车：VK_ENTER</span><br><span class="line">空格：VK_SPACE</span><br><span class="line">ESC：VK_ESCAPE</span><br><span class="line">方向键：VK_LEFT、VK_UP、VK_RIGHT、VK_DOWN</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int[10] a = new int[10];  等价于  int a[10];  但是前者有初始化</span><br><span class="line">int、double等默认为0，String、Integer等默认为null</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">编译器认为，if(无else的)、for等操作可能不执行，所以里面的变量初始化会被忽略，若没有初始化则编译器报错</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">double</span> d = Math.random(); <span class="comment">// 返回 [ 0, 1.0 ) 之间的 double</span></span><br><span class="line"><span class="keyword">int</span> num = (<span class="keyword">int</span>) (Math.random() * <span class="number">3</span>); <span class="comment">// 0-2的整数</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GameCore.rand(<span class="keyword">int</span> low, <span class="keyword">int</span> high); <span class="comment">// low &lt;= x &lt; high</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">System.currentTimeMillis() <span class="comment">// 返回当前的毫秒事件</span></span><br><span class="line">Date d = <span class="keyword">new</span> Date(<span class="number">2009</span>-<span class="number">1900</span>,<span class="number">3</span>-<span class="number">1</span>,<span class="number">9</span>); <span class="comment">// 需-1900.1.0，为：2009.3.9</span></span><br><span class="line">System.out.println(d1);</span><br><span class="line"><span class="keyword">int</span> year = d.getYear()+<span class="number">1900</span>;  getMonth()+<span class="number">1</span>;  getDate(); <span class="comment">// 年月日</span></span><br><span class="line">getHours();  getMinutes();  getSeconds(); <span class="comment">// 时分秒</span></span><br><span class="line">getDat(); <span class="comment">//星期几，周日=0，周一=1</span></span><br><span class="line"><span class="keyword">long</span> time = d.getTime(); <span class="comment">// 获取时间的毫秒（相对时间）</span></span><br><span class="line">Date d = <span class="keyword">new</span> Date(time); <span class="comment">// 毫秒转换成时间</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] a = { { <span class="number">1</span> }, { <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> }, { <span class="number">6</span>, <span class="number">7</span> } }; <span class="comment">// 每一行的列数可以不一样，a[i].length也不一样。</span></span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<blockquote>
+<p>课程视频：如鹏网《这样学Java不枯燥》</p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-12T12:11:30.598Z" itemprop="dateUpdated">2019-10-12 20:11:30</time>
+</span>
+
+
+        
+        原文链接：<a href="/2017/10/12/这样学Java不枯燥-学习笔记/" target="_blank" rel="external">http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏开发/">游戏开发</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/&title=《这样学Java不枯燥-学习笔记》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/&title=《这样学Java不枯燥-学习笔记》 — 云笺&source=12345678910import com.rupeng.game.GameCore;public class Main implements Runna..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《这样学Java不枯燥-学习笔记》 — 云笺&url=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/29/安卓Rec模式清除锁屏密码/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：安卓Rec模式清除锁屏密码
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/01/0x3F3F3F3F/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：0x3F3F3F3F">下一篇：0x3F3F3F3F</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/&title=《这样学Java不枯燥-学习笔记》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/&title=《这样学Java不枯燥-学习笔记》 — 云笺&source=12345678910import com.rupeng.game.GameCore;public class Main implements Runna..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《这样学Java不枯燥-学习笔记》 — 云笺&url=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2017/10/12/这样学Java不枯燥-学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3a0W7CMAwFUP7/pzdpT0is7NqOgUmnT6iUNieTGu/Gt1t8fP0c95/vzzyef7w+v1vy+fCBh4eH1xr61ZEMIuFdnUnOP5+U57/Cw8PD2+Mli0H1ZT2n5pN7eR4PDw/vrbzLl29ciE8KZTw8PLz/y6uWudWCuxdw4OHh4b2elwwuD16TmKB3zWLWgoeHhxfzNorj7c/r+3t4eHh4rV315MibA/KnHxsbHh4e3gKvGtc244CgRJ63IERZCx4eHt6YlwcEvbi2txj0WgeifBoPDw/vEC+6dCH27S0S+VPw8PDwNnh5A0GyQTUpqeeAaJcPDw8Pb42XF8p5kDFph60+vfAwPDw8vEO8JLDIX9bVRoS80C80FuDh4eEt8Cb9S/Mre8tGNUbBw8PD2+P1woX5cjJ5bnMNxMPDwyvy8u353sN6Je+8GauQr+Dh4eG1eFVk0gTQC4J7lTAeHh7eK3nR14Oyu7dhNpmy6G+Ih4eHN+AdK16fDmvyos/v8MsI8fDw8NZ4eZnbayc9tXmWx754eHh4e7zyq7ZVQPfukG+q5QsJHh4e3pyX65OBnr1bNW6+DCPw8PDwjvJ67VO9sLXXUpBHEs1tMDw8PLwWr/ovfa8xK98Gywvr6Fd4eHh4R3kbeUav7M5bBPKyGw8PD2+Dl7++8+K73BoVB7i9KBkPDw/vLK/6qp0sG9XAIv9rXE4WHh4e3gJv0kDQG3q17M4XsMKv8PDw8Aa8XjSQx6nJ9dVpKkwNHh4e3gIvP5JwYbKtVQ0pqksXHh4e3lledQtqvjDkw63GxHh4eHiv5O0VwXmcMVnB8PDw8D6Zlzdd9eLdvEyPpgYPDw/vrbx5h1d1Cy1/1uW3eHh4eGu8eRgxadiahxR/LAx4eHh4R3nVDbBJhJEvJ8l2Wj4qPDw8vEO8b198+T6fnfXFAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
