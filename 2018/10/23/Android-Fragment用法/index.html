@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/">
+    
+    
+    <title>Android Fragment用法 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="Android">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="Android Fragment 简单实例">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Fragment用法">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="Android Fragment 简单实例">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T02:47:44.248Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Fragment用法">
+<meta name="twitter:description" content="Android Fragment 简单实例">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android Fragment用法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-Fragment-简单实例"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android Fragment 简单实例</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Android-Fragment用法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android Fragment用法</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-10-23 10:44:00" datetime="2018-10-23T02:44:00.000Z"  itemprop="datePublished">2018-10-23</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Android-Fragment-简单实例"><a href="#Android-Fragment-简单实例" class="headerlink" title="Android Fragment 简单实例"></a>Android Fragment 简单实例</h2><a id="more"></a>
+
+<blockquote>
+<p>这里用的是<code>import android.support.v4.app.FragmentTransaction</code>，而不是<code>import android.app.FragmentTransaction</code>，后者会报错的。</p>
+</blockquote>
+<p><strong>Fragment</strong></p>
+<p><strong>在 <code>onCreateView</code>这里初始化控件</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span></span>{</span><br><span class="line">  <span class="keyword">private</span> TextView tv;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span></span><br><span class="line"><span class="function"><span class="params">       Bundle savedInstanceState)</span> </span>{</span><br><span class="line">    View messageLayout = inflater.inflate(R.layout.message, container, <span class="keyword">false</span>);</span><br><span class="line">    tv=(TextView) messageLayout.findViewById(R.id.message);</span><br><span class="line">    tv.setText(<span class="string">"哈哈哈哈哈哈"</span>);</span><br><span class="line">    <span class="keyword">return</span> messageLayout;</span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>Activity</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span> </span>{</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 用于展示消息的Fragment</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> MessageFragment messageFragment;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 用于展示联系人的Fragment</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> ContactsFragment contactsFragment;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 用于展示动态的Fragment</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> NewsFragment newsFragment;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 用于展示设置的Fragment</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> SettingFragment settingFragment;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 消息界面布局</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> View messageLayout;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 联系人界面布局</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> View contactsLayout;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 动态界面布局</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> View newsLayout;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 设置界面布局</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> View settingLayout;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 用于对Fragment进行管理</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> FragmentManager fragmentManager;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{</span><br><span class="line">   <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">   setContentView(R.layout.activity_main);</span><br><span class="line">   initViews();</span><br><span class="line">   fragmentManager = getFragmentManager();</span><br><span class="line">   <span class="comment">// 第一次启动时选中第0个tab</span></span><br><span class="line">   setTabSelection(<span class="number">0</span>);</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 在这里获取到每个需要用到的控件的实例，并给它们设置好必要的点击事件。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initViews</span><span class="params">()</span> </span>{</span><br><span class="line">   messageLayout = findViewById(R.id.message_layout);</span><br><span class="line">   contactsLayout = findViewById(R.id.contacts_layout);</span><br><span class="line">   newsLayout = findViewById(R.id.news_layout);</span><br><span class="line">   settingLayout = findViewById(R.id.setting_layout);</span><br><span class="line">   messageLayout.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">   contactsLayout.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">   newsLayout.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">   settingLayout.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{</span><br><span class="line">   <span class="keyword">switch</span> (v.getId()) {</span><br><span class="line">   <span class="keyword">case</span> R.id.message_layout:</span><br><span class="line">     <span class="comment">// 当点击了消息tab时，选中第1个tab</span></span><br><span class="line">     setTabSelection(<span class="number">0</span>);</span><br><span class="line">     <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> R.id.contacts_layout:</span><br><span class="line">     <span class="comment">// 当点击了联系人tab时，选中第2个tab</span></span><br><span class="line">     setTabSelection(<span class="number">1</span>);</span><br><span class="line">     <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> R.id.news_layout:</span><br><span class="line">      <span class="comment">// 当点击了动态tab时，选中第3个tab</span></span><br><span class="line">      setTabSelection(<span class="number">2</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> R.id.setting_layout:</span><br><span class="line">       <span class="comment">// 当点击了设置tab时，选中第4个tab</span></span><br><span class="line">      setTabSelection(<span class="number">3</span>);</span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 根据传入的index参数来设置选中的tab页。</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> index</span></span><br><span class="line"><span class="comment">* 每个tab页对应的下标。0表示消息，1表示联系人，2表示动态，3表示设置。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setTabSelection</span><span class="params">(<span class="keyword">int</span> index)</span> </span>{</span><br><span class="line">   <span class="comment">// 每次选中之前先清楚掉上次的选中状态</span></span><br><span class="line">   clearSelection();</span><br><span class="line">   <span class="comment">// 开启一个Fragment事务</span></span><br><span class="line">   FragmentTransaction transaction = fragmentManager.beginTransaction();</span><br><span class="line">   <span class="comment">// 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况</span></span><br><span class="line">   hideFragments(transaction);</span><br><span class="line">   <span class="keyword">switch</span> (index) {</span><br><span class="line">   <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">     messageLayout.setBackgroundColor(<span class="number">0xff0000ff</span>);</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">if</span> (messageFragment == <span class="keyword">null</span>) {</span><br><span class="line">       <span class="comment">// 如果MessageFragment为空，则创建一个并添加到界面上</span></span><br><span class="line">        messageFragment = <span class="keyword">new</span> MessageFragment();</span><br><span class="line">       transaction.add(R.id.content, messageFragment);</span><br><span class="line">     } <span class="keyword">else</span> {</span><br><span class="line">       <span class="comment">// 如果MessageFragment不为空，则直接将它显示出来</span></span><br><span class="line">       transaction.show(messageFragment);</span><br><span class="line">     }</span><br><span class="line">     <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    <span class="comment">// 当点击了联系人tab时，改变控件的图片和文字颜色</span></span><br><span class="line">    contactsLayout.setBackgroundColor(<span class="number">0xff0000ff</span>);</span><br><span class="line">    <span class="keyword">if</span> (contactsFragment == <span class="keyword">null</span>) {</span><br><span class="line">     <span class="comment">// 如果ContactsFragment为空，则创建一个并添加到界面上</span></span><br><span class="line">     contactsFragment = <span class="keyword">new</span> ContactsFragment();</span><br><span class="line">     transaction.add(R.id.content, contactsFragment);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">     <span class="comment">// 如果ContactsFragment不为空，则直接将它显示出来</span></span><br><span class="line">     transaction.show(contactsFragment);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    <span class="comment">// 当点击了动态tab时，改变控件的图片和文字颜色</span></span><br><span class="line">     newsLayout.setBackgroundColor(<span class="number">0xff0000ff</span>);</span><br><span class="line">     <span class="keyword">if</span> (newsFragment == <span class="keyword">null</span>) {</span><br><span class="line">      <span class="comment">// 如果NewsFragment为空，则创建一个并添加到界面上</span></span><br><span class="line">       newsFragment = <span class="keyword">new</span> NewsFragment();</span><br><span class="line">       transaction.add(R.id.content, newsFragment);</span><br><span class="line">     } <span class="keyword">else</span> {</span><br><span class="line">      <span class="comment">// 如果NewsFragment不为空，则直接将它显示出来</span></span><br><span class="line">      transaction.show(newsFragment);</span><br><span class="line">     }</span><br><span class="line">     <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">     <span class="keyword">default</span>:</span><br><span class="line">     <span class="comment">// 当点击了设置tab时，改变控件的图片和文字颜色</span></span><br><span class="line">     settingLayout.setBackgroundColor(<span class="number">0xff0000ff</span>);</span><br><span class="line">     <span class="keyword">if</span> (settingFragment == <span class="keyword">null</span>) {</span><br><span class="line">     <span class="comment">// 如果SettingFragment为空，则创建一个并添加到界面上</span></span><br><span class="line">     settingFragment = <span class="keyword">new</span> SettingFragment();</span><br><span class="line">     transaction.add(R.id.content, settingFragment);</span><br><span class="line">     } <span class="keyword">else</span> {</span><br><span class="line">     <span class="comment">// 如果SettingFragment不为空，则直接将它显示出来</span></span><br><span class="line">     transaction.show(settingFragment);</span><br><span class="line">     }</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  }</span><br><span class="line"> transaction.commit();</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将所有的Fragment都置为隐藏状态。</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> transaction</span></span><br><span class="line"><span class="comment">* 用于对Fragment执行操作的事务</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">hideFragments</span><span class="params">(FragmentTransaction transaction)</span> </span>{</span><br><span class="line">   <span class="keyword">if</span> (messageFragment != <span class="keyword">null</span>) {</span><br><span class="line">     transaction.hide(messageFragment);</span><br><span class="line">   }</span><br><span class="line">    <span class="keyword">if</span> (contactsFragment != <span class="keyword">null</span>) {</span><br><span class="line">     transaction.hide(contactsFragment);</span><br><span class="line">   }</span><br><span class="line">    <span class="keyword">if</span> (newsFragment != <span class="keyword">null</span>) {</span><br><span class="line">      transaction.hide(newsFragment);</span><br><span class="line">   }</span><br><span class="line">   <span class="keyword">if</span> (settingFragment != <span class="keyword">null</span>) {</span><br><span class="line">     transaction.hide(settingFragment);</span><br><span class="line">   }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 清除掉所有的选中状态。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">clearSelection</span><span class="params">()</span> </span>{</span><br><span class="line">   messageLayout.setBackgroundColor(<span class="number">0xffffffff</span>);</span><br><span class="line">   contactsLayout.setBackgroundColor(<span class="number">0xffffffff</span>);</span><br><span class="line">   newsLayout.setBackgroundColor(<span class="number">0xffffffff</span>);</span><br><span class="line">   settingLayout.setBackgroundColor(<span class="number">0xffffffff</span>);</span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<blockquote>
+<p>参考：<a href="https://www.jb51.net/article/138944.htm" target="_blank" rel="noopener">https://www.jb51.net/article/138944.htm</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T02:47:44.248Z" itemprop="dateUpdated">2019-10-13 10:47:44</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/10/23/Android-Fragment用法/" target="_blank" rel="external">http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/&title=《Android Fragment用法》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/&title=《Android Fragment用法》 — 云笺&source=Android Fragment 简单实例" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Fragment用法》 — 云笺&url=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/27/Android-ViewPage/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Android ViewPage
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/14/Android-CardView用法/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Android CardView用法">下一篇：Android CardView用法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/&title=《Android Fragment用法》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/&title=《Android Fragment用法》 — 云笺&source=Android Fragment 简单实例" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Fragment用法》 — 云笺&url=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/10/23/Android-Fragment用法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3a0WrDMAwF0P7/T3fPY9S9kpJB7JOnUoKr44EmWX694ue9fJI3/76z/pXXHQ8GBsZjGUmIyfefVv70ZnX99dZgYGCcwEiCSFLqp8+T31q/j4GBgZGkzvU61RIQAwMDY85IQuwFtE7fGBgYGHnB10Mm4f5TL46BgfFAxlVp9I7Pt8w3MDAwHsV4F58kXU4Gn82oMDAwtmZUC7teEZkct81XwMDA2Jsxb2Xz5nN9ZNZL5RgYGHsz8gte+TFZssK8Sf71DQYGxmGMJDcnB/p3DA/KZ4EYGBhbMCbIajqO6tNiasbAwDiHsS7FJgl3crUiXx8DA2NvRt6OJj9Whc3/Al96cQwMjC0Y+cAyL+yq48le61v4T4KBgfFwRnWJ6mgz36DqgPPLbREMDIyNGPOUl3eR+WlfNSljYGCcwOgdvfXGAL0jufKAEwMDYztGfgl1PjyoFo6FuSsGBsamjHlT2gu0Onn8EjMGBsbWjF4JWE271UFpLx4MDIwTGPlIIE+7vWTdTOsYGBgHMHJA9dpWdSTQ3FYMDIzDGJMh4lXXNQrtKwYGxtaMd/G5apxw1QoYGBgnMPKnipwf/Vcvf2BgYOzNSIKblIZ50NVLHoWdxsDA2ILRa0d7ffOk7IsuW2BgYGCMj+qSrWlWrxgYGBhB6PlRXXUjoiYWAwNja0bSxFavcE1a2bxAxMDAOIFRrbvm5eAEdln5iIGB8QzGDz4WA/HwhjA9AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

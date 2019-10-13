@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/">
+    
+    
+    <title>Android选取相册图片并压缩 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="Android">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="现在手机中相机的像素越来越高因,手机照的相片就越来越来大, 我们想通过选择相册中图片来显示在界面中,或者进行分享. 因为图片太大的原因很容易造成手机出现OMM而崩溃,一些分享照片的平台对分享图片的大小也有一定的限制.所以我们就必须对从相册选出来的图片进行压缩.">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android选取相册图片并压缩">
+<meta property="og:url" content="http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="现在手机中相机的像素越来越高因,手机照的相片就越来越来大, 我们想通过选择相册中图片来显示在界面中,或者进行分享. 因为图片太大的原因很容易造成手机出现OMM而崩溃,一些分享照片的平台对分享图片的大小也有一定的限制.所以我们就必须对从相册选出来的图片进行压缩.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T03:25:45.376Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android选取相册图片并压缩">
+<meta name="twitter:description" content="现在手机中相机的像素越来越高因,手机照的相片就越来越来大, 我们想通过选择相册中图片来显示在界面中,或者进行分享. 因为图片太大的原因很容易造成手机出现OMM而崩溃,一些分享照片的平台对分享图片的大小也有一定的限制.所以我们就必须对从相册选出来的图片进行压缩.">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android选取相册图片并压缩</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选取图片"><span class="post-toc-number">1.</span> <span class="post-toc-text">选取图片</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#压缩打开的图片"><span class="post-toc-number">2.</span> <span class="post-toc-text">压缩打开的图片</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Android选取相册图片并压缩"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android选取相册图片并压缩</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2019-02-27 11:25:00" datetime="2019-02-27T03:25:00.000Z"  itemprop="datePublished">2019-02-27</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>现在手机中相机的像素越来越高因,手机照的相片就越来越来大, 我们想通过选择相册中图片来显示在界面中,或者进行分享. 因为图片太大的原因很容易造成手机出现OMM而崩溃,一些分享照片的平台对分享图片的大小也有一定的限制.所以我们就必须对从相册选出来的图片进行压缩.</p>
+<a id="more"></a>
+
+<h2 id="选取图片"><a href="#选取图片" class="headerlink" title="选取图片"></a>选取图片</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 打开系统相册</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openAlbum</span><span class="params">()</span></span>{</span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_GET_CONTENT);</span><br><span class="line">    intent.setType(<span class="string">"image/*"</span>);</span><br><span class="line">    <span class="comment">//设置请求码，以便我们区分返回的数据</span></span><br><span class="line">    startActivityForResult(intent, <span class="number">100</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">100</span> == requestCode) {</span><br><span class="line">        <span class="keyword">if</span> (data != <span class="keyword">null</span>) {</span><br><span class="line">            <span class="comment">//获取数据、获取内容解析者对象</span></span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                Bitmap mBitmap = BitmapFactory.decodeStream(</span><br><span class="line">                    getContentResolver().openInputStream(data.getData()));</span><br><span class="line">                imageview.setImageBitmap(mBitmap);</span><br><span class="line"></span><br><span class="line">            } <span class="keyword">catch</span> (FileNotFoundException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="压缩打开的图片"><a href="#压缩打开的图片" class="headerlink" title="压缩打开的图片"></a>压缩打开的图片</h2><p><strong>下面看具体代码:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 计算位图的采样比例大小</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> options</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> imageView 控件(根据控件的大小进行压缩)</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculatInSampleSize</span><span class="params">(BitmapFactory.Options options, ImageView imageView)</span> </span>{</span><br><span class="line">     <span class="comment">//获取位图的原宽高</span></span><br><span class="line">     <span class="keyword">final</span> <span class="keyword">int</span> w = options.outWidth;</span><br><span class="line">     <span class="keyword">final</span> <span class="keyword">int</span> h = options.outHeight;</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">if</span> (imageView!=<span class="keyword">null</span>){</span><br><span class="line">         <span class="comment">//获取控件的宽高</span></span><br><span class="line">         <span class="keyword">final</span> <span class="keyword">int</span> reqWidth = imageView.getWidth();</span><br><span class="line">         <span class="keyword">final</span> <span class="keyword">int</span> reqHeight = imageView.getHeight();</span><br><span class="line"> </span><br><span class="line">         <span class="comment">//默认为一(就是不压缩)</span></span><br><span class="line">         <span class="keyword">int</span> inSampleSize = <span class="number">1</span>;</span><br><span class="line">         <span class="comment">//如果原图的宽高比需要的图片宽高大</span></span><br><span class="line">         <span class="keyword">if</span> (w &gt; reqWidth || h &gt; reqHeight) {</span><br><span class="line">             <span class="keyword">if</span> (w &gt; h) {</span><br><span class="line">                 inSampleSize = Math.round((<span class="keyword">float</span>) h / (<span class="keyword">float</span>) reqHeight);</span><br><span class="line">             } <span class="keyword">else</span> {</span><br><span class="line">                 inSampleSize = Math.round((<span class="keyword">float</span>) w / (<span class="keyword">float</span>) reqWidth);</span><br><span class="line">             }</span><br><span class="line">         }</span><br><span class="line"> </span><br><span class="line">         System.out.println(<span class="string">"压缩比为:"</span> + inSampleSize);</span><br><span class="line"> </span><br><span class="line">         <span class="keyword">return</span> inSampleSize;</span><br><span class="line"> </span><br><span class="line">     }<span class="keyword">else</span> {</span><br><span class="line">         <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">     }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里是对图像压缩比的计算,因为我项目的原因,所以我的压缩比计算是通过传入的ImageView的宽高来计算的,如果想根据自己设置的宽高来压缩只要把,传入的参数:<code>ImageView imageView</code>，改成<code>int width,int height</code></p>
+<p>然后再修改方法中相应的代码即可! 这个方法在很多博客中也提到过…</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 将Uri转换成Bitmap</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> uri</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> options</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">decodeBitmap</span><span class="params">(Context context, Uri uri, BitmapFactory.Options options)</span> </span>{</span><br><span class="line">     Bitmap bitmap = <span class="keyword">null</span>;</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">if</span> (uri != <span class="keyword">null</span>) {</span><br><span class="line">         ContentResolver cr = context.getContentResolver();</span><br><span class="line">         InputStream inputStream = <span class="keyword">null</span>;</span><br><span class="line">         <span class="keyword">try</span> {</span><br><span class="line">             <span class="comment">/**</span></span><br><span class="line"><span class="comment">              * 将图片的Uri地址转换成一个输入流</span></span><br><span class="line"><span class="comment">              */</span></span><br><span class="line">             inputStream = cr.openInputStream(uri);</span><br><span class="line"> </span><br><span class="line">             <span class="comment">/**</span></span><br><span class="line"><span class="comment">              * 将输入流转换成Bitmap</span></span><br><span class="line"><span class="comment">              */</span></span><br><span class="line">             bitmap = BitmapFactory.decodeStream(inputStream, <span class="keyword">null</span>, options);</span><br><span class="line"> </span><br><span class="line">             <span class="keyword">assert</span> inputStream != <span class="keyword">null</span>;</span><br><span class="line">             inputStream.close();</span><br><span class="line">         } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">             e.printStackTrace();</span><br><span class="line">         }</span><br><span class="line">     }</span><br><span class="line">     <span class="keyword">return</span> bitmap;</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这个方法是将将Uri地址转换成一个Bitmap.  因为我们从相册选择图片后会在 OnActivityResult返回一个Intent对象data,我们通过这个 data的getdata()方法就可以得到一个Uri 地址…</p>
+<p>然后就是最后一个方法了</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 对图片进行重新采样</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> uri 图片的Uri地址</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> imageView</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">compressBitmap</span><span class="params">(Context context, Uri uri, ImageView imageView)</span> </span>{</span><br><span class="line">     BitmapFactory.Options options = <span class="keyword">new</span> BitmapFactory.Options();</span><br><span class="line">     options.inJustDecodeBounds = <span class="keyword">false</span>;</span><br><span class="line">     decodeBitmap(context, uri, options);</span><br><span class="line">     options = <span class="keyword">new</span> BitmapFactory.Options();</span><br><span class="line">     options.inSampleSize = calculatInSampleSize(options, imageView);</span><br><span class="line">     Bitmap bitmap = <span class="keyword">null</span>;</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">try</span> {</span><br><span class="line">         bitmap = decodeBitmap(context, uri, options);</span><br><span class="line">     } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">     }</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">return</span> bitmap;</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这个方法是将得到Bitmap 通过计算出来的压缩比 进行重新采样返回一个压缩后的Bitmap对象!,也是我们最终调用的方法,方法简单不必多说!</p>
+<p>具体使用:<br>把上面的代码写在一个工具类中,然后在需要使用的地方调用 compressBitmap()即可!</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (requestCode == GALLERY_REQUEST_CODE) {<span class="comment">//是否是从图库返回</span></span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        Uri originalUri = data.getData(); <span class="comment">// 获得图片的uri</span></span><br><span class="line">        <span class="comment">//对图片进行压缩</span></span><br><span class="line">        Bitmap bitmap = BitmapCompress.compressBitmap(getActivity(),originalUri,ivpapers);</span><br><span class="line">        ivpapers.setImageBitmap(bitmap);</span><br><span class="line">        System.out.println(<span class="string">"压缩后图片的高度:"</span>+bitmap.getHeight());</span><br><span class="line">        System.out.println(<span class="string">"压缩后图片的宽度:"</span>+bitmap.getWidth());</span><br><span class="line">    } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">	}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<blockquote>
+<p>博参考：<a href="https://blog.csdn.net/qq_23179075/article/details/52261588" target="_blank" rel="noopener">https://blog.csdn.net/qq_23179075/article/details/52261588</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T03:25:45.376Z" itemprop="dateUpdated">2019-10-13 11:25:45</time>
+</span>
+
+
+        
+        原文链接：<a href="/2019/02/27/Android选取相册图片并压缩/" target="_blank" rel="external">http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/&title=《Android选取相册图片并压缩》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/&title=《Android选取相册图片并压缩》 — 云笺&source=现在手机中相机的像素越来越高因,手机照的相片就越来越来大, 我们想通过选择相册中图片来显示在界面中,或者进行分享. 因为图片太大的原因很容易造成手机出现O..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android选取相册图片并压缩》 — 云笺&url=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/02/28/C-generate生成/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：C++ generate生成
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/26/Android双指触摸放大图片/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Android双指触摸放大图片">下一篇：Android双指触摸放大图片</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/&title=《Android选取相册图片并压缩》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/&title=《Android选取相册图片并压缩》 — 云笺&source=现在手机中相机的像素越来越高因,手机照的相片就越来越来大, 我们想通过选择相册中图片来显示在界面中,或者进行分享. 因为图片太大的原因很容易造成手机出现O..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android选取相册图片并压缩》 — 云笺&url=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/02/27/Android选取相册图片并压缩/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3aMW7DMAwF0Nz/0inQqUvsT1JMWvRpKoxa0tNgMSQfj3g8v0fv71dP8vl/jsfGwMPDw2tt/dW4XvJ6o9dPrldMjiCaAQ8PD2+Nl3+s8/85dVjXM9xY8PDw8D7Ky7d1vdHJpx8PDw/vb/F6CyfJhXmyAw8PD+/9vGTTZ0n5u2/KteDh4eF1MqUrBbCNv39RfQ8PD++f8Z6D0Svz9+Zp7hAPDw9vgddLyCbpgMLyrRC8cGHg4eHhLfCSElevfDU5ymrDwc3qeHh4eId4CSlpqJqQqsWwQkIZDw8Pb5lXLX2Vb55ilJvMs1jZw8PDw7uMYydF9+vNTVK3xxITeHh4eAu8eQqgd3nkT3pUPDw8vA1ekiY428VU3W41WH/ZGYGHh4d3iJdjqp/1SYqhWu5qdjrg4eHhjXlJUJt8gidxfbWRq5c+xsPDw5vwJo1NvfJYEkBXL57CLwY8PDy8Me9UUJskIHrJ3zzBUS7j4eHh4Y151bRCdeF8xV4ofzMDHh4e3iHeJDE6R84D7pskCB4eHt4CL/l+9pIR1XerLQt56I+Hh4f3Hl41b1ENvpPjO3a14OHh4R3lVdOjk5JYHo5XG62i1gE8PDy8o7xqST4vQeXJjl5i4ubQ8fDw8BZ4eUBcLV/1yvxng3g8PDy8PV514d7FcOr6ydO7eHh4eHu8fMlqQDxHJlfODRIPDw9vjZf8vK+2CPRmy481uh7w8PDwjvKexTG/EvK3es+jCB0PDw9vwMtHUv7Pi175u/nMebENDw8Pb85LLoM8GVFNGeRXUfXCwMPDw9vmJYHvJPWQfNB7bQTR7wY8PDy8j/ImofbZ4LtcAMPDw8N7Oy8Pdnsjb/8qHBMeHh7eGi9PGUwC8V5CIQnKX4bgeHh4eAu8XgEsCayTT3yvmaDa4oCHh4d3iPcFop03KzcAp2MAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

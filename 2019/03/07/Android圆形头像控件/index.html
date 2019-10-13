@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/">
+    
+    
+    <title>Android圆形头像控件 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="Android">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="自定义控件方式">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android圆形头像控件">
+<meta property="og:url" content="http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="自定义控件方式">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T03:32:34.441Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android圆形头像控件">
+<meta name="twitter:description" content="自定义控件方式">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android圆形头像控件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自定义控件方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">自定义控件方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义类："><span class="post-toc-number">1.1.</span> <span class="post-toc-text">自定义类：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#属性文件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">属性文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用法："><span class="post-toc-number">1.3.</span> <span class="post-toc-text">用法：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用开源库"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用开源库</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Android圆形头像控件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android圆形头像控件</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2019-03-07 11:27:00" datetime="2019-03-07T03:27:00.000Z"  itemprop="datePublished">2019-03-07</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">6</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="自定义控件方式"><a href="#自定义控件方式" class="headerlink" title="自定义控件方式"></a>自定义控件方式</h1><a id="more"></a>
+
+<h2 id="自定义类："><a href="#自定义类：" class="headerlink" title="自定义类："></a>自定义类：</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.content.res.TypedArray;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Bitmap;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Canvas;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Paint;</span><br><span class="line"><span class="keyword">import</span> android.graphics.PorterDuff;</span><br><span class="line"><span class="keyword">import</span> android.graphics.PorterDuffXfermode;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Rect;</span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.BitmapDrawable;</span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.NinePatchDrawable;</span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> com.iruiyou.pet.R;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> sgf</span></span><br><span class="line"><span class="comment"> * 自定义圆形头像</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RoundImageView</span> <span class="keyword">extends</span> <span class="title">ImageView</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mBorderThickness = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> defaultColor = <span class="number">0xFFFFFFFF</span>;</span><br><span class="line">    <span class="comment">// 外圆边框颜色</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mBorderOutsideColor = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 内圆边框颜色</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mBorderInsideColor = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// RoundImageView控件默认的长、宽</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> defaultWidth = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> defaultHeight = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RoundImageView</span><span class="params">(Context context)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">        mContext = context;</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RoundImageView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        mContext = context;</span><br><span class="line">        <span class="comment">// 设置RoundImageView的属性值，比如颜色，宽度等</span></span><br><span class="line">        setRoundImageViewAttributes(attrs);</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RoundImageView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyle);</span><br><span class="line">        mContext = context;</span><br><span class="line">        setRoundImageViewAttributes(attrs);</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 从attr.xml文件中获取属性值，并给RoundImageView设置</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setRoundImageViewAttributes</span><span class="params">(AttributeSet attrs)</span> </span>{</span><br><span class="line">        TypedArray a = mContext.obtainStyledAttributes(attrs,</span><br><span class="line">                R.styleable.round_image_view);</span><br><span class="line">        mBorderThickness = a.getDimensionPixelSize(</span><br><span class="line">                R.styleable.round_image_view_border_width, <span class="number">0</span>);</span><br><span class="line">        mBorderOutsideColor = a.getColor(</span><br><span class="line">                R.styleable.round_image_view_border_outcolor, defaultColor);</span><br><span class="line">        mBorderInsideColor = a.getColor(</span><br><span class="line">                R.styleable.round_image_view_border_incolor, defaultColor);</span><br><span class="line">        a.recycle();</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 具体解释：比如我自定义一个控件，怎么实现呢，以RoundImageView为例，首先是继承ImageView,然后实现其构造函数，在构造函数中，获取attr中的属性值（再次解释：这里获取的具体的这个属性的值是怎么来的呢？比如颜色和宽度，这个在attr.xml中定义了相关的名字，而在使用RoundImageView的xml布局文件中，我们会设置其值，这里需要用的值，就是从那里设置的），并设置在本控件中，然后继承onDraw方法，画出自己想要的图形或者形状即可</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 这个是继承的父类的onDraw方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * onDraw和下面的方法不用管，基本和学习自定义没关系，就是实现怎么画圆的，你可以改变下面代码试着画三角形头像，哈哈</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>{</span><br><span class="line">        Drawable drawable = getDrawable();</span><br><span class="line">        <span class="keyword">if</span> (drawable == <span class="keyword">null</span>) {</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (getWidth() == <span class="number">0</span> || getHeight() == <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">this</span>.measure(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (drawable.getClass() == NinePatchDrawable.class)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        Bitmap b = ((BitmapDrawable) drawable).getBitmap();</span><br><span class="line">        Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">if</span> (defaultWidth == <span class="number">0</span>) {</span><br><span class="line">            defaultWidth = getWidth();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (defaultHeight == <span class="number">0</span>) {</span><br><span class="line">            defaultHeight = getHeight();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> radius = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 这里的判断是如果内圆和外圆设置的颜色值不为空且不是默认颜色，就定义画两个圆框，分别为内圆和外圆边框</span></span><br><span class="line">        <span class="keyword">if</span> (mBorderInsideColor != defaultColor</span><br><span class="line">                &amp;&amp; mBorderOutsideColor != defaultColor) {</span><br><span class="line">            radius = (defaultWidth &lt; defaultHeight ? defaultWidth</span><br><span class="line">                    : defaultHeight) / <span class="number">2</span> - <span class="number">2</span> * mBorderThickness;</span><br><span class="line">            <span class="comment">// 画内圆</span></span><br><span class="line">            drawCircleBorder(canvas, radius + mBorderThickness / <span class="number">2</span>,</span><br><span class="line">                    mBorderInsideColor);</span><br><span class="line">            <span class="comment">// 画外圆</span></span><br><span class="line">            drawCircleBorder(canvas, radius + mBorderThickness</span><br><span class="line">                    + mBorderThickness / <span class="number">2</span>, mBorderOutsideColor);</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (mBorderInsideColor != defaultColor</span><br><span class="line">                &amp;&amp; mBorderOutsideColor == defaultColor) {<span class="comment">// 这里的是如果内圆边框不为空且颜色值不是默认值，就画一个内圆的边框</span></span><br><span class="line">            radius = (defaultWidth &lt; defaultHeight ? defaultWidth</span><br><span class="line">                    : defaultHeight) / <span class="number">2</span> - mBorderThickness;</span><br><span class="line">            drawCircleBorder(canvas, radius + mBorderThickness / <span class="number">2</span>,</span><br><span class="line">                    mBorderInsideColor);</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (mBorderInsideColor == defaultColor</span><br><span class="line">                &amp;&amp; mBorderOutsideColor != defaultColor) {<span class="comment">// 这里的是如果外圆边框不为空且颜色值不是默认值，就画一个外圆的边框</span></span><br><span class="line">            radius = (defaultWidth &lt; defaultHeight ? defaultWidth</span><br><span class="line">                    : defaultHeight) / <span class="number">2</span> - mBorderThickness;</span><br><span class="line">            drawCircleBorder(canvas, radius + mBorderThickness / <span class="number">2</span>,</span><br><span class="line">                    mBorderOutsideColor);</span><br><span class="line">        } <span class="keyword">else</span> {<span class="comment">// 这种情况是没有设置属性颜色的情况下，即没有边框的情况</span></span><br><span class="line">            radius = (defaultWidth &lt; defaultHeight ? defaultWidth</span><br><span class="line">                    : defaultHeight) / <span class="number">2</span>;</span><br><span class="line">        }</span><br><span class="line">        Bitmap roundBitmap = getCroppedRoundBitmap(bitmap, radius);</span><br><span class="line">        canvas.drawBitmap(roundBitmap, defaultWidth / <span class="number">2</span> - radius, defaultHeight</span><br><span class="line">                / <span class="number">2</span> - radius, <span class="keyword">null</span>);</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取裁剪后的圆形图片</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> bmp</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> radius</span></span><br><span class="line"><span class="comment">     *            半径</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Bitmap <span class="title">getCroppedRoundBitmap</span><span class="params">(Bitmap bmp, <span class="keyword">int</span> radius)</span> </span>{</span><br><span class="line">        Bitmap scaledSrcBmp;</span><br><span class="line">        <span class="keyword">int</span> diameter = radius * <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 为了防止宽高不相等，造成圆形图片变形，因此截取长方形中处于中间位置最大的正方形图片</span></span><br><span class="line">        <span class="keyword">int</span> bmpWidth = bmp.getWidth();</span><br><span class="line">        <span class="keyword">int</span> bmpHeight = bmp.getHeight();</span><br><span class="line">        <span class="keyword">int</span> squareWidth = <span class="number">0</span>, squareHeight = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>;</span><br><span class="line">        Bitmap squareBitmap;</span><br><span class="line">        <span class="keyword">if</span> (bmpHeight &gt; bmpWidth) {<span class="comment">// 高大于宽</span></span><br><span class="line">            squareWidth = squareHeight = bmpWidth;</span><br><span class="line">            x = <span class="number">0</span>;</span><br><span class="line">            y = (bmpHeight - bmpWidth) / <span class="number">2</span>;</span><br><span class="line">            <span class="comment">// 截取正方形图片</span></span><br><span class="line">            squareBitmap = Bitmap.createBitmap(bmp, x, y, squareWidth,</span><br><span class="line">                    squareHeight);</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (bmpHeight &lt; bmpWidth) {<span class="comment">// 宽大于高</span></span><br><span class="line">            squareWidth = squareHeight = bmpHeight;</span><br><span class="line">            x = (bmpWidth - bmpHeight) / <span class="number">2</span>;</span><br><span class="line">            y = <span class="number">0</span>;</span><br><span class="line">            squareBitmap = Bitmap.createBitmap(bmp, x, y, squareWidth,</span><br><span class="line">                    squareHeight);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            squareBitmap = bmp;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (squareBitmap.getWidth() != diameter</span><br><span class="line">                || squareBitmap.getHeight() != diameter) {</span><br><span class="line">            scaledSrcBmp = Bitmap.createScaledBitmap(squareBitmap, diameter,</span><br><span class="line">                    diameter, <span class="keyword">true</span>);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            scaledSrcBmp = squareBitmap;</span><br><span class="line">        }</span><br><span class="line">        Bitmap output = Bitmap.createBitmap(scaledSrcBmp.getWidth(),</span><br><span class="line">                scaledSrcBmp.getHeight(), Bitmap.Config.ARGB_8888);</span><br><span class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(output);</span><br><span class="line"> </span><br><span class="line">        Paint paint = <span class="keyword">new</span> Paint();</span><br><span class="line">        Rect rect = <span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, scaledSrcBmp.getWidth(),</span><br><span class="line">                scaledSrcBmp.getHeight());</span><br><span class="line"> </span><br><span class="line">        paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">        paint.setFilterBitmap(<span class="keyword">true</span>);</span><br><span class="line">        paint.setDither(<span class="keyword">true</span>);</span><br><span class="line">        canvas.drawARGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        canvas.drawCircle(scaledSrcBmp.getWidth() / <span class="number">2</span>,</span><br><span class="line">                scaledSrcBmp.getHeight() / <span class="number">2</span>, scaledSrcBmp.getWidth() / <span class="number">2</span>,</span><br><span class="line">                paint);</span><br><span class="line">        paint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.SRC_IN));</span><br><span class="line">        canvas.drawBitmap(scaledSrcBmp, rect, rect, paint);</span><br><span class="line">        bmp = <span class="keyword">null</span>;</span><br><span class="line">        squareBitmap = <span class="keyword">null</span>;</span><br><span class="line">        scaledSrcBmp = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> output;</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 画边缘的圆，即内圆或者外圆</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawCircleBorder</span><span class="params">(Canvas canvas, <span class="keyword">int</span> radius, <span class="keyword">int</span> color)</span> </span>{</span><br><span class="line">        Paint paint = <span class="keyword">new</span> Paint();</span><br><span class="line">        <span class="comment">/* 去锯齿 */</span></span><br><span class="line">        paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">        paint.setFilterBitmap(<span class="keyword">true</span>);</span><br><span class="line">        paint.setDither(<span class="keyword">true</span>);</span><br><span class="line">        paint.setColor(color);</span><br><span class="line">        <span class="comment">/* 设置paint的　style　为STROKE：空心 */</span></span><br><span class="line">        paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">        <span class="comment">/* 设置paint的外框宽度 */</span></span><br><span class="line">        paint.setStrokeWidth(mBorderThickness);</span><br><span class="line">        canvas.drawCircle(defaultWidth / <span class="number">2</span>, defaultHeight / <span class="number">2</span>, radius, paint);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="属性文件"><a href="#属性文件" class="headerlink" title="属性文件"></a>属性文件</h2><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">declare-styleable</span> <span class="attr">name</span>=<span class="string">"round_image_view"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"border_width"</span> <span class="attr">format</span>=<span class="string">"dimension"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"border_incolor"</span> <span class="attr">format</span>=<span class="string">"color"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"border_outcolor"</span> <span class="attr">format</span>=<span class="string">"color"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">declare-styleable</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h2><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.iruiyou.pet.utils.RoundImageView</span></span></span><br><span class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/headIv"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"125dp"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"125dp"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">android:layout_marginTop</span>=<span class="string">"92dp"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">android:src</span>=<span class="string">"@drawable/head_home"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">loonggg:border_incolor</span>=<span class="string">"#000fff"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">loonggg:border_outcolor</span>=<span class="string">"#fff000"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">loonggg:border_width</span>=<span class="string">"10dp"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">app:layout_constraintLeft_toLeftOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">app:layout_constraintRight_toRightOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">"parent"</span>/&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="使用开源库"><a href="#使用开源库" class="headerlink" title="使用开源库"></a>使用开源库</h1><p>见下方网页</p>
+<p>参考：<a href="https://blog.csdn.net/shenggaofei/article/details/83793536" target="_blank" rel="noopener">https://blog.csdn.net/shenggaofei/article/details/83793536</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T03:32:34.441Z" itemprop="dateUpdated">2019-10-13 11:32:34</time>
+</span>
+
+
+        
+        原文链接：<a href="/2019/03/07/Android圆形头像控件/" target="_blank" rel="external">http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/&title=《Android圆形头像控件》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/&title=《Android圆形头像控件》 — 云笺&source=自定义控件方式" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android圆形头像控件》 — 云笺&url=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/16/Android简单联网应用/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Android简单联网应用
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/28/C-generate生成/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：C++ generate生成">下一篇：C++ generate生成</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/&title=《Android圆形头像控件》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/&title=《Android圆形头像控件》 — 云笺&source=自定义控件方式" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android圆形头像控件》 — 云笺&url=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/03/07/Android圆形头像控件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aQW7EIAwF0Ln/pdNtq3TSb5upFPJYjaIR8FhYGPv1isfxbZy/n/9zHvls5+/LBgYGxm0ZyfK9L/kWk3WvjwYDA+MJjHdTX/+ukpI5r9d6+x0DAwMjDoI5Jg/iGBgYGFXG2uw5D8oYGBgYSeic8K63m1wxl+XiGBgYN2RUw+J//v5IfQMDA+NWjKM48gJnXjDo7eTHnBgYGFsz8gA3IfXY5eYPDAyMBzB6YTf/3ttcYV0MDIxNGZPyYRKC8zayXnKLgYHxBEayZLXEmAfZeer7yk8OAwPjtoxeiTFfctKi0ewWwcDA2I6RYyYNFknzRPX6iIGB8RxGHiirKWvvStorQmBgYDyBUX1cS653vUS3GdwxMDC2ZoyaG4phNC8GNAMxBgbG1oxJ60Oy2PwI8oc8DAyM/RijtoZBqJ0fWXTDxcDA2IKx6jJXLWcmbakLekYwMDC2YBzBmCSZSfFycnH8pb6BgYGxHaN3masmrjkmLxU0L4UYGBhbMHotYuVUc5AeRwEXAwNjU0ay6Twc50eTXyvLSgwMjO0Y8ye5vBjZexFc0DOCgYFxQ8ZRHJ944k8S3T+OGwMDY2vGqpidb7Sa1k7SYwwMjJ0YvRJmzpskzxgYGBh5CppE6Pz/82YLDAwMjLWlzWrTRjNlxcDAwBi0beXbrZZFlwVcDAyMmzDyxtN8c/MrYCEBxsDA2JpRnbT6TFYtmq5NrTEwMG7O+AKa3eTzsZOMjAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
