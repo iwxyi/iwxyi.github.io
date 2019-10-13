@@ -388,6 +388,50 @@
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-PHP-Redis函数"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/09/18/PHP-Redis函数/">PHP Redis函数</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-09-18 16:31:00" datetime="2019-09-18T08:31:00.000Z"  itemprop="datePublished">2019-09-18</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="一、简单的字符串缓存"><a href="#一、简单的字符串缓存" class="headerlink" title="一、简单的字符串缓存"></a>一、简单的字符串缓存</h2><p>比如针对一些sql查询较慢，更新不频繁的数据进行缓存。</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$redis = <span class="keyword">new</span> Redis();</span><br><span class="line">$redis-&gt;connect(<span class="string">'127.0.0.1'</span>, <span class="number">6379</span>, <span class="number">60</span>);</span><br><span class="line"> </span><br><span class="line">$sql = <span class="string">'select * from tb_order order by id desc limit 10'</span>;</span><br><span class="line"><span class="comment">//伪代码，从数据库中获取数据</span></span><br><span class="line">$data = $db-&gt;query($sql);</span><br><span class="line">$data = json_encode($data, JSON_UNESCAPED_UNICODE);</span><br><span class="line">$key = md5($sql);</span><br><span class="line"><span class="comment">//缓存数据</span></span><br><span class="line">$redis-&gt;set($key, $value, <span class="number">60</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//获取数据</span></span><br><span class="line">$data = $redis-&gt;get($key);</span><br><span class="line">print_r(json_decode($data, <span class="keyword">true</span>));</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/09/18/PHP-Redis函数/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-GCC和G-的区别"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -888,6 +932,50 @@
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-PHP时间戳转易读性文本"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/04/20/PHP时间戳转易读性文本/">PHP时间戳转易读性文本</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-04-20 16:13:00" datetime="2019-04-20T08:13:00.000Z"  itemprop="datePublished">2019-04-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>将两个时间戳的差（秒）转化成字符串</p>
+<p>比如“x分钟前”、“x小时前”</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/04/20/PHP时间戳转易读性文本/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-HTML表单即将提交事件"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1039,100 +1127,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-公众号token服务器配置"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/14/公众号token服务器配置/">公众号token服务器配置</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-04-14 20:30:00" datetime="2019-04-14T12:30:00.000Z"  itemprop="datePublished">2019-04-14</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="修改公众号的服务器配置"><a href="#修改公众号的服务器配置" class="headerlink" title="修改公众号的服务器配置"></a>修改公众号的服务器配置</h1><p><img src="/images/pasted-0.png" alt="配置"></p>
-<p>Token配置代码，文件放在对应的URL路径下</p>
-<p>微信会发送GET请求来验证</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/04/14/公众号token服务器配置/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android自定义输入对话框，带联网"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/21/Android自定义输入对话框，带联网/">Android自定义输入对话框，带联网</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-21 11:36:00" datetime="2019-03-21T03:36:00.000Z"  itemprop="datePublished">2019-03-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>自定义输入方式，回调方法，带输入后联网示例</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/21/Android自定义输入对话框，带联网/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </div>
 </nav>
 

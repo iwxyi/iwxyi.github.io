@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/">
+    
+    
+    <title>JavaScript-学习笔记 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="JS,学习笔记">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="JS 教程JS 简介写入 HTML 输出1document.write(&quot;&amp;lt;h1&amp;gt;This is a heading&amp;lt;/h1&amp;gt;&quot;);  您只能在 HTML 输出中使用 document.write。如果您在文档加载后使用该方法，会覆盖整个文档。">
+<meta name="keywords" content="JS,学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-学习笔记">
+<meta property="og:url" content="http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="JS 教程JS 简介写入 HTML 输出1document.write(&quot;&amp;lt;h1&amp;gt;This is a heading&amp;lt;/h1&amp;gt;&quot;);  您只能在 HTML 输出中使用 document.write。如果您在文档加载后使用该方法，会覆盖整个文档。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.w3school.com.cn/i/ct_htmltree.gif">
+<meta property="og:updated_time" content="2019-10-13T07:46:49.043Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-学习笔记">
+<meta name="twitter:description" content="JS 教程JS 简介写入 HTML 输出1document.write(&quot;&amp;lt;h1&amp;gt;This is a heading&amp;lt;/h1&amp;gt;&quot;);  您只能在 HTML 输出中使用 document.write。如果您在文档加载后使用该方法，会覆盖整个文档。">
+<meta name="twitter:image" content="http://www.w3school.com.cn/i/ct_htmltree.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JavaScript-学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS-教程"><span class="post-toc-number">1.</span> <span class="post-toc-text">JS 教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-简介"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">JS 简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写入-HTML-输出"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">写入 HTML 输出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对事件作出反应"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">对事件作出反应</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#改变-HTML-内容"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">改变 HTML 内容</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#改变-HTML-图像"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">改变 HTML 图像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证输入"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">验证输入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JavaScript-函数"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">JavaScript 函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#外部的-JavaScript"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">外部的 JavaScript</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-语句"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">JS 语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JS-注释"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">JS  注释</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-变量"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">JS 变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据类型"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重新声明变量"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">重新声明变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态类型"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">动态类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JS-对象"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">JS 对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性和方法"><span class="post-toc-number">1.3.4.1.</span> <span class="post-toc-text">属性和方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建对象"><span class="post-toc-number">1.3.4.2.</span> <span class="post-toc-text">创建对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#访问对象的属性"><span class="post-toc-number">1.3.4.3.</span> <span class="post-toc-text">访问对象的属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Undefined-和-Null"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">Undefined 和 Null</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#声明变量类型"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">声明变量类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-函数"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">JS 函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回值"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">返回值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#局部与全局"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">局部与全局</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#向未声明的变量赋值"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">向未声明的变量赋值</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-运算符"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">JS 运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-if-else-与-switch"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">JS if-else 与 switch</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JS-标签"><span class="post-toc-number">1.6.0.1.</span> <span class="post-toc-text">JS 标签</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-错误"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">JS 错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-表单验证"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">JS 表单验证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#必填表单"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">必填表单</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Email-验证"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">Email 验证</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS-HTML-DOM"><span class="post-toc-number">2.</span> <span class="post-toc-text">JS HTML DOM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOM-简介"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">DOM 简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查找-HTML-元素"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">查找 HTML 元素</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOM-HTML"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">DOM HTML</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOM-CSS"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">DOM CSS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOM-事件"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">DOM 事件</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#null"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 元素上点击时，会改变其内容：
+1&lt;h1 onclick=&quot;this.innerHTML=&#39;谢谢!&#39;&quot;&gt;请点击该文本&lt;/h1&gt;
+
+</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTML-事件属性"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">HTML 事件属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用-HTML-DOM-来分配事件"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">使用 HTML DOM 来分配事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#onload-和-onunload-事件"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">onload 和 onunload 事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#onchange-事件"><span class="post-toc-number">3.0.4.</span> <span class="post-toc-text">onchange 事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#onmouseover-和-onmouseout-事件"><span class="post-toc-number">3.0.5.</span> <span class="post-toc-text">onmouseover 和 onmouseout 事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#onmousedown、onmouseup-以及-onclick-事件"><span class="post-toc-number">3.0.6.</span> <span class="post-toc-text">onmousedown、onmouseup 以及 onclick 事件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML-DOM-元素（节点）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">HTML DOM 元素（节点）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建新的-HTML-元素"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">创建新的 HTML 元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除已有的-HTML-元素"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">删除已有的 HTML 元素</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS-对象-1"><span class="post-toc-number">4.</span> <span class="post-toc-text">JS 对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-对象-2"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">JS 对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#把属性添加到对象"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">把属性添加到对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#把方法添加到-JavaScript-对象"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">把方法添加到 JavaScript 对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-数字"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">JS 数字</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-数字-1"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">JS 数字</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-字符串"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">JS 字符串</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-日期"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">JS 日期</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#比较日期"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">比较日期</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-算数"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">JS 算数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则表达式"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">正则表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定义-RegExp"><span class="post-toc-number">4.7.1.</span> <span class="post-toc-text">定义 RegExp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RegExp-对象的方法"><span class="post-toc-number">4.7.2.</span> <span class="post-toc-text">RegExp 对象的方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS-Window"><span class="post-toc-number">5.</span> <span class="post-toc-text">JS Window</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Window-尺寸"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Window 尺寸</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他-Window-方法"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">其他 Window 方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-Screen"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">JS Screen</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-Location"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">JS Location</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-History"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">JS History</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-Navigator"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">JS Navigator</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浏览器检测"><span class="post-toc-number">5.5.1.</span> <span class="post-toc-text">浏览器检测</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-消息框"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">JS 消息框</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-计时"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">JS 计时</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-Cookies"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">JS Cookies</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS-库"><span class="post-toc-number">6.</span> <span class="post-toc-text">JS 库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-框架（库，helper）"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">JS 框架（库，helper）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CDN-内容分发网络"><span class="post-toc-number">6.1.1.</span> <span class="post-toc-text">CDN - 内容分发网络</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-jQuery"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">JS jQuery</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-Prototype"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">JS Prototype</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-JavaScript-学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JavaScript-学习笔记</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2019-02-08 15:46:00" datetime="2019-02-08T07:46:00.000Z"  itemprop="datePublished">2019-02-08</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">28</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="JS-教程"><a href="#JS-教程" class="headerlink" title="JS 教程"></a>JS 教程</h1><h2 id="JS-简介"><a href="#JS-简介" class="headerlink" title="JS 简介"></a>JS 简介</h2><h3 id="写入-HTML-输出"><a href="#写入-HTML-输出" class="headerlink" title="写入 HTML 输出"></a>写入 HTML 输出</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;This is a heading&lt;/h1&gt;"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>您<strong>只能在 HTML 输出中使用 document.write</strong>。如果您在文档加载后使用该方法，会覆盖整个文档。</p>
+<a id="more"></a>
+
+<h3 id="对事件作出反应"><a href="#对事件作出反应" class="headerlink" title="对事件作出反应"></a>对事件作出反应</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type=<span class="string">"button"</span> onclick=<span class="string">"alert('Welcome!')"</span>&gt;点击这里&lt;<span class="regexp">/button&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="改变-HTML-内容"><a href="#改变-HTML-内容" class="headerlink" title="改变 HTML 内容"></a>改变 HTML 内容</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>)  <span class="comment">//查找元素</span></span><br><span class="line">x.innerHTML=<span class="string">"Hello JavaScript"</span>;    <span class="comment">//改变内容</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="改变-HTML-图像"><a href="#改变-HTML-图像" class="headerlink" title="改变 HTML 图像"></a>改变 HTML 图像</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>)  <span class="comment">//找到元素</span></span><br><span class="line">x.style.color=<span class="string">"#ff0000"</span>;           <span class="comment">//改变样式</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="验证输入"><a href="#验证输入" class="headerlink" title="验证输入"></a>验证输入</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">isNaN</span>(x) {alert(<span class="string">"Not Numeric"</span>)};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>##JS 实现</p>
+<p>###<code>&lt;script&gt;</code> 标签</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	alert(<span class="string">"My First JavaScript"</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="JavaScript-函数"><a href="#JavaScript-函数" class="headerlink" title="JavaScript 函数"></a>JavaScript 函数</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type=<span class="string">"button"</span> onclick=<span class="string">"myFunction()"</span>&gt;Button&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">function myFunction()</span></span><br><span class="line"><span class="regexp">{</span></span><br><span class="line"><span class="regexp">	document.getElementById("demo").innerHTML="My First JavaScript Function";</span></span><br><span class="line"><span class="regexp">}</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="外部的-JavaScript"><a href="#外部的-JavaScript" class="headerlink" title="外部的 JavaScript"></a>外部的 JavaScript</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"myScript.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在 &lt;head&gt; 或 &lt;body&gt; 中引用脚本文件都是可以的。实际运行效果与您在 &lt;script&gt; 标签中编写脚本完全一致。</p>
+<p>提示：<strong>外部脚本不能包含 &lt;script&gt; 标签</strong>。</p>
+<p>##JS 输出</p>
+<p>如需从 JavaScript 访问某个 HTML 元素，您可以使用 document.getElementById(<em>id</em>) 方法。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;我的第一张网页&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;p id="demo"&gt;我的第一个段落&lt;/</span>p&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"我的第一段 JavaScript"</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">document.write("&lt;p&gt;我的第二段 JavaScript&lt;/</span>p&gt;<span class="string">");</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>访问 id=”demo” 的 HTML 元素，并把它的内容（innerHTML）替换为 “My First JavaScript”。</p>
+<p>如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖（例如使用onclick）</p>
+<h2 id="JS-语句"><a href="#JS-语句" class="headerlink" title="JS 语句"></a>JS 语句</h2><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"Hello World"</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><p>用分号来结束语句是可选的</p>
+</li>
+<li><p>对大小写是敏感的</p>
+</li>
+<li><p>会忽略多余的空格</p>
+</li>
+<li><p>可以在<strong>文本字符串</strong>中使用反斜杠 \ 对代码行进行换行</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"Hello \</span></span><br><span class="line"><span class="string">World!"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="JS-注释"><a href="#JS-注释" class="headerlink" title="JS  注释"></a>JS  注释</h3><p>单行注释以 // 开头</p>
+<p>多行注释以 /* 开始，以 */ 结尾</p>
+<h2 id="JS-变量"><a href="#JS-变量" class="headerlink" title="JS 变量"></a>JS 变量</h2><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0</span>, b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> c = a + b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">"MM"</span>,</span><br><span class="line">    ID = <span class="number">110</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li><p>数字：可以带小数点，也可以不带</p>
+<p>极大或极小的数字可以通过科学（指数）计数法来书写：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> y=<span class="number">123e5</span>;      <span class="comment">// 12300000</span></span><br><span class="line"><span class="keyword">var</span> z=<span class="number">123e-5</span>;     <span class="comment">// 0.00123</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>字符串：用双引号或单引号包围</p>
+</li>
+<li><p>布尔：true 或 false</p>
+</li>
+</ul>
+<h3 id="重新声明变量"><a href="#重新声明变量" class="headerlink" title="重新声明变量"></a>重新声明变量</h3><p>如果重新声明 JavaScript 变量，该<strong>变量的值不会丢失</strong></p>
+<p>在以下两条语句执行后，变量 carname 的值依然是 “Volvo”：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> carname=<span class="string">"Volvo"</span>;</span><br><span class="line"><span class="keyword">var</span> carname;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="动态类型"><a href="#动态类型" class="headerlink" title="动态类型"></a>动态类型</h3><p>相同的变量可用作不同的类型</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x                <span class="comment">// x 为 undefined</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">6</span>;           <span class="comment">// x 为数字</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="string">"Bill"</span>;      <span class="comment">// x 为字符串</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>###数组</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cars=<span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">cars[<span class="number">0</span>]=<span class="string">"Audi"</span>;</span><br><span class="line">cars[<span class="number">1</span>]=<span class="string">"BMW"</span>;</span><br><span class="line">cars[<span class="number">2</span>]=<span class="string">"Volvo"</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或者 (condensed array):</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cars=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Audi"</span>,<span class="string">"BMW"</span>,<span class="string">"Volvo"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或者 (literal array):</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cars=[<span class="string">"Audi"</span>,<span class="string">"BMW"</span>,<span class="string">"Volvo"</span>];</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>数组下标是基于零的</strong></p>
+<h3 id="JS-对象"><a href="#JS-对象" class="headerlink" title="JS 对象"></a>JS 对象</h3><p>对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person={<span class="attr">firstname</span>:<span class="string">"Bill"</span>, <span class="attr">lastname</span>:<span class="string">"Gates"</span>, <span class="attr">id</span>:<span class="number">5566</span>};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>空格和折行无关紧要。声明可横跨多行：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person={</span><br><span class="line">firstname : <span class="string">"Bill"</span>,</span><br><span class="line">lastname  : <span class="string">"Gates"</span>,</span><br><span class="line">id        :  <span class="number">5566</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>对象属性有两种寻址方式：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name=person.lastname;</span><br><span class="line">name=person[<span class="string">"lastname"</span>];</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h4><p>对象是数据（变量），拥有属性和方法</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> txt = <span class="string">"Hello"</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>属性：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">txt.length=5</span><br></pre></td></tr></tbody></table></figure>
+
+<p>方法：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">txt.indexOf()</span><br><span class="line">txt.replace()</span><br><span class="line">txt.search()</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">person=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.firstname=<span class="string">"Bill"</span>;</span><br><span class="line">person.lastname=<span class="string">"Gates"</span>;</span><br><span class="line">person.age=<span class="number">56</span>;</span><br><span class="line">person.eyecolor=<span class="string">"blue"</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="访问对象的属性"><a href="#访问对象的属性" class="headerlink" title="访问对象的属性"></a>访问对象的属性</h4><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message=<span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="keyword">var</span> x=message.toUpperCase();</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Undefined-和-Null"><a href="#Undefined-和-Null" class="headerlink" title="Undefined 和 Null"></a>Undefined 和 Null</h3><p>Undefined 这个值表示变量不含有值。</p>
+<p>可以通过将变量的值设置为 null 来清空变量。</p>
+<h3 id="声明变量类型"><a href="#声明变量类型" class="headerlink" title="声明变量类型"></a>声明变量类型</h3><p>当您声明新变量时，可以使用关键词 “new” 来声明其类型：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> carname = <span class="keyword">new</span> <span class="built_in">String</span>;</span><br><span class="line"><span class="keyword">var</span> x=        <span class="keyword">new</span> <span class="built_in">Number</span>;</span><br><span class="line"><span class="keyword">var</span> y=        <span class="keyword">new</span> <span class="built_in">Boolean</span>;</span><br><span class="line"><span class="keyword">var</span> cars=     <span class="keyword">new</span> <span class="built_in">Array</span>;</span><br><span class="line"><span class="keyword">var</span> person=   <span class="keyword">new</span> <span class="built_in">Object</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>JavaScript 变量均为对象。当您声明一个变量时，就创建了一个新的对象。</p>
+<p>下面的所有的代码行均会创初始值为 true 的 Boolean 对象：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myBoolean=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> myBoolean=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="keyword">var</span> myBoolean=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="string">"true"</span>);</span><br><span class="line"><span class="keyword">var</span> myBoolean=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="string">"false"</span>);</span><br><span class="line"><span class="keyword">var</span> myBoolean=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="string">"Bill Gates"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-函数"><a href="#JS-函数" class="headerlink" title="JS 函数"></a>JS 函数</h2><p>函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=<span class="string">"myFunction('Bill Gates','CEO')"</span>&gt;点击这里&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">function myFunction(name,job)</span></span><br><span class="line"><span class="regexp">{</span></span><br><span class="line"><span class="regexp">	alert("Welcome " + name + ", the " + job);</span></span><br><span class="line"><span class="regexp">}</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注意：JavaScript 对大小写敏感</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">var</span> x=<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">return</span> x * x;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>return 后，整个 JavaScript 并不会停止执行，仅仅结束函数。</p>
+<h3 id="局部与全局"><a href="#局部与全局" class="headerlink" title="局部与全局"></a>局部与全局</h3><p>在 JavaScript 函数内部声明的变量（使用 var）是<em>局部</em>变量，所以只能在函数内部访问它。（该变量的作用域是局部的）。</p>
+<p>在函数外声明的变量是<strong>全局</strong>变量，网页上的<strong>所有脚本和函数</strong>都能访问它。</p>
+<h3 id="向未声明的变量赋值"><a href="#向未声明的变量赋值" class="headerlink" title="向未声明的变量赋值"></a>向未声明的变量赋值</h3><p>如果您把值赋给尚未声明的变量，该变量将被自动作为<strong>全局变量声明</strong>。</p>
+<p>这条语句：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">carname=<span class="string">"Volvo"</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>将声明一个<strong>全局</strong>变量 carname，即使它在函数内执行。</p>
+<h2 id="JS-运算符"><a href="#JS-运算符" class="headerlink" title="JS 运算符"></a>JS 运算符</h2><p>算数运算符：+、-、*、/、%、++、–</p>
+<p>赋值运算符：=</p>
+<p>比较运算符：==、===、!=、&gt;、&lt;、&gt;=、&lt;=</p>
+<p>逻辑运算符：&amp;&amp;、||、!</p>
+<p>条件运算符：  (  ) ? a : b</p>
+<p><code>+</code>运算符用于把文本值或字符串变量加起来</p>
+<p><code>===</code> ： x===5 为 true；x===”5” 为 false</p>
+<p>如果把数字与字符串相加，结果将成为字符串</p>
+<h2 id="JS-if-else-与-switch"><a href="#JS-if-else-与-switch" class="headerlink" title="JS if-else 与 switch"></a>JS if-else 与 switch</h2><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( 条件<span class="number">1</span> ){ 执行<span class="number">1</span> }</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> ( 条件<span class="number">2</span> ) { 执行<span class="number">2</span> }</span><br><span class="line"><span class="keyword">else</span> { 执行<span class="number">3</span> }</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(n)</span><br><span class="line">{</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">  执行<span class="number">1</span></span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">  执行<span class="number">2</span></span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">  执行<span class="number">3</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>##JS for 和 while 循环</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;cars.length;i++)</span><br><span class="line">{</span><br><span class="line">	<span class="built_in">document</span>.write(cars[i] + <span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>###for/in 语句循环遍历对象的属性：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person={<span class="attr">fname</span>:<span class="string">"John"</span>,<span class="attr">lname</span>:<span class="string">"Doe"</span>,<span class="attr">age</span>:<span class="number">25</span>};</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (x <span class="keyword">in</span> person)</span><br><span class="line">{</span><br><span class="line">	txt=txt + person[x];</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>###使用 while 循环来显示 cars 数组中的所有值：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cars=[<span class="string">"BMW"</span>,<span class="string">"Volvo"</span>,<span class="string">"Saab"</span>,<span class="string">"Ford"</span>];</span><br><span class="line"><span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (cars[i])</span><br><span class="line">{</span><br><span class="line">  <span class="built_in">document</span>.write(cars[i] + <span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">  i++;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span></span><br><span class="line">{</span><br><span class="line">    x=x + <span class="string">"The number is "</span> + i + <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    i++;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">while</span> (i&lt;<span class="number">5</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>###break 和 continue</p>
+<p><strong>break 语句用于跳出循环。</strong></p>
+<p><strong>continue 用于跳过循环中的一个迭代。</strong></p>
+<h4 id="JS-标签"><a href="#JS-标签" class="headerlink" title="JS 标签"></a>JS 标签</h4><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">label:</span><br><span class="line">	语句</span><br></pre></td></tr></tbody></table></figure>
+
+<p>break 和 continue 语句仅仅是能够跳出代码块的语句</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">break</span> labelname;</span><br><span class="line"></span><br><span class="line"><span class="keyword">continue</span> labelname;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>continue 语句（带有或不带标签引用）只能用在循环中。</p>
+<p>break 语句（不带标签引用），只能用在循环或 switch 中。</p>
+<p>通过标签引用，break 语句可用于跳出任何 JavaScript 代码块。</p>
+<h2 id="JS-错误"><a href="#JS-错误" class="headerlink" title="JS 错误"></a>JS 错误</h2><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">{</span><br><span class="line">  	<span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).value;</span><br><span class="line">	<span class="comment">// 自定义异常可以是字符串、数字、逻辑值或对象</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">isNaN</span>(x)) <span class="keyword">throw</span> <span class="string">"Not a number"</span>;</span><br><span class="line">  	<span class="comment">// 在这里运行代码</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">catch</span>(err)</span><br><span class="line">{</span><br><span class="line">	<span class="comment">//在这里处理错误</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果 getElementById 函数出错，上面的例子也会抛出一个错误</p>
+<h2 id="JS-表单验证"><a href="#JS-表单验证" class="headerlink" title="JS 表单验证"></a>JS 表单验证</h2><h3 id="必填表单"><a href="#必填表单" class="headerlink" title="必填表单"></a>必填表单</h3><p>下面的函数用来检查用户是否已填写表单中的必填（或必选）项目。假如必填或必选项为空，那么警告框会弹出，并且函数的返回值为 false，否则函数的返回值则为 true（意味着数据没有问题）：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validate_required</span>(<span class="params">field, alerttxt</span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">with</span> (field)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (value == <span class="literal">null</span> || value == <span class="string">""</span> )</span><br><span class="line">        {</span><br><span class="line">        	alert(alerttxt);</span><br><span class="line">        	<span class="keyword">return</span> <span class="literal">false</span> </span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        {</span><br><span class="line">        	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validate_form</span>(<span class="params">thisform</span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">with</span> (thisform)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (validate_required(email,<span class="string">"Email must be filled out!"</span>)==<span class="literal">false</span>)</span><br><span class="line">        {</span><br><span class="line">          	email.focus();<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"submitpage.htm"</span> <span class="attr">onsubmit</span>=<span class="string">"return validate_form(this)"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">Email: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">size</span>=<span class="string">"30"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Email-验证"><a href="#Email-验证" class="headerlink" title="Email 验证"></a>Email 验证</h3><p>下面的代码检查输入的数据是否符合电子邮件地址的基本语法。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">validate_email</span><span class="params">(field,alerttxt)</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="actionscript">    <span class="keyword">with</span> (field)</span></span><br><span class="line">    {</span><br><span class="line"><span class="actionscript">        apos=value.indexOf(<span class="string">"@"</span>)</span></span><br><span class="line"><span class="actionscript">        dotpos=value.lastIndexOf(<span class="string">"."</span>)</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span> (apos&lt;<span class="number">1</span>||dotpos-apos&lt;<span class="number">2</span>) </span></span><br><span class="line">        {</span><br><span class="line">       		alert(alerttxt);</span><br><span class="line"><span class="actionscript">    	    <span class="keyword">return</span> <span class="literal">false</span></span></span><br><span class="line">        }</span><br><span class="line"><span class="actionscript">        <span class="keyword">else</span></span></span><br><span class="line">        {</span><br><span class="line"><span class="actionscript">          	<span class="keyword">return</span> <span class="literal">true</span></span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">validate_form</span><span class="params">(thisform)</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="actionscript">    <span class="keyword">with</span> (thisform)</span></span><br><span class="line">    {</span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span> (validate_email(email,<span class="string">"Not a valid e-mail address!"</span>)==<span class="literal">false</span>)</span></span><br><span class="line">        {</span><br><span class="line">            email.focus();</span><br><span class="line"><span class="actionscript">            <span class="keyword">return</span> <span class="literal">false</span></span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"submitpage.htm"</span><span class="attr">onsubmit</span>=<span class="string">"return validate_form(this);"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">Email: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">size</span>=<span class="string">"30"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="JS-HTML-DOM"><a href="#JS-HTML-DOM" class="headerlink" title="JS HTML DOM"></a>JS HTML DOM</h1><h2 id="DOM-简介"><a href="#DOM-简介" class="headerlink" title="DOM 简介"></a>DOM 简介</h2><p>###HTML DOM （文档对象模型）</p>
+<p>当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。</p>
+<p>HTML DOM 模型被构造为对象的树。</p>
+<p>###HTML DOM 树</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://www.w3school.com.cn/i/ct_htmltree.gif" alt="HTML DOM 树" title="">
+                </div>
+                <div class="image-caption">HTML DOM 树</div>
+            </figure>
+
+<h3 id="查找-HTML-元素"><a href="#查找-HTML-元素" class="headerlink" title="查找 HTML 元素"></a>查找 HTML 元素</h3><p>有三种方法来做这件事：</p>
+<ul>
+<li><p>通过 id 找到 HTML 元素</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"intro"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果找到该元素，则该方法将以对象（在 x 中）的形式返回该元素。</p>
+<p>如果未找到该元素，则 x 将包含 null。</p>
+</li>
+<li><p>通过标签名找到 HTML 元素<br>​        查找 “main” 中的所有 &lt;p&gt; 元素：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</span><br><span class="line"><span class="keyword">var</span> y=x.getElementsByTagName(<span class="string">"p"</span>);</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>通过类名找到 HTML 元素<br>​        (在 IE 5,6,7,8 中无效)</p>
+</li>
+</ul>
+<h2 id="DOM-HTML"><a href="#DOM-HTML" class="headerlink" title="DOM HTML"></a>DOM HTML</h2><p><strong>改变 HTML 元素的内容</strong></p>
+<p>1、改变 HTML 输出流 <code>document.write()</code></p>
+<p>2、改变 HTML 内容 <code>document.getElementById(id).innerHTML=new HTML</code></p>
+<p>3、改变 HTML 属性 <code>document.getElementById(id).attribute=new valu</code></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;img id=<span class="string">"image"</span> src=<span class="string">"smiley.gif"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"image"</span>).src=<span class="string">"landscape.jpg"</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="DOM-CSS"><a href="#DOM-CSS" class="headerlink" title="DOM CSS"></a>DOM CSS</h2><p><strong>改变 HTML 元素的样式</strong></p>
+<p><code>document.getElementById(id).style.property=new style</code></p>
+<p>下面的例子会改变 &lt;p&gt; 元素的样式：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=<span class="string">"p2"</span>&gt;Hello World!<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"p2"</span>).style.color=<span class="string">"blue"</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>本例改变了 id=”id1” 的 HTML 元素的样式，当用户点击按钮时：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 id=<span class="string">"id1"</span>&gt;My Heading <span class="number">1</span>&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;button type="button" onclick="document.getElementById('id1').style.color='red'"&gt;</span></span><br><span class="line"><span class="regexp">点击这里</span></span><br><span class="line"><span class="regexp">&lt;/</span>button&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="DOM-事件"><a href="#DOM-事件" class="headerlink" title="DOM 事件"></a>DOM 事件</h2><p><strong>对 HTML 事件做出反应</strong></p>
+<p>在本例中，当用户在 </p><h1> 元素上点击时，会改变其内容：<p></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 onclick=<span class="string">"this.innerHTML='谢谢!'"</span>&gt;请点击该文本&lt;<span class="regexp">/h1&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+</h1><h3 id="HTML-事件属性"><a href="#HTML-事件属性" class="headerlink" title="HTML 事件属性"></a>HTML 事件属性</h3><p>向 button 元素分配 onclick 事件：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=<span class="string">"displayDate()"</span>&gt;点击这里&lt;<span class="regexp">/button&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="使用-HTML-DOM-来分配事件"><a href="#使用-HTML-DOM-来分配事件" class="headerlink" title="使用 HTML DOM 来分配事件"></a>使用 HTML DOM 来分配事件</h3><p>向 button 元素分配 onclick 事件：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{displayDate()};</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="onload-和-onunload-事件"><a href="#onload-和-onunload-事件" class="headerlink" title="onload 和 onunload 事件"></a>onload 和 onunload 事件</h3><p>onload 和 onunload 事件会在用户进入或离开页面时被触发。</p>
+<p>onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本。</p>
+<p>onload 和 onunload 事件可用于处理 cookie。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;body onload="checkCookies()"&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="onchange-事件"><a href="#onchange-事件" class="headerlink" title="onchange 事件"></a>onchange 事件</h3><p>onchange 事件常结合对输入字段的验证来使用。</p>
+<p>下面是一个如何使用 onchange 的例子。当用户改变输入字段的内容时，会调用 upperCase() 函数。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type="text" id="fname" onchange="upperCase()"&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="onmouseover-和-onmouseout-事件"><a href="#onmouseover-和-onmouseout-事件" class="headerlink" title="onmouseover 和 onmouseout 事件"></a>onmouseover 和 onmouseout 事件</h3><p>onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。</p>
+<h3 id="onmousedown、onmouseup-以及-onclick-事件"><a href="#onmousedown、onmouseup-以及-onclick-事件" class="headerlink" title="onmousedown、onmouseup 以及 onclick 事件"></a>onmousedown、onmouseup 以及 onclick 事件</h3><p>onmousedown, onmouseup 以及 onclick 构成了鼠标点击事件的所有部分。<br>当点击鼠标按钮时，会触发 onmousedown 事件；<br>当释放鼠标按钮时，会触发 onmouseup 事件；<br>当完成鼠标点击时，会触发 onclick 事件。</p>
+<p>onfocus 和 onblur 事件</p>
+<p>元素（字段，一般是 input 或 a）获得和失去焦点时</p>
+<blockquote>
+<p>让 div 拥有 tab 并具有 onfucus 和 onblur 属性:<br>给元素创建tab属性：tabindex=参数 (这里和z-index类似，计算tab起点)。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;<span class="name">div</span> <span class="attr">tabindex</span>=<span class="string">"0"</span> <span class="attr">hidefocus</span>=<span class="string">"true"</span> <span class="attr">onfocus</span>=<span class="string">'alert("得到焦点");'</span> <span class="attr">onblur</span>=<span class="string">'alert("失去焦点");'</span> <span class="attr">style</span>=<span class="string">"border:1px solid #ccc;width:200px;height:200px;outline=0;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<blockquote>
+<p>定义tab属性后，元素是默认会加上焦点虚线的，那么在 IE 中可以通过 hidefocus=”true” 去除！其他浏览器通过 outline=0 进行去除！</p>
+</blockquote>
+<h2 id="HTML-DOM-元素（节点）"><a href="#HTML-DOM-元素（节点）" class="headerlink" title="HTML DOM 元素（节点）"></a>HTML DOM 元素（节点）</h2><p><strong>添加和删除节点（HTML 元素）</strong></p>
+<h3 id="创建新的-HTML-元素"><a href="#创建新的-HTML-元素" class="headerlink" title="创建新的 HTML 元素"></a>创建新的 HTML 元素</h3><p>必须首先<strong>创建该元素</strong>（元素节点），然后向一个<strong>已存在的元素追加</strong>该元素。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"div1"</span>&gt;</span><br><span class="line">&lt;p id=<span class="string">"p1"</span>&gt;这是一个段落&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// 创建新的 &lt;p&gt; 元素</span></span><br><span class="line"><span class="keyword">var</span> para=<span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span><br><span class="line"><span class="comment">// 创建文本节点</span></span><br><span class="line"><span class="keyword">var</span> node=<span class="built_in">document</span>.createTextNode(<span class="string">"这是新段落。"</span>);</span><br><span class="line"><span class="comment">// 向 &lt;p&gt; 元素追加这个文本节点</span></span><br><span class="line">para.appendChild(node);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找到一个已有的元素</span></span><br><span class="line"><span class="keyword">var</span> element=<span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span><br><span class="line"><span class="comment">// 向这个已有的元素追加新元素</span></span><br><span class="line">element.appendChild(para);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="删除已有的-HTML-元素"><a href="#删除已有的-HTML-元素" class="headerlink" title="删除已有的 HTML 元素"></a>删除已有的 HTML 元素</h3><p>必须首先获得该元素的<strong>父元素</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"div1"</span>&gt;</span><br><span class="line">&lt;p id=<span class="string">"p1"</span>&gt;这是一个段落。&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// 找到 id="div1" 的元素</span></span><br><span class="line"><span class="keyword">var</span> parent=<span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span><br><span class="line"><span class="comment">// 找到 id="p1" 的 &lt;p&gt; 元素</span></span><br><span class="line"><span class="keyword">var</span> child=<span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);</span><br><span class="line"><span class="comment">// 从父元素中删除子元素</span></span><br><span class="line">parent.removeChild(child);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>不引用父元素的常用解决方案：找到您希望删除的子元素，然后使用其 <strong>parentNode</strong> 属性来找到父元素：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> child=<span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);</span><br><span class="line">child.parentNode.removeChild(child);</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="JS-对象-1"><a href="#JS-对象-1" class="headerlink" title="JS 对象"></a>JS 对象</h1><h2 id="JS-对象-2"><a href="#JS-对象-2" class="headerlink" title="JS 对象"></a>JS 对象</h2><p>访问对象属性：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objectName.propertyName</span><br></pre></td></tr></tbody></table></figure>
+
+<p>调用对象方法：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objectName.methodName()</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<p>###创建对象</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">person=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name=<span class="string">"HHH"</span>;</span><br><span class="line">person.age=<span class="number">55</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>替代语法（使用对象 literals）：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person={<span class="attr">name</span>:<span class="string">"HHH"</span>,<span class="attr">age</span>:<span class="number">55</span>};</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<p>###使用对象构造器</p>
+<p>​    使用函数来构造对象：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">firstname,lastname,age,eyecolor</span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一旦您有了对象构造器，就可以创建新的对象实例，就像这样：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HHH=<span class="keyword">new</span> person(<span class="string">"HHH"</span>,<span class="number">55</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="把属性添加到对象"><a href="#把属性添加到对象" class="headerlink" title="把属性添加到对象"></a>把属性添加到对象</h3><p>向已有对象添加新属性：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person.age=<span class="number">56</span>; <span class="comment">// 直接赋值即可</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="把方法添加到-JavaScript-对象"><a href="#把方法添加到-JavaScript-对象" class="headerlink" title="把方法添加到 JavaScript 对象"></a>把方法添加到 JavaScript 对象</h3><p>方法只不过是附加在对象上的函数。</p>
+<p>在构造器函数内部定义对象的方法：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name,age</span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.changeName=changeName;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">changeName</span>(<span class="params">name</span>)</span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">    	<span class="keyword">this</span>.name=name;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-数字"><a href="#JS-数字" class="headerlink" title="JS 数字"></a>JS 数字</h2><h2 id="JS-数字-1"><a href="#JS-数字-1" class="headerlink" title="JS 数字"></a>JS 数字</h2><p>所有 JavaScript 数字均为 64 位</p>
+<p>整数（不使用小数点或指数计数法）最多为 15 位。</p>
+<p>小数的最大位数是 17，但是浮点运算并不总是 100% 准确</p>
+<p><strong>属性</strong>：</p>
+<ul>
+<li>MAX VALUE</li>
+<li>MIN VALUE</li>
+<li>NEGATIVE INFINITIVE</li>
+<li>POSITIVE INFINITIVE</li>
+<li>NaN</li>
+<li>prototype</li>
+<li>constructor</li>
+</ul>
+<p><strong>方法</strong>：</p>
+<ul>
+<li>toExponential()</li>
+<li>toFixed()</li>
+<li>toPrecision()</li>
+<li>toString()</li>
+<li>valueOf()</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> y=<span class="number">0377</span>; <span class="comment">// 八进制  前缀 0</span></span><br><span class="line"><span class="keyword">var</span> z=<span class="number">0xFF</span>; <span class="comment">// 十六进制 前缀0x</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-字符串"><a href="#JS-字符串" class="headerlink" title="JS 字符串"></a>JS 字符串</h2><p>计算长度 <code>str.length</code></p>
+<p>添加样式 <code>str = s.big() + s.small() + s.bold() + s.italics()</code><br>​        s.blink() 闪动字符串    s.fixed() 打字机文本    strike() 删除线<br>​        s.fontcolor(“Red”)    s.fontsize(16)<br>​        s.toLowerCase()    s.toUpperCase()<br>​        s.sub() 下标    s.sup() 上标</p>
+<p>定位字符串 <code>str.indexOf(s)</code><br>​        定位字符串中某一个指定的字符(串)首次出现的位置，没有则返回 -1</p>
+<p>查找字符串 <code>str.match(s)</code><br>​        查找字符串中特定的字符(串)，如果找到则返回这个字符，否则返回 null</p>
+<p>替换字符串 <code>str.replace(/s1/, "s2")</code><br>​        返回替换后的字符串，原字符串斜杠包裹，新字符串普通</p>
+<h2 id="JS-日期"><a href="#JS-日期" class="headerlink" title="JS 日期"></a>JS 日期</h2><p>当前日期时间 <code>Data()</code> <code>Fri Feb 09 2018 21:21:21 GMT+0800 (中国标准时间)</code></p>
+<p>时间戳（1970/1/1年迄今毫秒数） <code>getTime()</code> <code>1518183016383</code></p>
+<p>###定义日期</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myDate=new Date()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>​    注释：Date 对象自动使用当前的日期和时间作为其初始值。</p>
+<p>###操作日期</p>
+<p>​    使用 setFullYear() 设置具体的日期<br>​    注意：表示月份的参数介于 <strong>0 到 11</strong> 之间。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">d.setFullYear(<span class="number">1992</span>,<span class="number">10</span>,<span class="number">3</span>)</span><br><span class="line"><span class="built_in">document</span>.write(d)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>​    输出结果：<code>Tue Nov 03 1992 21:32:52 GMT+0800 (中国标准时间)</code></p>
+<hr>
+<p>​    设置 5 天后的日期</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate=<span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">myDate.setDate(myDate.getDate()+<span class="number">5</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="比较日期"><a href="#比较日期" class="headerlink" title="比较日期"></a>比较日期</h3><p>​    将当前日期与 2008 年 8 月 9 日做比较:</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">myDate.setFullYear(<span class="number">2008</span>,<span class="number">8</span>,<span class="number">9</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (myDate&gt;today) {  }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>###日期转化</p>
+<p>使用 toUTCString() 将当日的日期（根据 UTC）转换为字符串</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="built_in">document</span>.write (d.toUTCString())</span><br></pre></td></tr></tbody></table></figure>
+
+<p>​    输出结果：<code>Fri, 09 Feb 2018 13:35:52 GMT</code></p>
+<p>今天是星期几</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">d.getDay() <span class="comment">// 星期几（0日，6六）</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>###网页版动态钟表</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">startTime</span><span class="params">()</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> today=<span class="keyword">new</span> <span class="built_in">Date</span>()</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> h=today.getHours()</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> m=today.getMinutes()</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> s=today.getSeconds()</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// add a zero in front of numbers&lt;10</span></span></span><br><span class="line">    m=checkTime(m)</span><br><span class="line">    s=checkTime(s)</span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'txt'</span>).innerHTML=h+<span class="string">":"</span>+m+<span class="string">":"</span>+s</span></span><br><span class="line"><span class="actionscript">    t=setTimeout(<span class="string">'startTime()'</span>,<span class="number">500</span>)</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">checkTime</span><span class="params">(i)</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="actionscript">    <span class="keyword">if</span> (i&lt;<span class="number">10</span>) </span></span><br><span class="line"><span class="actionscript">    {i=<span class="string">"0"</span> + i}</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> i</span></span><br><span class="line">}</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"startTime()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"txt"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-算数"><a href="#JS-算数" class="headerlink" title="JS 算数"></a>JS 算数</h2><p><strong>Math（算数）对象的作用是：执行常见的算数任务。</strong></p>
+<p>四舍五入 <code>Math.round(x)</code></p>
+<ul>
+<li>Math.round(0.50) == 1</li>
+<li>Math.round(-4.40) == -4</li>
+<li>Math.round(-4.60) == -5</li>
+</ul>
+<p>随机 0 - 1 之间的数 <code>Math.random()</code></p>
+<p>取最大/小值 <code>Math.max()</code>和 <code>Math.min()</code></p>
+<blockquote>
+<p>在 ECMASCript v3 之前，该方法只有两个参数。</p>
+</blockquote>
+<p>下面的例子使用了 Math 对象的 floor() 方法和 random() 来返回一个介于 0 和 10 之间的随机数：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">11</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<p>JavaScript 提供 8 种可被 Math 对象访问的算数值：</p>
+<ul>
+<li>常数 Math.E</li>
+<li>圆周率 Math.PI</li>
+<li>2 的平方根 Math.SQRT2</li>
+<li>1/2 的平方根 Math.SQRT1_2</li>
+<li>2 的自然对数 Math.LN2</li>
+<li>10 的自然对数 Math.LN10</li>
+<li>以 2 为底的 e 的对数 Math.LOG2E</li>
+<li>以 10 为底的 e 的对数 Math.LOG10E</li>
+</ul>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="定义-RegExp"><a href="#定义-RegExp" class="headerlink" title="定义 RegExp"></a>定义 RegExp</h3><p>通过 new 关键词来定义 RegExp 对象。以下代码定义了名为 patt1 的 RegExp 对象，其模式是 “e”：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patt1=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"e"</span>); <span class="comment">// 将寻找的是字符 "e"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="RegExp-对象的方法"><a href="#RegExp-对象的方法" class="headerlink" title="RegExp 对象的方法"></a>RegExp 对象的方法</h3><p>RegExp 对象有 3 个方法：test()、exec() 以及 compile()</p>
+<p><code>test()</code> 方法检索字符串中的指定值。返回值是 true 或 false。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patt1=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"e"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(patt1.test(<span class="string">"best life"</span>));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>​    由于该字符串中存在字母 “e”，以上代码的输出将是：true</p>
+<p><code>exec()</code> 方法检索字符串中的指定值。返回值是被找到的值。如果没有发现匹配，则返回 null。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patt1=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"e"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(patt1.exec(<span class="string">"The best things in life are free"</span>));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>​    由于该字符串中存在字母 “e”，以上代码的输出将是：e</p>
+<hr>
+<p>您可以向 RegExp 对象添加第二个参数，以设定检索。例如，如果需要找到所有某个字符的所有存在，则可以使用 “g” 参数 (“global”)。</p>
+<p>在使用 “g” 参数时，exec() 的工作原理如下：</p>
+<ul>
+<li>找到第一个 “e”，并存储其位置</li>
+<li>如果再次运行 exec()，则从存储的位置开始检索，并找到下一个 “e”，并存储其位置</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patt1=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"e"</span>,<span class="string">"g"</span>);</span><br><span class="line"><span class="keyword">do</span> {</span><br><span class="line">    result=patt1.exec(<span class="string">"The best things in life are free"</span>);</span><br><span class="line">    <span class="built_in">document</span>.write(result);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">while</span> (result!=<span class="literal">null</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由于这个字符串中 6 个 “e” 字母，代码的输出将是：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eeeeeenull</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<p><code>compile()</code> 方法用于改变 RegExp。既可以改变检索模式，也可以添加或删除第二个参数。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patt1=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"e"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(patt1.test(<span class="string">"The best things in life are free"</span>));</span><br><span class="line">patt1.compile(<span class="string">"d"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(patt1.test(<span class="string">"The best things in life are free"</span>));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由于字符串中存在 “e”，而没有 “d”，以上代码的输出是：truefalse</p>
+<h1 id="JS-Window"><a href="#JS-Window" class="headerlink" title="JS Window"></a>JS Window</h1><h2 id="Window-尺寸"><a href="#Window-尺寸" class="headerlink" title="Window 尺寸"></a>Window 尺寸</h2><p>有三种方法能够确定浏览器窗口的尺寸（浏览器的视口，不包括工具栏和滚动条）。</p>
+<p>对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：</p>
+<ul>
+<li>window.innerHeight - 浏览器窗口的内部高度</li>
+<li>window.innerWidth - 浏览器窗口的内部宽度</li>
+</ul>
+<p>对于 Internet Explorer 8、7、6、5：</p>
+<ul>
+<li>document.documentElement.clientHeight</li>
+<li>document.documentElement.clientWidth</li>
+</ul>
+<p>或者</p>
+<ul>
+<li>document.body.clientHeight</li>
+<li>document.body.clientWidth</li>
+</ul>
+<p>显示浏览器窗口的高度和宽度：（涵盖所有浏览器，不包括工具栏/滚动条）：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> w=<span class="built_in">window</span>.innerWidth</span><br><span class="line">|| <span class="built_in">document</span>.documentElement.clientWidth</span><br><span class="line">|| <span class="built_in">document</span>.body.clientWidth;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> h=<span class="built_in">window</span>.innerHeight</span><br><span class="line">|| <span class="built_in">document</span>.documentElement.clientHeight</span><br><span class="line">|| <span class="built_in">document</span>.body.clientHeight;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="其他-Window-方法"><a href="#其他-Window-方法" class="headerlink" title="其他 Window 方法"></a>其他 Window 方法</h3><ul>
+<li>window.open() - 打开新窗口</li>
+<li>window.close() - 关闭当前窗口</li>
+<li>window.moveTo() - 移动当前窗口</li>
+<li>window.resizeTo() - 调整当前窗口的尺寸</li>
+</ul>
+<h2 id="JS-Screen"><a href="#JS-Screen" class="headerlink" title="JS Screen"></a>JS Screen</h2><p><em>window.screen</em> 对象在编写时可以不使用 window 这个前缀。</p>
+<p>一些属性：</p>
+<ul>
+<li>screen.availWidth - 可用的屏幕宽度</li>
+<li>screen.availHeight - 可用的屏幕高度</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"可用宽度："</span> + screen.availWidth);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-Location"><a href="#JS-Location" class="headerlink" title="JS Location"></a>JS Location</h2><p><em>window.location</em> 对象在编写时可不使用 window 这个前缀。</p>
+<p>一些例子：</p>
+<ul>
+<li>location.href 返回当前页面的 URL</li>
+<li>location.pathname 属性返回 URL 的路径名和文件名</li>
+<li><strong>location.assign()</strong> 方法加载新的文档</li>
+<li>location.hostname 返回 web 主机的域名</li>
+<li>location.port 返回 web 主机的端口 （80 或 443）</li>
+<li>location.protocol 返回所使用的 web 协议（http:// 或 https://）</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">newDoc</span><span class="params">()</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="javascript">	<span class="built_in">window</span>.location.assign(<span class="string">"http://www.w3school.com.cn"</span>)</span></span><br><span class="line">}</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"加载新文档"</span> <span class="attr">onclick</span>=<span class="string">"newDoc()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-History"><a href="#JS-History" class="headerlink" title="JS History"></a>JS History</h2><p><em>window.history</em> 对象在编写时可不使用 window 这个前缀。</p>
+<p>为了保护用户隐私，对 JavaScript 访问该对象的方法做出了限制。</p>
+<p>一些方法：</p>
+<ul>
+<li>history.back() - 与在浏览器点击后退按钮相同</li>
+<li>history.forward() - 与在浏览器中点击按钮向前相同</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">goBack</span><span class="params">()</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="javascript">	<span class="built_in">window</span>.history.back()</span></span><br><span class="line">}</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Back"</span> <span class="attr">onclick</span>=<span class="string">"goBack()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-Navigator"><a href="#JS-Navigator" class="headerlink" title="JS Navigator"></a>JS Navigator</h2><p>window.navigator 对象包含有关访问者浏览器的信息。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"example"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">txt = <span class="string">"&lt;p&gt;Browser CodeName: "</span> + navigator.appCodeName + <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">txt+= <span class="string">"&lt;p&gt;Browser Name: "</span> + navigator.appName + <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">txt+= <span class="string">"&lt;p&gt;Browser Version: "</span> + navigator.appVersion + <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">txt+= <span class="string">"&lt;p&gt;Cookies Enabled: "</span> + navigator.cookieEnabled + <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">txt+= <span class="string">"&lt;p&gt;Platform: "</span> + navigator.platform + <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">txt+= <span class="string">"&lt;p&gt;User-agent header: "</span> + navigator.userAgent + <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">txt+= <span class="string">"&lt;p&gt;User-agent language: "</span> + navigator.systemLanguage + <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"example"</span>).innerHTML=txt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>警告：来自 navigator 对象的信息具有误导性，不应该被用于检测浏览器版本，这是因为：</p>
+<ul>
+<li>navigator 数据可被浏览器使用者更改</li>
+<li>浏览器无法报告晚于浏览器发布的新操作系统</li>
+</ul>
+<h3 id="浏览器检测"><a href="#浏览器检测" class="headerlink" title="浏览器检测"></a>浏览器检测</h3><p>由于 navigator 可误导浏览器检测，使用对象检测可用来嗅探不同的浏览器。</p>
+<p>由于不同的浏览器支持不同的对象，您可以使用对象来检测浏览器。例如，由于只有 Opera 支持属性 “window.opera”，您可以据此识别出 Opera。</p>
+<p>例子：<code>if (window.opera) {...some action...}</code></p>
+<h2 id="JS-消息框"><a href="#JS-消息框" class="headerlink" title="JS 消息框"></a>JS 消息框</h2><p>警告框 <code>alert("文本")</code> 点击确定按钮才能继续操作</p>
+<p>确认框 <code>confirm("文本")</code> 点击确定或者取消按钮才能继续，返回值 true 和 false</p>
+<p>提示框 <code>prompt("文本","默认值")</code> 输入后点击确认或取消按钮才能继续</p>
+<h2 id="JS-计时"><a href="#JS-计时" class="headerlink" title="JS 计时"></a>JS 计时</h2><p><code>var t = setTimeout("javascript语句",毫秒)</code> 未来的某时执行代码</p>
+<p><code>clearTimeout(setTimeout_variable)</code> 取消 <code>setTimeout()</code></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = setTimeout(<span class="string">"alert('5秒')"</span>,<span class="number">5000</span>) <span class="comment">// 5s 后警告框</span></span><br><span class="line">clearTimeout(t) <span class="comment">// 取消 5s 后的警告框</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-Cookies"><a href="#JS-Cookies" class="headerlink" title="JS Cookies"></a>JS Cookies</h2><p>创建一个欢迎 Cookies</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// 检查 document.cookie 对象中是否存有 cookie</span></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span><span class="params">(c_name)</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (<span class="built_in">document</span>.cookie.length&gt;<span class="number">0</span>)</span></span><br><span class="line">    {</span><br><span class="line"><span class="javascript">        c_start=<span class="built_in">document</span>.cookie.indexOf(c_name + <span class="string">"="</span>)</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span> (c_start!=<span class="number">-1</span>)</span></span><br><span class="line">        { </span><br><span class="line">            c_start=c_start + c_name.length+1 </span><br><span class="line"><span class="javascript">            c_end=<span class="built_in">document</span>.cookie.indexOf(<span class="string">";"</span>,c_start)</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (c_end==<span class="number">-1</span>) c_end=<span class="built_in">document</span>.cookie.length</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">unescape</span>(<span class="built_in">document</span>.cookie.substring(c_start,c_end))</span></span><br><span class="line">        } </span><br><span class="line">    }</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> <span class="string">""</span></span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">// 将天数转换为有效的日期，然后，我们将 cookie 名称、值及其过期日期存入 document.cookie 对象。</span></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span><span class="params">(c_name,value,expiredays)</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> exdate=<span class="keyword">new</span> <span class="built_in">Date</span>()</span></span><br><span class="line">    exdate.setDate(exdate.getDate()+expiredays)</span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.cookie=c_name+ <span class="string">"="</span> +<span class="built_in">escape</span>(value)+</span></span><br><span class="line"><span class="actionscript">    ((expiredays==<span class="literal">null</span>) ? <span class="string">""</span> : <span class="string">";expires="</span>+exdate.toGMTString())</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">// 如果 cookie 已设置则显示欢迎词，否则显示提示框来要求用户输入名字</span></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">checkCookie</span><span class="params">()</span></span></span></span><br><span class="line">{</span><br><span class="line"><span class="actionscript">    username=getCookie(<span class="string">'username'</span>)</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">if</span> (username!=<span class="literal">null</span> &amp;&amp; username!=<span class="string">""</span>)</span></span><br><span class="line">    {</span><br><span class="line"><span class="actionscript">      	alert(<span class="string">'Welcome again '</span>+username+<span class="string">'!'</span>)</span></span><br><span class="line">    }</span><br><span class="line"><span class="actionscript">    <span class="keyword">else</span> </span></span><br><span class="line">    {</span><br><span class="line"><span class="actionscript">        username=prompt(<span class="string">'Please enter your name:'</span>,<span class="string">""</span>)</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span> (username!=<span class="literal">null</span> &amp;&amp; username!=<span class="string">""</span>)</span></span><br><span class="line">        {</span><br><span class="line"><span class="actionscript">          	setCookie(<span class="string">'username'</span>,username,<span class="number">365</span>)</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onLoad</span>=<span class="string">"checkCookie()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="JS-库"><a href="#JS-库" class="headerlink" title="JS 库"></a>JS 库</h1><h2 id="JS-框架（库，helper）"><a href="#JS-框架（库，helper）" class="headerlink" title="JS 框架（库，helper）"></a>JS 框架（库，helper）</h2><p>一些广受欢迎的 JavaScript 框架：</p>
+<ul>
+<li><strong>jQuery</strong>：使用 CSS 选择器来访问和操作网页上的 HTML 元素（DOM 对象），同时提供 companion UI（用户界面）和插件</li>
+<li>Prototype：提供用于执行常见 web 任务的简单 API；提供类和继承</li>
+<li>MooTools：提供了可使常见的 JavaScript 编程更为简单的 API，也含有一些轻量级的效果和动画函数</li>
+</ul>
+<p>其他一些在上面未涉及的框架：</p>
+<p><em>YUI</em> - Yahoo! User Interface Framework，涵盖大量函数的大型库，从简单的 JavaScript 功能到完整的 internet widget。</p>
+<p><em>Ext JS</em> - 可定制的 widget，用于构建富因特网应用程序（rich Internet applications）。</p>
+<p><em>Dojo</em> - 用于 DOM 操作、事件、widget 等的工具包。</p>
+<p><em>script.aculo.us</em> - 开源的 JavaScript 框架，针对可视效果和界面行为。</p>
+<p><em>UIZE</em> - Widget、AJAX、DOM、模板等等。</p>
+<h3 id="CDN-内容分发网络"><a href="#CDN-内容分发网络" class="headerlink" title="CDN - 内容分发网络"></a>CDN - 内容分发网络</h3><p>如果许多不同的网站使用相同的 JavaScript 框架，那么把框架库存放在一个通用的位置供每个网页分享就变得很有意义了。</p>
+<p>CDN (Content Delivery Network) 解决了这个问题。CDN 是包含可分享代码库的服务器网络。</p>
+<p>Google 为一系列 JavaScript 库提供了免费的 CDN，包括：</p>
+<ul>
+<li>jQuery</li>
+<li>Prototype</li>
+<li>MooTools</li>
+<li>Dojo</li>
+<li>Yahoo! YUI</li>
+</ul>
+<p>如需在您的网页中使用 JavaScript 框架库，只需在 <code>&lt;script&gt;</code> 标签中引用该库即可：<em>见下方例子</em></p>
+<h2 id="JS-jQuery"><a href="#JS-jQuery" class="headerlink" title="JS jQuery"></a>JS jQuery</h2><p>引用 jQuery</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>主要的 jQuery 函数是 $() 函数（jQuery 函数）。</p>
+<p>jQuery 允许您通过 CSS 选择器来选取元素。</p>
+<p>示例：分配一个函数以处理窗口加载事件：</p>
+<p><strong>JavaScript 方式</strong>：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">var</span> obj=<span class="built_in">document</span>.getElementById(<span class="string">"h01"</span>);</span><br><span class="line">    obj.innerHTML=<span class="string">"Hello jQuery"</span>;</span><br><span class="line">}</span><br><span class="line">onload=myFunction;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>jQuery 方式</strong>：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	$(<span class="string">"#h01"</span>).html(<span class="string">"Hello jQuery"</span>);</span><br><span class="line">}</span><br><span class="line">$(<span class="built_in">document</span>).ready(myFunction);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由于在 JavaScript 中函数就是变量，因此可以把 myFunction 作为变量传递给 jQuery 的 ready 方法。</p>
+<p>提示：jQuery 返回 jQuery 对象，与已传递的 DOM 对象不同。jQuery 对象拥有的属性和方法，与 DOM 对象的不同。不能在 jQuery 对象上使用 HTML DOM 的属性和方法。</p>
+<p><strong>jQuery 允许链接（链式语法）</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	$(<span class="string">"#h01"</span>).attr(<span class="string">"style"</span>,<span class="string">"color:red"</span>).html(<span class="string">"Hello jQuery"</span>)</span><br><span class="line">}</span><br><span class="line">$(<span class="built_in">document</span>).ready(myFunction);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;h1 id="h01"&gt;&lt;/</span>h1&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="JS-Prototype"><a href="#JS-Prototype" class="headerlink" title="JS Prototype"></a>JS Prototype</h2><p>引用 Prototype：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"http://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>与 jQuery 类似，Prototype 也有自己的 $() 函数。</p>
+<p>$() 函数接受 HTML DOM 元素的 id 值（或 DOM 元素），并会向 DOM 对象添加新的功能。</p>
+<p>与 jQuery 不同，Prototype 没有用以取代 window.onload() 的 ready() 方法。相反，Prototype 会向浏览器及 HTML DOM 添加扩展。</p>
+<p>示例：分配一个函数以处理窗口加载事件：</p>
+<p><strong>JavaScript 方式</strong>：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">var</span> obj=<span class="built_in">document</span>.getElementById(<span class="string">"h01"</span>);</span><br><span class="line">    obj.innerHTML=<span class="string">"Hello Prototype"</span>;</span><br><span class="line">}</span><br><span class="line">onload=myFunction;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>Prototype 方式</strong>：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	$(<span class="string">"h01"</span>).insert(<span class="string">"Hello Prototype!"</span>);</span><br><span class="line">}</span><br><span class="line">Event.observe(<span class="built_in">window</span>,<span class="string">"load"</span>,myFunction);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Event.observe() 接受三个参数：</p>
+<ul>
+<li>您希望处理的 HTML DOM 或 BOM（浏览器对象模型）对象</li>
+<li>您希望处理的事件</li>
+<li>您希望调用的函数</li>
+</ul>
+<p>与 jQuery 相同，Prototype 允许链式语法：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	$(<span class="string">"h01"</span>).writeAttribute(<span class="string">"style"</span>,<span class="string">"color:red"</span>).insert(<span class="string">"Hello Prototype!"</span>);</span><br><span class="line">}</span><br><span class="line">Event.observe(<span class="built_in">window</span>,<span class="string">"load"</span>,myFunction);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;h1 id="h01"&gt;&lt;/</span>h1&gt;</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T07:46:49.043Z" itemprop="dateUpdated">2019-10-13 15:46:49</time>
+</span>
+
+
+        
+        原文链接：<a href="/2019/02/08/JavaScript-学习笔记/" target="_blank" rel="external">http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/&title=《JavaScript-学习笔记》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/&title=《JavaScript-学习笔记》 — 云笺&source=JS 教程JS 简介写入 HTML 输出1document.write("&lt;h1&gt;This is a heading&lt;/h1&gt;")..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript-学习笔记》 — 云笺&url=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/02/11/Android-Spinner用法/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Android Spinner用法
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/08/JS判断是否为微信客户端/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：JS判断是否为微信客户端">下一篇：JS判断是否为微信客户端</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/&title=《JavaScript-学习笔记》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/&title=《JavaScript-学习笔记》 — 云笺&source=JS 教程JS 简介写入 HTML 输出1document.write("&lt;h1&gt;This is a heading&lt;/h1&gt;")..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript-学习笔记》 — 云笺&url=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/02/08/JavaScript-学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3aQY7DIAwF0N7/0p31qEr6bSejCTxWUZUSHgvLxrxe8Xh/jKPfj8bnbOdfed0xMDAwHstIPl995/xfV20TBgbGboyjqY+eq6RkzvPnL2vGwMDAOFhQgklmyL+LgYGBUQ24k0ozmRkDAwOjFzrzoFndiD+qxTEwMB7IyAPl3z/f0t/AwMB4FONdHOfJWX48N1/Jr9kwMDCWZuQBLiclqVtCqhbDGBgYqzIuCHOtY7W8VRCVuxgYGNsw8oA4eSdvQhQ2AgMDY2lG/uFrr0pUQ3DzdBADA2MJxvworbdz+QFc+ZoFBgbG0owksF51gSwviUe3RTAwMJZj3J0I9pLR87Ud1uIYGBiLMvKrEtXgOw+p5f4GBgbGQoxeUZoHxOp/86UfJogYGBjLMSatyrz07R3GFX7BwMDYktFb1uTiRZKAHgZ3DAyM7RlXIXvJZZKeYmBgrM24KpjOG6KT9gAGBsZujF5TM9mCPEznGAwMjN0Y1YsR1dFrc+btUgwMjB0Y0cFWEZMvelLKYmBg7MNInpNDtKsSympLFQMDY1VGL72rtgqqyV+ZioGBsTQjH5OPzQN3bx4MDIyVGL1CdJIgztNHDAyMPRl54Osd0vUSx/xKGQYGBkbeKuhds6iG9S+RHgMDA6OYON7RTrgx4GJgYPxjRlLE5odlyeWM6iWwUSMTAwPj4YxJ3tV7PyflZTMGBsaijB+VukHPWDIvKQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
