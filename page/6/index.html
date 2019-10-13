@@ -194,50 +194,6 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-Qt使用MySQL数据库"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/06/Qt使用MySQL数据库/">Qt使用MySQL数据库</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-06 17:43:00" datetime="2018-11-06T09:43:00.000Z"  itemprop="datePublished">2018-11-06</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><p>1、实现对MySql得数据库插入操作</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QSqlQuery <span class="title">query</span><span class="params">(dbconn)</span></span>;</span><br><span class="line">query.prepare(<span class="string">"INSERT INTO faceimage(FaceData,StrName,Sijian,Shijian)"</span> <span class="string">"VALUES(:FaceData,:StrName,:Sijian,:Shijian)"</span>);  </span><br><span class="line">query.bindValue(<span class="string">":FaceData"</span>,<span class="keyword">this</span>-&gt;ui-&gt;ImageLabel-&gt;text());  </span><br><span class="line">query.bindValue(<span class="string">":StrName"</span>,<span class="keyword">this</span>-&gt;ui-&gt;userName-&gt;text());</span><br><span class="line">query.bindValue(<span class="string">":Sijian"</span>,<span class="keyword">this</span>-&gt;ui-&gt;idNumber-&gt;text());</span><br><span class="line">query.bindValue(<span class="string">":Shijian"</span>,Catchtime);</span><br><span class="line">query.exec();</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/06/Qt使用MySQL数据库/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-C-多个文件共用全局变量"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -992,6 +948,49 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt仿音乐播放器托盘菜单"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/10/01/Qt仿音乐播放器托盘菜单/">Qt仿音乐播放器托盘菜单</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-10-01 19:13:00" datetime="2018-10-01T11:13:00.000Z"  itemprop="datePublished">2018-10-01</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>QT自定义菜单（仿音乐播放器托盘菜单）</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/10/01/Qt仿音乐播放器托盘菜单/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
 
     </div>
     
