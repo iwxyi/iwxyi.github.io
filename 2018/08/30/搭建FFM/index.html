@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/08/30/搭建FFM/">
+    
+    
+    <title>搭建FFM | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="服务器">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="FFM 说明实现无需qq后台，直接借助服务器接收消息通过谷歌云端推送FCM推送到安卓手机，需要科学上网(除非你在国外)和谷歌服务框架，节省手机电量，顺便支持Android 7.0+的通知栏回复。  现在 Web QQ 已经挂掉了，此应用从此失效">
+<meta name="keywords" content="服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建FFM">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/08/30/搭建FFM/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="FFM 说明实现无需qq后台，直接借助服务器接收消息通过谷歌云端推送FCM推送到安卓手机，需要科学上网(除非你在国外)和谷歌服务框架，节省手机电量，顺便支持Android 7.0+的通知栏回复。  现在 Web QQ 已经挂掉了，此应用从此失效">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T05:53:07.709Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建FFM">
+<meta name="twitter:description" content="FFM 说明实现无需qq后台，直接借助服务器接收消息通过谷歌云端推送FCM推送到安卓手机，需要科学上网(除非你在国外)和谷歌服务框架，节省手机电量，顺便支持Android 7.0+的通知栏回复。  现在 Web QQ 已经挂掉了，此应用从此失效">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">搭建FFM</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FFM-说明"><span class="post-toc-number">1.</span> <span class="post-toc-text">FFM 说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一键脚本"><span class="post-toc-number">2.</span> <span class="post-toc-text">一键脚本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分步安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">分步安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-安装Cpanm"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1.安装Cpanm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装Mojo-Webqq"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.安装Mojo-Webqq</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-安装Webqq-Encryption"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.安装Webqq::Encryption</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先安装依赖"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">先安装依赖:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#继续安装模块"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">继续安装模块</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-安装FCM-For-Mojo"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">4.安装FCM For Mojo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装git包管理器"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">安装git包管理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装node-js"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">安装node.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#随后依次执行以下命令"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">随后依次执行以下命令</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后台运行-screen"><span class="post-toc-number">4.</span> <span class="post-toc-text">后台运行 screen</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建screen"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">新建screen</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#screen常用命令"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">screen常用命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动FFM"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">启动FFM</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关闭防火墙"><span class="post-toc-number">5.</span> <span class="post-toc-text">关闭防火墙</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#VIM-用法"><span class="post-toc-number">6.</span> <span class="post-toc-text">VIM 用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改HOSTS"><span class="post-toc-number">7.</span> <span class="post-toc-text">修改HOSTS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#404问题"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">404问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一键机器人"><span class="post-toc-number">8.</span> <span class="post-toc-text">一键机器人</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-搭建FFM"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">搭建FFM</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-08-30 13:48:00" datetime="2018-08-30T05:48:00.000Z"  itemprop="datePublished">2018-08-30</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/运维/">运维</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">2</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="FFM-说明"><a href="#FFM-说明" class="headerlink" title="FFM 说明"></a>FFM 说明</h2><p>实现无需qq后台，直接借助服务器接收消息通过谷歌云端推送FCM推送到安卓手机，需要科学上网(除非你在国外)和谷歌服务框架，节省手机电量，顺便支持Android 7.0+的通知栏回复。</p>
+<blockquote>
+<p>现在 Web QQ 已经挂掉了，此应用从此失效</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="一键脚本"><a href="#一键脚本" class="headerlink" title="一键脚本"></a>一键脚本</h2><p>打基础，cpanm、Mojo-Webqq 这些就不用再装了，直接从下面的第三步开始。不过可能会出问题，最好还是按照下面的步骤来一遍。</p>
+<p>再安装一下依赖，直接启动。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install git -y</span><br><span class="line">git clone https://github.com/null-ecp/FFM-one-step.git &amp;&amp; source ~/FFM-one-step/GCM.sh</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="分步安装"><a href="#分步安装" class="headerlink" title="分步安装"></a>分步安装</h2><h3 id="1-安装Cpanm"><a href="#1-安装Cpanm" class="headerlink" title="1.安装Cpanm"></a>1.安装Cpanm</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -kL https://cpanmin.us | perl - App::cpanminus</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-安装Mojo-Webqq"><a href="#2-安装Mojo-Webqq" class="headerlink" title="2.安装Mojo-Webqq"></a>2.安装Mojo-Webqq</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cpanm Mojo::Webqq</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>部分centos在这一步会报错，重新执行<code>cpanm Mojo::Webqq</code>即可</p>
+</blockquote>
+<h3 id="3-安装Webqq-Encryption"><a href="#3-安装Webqq-Encryption" class="headerlink" title="3.安装Webqq::Encryption"></a>3.安装Webqq::Encryption</h3><h4 id="先安装依赖"><a href="#先安装依赖" class="headerlink" title="先安装依赖:"></a>先安装依赖:</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y perl-Crypt-OpenSSL-RSA perl-Crypt-OpenSSL-Bignum</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="继续安装模块"><a href="#继续安装模块" class="headerlink" title="继续安装模块"></a>继续安装模块</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cpanm Webqq::Encryption</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果 失败则再次安装一遍依赖</p>
+<h3 id="4-安装FCM-For-Mojo"><a href="#4-安装FCM-For-Mojo" class="headerlink" title="4.安装FCM For Mojo"></a>4.安装FCM For Mojo</h3><h4 id="安装git包管理器"><a href="#安装git包管理器" class="headerlink" title="安装git包管理器"></a>安装git包管理器</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://rpm.nodesource.com/setup_9.x | bash -</span><br><span class="line">yum -y install nodejs</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="随后依次执行以下命令"><a href="#随后依次执行以下命令" class="headerlink" title="随后依次执行以下命令"></a>随后依次执行以下命令</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/RikkaApps/FCM-for-Mojo-Server.git</span><br><span class="line">cd FCM-for-Mojo-Server</span><br><span class="line">cp config.example.js config.js</span><br><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure>
+
+<p>自此安装完成</p>
+<hr>
+<h2 id="后台运行-screen"><a href="#后台运行-screen" class="headerlink" title="后台运行 screen"></a>后台运行 screen</h2><p>为了让程序在断开ssh后也能运行，可以安装screen</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y screen</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="新建screen"><a href="#新建screen" class="headerlink" title="新建screen"></a>新建screen</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -S qq</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="screen常用命令"><a href="#screen常用命令" class="headerlink" title="screen常用命令"></a>screen常用命令</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">screen -S [name] //新建screen</span><br><span class="line">screen -r [name] //切换到一个screen</span><br><span class="line">screen -ls //列出所有的screen</span><br><span class="line">exit //关闭当前screen</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可以使用<code>Ctrl+a+d</code>来将当前screen移至后台</p>
+<h3 id="启动FFM"><a href="#启动FFM" class="headerlink" title="启动FFM"></a>启动FFM</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><p>不管可能会 <code>time out</code></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//临时关闭</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">//禁止开机启动</span><br><span class="line">systemctl disable firewalld</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="VIM-用法"><a href="#VIM-用法" class="headerlink" title="VIM 用法"></a>VIM 用法</h2><ul>
+<li>i 在前面编辑</li>
+<li>a 在后面编辑</li>
+<li>:wq 保存退出</li>
+<li>:q 退出</li>
+</ul>
+<h2 id="修改HOSTS"><a href="#修改HOSTS" class="headerlink" title="修改HOSTS"></a>修改HOSTS</h2><p>修改命令</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="404问题"><a href="#404问题" class="headerlink" title="404问题"></a>404问题</h3><blockquote>
+<p>connect.qq.com/proxy.html 404</p>
+</blockquote>
+<p>解决方法是 修改HOSTS改为：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">112.90.143.119 web2.qq.com</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="一键机器人"><a href="#一键机器人" class="headerlink" title="一键机器人"></a>一键机器人</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cpanm Mojo::Webqq &amp;&amp; perl -MMojo::Webqq -e "Mojo::Webqq-&gt;new-&gt;load('ShowMsg')-&gt;load('SmartReply')-&gt;run()"</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>不过现在好像用不了了？</p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T05:53:07.709Z" itemprop="dateUpdated">2019-10-13 13:53:07</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/08/30/搭建FFM/" target="_blank" rel="external">http://blog.iwxyi.com/2018/08/30/搭建FFM/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/08/30/搭建FFM/&title=《搭建FFM》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/08/30/搭建FFM/&title=《搭建FFM》 — 云笺&source=FFM 说明实现无需qq后台，直接借助服务器接收消息通过谷歌云端推送FCM推送到安卓手机，需要科学上网(除非你在国外)和谷歌服务框架，节省手机电量，顺便支..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/08/30/搭建FFM/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《搭建FFM》 — 云笺&url=http://blog.iwxyi.com/2018/08/30/搭建FFM/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/08/30/搭建FFM/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/09/01/Bat常用脚本命令/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Bat常用脚本命令
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/10/IIS允许下载APK安装包/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：IIS允许下载APK安装包">下一篇：IIS允许下载APK安装包</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/08/30/搭建FFM/&title=《搭建FFM》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/08/30/搭建FFM/&title=《搭建FFM》 — 云笺&source=FFM 说明实现无需qq后台，直接借助服务器接收消息通过谷歌云端推送FCM推送到安卓手机，需要科学上网(除非你在国外)和谷歌服务框架，节省手机电量，顺便支..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/08/30/搭建FFM/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《搭建FFM》 — 云笺&url=http://blog.iwxyi.com/2018/08/30/搭建FFM/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/08/30/搭建FFM/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3ay26jQBAFUP//T2c2s4gUmdxbjSPRfVhFmIAPi3K9Xq/4+Pp2fD/z7pqfx88rk6fcfGBgYDyWkTz++gvl/7Vyh+tXg4GBcQLjXQSbPT6/5vpZyfUYGBgY19esp4btpxgYGBhtEMwLziTgJqkkBgbGyYykmEzwSfnapok31+IYGBgPZOTh8u///sh8AwMD41GMr/JIWm9teF35Pv/viYGBsTXjc620NnHMk863d8DAwDiSkQ8m2yK2DdxRCY2BgbEpox0lFu8mSBBvK24xMDC2ZqyUoOsrGrOFVwwMjNMY7arEymJE2+6/IbfFwMDYiHEd+PKSNU8Hk8HD8BcDAwNjO8asHd+eyVtsLW/4G4KBgfEoxiyxW0kK1xdb3+6MYGBgbMqYBco2yLbjz1ngxsDAOIfRLkkMl00/l4BiYGBsx5g9ICk122C9lERiYGBszZglcOuN/pW1VwwMjNMY7QJWPm5sSdd3+OXOGBgYWzPy9Yh8DLlSHieAaAaLgYFxAGO2JHFXcjm7DwYGxsmMvO3VBta8kRcNGDAwMA5jrDTa2mTxFR/FQhgGBsZGjPUw18LallwUuDEwMLZmzILdvcPOPFWtly0wMDA2YrSFaNviv+vV1BsiGBgY2zHuCnxtQdumfdGyBQYGxvGMdvA5K3TrVh0GBgZGufK18jp+Waq4LmIxMDC2ZrQjyfZMseA1e3EYGBhbM/LSsQ2geWuvBQyHmhgYGM9j/APkgkupbj8a1AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

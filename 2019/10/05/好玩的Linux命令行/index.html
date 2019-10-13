@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/">
+    
+    
+    <title>好玩的Linux命令行 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="Linux">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="呼出命令 moo cowsay 你要说的话xcowsay 你要说的话 sl 蒸汽机 oneko 小猫 cmatrix 数据流雨 aafire 代码火 xeyes 两只眼睛 pv 模拟人工打字echo &quot;要说的话&quot; | pv -qL 10 toilet Hello! 字母组成文字图toilet -f mono12 -F metal Hello! 另一个风格 bb 外太空音乐 ASCIIquarium">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="好玩的Linux命令行">
+<meta property="og:url" content="http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="呼出命令 moo cowsay 你要说的话xcowsay 你要说的话 sl 蒸汽机 oneko 小猫 cmatrix 数据流雨 aafire 代码火 xeyes 两只眼睛 pv 模拟人工打字echo &quot;要说的话&quot; | pv -qL 10 toilet Hello! 字母组成文字图toilet -f mono12 -F metal Hello! 另一个风格 bb 外太空音乐 ASCIIquarium">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-e330ec01a1896dd8.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-e38f3fbb340b3900.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/329/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-940d000809b7b54a.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/800/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-13ca1502f3da81e2.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-fd632e6a86cfebb3.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-4bd433fd06e49694.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-5a5e2eac76101834.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-b02371de351aa838.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-6575e0851611f768.gif?imageMogr2/auto-orient/strip|imageView2/2/w/935/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6317408-49605db8a563e106.gif?imageMogr2/auto-orient/strip|imageView2/2/w/935/format/webp">
+<meta property="og:updated_time" content="2019-10-13T05:55:51.360Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="好玩的Linux命令行">
+<meta name="twitter:description" content="呼出命令 moo cowsay 你要说的话xcowsay 你要说的话 sl 蒸汽机 oneko 小猫 cmatrix 数据流雨 aafire 代码火 xeyes 两只眼睛 pv 模拟人工打字echo &quot;要说的话&quot; | pv -qL 10 toilet Hello! 字母组成文字图toilet -f mono12 -F metal Hello! 另一个风格 bb 外太空音乐 ASCIIquarium">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6317408-e330ec01a1896dd8.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">好玩的Linux命令行</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#呼出命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">呼出命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#【前言】"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">【前言】</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、moo"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">一、moo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Cowsay"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">二、Cowsay</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、sl-（Steam-Locomotive）"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">三、sl （Steam Locomotive）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、oneko"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">四、oneko</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、cmatrix"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">五、cmatrix</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、xeyes"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">六、xeyes</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、ASCIIquarium"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">七、ASCIIquarium</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、aview命令"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">八、aview命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、pv"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">九、pv</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-好玩的Linux命令行"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">好玩的Linux命令行</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2019-10-05 13:54:00" datetime="2019-10-05T05:54:00.000Z"  itemprop="datePublished">2019-10-05</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">6</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="呼出命令"><a href="#呼出命令" class="headerlink" title="呼出命令"></a>呼出命令</h1><ul>
+<li><code>moo</code></li>
+<li><code>cowsay 你要说的话</code><br><code>xcowsay 你要说的话</code></li>
+<li><code>sl</code> 蒸汽机</li>
+<li><code>oneko</code> 小猫</li>
+<li><code>cmatrix</code> 数据流雨</li>
+<li><code>aafire</code> 代码火</li>
+<li><code>xeyes</code> 两只眼睛</li>
+<li>pv 模拟人工打字<br><code>echo "要说的话" | pv -qL 10</code></li>
+<li><code>toilet Hello!</code> 字母组成文字图<br><code>toilet -f mono12 -F metal Hello!</code> 另一个风格</li>
+<li><code>bb</code> 外太空音乐</li>
+<li><code>ASCIIquarium</code> 水族箱</li>
+<li><code>asciiview 图片路径</code> 字符图（需要PNG图标）</li>
+<li><code>you-get "网址"</code> 下载网址中的视频</li>
+</ul>
+<a id="more"></a>
+
+
+
+<hr>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="【前言】"><a href="#【前言】" class="headerlink" title="【前言】"></a>【前言】</h2><p>作为一名程序员，在别人的眼里往往是充满科技感、神秘感的，而在我们自己的眼里却往往是觉得无聊、枯燥的。其实，在程序的世界里同样会充满着各种的彩蛋，这些彩蛋往往都是一些大神留下来的，我们未曾发现，只是我们缺少发现程序之美而已。</p>
+<p>今天小编就来唠叨几个程序中，有趣酷炫的命令，来体验一波程序彩蛋之美。</p>
+<p>Tips：施展功力的时候，最好有妹子在身边，装足一波逼的同时，说不定还能脱单哟<del>~</del></p>
+<p>好，废话不多说，直接上命令：</p>
+<h2 id="一、moo"><a href="#一、moo" class="headerlink" title="一、moo"></a>一、moo</h2><p>彩蛋：你今天咩咩了没有？（滑稽眼）</p>
+<p>~$ apt-get moo</p>
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-e330ec01a1896dd8.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h2 id="二、Cowsay"><a href="#二、Cowsay" class="headerlink" title="二、Cowsay"></a>二、<strong>Cowsay</strong></h2><p>彩蛋： 一看名字就知道是牛要说话了，哈哈，没错，就是设定一头牛跟你对话，有意识不？</p>
+<p>这个指令有两种牛，一个是普通的<strong>Cowsay</strong>牛，另一个是加强、纯种的<strong>XCowsay</strong>奶牛，下面就来看看：</p>
+<p>~$ apt-get install cowsay    # 安装【普通牛】程序</p>
+<p>~$ apt-get install xcowsay    # 安装【加强牛】程序</p>
+<p>~$ cowsay 旁边坐的是你女朋友吧！    # 执行</p>
+<p>~$ xcowsay 旁边坐的是你女朋友吧！    # 执行</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-e38f3fbb340b3900.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/329/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-940d000809b7b54a.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/800/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h2 id="三、sl-（Steam-Locomotive）"><a href="#三、sl-（Steam-Locomotive）" class="headerlink" title="三、sl （Steam Locomotive）"></a>三、sl （<strong>Steam Locomotive</strong>）</h2><p>彩蛋：在电脑屏幕上隆隆的驶过一辆蒸汽机火车（有趣吧！全屏效果更好哦~）。</p>
+<p>~$ apt-get install sl      # 安装命令</p>
+<p>~$ sl      # 执行命令</p>
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-13ca1502f3da81e2.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h2 id="四、oneko"><a href="#四、oneko" class="headerlink" title="四、oneko"></a>四、oneko</h2><p>彩蛋：撸猫指令，”oneko”会生成一个图像猫，与你愉快的玩耍。</p>
+<p>~$ apt-get install oneko    # 安装程序</p>
+<p>~$ oneko    # 执行</p>
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-fd632e6a86cfebb3.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h2 id="五、cmatrix"><a href="#五、cmatrix" class="headerlink" title="五、cmatrix"></a>五、<strong>cmatrix</strong></h2><p>彩蛋：有没有想过，你的电脑上也能像黑客片中的一样，让电脑上的数据飞起来，看看那引人瞩目、令人叹为观止的数据流，黑客中最神秘、不可思议的一个场景在自己电脑上是如何实现的。</p>
+<p>~$ apt-get install cmatrix    # 安装程序</p>
+<p>~$ cmatrix    # 执行</p>
+<p>效果（全屏感觉更好）：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-4bd433fd06e49694.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h2 id="六、xeyes"><a href="#六、xeyes" class="headerlink" title="六、xeyes"></a>六、<strong>xeyes</strong></h2><p>彩蛋：生成一双会注视你工作的眼镜。想想在工作中，这是一种什么感觉。。。。。</p>
+<p>~$ apt-get install xeyes  # 安装程序</p>
+<p>~$ xeyes    # 执行</p>
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-5a5e2eac76101834.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h2 id="七、ASCIIquarium"><a href="#七、ASCIIquarium" class="headerlink" title="七、ASCIIquarium"></a>七、<strong>ASCIIquarium</strong></h2><p>彩蛋：把你的linux终端变成一个海洋世界，各种生物在不断呈现，有鱼、有水、有草…，真是Amazing~~</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcurses-perl</span><br><span class="line">cd /tmp</span><br><span class="line">wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz</span><br><span class="line">tar -zxvf Term-Animation-2.4.tar.gz</span><br><span class="line">cd Term-Animation-2.4/</span><br><span class="line">perl Makefile.PL &amp;&amp; make &amp;&amp; make test</span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-b02371de351aa838.gif?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h2 id="八、aview命令"><a href="#八、aview命令" class="headerlink" title="八、aview命令"></a>八、<strong>aview命令</strong></h2><p>彩蛋：想象一下将一张图片以ASCII码格式在终端上显示出来是什么效果？实现后真实酷爆了。。。</p>
+<p><strong>安装aalib-1.4</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://sourceforge.net/projects/aa-project/files/latest/download?source=files # 可能需要手动改下载的文件名</span><br><span class="line">tar xvzf aalib-1.4rc5.tar.gz</span><br><span class="line">cd  aalib-1.4.0</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>二、安装aview</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://prdownloads.sourceforge.net/aa-project/aview-1.3.0rc1.tar.gz</span><br><span class="line">cd  aview-1.3.0</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>三、安装ImageMagick</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ImageMagick</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可能要用：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install imagemagick</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果还是不行，用手动安装：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.imagemagick.org/download/ImageMagick.tar.gz</span><br><span class="line">tar -xzvf ImageMagick.tar.gz</span><br><span class="line">cd ImageMagick-7.0.8-67/</span><br><span class="line">./configure  # 会滚动一段时间</span><br><span class="line">make &amp;&amp; make install  # 需要好久</span><br><span class="line">sudo ldconfig /usr/local/lib</span><br><span class="line">convert -version  # 检查是否成功</span><br><span class="line">convert input.tif output.pdf  # 执行成功当前目录下会生成output.pdf</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>如果convert -version出现convert command notfound，需要配置环境变量<br>vim /etc/profile 添加如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; export ImageMagick_HOME=/usr/local/ImageMagick</span><br><span class="line">&gt; export PATH=$PATH:$ImageMagick_HOME/bin</span><br><span class="line">&gt;</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<p><strong>四、测试是否成功</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asciiview songshu.jpg</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-6575e0851611f768.gif?imageMogr2/auto-orient/strip|imageView2/2/w/935/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h2 id="九、pv"><a href="#九、pv" class="headerlink" title="九、pv"></a><strong>九、pv</strong></h2><p>彩蛋：模仿人工打字。将预先设定好的文字内容按约定的时间逐个输出，类似有人在敲键盘。</p>
+<p>~$ apt-get install pv    # 安装程序</p>
+<p>~$ echo “Tecmint[dot]com is a community of Linux Nerds and Geeks” | pv -qL 10  # 输出设定好的内容</p>
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6317408-49605db8a563e106.gif?imageMogr2/auto-orient/strip|imageView2/2/w/935/format/webp" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+
+
+
+
+<blockquote>
+<p>参考：<a href="https://www.jianshu.com/p/08e9094f61ce" target="_blank" rel="noopener">https://www.jianshu.com/p/08e9094f61ce</a></p>
+</blockquote>
+<hr>
+<p>Linux最强大的一个特征就是它有大量的各种小命令工具，这也可以称做是它最有趣的一个地方了。你要知道，Linux命令终端并不是总来干一些严肃的事情的，这里列举一些很有趣的命令。（它们的有趣并不是因为无用，而是真的有趣。）</p>
+<p>一、cmatrix    （代码雨）</p>
+<p>安装cmatrix：<del>#sudo apt-get install cmatrix<br>执行效果：</del># cmatix<br>二、oneko        （小猫）<br>安装oneko: <del>#sudo apt-get install oneko<br>执行效果:  ~# oneko<br>三、aafire           （代码火）<br>安装：</del>#sudo apt-get install libaa-bin<br>执行效果：<del>#aafire<br>四、ASCIIquarium   （水族馆）<br>安装：</del># cd /tmp<br>          <del># wget <a href="http://www.robobunny.com/projects/asciiquarium/asciiquarium.tar.gz" target="_blank" rel="noopener">http://www.robobunny.com/projects/asciiquarium/asciiquarium.tar.gz</a><br>          ~# tar -zxvf asciiquarium.tar.gz<br>          ~# cd asciiquarium_1.1/<br>          ~# cp asciiquarium /usr/local/bin<br>          ~# chmod 0755 /usr/local/bin/asciiquarium<br>执行效果：</del># asciiquarium<br>五、toilet           （不是厕所！！！它能用字母拼写出更大字母的工具，具体拼出什么字由命令后面的参数决定，不仅如此，它还能打印出各种风格的效果，比如彩色，金属光泽等。）<br>安装： <del># sudo apt-get install toilet<br>执行效果：</del># toilet Hello!<br>                <del># toilet -f mono12 -F metal Hello!   等等<br>六、sl           (蒸汽机。ls是linux命令最常用的一个命令，用来列表文件目录等。因为用的频繁，难免有着急打错的时候，一旦你敲成了 ‘sl’，会出现什么结果？）<br>安装：</del>#sudo apt-get install sl<br>执行效果：<del>#sl<br>七、cowsay 和 xcowsay  (牛牛说话啦！）<br>安装：</del>#sudo apt-get install cowsay<br>      <del>#sudo apt-get install xcowsay<br>执行效果：</del># cowsay 你好<br>          <del># xcowsay 你好<br>八、xeyes       (大眼睛)<br>安装：</del>#sudo apt-get install xeyes<br>执行效果：<del>#xeyes<br>九、moo             (今天你咩咩了没？)<br>无需安装<br>执行效果：</del># apt-get  moo<br>十、bb              (外太空音乐……)<br>安装：~# sudo apt-get install bb<br>执行效果：  ~# bb</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T05:55:51.360Z" itemprop="dateUpdated">2019-10-13 13:55:51</time>
+</span>
+
+
+        
+        原文链接：<a href="/2019/10/05/好玩的Linux命令行/" target="_blank" rel="external">http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/&title=《好玩的Linux命令行》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/&title=《好玩的Linux命令行》 — 云笺&source=呼出命令
+moo
+cowsay 你要说的话xcowsay 你要说的话
+sl 蒸汽机
+oneko 小猫
+cmatrix 数据流雨
+aafire 代码火
+xe..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《好玩的Linux命令行》 — 云笺&url=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/12/单例模式/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：单例模式
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/23/Deepin个人配置/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Deepin个人配置">下一篇：Deepin个人配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/&title=《好玩的Linux命令行》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/&title=《好玩的Linux命令行》 — 云笺&source=呼出命令
+moo
+cowsay 你要说的话xcowsay 你要说的话
+sl 蒸汽机
+oneko 小猫
+cmatrix 数据流雨
+aafire 代码火
+xe..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《好玩的Linux命令行》 — 云笺&url=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/10/05/好玩的Linux命令行/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aO3LDMAxFUe9/006bIqLuA+R4CF5VGSsieVzA+Oj1wtf717W+e3WR1da7PHDJkCFjWwbZnn+e3q2t/wdVhgwZBzCuIth6SxJAySfrvdZnkyFDhoxPHIgkmjJkyJDxVMCtFZykGJYhQ4aMWhHL23Bkha/V4jJkyNiQkYbI//z7I/MNGTJkbMV4hxdZgbfnePC9OZUMGTJGM3iAS4cB6zV5uy1YQYYMGaMZaZgjm6X/3x+OypAhYyqj04jnza90/bi4lSFDxmjGUw219ND8DMXWmwwZMoYy0vBaS/7SYrX1lAwZMgYxOm399G6/VRdXwDJkyBjEqCVtQT8Pp4AcU5xvyJAhYysGeQGChFSyQpp0kq9PhgwZJzD6SWQtRKbjhPRZGTJkTGKswxwJhbXGXG1cepPbypAhYzSj05JLt0wTUNTIkyFDxmhGLe1bB0rC40PQNH2UIUPGVEZtAxKIyV0elG/+U4YMGccweMuet9tq6xd/MWTIkHEAgz9MEkE+AEi/AvS7IUOGjKEMfvTaCxZp8A2CsgwZMg5goLZ7KeHjpW/nhQ8ZMmRMZdTCXGfkWWvY3VBlyJAxmtE/VpospqE8ftlChgwZQxlpuZgWmf2BgQwZMmSQbWpFJnkq/QW4XF+GDBkywHiADAnI5/xUQfyWIUPGkYz+CIGvhr4IGTJkHMColaPps51Qi1JDGTJkDGXw0nEd/mqtND42eGCoKUOGjP0YP+/nDcsQ0JksAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

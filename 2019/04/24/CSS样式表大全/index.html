@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2019/04/24/CSS样式表大全/">
+    
+    
+    <title>CSS样式表大全 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="整理,CSS">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="一、CSS文字属性： color : #999999; /文字颜色/ font-family : 宋体,sans-serif; /文字字体/ font-size : 9pt; /文字大小/ font-style:itelic; /文字斜体/ font-variant:small-caps; /小字体/ letter-spacing : 1pt; /字间距离/ line-height : 200%;">
+<meta name="keywords" content="整理,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS样式表大全">
+<meta property="og:url" content="http://blog.iwxyi.com/2019/04/24/CSS样式表大全/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="一、CSS文字属性： color : #999999; /文字颜色/ font-family : 宋体,sans-serif; /文字字体/ font-size : 9pt; /文字大小/ font-style:itelic; /文字斜体/ font-variant:small-caps; /小字体/ letter-spacing : 1pt; /字间距离/ line-height : 200%;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T05:06:39.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS样式表大全">
+<meta name="twitter:description" content="一、CSS文字属性： color : #999999; /文字颜色/ font-family : 宋体,sans-serif; /文字字体/ font-size : 9pt; /文字大小/ font-style:itelic; /文字斜体/ font-variant:small-caps; /小字体/ letter-spacing : 1pt; /字间距离/ line-height : 200%;">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS样式表大全</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、CSS文字属性："><span class="post-toc-number">1.</span> <span class="post-toc-text">一、CSS文字属性：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、CSS边框空白"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、CSS边框空白</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、CSS符号属性"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、CSS符号属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、CSS背景样式"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、CSS背景样式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、CSS连接属性"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、CSS连接属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、CSS框线一览表"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、CSS框线一览表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、CSS表单运用"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、CSS表单运用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、CSS边界样式"><span class="post-toc-number">8.</span> <span class="post-toc-text">八、CSS边界样式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、CSS滤镜属性"><span class="post-toc-number">9.</span> <span class="post-toc-text">九、CSS滤镜属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#样式大全"><span class="post-toc-number"></span> <span class="post-toc-text">样式大全</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字体属性：-font"><span class="post-toc-number">1.</span> <span class="post-toc-text">字体属性：(font)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景属性：-background"><span class="post-toc-number">2.</span> <span class="post-toc-text">背景属性： (background)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方框属性：-Box"><span class="post-toc-number">3.</span> <span class="post-toc-text">方框属性： (Box)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#边框属性：-Border"><span class="post-toc-number">4.</span> <span class="post-toc-text">边框属性： (Border)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表属性：-List-style"><span class="post-toc-number">5.</span> <span class="post-toc-text">列表属性： (List-style)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定位属性：-Position"><span class="post-toc-number">6.</span> <span class="post-toc-text">定位属性： (Position)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#css属性代码大全"><span class="post-toc-number"></span> <span class="post-toc-text">css属性代码大全</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字体样式-Font-Style"><span class="post-toc-number">1.</span> <span class="post-toc-text">字体样式(Font Style)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文本样式-Text-Style"><span class="post-toc-number">2.</span> <span class="post-toc-text">文本样式(Text Style)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景样式"><span class="post-toc-number">3.</span> <span class="post-toc-text">背景样式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#框架样式-Box-Style"><span class="post-toc-number">4.</span> <span class="post-toc-text">框架样式(Box Style)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类列表"><span class="post-toc-number">5.</span> <span class="post-toc-text">分类列表</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-CSS样式表大全"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CSS样式表大全</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2019-04-24 13:02:00" datetime="2019-04-24T05:02:00.000Z"  itemprop="datePublished">2019-04-24</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">13</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、CSS文字属性："><a href="#一、CSS文字属性：" class="headerlink" title="一、CSS文字属性："></a>一、CSS文字属性：</h2><ul>
+<li>color : #999999; /<em>文字颜色</em>/</li>
+<li>font-family : 宋体,sans-serif; /<em>文字字体</em>/</li>
+<li>font-size : 9pt; /<em>文字大小</em>/</li>
+<li>font-style:itelic; /<em>文字斜体</em>/</li>
+<li>font-variant:small-caps; /<em>小字体</em>/</li>
+<li>letter-spacing : 1pt; /<em>字间距离</em>/</li>
+<li>line-height : 200%; /<em>设置行高</em>/</li>
+<li>font-weight:bold; /<em>文字粗体</em>/</li>
+<li>vertical-align:sub; /<em>下标字</em>/</li>
+<li>vertical-align:super; /<em>上标字</em>/</li>
+<li>text-decoration:line-through; /<em>加删除线</em>/</li>
+<li>text-decoration: overline; /<em>加顶线</em>/</li>
+<li>text-decoration:underline; /<em>加下划线</em>/</li>
+<li>text-decoration:none; /<em>删除链接下划线</em>/</li>
+<li>text-transform : capitalize; /<em>首字大写</em>/</li>
+<li>text-transform : uppercase; /<em>英文大写</em>/</li>
+<li>text-transform : lowercase; /<em>英文小写</em>/</li>
+<li>text-align:right; /<em>文字右对齐</em>/  </li>
+<li>text-align:left; /<em>文字左对齐</em>/</li>
+<li>text-align:center; /<em>文字居中对齐</em>/</li>
+<li>text-align:justify; /<em>文字分散对齐</em>/</li>
+<li>vertical-align属性</li>
+<li>vertical-align:top; /<em>垂直向上对齐</em>/</li>
+<li>vertical-align:bottom; /<em>垂直向下对齐</em>/</li>
+<li>vertical-align:middle; /<em>垂直居中对齐</em>/</li>
+<li>vertical-align:text-top; /<em>文字垂直向上对齐</em>/</li>
+<li>vertical-align:text-bottom; /<em>文字垂直向下对齐</em>/</li>
+</ul>
+<h2 id="二、CSS边框空白"><a href="#二、CSS边框空白" class="headerlink" title="二、CSS边框空白"></a>二、CSS边框空白</h2><ul>
+<li>padding-top:10px; /<em>上边框留空白</em>/</li>
+<li>padding-right:10px; /<em>右边框留空白</em>/</li>
+<li>padding-bottom:10px; /<em>下边框留空白</em>/</li>
+<li>padding-left:10px; /*左边框留空白</li>
+</ul>
+<h2 id="三、CSS符号属性"><a href="#三、CSS符号属性" class="headerlink" title="三、CSS符号属性"></a>三、CSS符号属性</h2><ul>
+<li>list-style-type:none; /<em>不编号</em>/</li>
+<li>list-style-type:decimal; /<em>阿拉伯数字</em>/</li>
+<li>list-style-type:lower-roman; /<em>小写罗马数字</em>/</li>
+<li>list-style-type:upper-roman; /<em>大写罗马数字</em>/</li>
+<li>list-style-type:lower-alpha; /<em>小写英文字母</em>/</li>
+<li>list-style-type:upper-alpha; /<em>大写英文字母</em>/</li>
+<li>list-style-type:disc; /<em>实心圆形符号</em>/</li>
+<li>list-style-type:circle; /<em>空心圆形符号</em>/</li>
+<li>list-style-type:square; /<em>实心方形符号</em>/</li>
+<li>list-style-image:url(/dot.gif); /<em>图片式符号</em>/</li>
+<li>list-style-position: outside; /<em>凸排</em>/</li>
+<li>list-style-position:inside; /<em>缩进</em>/</li>
+</ul>
+<h2 id="四、CSS背景样式"><a href="#四、CSS背景样式" class="headerlink" title="四、CSS背景样式"></a>四、CSS背景样式</h2><ul>
+<li>background-color:#F5E2EC; /<em>背景颜色</em>/  </li>
+<li>background:transparent; /<em>透视背景</em>/</li>
+<li>background-image : url(/image/bg.gif); /<em>背景图片</em>/</li>
+<li>background-attachment : fixed; /<em>浮水印固定背景</em>/</li>
+<li>background-repeat : repeat; /<em>重复排列-网页默认</em>/</li>
+<li>background-repeat : no-repeat; /<em>不重复排列</em>/</li>
+<li>background-repeat : repeat-x; /<em>在x轴重复排列</em>/</li>
+<li>background-repeat : repeat-y; /<em>在y轴重复排列</em>/</li>
+</ul>
+<p>指定背景位置</p>
+<ul>
+<li>background-position : 90% 90%; /<em>背景图片x与y轴的位置</em>/</li>
+<li>background-position : top; /<em>向上对齐</em>/</li>
+<li>background-position : buttom; /<em>向下对齐</em>/</li>
+<li>background-position : left; /<em>向左对齐</em>/</li>
+<li>background-position : right; /<em>向右对齐</em>/</li>
+<li>background-position : center; /<em>居中对齐</em>/</li>
+</ul>
+<h2 id="五、CSS连接属性"><a href="#五、CSS连接属性" class="headerlink" title="五、CSS连接属性"></a>五、CSS连接属性</h2><ul>
+<li>a /<em>所有超链接</em>/</li>
+<li>a:link /<em>超链接文字格式</em>/  </li>
+<li>a:visited /<em>浏览过的链接文字格式</em>/</li>
+<li>a:active /<em>按下链接的格式</em>/</li>
+<li>a:hover /<em>鼠标转到链接</em>/</li>
+</ul>
+<p>鼠标光标样式：</p>
+<ul>
+<li>链接手指 CURSOR: hand</li>
+<li>十字体 cursor:crosshair</li>
+<li>箭头朝下 cursor:s-resize</li>
+<li>十字箭头 cursor:move</li>
+<li>箭头朝右 cursor:move</li>
+<li>加一问号 cursor:help</li>
+<li>箭头朝左 cursor:w-resize</li>
+<li>箭头朝上 cursor:n-resize</li>
+<li>箭头朝右上 cursor:ne-resize</li>
+<li>箭头朝左上 cursor:nw-resize</li>
+<li>文字I型 cursor:text</li>
+<li>箭头斜右下 cursor:se-resize</li>
+<li>箭头斜左下 cursor:sw-resize</li>
+<li>漏斗 cursor:wait</li>
+<li>光标图案(IE6)   p {cursor:url(“光标文件名.cur”),text;}</li>
+</ul>
+<h2 id="六、CSS框线一览表"><a href="#六、CSS框线一览表" class="headerlink" title="六、CSS框线一览表"></a>六、CSS框线一览表</h2><ul>
+<li>border-top : 1px solid #6699cc; /<em>上框线</em>/</li>
+<li>border-bottom : 1px solid #6699cc; /<em>下框线</em>/</li>
+<li>border-left : 1px solid #6699cc; /<em>左框线</em>/  </li>
+<li>border-right : 1px solid #6699cc; /<em>右框线</em>/</li>
+</ul>
+<p>以上是建议书写方式,但也可以使用常规的方式 如下:</p>
+<ul>
+<li>border-top-color : #369 /<em>设置上框线top颜色</em>/</li>
+<li>border-top-width :1px /<em>设置上框线top宽度</em>/</li>
+<li>border-top-style : solid/<em>设置上框线top样式</em>/</li>
+</ul>
+<p>其他框线样式</p>
+<ul>
+<li>solid /<em>实线框</em>/</li>
+<li>dotted /<em>虚线框</em>/</li>
+<li>double /<em>双线框</em>/</li>
+<li>groove /<em>立体内凸框</em>/</li>
+<li>ridge /<em>立体浮雕框</em>/</li>
+<li>inset /<em>凹框</em>/</li>
+<li>outset /<em>凸框</em>/</li>
+</ul>
+<h2 id="七、CSS表单运用"><a href="#七、CSS表单运用" class="headerlink" title="七、CSS表单运用"></a>七、CSS表单运用</h2><ul>
+<li>文字方块  </li>
+<li>按钮  </li>
+<li>复选框  </li>
+<li>选择钮  </li>
+<li>多行文字方块  </li>
+<li>下拉式菜单 选项1选项2</li>
+</ul>
+<h2 id="八、CSS边界样式"><a href="#八、CSS边界样式" class="headerlink" title="八、CSS边界样式"></a>八、CSS边界样式</h2><ul>
+<li>margin-top:10px; /<em>上边界</em>/</li>
+<li>margin-right:10px; /<em>右边界值</em>/</li>
+<li>margin-bottom:10px; /<em>下边界值</em>/</li>
+<li>margin-left:10px; /<em>左边界值</em>/</li>
+</ul>
+<h2 id="九、CSS滤镜属性"><a href="#九、CSS滤镜属性" class="headerlink" title="九、CSS滤镜属性"></a>九、CSS滤镜属性</h2><p>Filter：在样式中加上滤镜特效。由于此属性内容比较多，我们将到下一章单独对滤镜介绍。</p>
+<ol>
+<li><p>Alpha：设置透明度<br>Alpha(Opacity=?, FinishOpacity=?, Style=?, StartX=?, StartY=?, FinishX=?, FinishY=?)<br>Opacity：透明度级别，范围是0-100，0代表完全透明，100代表完全不透明。FinishOpacity：设置渐变的透明效果时，用来指定结束时的透明度，范围也是0 到 100。Style：设置渐变透明的样式，值为0代表统一形状、1代表线形、2代表放射状、3代表长方形。StartX和StartY：代表渐变透明效果的开始X和Y坐标。 FinishX和FinishY：代表渐变透明效果结束X和Y 的坐标。 </p>
+</li>
+<li><p>BlendTrans：图像之间的淡入和淡出的效果<br>BlendTrans(Duration=?) Duration：淡入或淡出的时间。注意：这个滤镜必须配合JS建立图片序列，才能做出图片间效果。</p>
+</li>
+<li><p>Blru：建立模糊效果<br>Blur(Add=?, Direction=?, Strength=?) Add：是否单方向模糊，此参数是一个布尔值，true（非0）或false（0）。 Direction：设置模糊的方向，其中0度代表垂直向上，然后每45度为一个单位。 Strength：代表模糊的象素值。 </p>
+</li>
+<li><p>Chroma：把指定的颜色设置为透明<br>Chroma(Color=?) Color：是指要设置为透明的颜色。</p>
+</li>
+<li><p>DropShadow：建立阴影效果<br>DropShadow(Color=?, OffX=?, OffY=?, Positive=?) Color：指定阴影的颜色。OffX：指定阴影相对于元素在水平方向偏移量，整数。 OffY：指定阴影相对于元素在垂直方向偏移量，整数。 Positive：是一个布尔值，值为true（非0）时，表示为建立外阴影；为false(0)，表示为建立内阴影。 </p>
+</li>
+<li><p>FlipH：将元素水平反转 </p>
+</li>
+<li><p>FlipV：将元素垂直反转<br>8.Glow：建立外发光效效果<br>Glow(Color=?, Strength=?)<br>Color：是指定发光的颜色。<br>Strength：光的强度，可以是1到255之间的任何整数，数字越大，发光的范围就越大。</p>
+</li>
+<li><p>Gray：去掉图像的色彩，显示为黑白图象 </p>
+</li>
+<li><p>Invert：反转图象的颜色，产生类似底片的效果 </p>
+</li>
+<li><p>Light：放置光源的效果，可以用来模拟光源在物体上的投影效果 注意：此效果需要用JS设置光的位置和强度。</p>
+</li>
+<li><p>Mask：建立透明遮罩<br>Mask(Color=?) Color：设置底色，让对象遮住底色的部分透明。</p>
+</li>
+<li><p>RevealTrans：建立切换效果<br>RevealTrans(Duration=?, Transition=?)<br>Duration：是切换时间，以秒为单位。<br>Transtition：是切换方式，可设置为从0到23。<br>注意：如果做页面间的切换效果，可以在<code>&lt;head&gt;</code>区加上一行代码：<code>&lt;Meta http-equiv=Page-enter content=revealTrans(Transition=?,Duration=?) &gt;</code>。如果用在页面里的元素必须配合JS使用。</p>
+</li>
+<li><p>Shadow：建立另一种阴影效果 Shadow(Color=?, Direction=?) Color：是指阴影的颜色。<br>Direction：是设置投影的方向，0度代表垂直向上，然后每45度为一个单位。 </p>
+</li>
+<li><p>Wave：波纹效果<br>Wave(Add=?, Freq=?, LightStrength=?, Phase=?, Strength=?) Add：表示是否显示原对象，0表示不显示，非0表示要显示原对象。 Freq：设置波动的个数。LightStrength：设置波浪效果的光照强度，从0到100。0表示最弱，100表示最强。 Phase：波浪的起始相角。从0到100的百分数值。（例如：25相当于90度，而50相当于180度。） Strength：设置波浪摇摆的幅度。 </p>
+</li>
+<li><p>Xray：显现图片的轮廓，X光片效果<br>注意：在使用CSS滤镜时，必须使用在有区域的元素，比如表格，图片等。而文本，段落这样没有区域的元素不能使用CSS滤镜，对这样的元素我们可以设置元素的Height和Width样式或坐标来实现。</p>
+</li>
+</ol>
+<h1 id="样式大全"><a href="#样式大全" class="headerlink" title="样式大全"></a>样式大全</h1><h2 id="字体属性：-font"><a href="#字体属性：-font" class="headerlink" title="字体属性：(font)"></a>字体属性：(font)</h2><ul>
+<li><p>大小 {font-size: x-large;}(特大) xx-small;(极小) 一般中文用不到，只要用数值就可以，单位：PX、PD</p>
+</li>
+<li><p>样式 {font-style: oblique;}(偏斜体) italic;(斜体) normal;(正常)</p>
+</li>
+<li><p>行高 {line-height: normal;}(正常) 单位：PX、PD、EM</p>
+</li>
+<li><p>粗细 {font-weight: bold;}(粗体) lighter;(细体) normal;(正常)</p>
+</li>
+<li><p>变体 {font-variant: small-caps;}(小型大写字母) normal;(正常)</p>
+</li>
+<li><p>大小写 {text-transform: capitalize;}(首字母大写) uppercase;(大写) lowercase;(小写) none;(无)</p>
+</li>
+<li><p>修饰 {text-decoration: underline;}(下划线) overline;(上划线) line-through;(删除线) blink;(闪烁)</p>
+</li>
+<li><p>常用字体： (font-family)<br>“Courier New”, Courier, monospace, “Times New Roman”, Times, serif, Arial, Helvetica, sans-serif, Verdana</p>
+</li>
+</ul>
+<h2 id="背景属性：-background"><a href="#背景属性：-background" class="headerlink" title="背景属性： (background)"></a>背景属性： (background)</h2><ul>
+<li><p>色彩 {background-color: #FFFFFF;}</p>
+</li>
+<li><p>图片 {background-image: url();}</p>
+</li>
+<li><p>重复 {background-repeat: no-repeat;}</p>
+</li>
+<li><p>滚动 {background-attachment: fixed;}(固定) scroll;(滚动)</p>
+</li>
+<li><p>位置 {background-position: left;}(水平) top(垂直);</p>
+</li>
+<li><p>简写方法 {background:#000 url(..) repeat fixed left top;} /<em>简写·这个在阅读代码中经常出现，要认真的研究</em>/</p>
+</li>
+<li><p>区块属性： (Block) /<em>这个属性第一次认识，要多多研究</em>/</p>
+</li>
+<li><p>字间距 {letter-spacing: normal;} 数值 /<em>这个属性似乎有用，多实践下</em>/</p>
+</li>
+<li><p>对齐 {text-align: justify;}(两端对齐) left;(左对齐) right;(右对齐) center;(居中)</p>
+</li>
+<li><p>缩进 {text-indent: 数值px;}</p>
+</li>
+<li><p>垂直对齐 {vertical-align: baseline;}(基线) sub;(下标) super;(下标) top; text-top; middle; bottom; text-bottom;</p>
+</li>
+<li><p>词间距word-spacing: normal; 数值</p>
+</li>
+<li><p>空格white-space: pre;(保留) nowrap;(不换行)</p>
+</li>
+<li><p>显示 {display:block;}(块) inline;(内嵌) list-item;(列表项) run-in;(追加部分) compact;(紧凑) marker;(标记) table; inline-table; table-raw-group; table-header-group; table-footer-group; table-raw; table-column-group; table-column; table-cell; table-caption;(表格标题) /<em>display 属性的了解很模糊</em>/</p>
+</li>
+</ul>
+<h2 id="方框属性：-Box"><a href="#方框属性：-Box" class="headerlink" title="方框属性： (Box)"></a>方框属性： (Box)</h2><ul>
+<li>width:</li>
+<li>height:</li>
+<li>float:</li>
+<li>clear:both; </li>
+<li>margin:</li>
+<li>padding:</li>
+<li>顺序：上右下左</li>
+</ul>
+<h2 id="边框属性：-Border"><a href="#边框属性：-Border" class="headerlink" title="边框属性： (Border)"></a>边框属性： (Border)</h2><ul>
+<li><p>border-style: dotted;(点线) dashed;(虚线) solid; double;(双线) groove;(槽线) ridge;(脊状) inset;(凹陷) outset;</p>
+</li>
+<li><p>border-width:; 边框宽度</p>
+</li>
+<li><p>border-color:#;</p>
+</li>
+<li><p>简写方法border：width style color; /<em>简写</em>/</p>
+</li>
+</ul>
+<h2 id="列表属性：-List-style"><a href="#列表属性：-List-style" class="headerlink" title="列表属性： (List-style)"></a>列表属性： (List-style)</h2><ul>
+<li><p>类型list-style-type: disc;(圆点) circle;(圆圈) square;(方块) decimal;(数字) lower-roman;(小罗码数字) upper-roman; lower-alpha; upper-alpha;</p>
+</li>
+<li><p>位置list-style-position: outside;(外) inside;</p>
+</li>
+<li><p>图像list-style-image: url(..);</p>
+</li>
+</ul>
+<h2 id="定位属性：-Position"><a href="#定位属性：-Position" class="headerlink" title="定位属性： (Position)"></a>定位属性： (Position)</h2><ul>
+<li><p>Position: absolute; relative; static;</p>
+</li>
+<li><p>visibility: inherit; visible; hidden;</p>
+</li>
+<li><p>overflow: visible; hidden; scroll; auto;</p>
+</li>
+<li><p>clip: rect(12px,auto,12px,auto) (裁切)</p>
+</li>
+</ul>
+<h1 id="css属性代码大全"><a href="#css属性代码大全" class="headerlink" title="css属性代码大全"></a>css属性代码大全</h1><h2 id="字体样式-Font-Style"><a href="#字体样式-Font-Style" class="headerlink" title="字体样式(Font Style)"></a>字体样式(Font Style)</h2><p>序号 中文说明 标记语法</p>
+<ol>
+<li><p>字体样式 {font:font-style font-variant font-weight font-size font-family}</p>
+</li>
+<li><p>字体类型 {font-family:”字体1”,”字体2”,”字体3”,…}</p>
+</li>
+<li><p>字体大小 {font-size:数值|inherit| medium| large| larger| x-large| xx-large| small| smaller| x-small| xx-small}</p>
+</li>
+<li><p>字体风格 {font-style:inherit|italic|normal|oblique}</p>
+</li>
+<li><p>字体粗细 {font-weight:100-900|bold|bolder|lighter|normal;}</p>
+</li>
+<li><p>字体颜色 {color:数值;}</p>
+</li>
+<li><p>阴影颜色 {text-shadow:16位色值}</p>
+</li>
+<li><p>字体行高 {line-height:数值|inherit|normal;}</p>
+</li>
+<li><p>字 间 距 {letter-spacing:数值|inherit|normal}</p>
+</li>
+<li><p>单词间距 {word-spacing:数值|inherit|normal}</p>
+</li>
+<li><p>字体变形 {font-variant:inherit|normal|small-cps }</p>
+</li>
+<li><p>英文转换 {text-transform:inherit|none|capitalize|uppercase|lowercase}</p>
+</li>
+<li><p>字体变形 {font-size-adjust:inherit|none}</p>
+</li>
+<li><p>字体 {font-stretch:condensed|expanded|extra-condensed|extra-expanded|inherit|narrower|normal| semi-condensed|semi-expanded|ultra-condensed|ultra-expanded|wider}</p>
+</li>
+</ol>
+<h2 id="文本样式-Text-Style"><a href="#文本样式-Text-Style" class="headerlink" title="文本样式(Text Style)"></a>文本样式(Text Style)</h2><p>序号 中文说明 标记语法</p>
+<ol>
+<li><p>行 间 距 {line-height:数值|inherit|normal;}</p>
+</li>
+<li><p>文本修饰 {text-decoration:inherit|none|underline|overline|line-through|blink}</p>
+</li>
+<li><p>段首空格 {text-indent:数值|inherit}</p>
+</li>
+<li><p>水平对齐 {text-align:left|right|center|justify}</p>
+</li>
+<li><p>垂直对齐 {vertical-align:inherit|top|bottom|text-top|text-bottom|baseline|middle|sub|super}</p>
+</li>
+<li><p>书写方式 {writing-mode:lr-tb|tb-rl}</p>
+</li>
+</ol>
+<h2 id="背景样式"><a href="#背景样式" class="headerlink" title="背景样式"></a>背景样式</h2><p>序号 中文说明 标记语法</p>
+<ol>
+<li><p>背景颜色 {background-color:数值}</p>
+</li>
+<li><p>背景图片 {background-image: url(URL)|none}</p>
+</li>
+<li><p>背景重复 {background-repeat:inherit|no-repeat|repeat|repeat-x|repeat-y}</p>
+</li>
+<li><p>背景固定 {background-attachment:fixed|scroll}</p>
+</li>
+<li><p>背景定位 {background-position:数值|top|bottom|left|right|center}</p>
+</li>
+<li><p>背影样式 {background:背景颜色|背景图象|背景重复|背景附件|背景位置}</p>
+</li>
+</ol>
+<h2 id="框架样式-Box-Style"><a href="#框架样式-Box-Style" class="headerlink" title="框架样式(Box Style)"></a>框架样式(Box Style)</h2><p>序号 中文说明 标记语法</p>
+<ol>
+<li><p>边界留白 {margin:margin-top margin-right margin-bottom margin-left}</p>
+</li>
+<li><p>补　　白 {padding:padding-top padding-right padding-bottom padding-left}</p>
+</li>
+<li><p>边框宽度 {border-width:border-top-width border-right-width border-bottom-width border-left-width}　　<br>宽度值： thin|medium|thick|数值</p>
+</li>
+<li><p>边框颜色 {border-color:数值 数值 数值 数值}　　数值：分别代表top、right、bottom、left颜色值</p>
+</li>
+<li><p>边框风格 {border-style:none|hidden|inherit|dashed|solid|double|inset|outset|ridge|groove}</p>
+</li>
+<li><p>边　　框 {border:border-width border-style color}<br>上 边 框 {border-top:border-top-width border-style color}<br>右 边 框 {border-right:border-right-width border-style color}<br>下 边 框 {border-bottom:border-bottom-width border-style color}<br>左 边 框 {border-left:border-left-width border-style color}</p>
+</li>
+<li><p>宽　　度 {width:长度|百分比| auto}</p>
+</li>
+<li><p>高　　度 {height:数值|auto}</p>
+</li>
+<li><p>漂　　浮 {float:left|right|none}</p>
+</li>
+<li><p>清　　除 {clear:none|left|right|both}</p>
+</li>
+</ol>
+<h2 id="分类列表"><a href="#分类列表" class="headerlink" title="分类列表"></a>分类列表</h2><p>序号 中文说明 标记语法</p>
+<ol>
+<li><p>控制显示 {display:none|block|inline|list-item}</p>
+</li>
+<li><p>控制空白 {white-space:normal|pre|nowarp}</p>
+</li>
+<li><p>符号列表 {list-style-type:disc|circle|square|decimal|lower-roman|upper-roman|lower-alpha|upper-alpha|none}</p>
+</li>
+<li><p>图形列表 {list-style-image:URL}</p>
+</li>
+<li><p>位置列表 {list-style-position:inside|outside}</p>
+</li>
+<li><p>目录列表 {list-style:目录样式类型|目录样式位置|url}</p>
+</li>
+<li><p>鼠标形状 {cursor:hand|crosshair|text|wait|move|help|e-resize|nw-resize|w-resize|s-resize|se-resize|sw-resize}</p>
+</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T05:06:39.833Z" itemprop="dateUpdated">2019-10-13 13:06:39</time>
+</span>
+
+
+        
+        原文链接：<a href="/2019/04/24/CSS样式表大全/" target="_blank" rel="external">http://blog.iwxyi.com/2019/04/24/CSS样式表大全/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/整理/">整理</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/&title=《CSS样式表大全》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/&title=《CSS样式表大全》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS样式表大全》 — 云笺&url=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/使用Telegram收发微信/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：使用Telegram收发微信
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/20/HTML表单即将提交事件/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：HTML表单即将提交事件">下一篇：HTML表单即将提交事件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/&title=《CSS样式表大全》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/&title=《CSS样式表大全》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS样式表大全》 — 云笺&url=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/04/24/CSS样式表大全/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3ay47CMAxAUf7/p8sWCSW9tgNS7ZsV6jBNTxfGj7xeeF0f6/PK6vP39/d3218/tmTIkPFYxrVdZANynTz6ft+bFyRDhowBDPIQPGjuo+I+NO/3XV6XIUOGDBw6eVqZe30yZMiQkWPwcLn/XxkyZMjYM0gxScrOXMOOhOZjtbgMGTIeyOBd9/9//sl8Q4YMGY9iXMHFG/p8nMkD+nJHGTJktGbwAMdHm/U0MXcHGTJkTGBEj1yQNtmpQhcNUGXIkNGUkduAp4A8HJdGCDJkyGjNqCRq5LAFD9D8yuF8U4YMGY9i8GEASQR5YsfbcDcwGTJkNGXwR8mljPwIRfS1ypAhYw6Dh9doosa7fdHv3DynDBkyWjPOHqHYbxxtyaH5hgwZMpoy+O1yY8toOObBfXlaRIYMGe0YPODmWvzRw17HBgYyZMhoyiDBNFe45v6a+wGQIUNGbwYvQXNjS1IG8/vIkCFjDoOngLmhZi7d5OWrDBkyJjByAZFvHx0tHAPIkCGjHSPaUIsG4rPvePl9GTJkDGDUh5r18UB0FCFDhoxpjHqSx+eJqOcXHXbKkCGjKeMKrujIkzw0KZXRAQsZMmQ0ZURDW7TI5IPPygBVhgwZExi5sWLlQAZpz4XHqDJkyBjAiLbsSeuNl778F2B5ZxkyZMjApFypXN9FhgwZMipHvqKHLZJlsAwZMgYwSCjkKV2lxVZKDWXIkNGUET6dgUPnL4ampaGmDBkynsd4A/XnLLplS2A4AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
