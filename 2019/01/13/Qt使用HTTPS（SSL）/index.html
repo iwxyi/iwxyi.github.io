@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/">
+    
+    
+    <title>Qt使用HTTPS（SSL） | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="C++,Qt,HTTPS">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="一、简述在使用Qt发送HTTP请求中一般使用的链接都是http://前缀，而有的服务器支持 https://前缀的链接，而Qt本身是支持https的，但是https访问需要用到SSL认证，而QT默认是不支持SSL认证，所以在Qt中使用https需要进行SSL认证。实现非常容易，简单几步即可完成。">
+<meta name="keywords" content="C++,Qt,HTTPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt使用HTTPS（SSL）">
+<meta property="og:url" content="http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="一、简述在使用Qt发送HTTP请求中一般使用的链接都是http://前缀，而有的服务器支持 https://前缀的链接，而Qt本身是支持https的，但是https访问需要用到SSL认证，而QT默认是不支持SSL认证，所以在Qt中使用https需要进行SSL认证。实现非常容易，简单几步即可完成。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T11:04:19.161Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qt使用HTTPS（SSL）">
+<meta name="twitter:description" content="一、简述在使用Qt发送HTTP请求中一般使用的链接都是http://前缀，而有的服务器支持 https://前缀的链接，而Qt本身是支持https的，但是https访问需要用到SSL认证，而QT默认是不支持SSL认证，所以在Qt中使用https需要进行SSL认证。实现非常容易，简单几步即可完成。">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Qt使用HTTPS（SSL）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、简述"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、简述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、HTTPS和HTTP的区别"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、HTTPS和HTTP的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、简介"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1、简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、区别"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2、区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、如何进行SSL认证"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、如何进行SSL认证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于两个库文件下载"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">关于两个库文件下载</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Qt使用HTTPS（SSL）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Qt使用HTTPS（SSL）</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2019-01-13 19:03:00" datetime="2019-01-13T11:03:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、简述"><a href="#一、简述" class="headerlink" title="一、简述"></a>一、简述</h2><p>在使用Qt发送HTTP请求中一般使用的链接都是<strong>http://</strong>前缀，而有的服务器支持 <strong>https://</strong>前缀的链接，而Qt本身是支持<strong>https</strong>的，但是<strong>https访问</strong>需要用到<strong>SSL认证</strong>，而QT默认是不支持<strong>SSL认证</strong>，所以在Qt中使用<strong>https</strong>需要进行SSL认证。实现非常容易，简单几步即可完成。</p>
+<a id="more"></a>
+
+<h2 id="二、HTTPS和HTTP的区别"><a href="#二、HTTPS和HTTP的区别" class="headerlink" title="二、HTTPS和HTTP的区别"></a>二、HTTPS和HTTP的区别</h2><h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><blockquote>
+<p>超文本传输协议HTTP被用于在Web浏览器和网站服务器之间传递信息。HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此HTTP协议不适合传输一些敏感信息，比如信用卡号、密码等。</p>
+<p>为了解决HTTP协议的这一缺陷，需要使用另一种协议：安全套接字层超文本传输协议HTTPS。为了数据传输的安全，HTTPS在HTTP的基础上加入了SSL协议，SSL依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。</p>
+</blockquote>
+<h3 id="2、区别"><a href="#2、区别" class="headerlink" title="2、区别"></a>2、区别</h3><blockquote>
+<p>https协议需要到ca申请证书，一般免费证书很少，需要交费。</p>
+<p>http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。</p>
+<p>http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+<p>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+</blockquote>
+<h2 id="三、如何进行SSL认证"><a href="#三、如何进行SSL认证" class="headerlink" title="三、如何进行SSL认证"></a>三、如何进行SSL认证</h2><p>1、首先，因为需要Openssl支持，使用SSL进行认证，所以需要对应的库文件 <strong>libeay32.dll</strong>和<strong>ssleay32.dll</strong>。需要下载<strong>libeay32.dll</strong> 和 <strong>ssleay32.dll</strong>两个库文件，将这两个库文件拷贝到程序生成目录下（即生成exe的同级目录）或者拷贝到QtNetwork模块的库文件目录中。</p>
+<p>2、在发送HTTP请求之前加上如下代码</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">onSendHttpsRequest</span><span class="params">(QString url)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QNetworkAccessManager* pManager = <span class="keyword">new</span> QNetworkAccessManager(<span class="keyword">this</span>);</span><br><span class="line">    QNetworkRequest request;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 发送https请求前准备工作;</span></span><br><span class="line">    QSslConfiguration config;</span><br><span class="line">    QSslConfiguration conf = request.sslConfiguration();</span><br><span class="line">    conf.setPeerVerifyMode(QSslSocket::VerifyNone);</span><br><span class="line">    conf.setProtocol(QSsl::TlsV1SslV3);</span><br><span class="line">    request.setSslConfiguration(conf);</span><br><span class="line"></span><br><span class="line">    request.setUrl(QUrl(url));       <span class="comment">// "https://www.temp.com"</span></span><br><span class="line">    QNetworkReply *pReply = pManager-&gt;post(request, bytePost);</span><br><span class="line"></span><br><span class="line">    connect(pReply , SIGNAL(finished()) , <span class="keyword">this</span> , SLOT(onFinished());</span><br><span class="line">    connect(pReply , SIGNAL(error(QNetworkReply::NetworkError)) , <span class="keyword">this</span> , SLOT(onError(QNetworkReply::NetworkError)));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求完成;</span></span><br><span class="line"><span class="keyword">void</span> onFinished()</span><br><span class="line">{</span><br><span class="line">    QNetworkReply *pReplay = qobject_cast&lt;QNetworkReply*&gt;(sender());</span><br><span class="line">    <span class="comment">// 保存接受的数据;</span></span><br><span class="line">    QByteArray replyContent = pReplay-&gt;readAll();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求失败;</span></span><br><span class="line"><span class="keyword">void</span> onError(QNetworkReply::NetworkError errorCode)</span><br><span class="line">{</span><br><span class="line">    QNetworkReply *pReplay = qobject_cast&lt;QNetworkReply*&gt;(sender());</span><br><span class="line">    <span class="comment">// 输出错误码及错误信息;</span></span><br><span class="line">    qDebug()&lt;&lt; errorCode;</span><br><span class="line">    qDebug()&lt;&lt; pReplay-&gt;errorString();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="关于两个库文件下载"><a href="#关于两个库文件下载" class="headerlink" title="关于两个库文件下载"></a>关于两个库文件下载</h3><p>1、在 <a href="http://slproweb.com/products/Win32OpenSSL.html" target="_blank" rel="noopener">http://slproweb.com/products/Win32OpenSSL.html</a> 中下载 Win32 OpenSSL进行安装，将bin目录下面的库拷贝出来放到生成程序exe同级目录下即可。</p>
+<p>2、 <a href="http://download.csdn.net/detail/goforwardtostep/9709448" target="_blank" rel="noopener">libeay32.dll 、 ssleay32.dll动态链接库 </a>直接在我的资源中进行下载。</p>
+<p>3、<strong>使用everything本地搜索，很多程序可能都有……建议用Qt的MinGW自带的。</strong></p>
+<hr>
+<blockquote>
+<p>参考：<a href="http://blog.csdn.net/goforwardtostep/article/details/53588961" target="_blank" rel="noopener">http://blog.csdn.net/goforwardtostep/article/details/53588961</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T11:04:19.161Z" itemprop="dateUpdated">2019-10-13 19:04:19</time>
+</span>
+
+
+        
+        原文链接：<a href="/2019/01/13/Qt使用HTTPS（SSL）/" target="_blank" rel="external">http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTPS/">HTTPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/&title=《Qt使用HTTPS（SSL）》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/&title=《Qt使用HTTPS（SSL）》 — 云笺&source=一、简述在使用Qt发送HTTP请求中一般使用的链接都是http://前缀，而有的服务器支持 https://前缀的链接，而Qt本身是支持https的，但是..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt使用HTTPS（SSL）》 — 云笺&url=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/14/Qt打包发布应用/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Qt打包发布应用
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/13/Qt使用HTTP/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Qt使用HTTP">下一篇：Qt使用HTTP</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/&title=《Qt使用HTTPS（SSL）》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/&title=《Qt使用HTTPS（SSL）》 — 云笺&source=一、简述在使用Qt发送HTTP请求中一般使用的链接都是http://前缀，而有的服务器支持 https://前缀的链接，而Qt本身是支持https的，但是..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt使用HTTPS（SSL）》 — 云笺&url=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/01/13/Qt使用HTTPS（SSL）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aQXLDIAwFUN//0um6Mwn+EnhheF5l2gR4XmgkoeuKn8/wGX/z12rjXa4nHgwMjNcykiMmf8l3SXavvj4MDIwTGOOwWD3ur89jRr4vBgYGRnKgVdSchIGBgdFjrEKOU0MMDAyMvIidaY0lJfH4m8tqcQwMjBcy5kvT5z4/cr+BgYHxKsan+IyTs2rTf+Yk/1bDwMDYmpEHuHy56mq9gIuBgXEOY9UARLVMrfJumm4YGBjHMKottuowWf468heBgYFxAqM6ANE7Sj5yUV2hOceBgYHxckaUisVpXB5M82vRGxgGBsZ2jHwAa1Vg7SWON7tgYGAcwJg5aC+k5i226AVhYGAcwMgPNJMyJt/Pg+yXK0wMDIxNGeVKt3iF2fvtFAADA2NTRs+dl6a9g5YvDDAwMDZlzKdieYDO8cnZvmS4GBgYmzJm2vd58dm72owy2flbCAwMjFcxZkrZahGb3zz22n8YGBj7MXpDD3nhWk0Nq+kmBgYGxswUVhKIk99GJTQGBsYBjJyUpIDVJl0efG9SQwwMjAMY803/ZZV0MfhiYGDsyug1/atBs0rKW28YGBgnMGaCXTVoVovk6nAGBgbG3ozeVWJerCb/zQNxuWuIgYGxEaMX+Hots/xioFzKYmBgYCziVUcxCtkrBgYGRtBu6w2Z5cniTRGLgYGxNSPfvjqEsWqA42YdDAyMrRnVvGvtuFjehlucPmJgYLyD8QfSpdsZT6eF1AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

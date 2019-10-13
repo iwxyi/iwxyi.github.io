@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/">
+    
+    
+    <title>Qt菊花转动画 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="C++,Qt">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="菊花圆圈转动动画">
+<meta name="keywords" content="C++,Qt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt菊花转动画">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="菊花圆圈转动动画">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T10:50:22.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qt菊花转动画">
+<meta name="twitter:description" content="菊花圆圈转动动画">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Qt菊花转动画</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-Qt菊花转动画"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Qt菊花转动画</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-08-10 18:49:00" datetime="2018-08-10T10:49:00.000Z"  itemprop="datePublished">2018-08-10</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>菊花圆圈转动动画</p>
+<a id="more"></a>
+
+<p><strong>CustomProgressIndicator.h</strong></p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CUSTOMPROGRESSINDICATOR_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CUSTOMPROGRESSINDICATOR_H</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QWidget&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QColor&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 菊花转 进度类，基于代码无需图片资源</span></span><br><span class="line"><span class="comment">* 作者：陈鲁勇</span></span><br><span class="line"><span class="comment">* 邮箱：727057301@qq.com</span></span><br><span class="line"><span class="comment">* 创建时间：2017年2月10日16:26:48</span></span><br><span class="line"><span class="comment">* QT版本：5.0.2</span></span><br><span class="line"><span class="comment">* CSDN：http://blog.csdn.net/csnd_ayo </span></span><br><span class="line"><span class="comment">* **************************************</span></span><br><span class="line"><span class="comment">* 说明：</span></span><br><span class="line"><span class="comment">*   使用前请确保在QT.pro中加入 C++11 的支持</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* 示例代码：</span></span><br><span class="line"><span class="comment">    pIndicator = new CustomProgressIndicator(this);</span></span><br><span class="line"><span class="comment">    pIndicator-&gt;setColor(Qt::red);</span></span><br><span class="line"><span class="comment">    pIndicator-&gt;startAnimation();</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomProgressIndicator</span> :</span> <span class="keyword">public</span> QWidget</span><br><span class="line">{</span><br><span class="line">    Q_OBJECT</span><br><span class="line">    Q_PROPERTY(<span class="keyword">int</span> delay READ animationDelay WRITE setAnimationDelay)</span><br><span class="line">    Q_PROPERTY(<span class="keyword">bool</span> displayedWhenStopped READ isDisplayedWhenStopped WRITE setDisplayedWhenStopped)</span><br><span class="line">    Q_PROPERTY(QColor color READ color WRITE setColor)</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CustomProgressIndicator(QWidget* parent = <span class="number">0</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">animationDelay</span><span class="params">()</span> <span class="keyword">const</span> </span>{ <span class="keyword">return</span> delay_; }</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  动画是否正在进行中  */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isAnimated</span> <span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  动画完毕后，是否隐藏菊花转  */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isDisplayedWhenStopped</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  当前菊花转的颜色  */</span></span><br><span class="line">    <span class="function"><span class="keyword">const</span> QColor &amp; <span class="title">color</span><span class="params">()</span> <span class="keyword">const</span> </span>{ <span class="keyword">return</span> color_; }</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  虚函数：当前大小  */</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> QSize <span class="title">sizeHint</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setBackground</span><span class="params">(<span class="keyword">const</span> QString&amp; _icon)</span> </span>{</span><br><span class="line">        currentPix_ = QPixmap(_icon);</span><br><span class="line">    }</span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Finished</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  开始动画  */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">startAnimation</span><span class="params">()</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  停止动画  */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">stopAnimation</span><span class="params">()</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  设置菊花转的转速  */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setAnimationDelay</span><span class="params">(<span class="keyword">int</span> delay)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  动画完毕后，是否隐藏菊花转  */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setDisplayedWhenStopped</span><span class="params">(<span class="keyword">bool</span> state)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*  设置菊花转颜色  */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setColor</span><span class="params">(<span class="keyword">const</span> QColor &amp; color)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 进度</span></span><br><span class="line"><span class="comment">     * 参数 _progress：当前进度 0 &lt; _progress &lt; 100</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onProgress</span><span class="params">(<span class="keyword">short</span> _progress)</span> </span>{ progress_ = _progress; }</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="comment">/*  系统基类函数 */</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">timerEvent</span><span class="params">(QTimerEvent * event)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">paintEvent</span><span class="params">(QPaintEvent * event)</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">/*  角度  */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> angle_;</span><br><span class="line">    <span class="comment">/*  定时器ID  */</span></span><br><span class="line">    <span class="keyword">int</span> timerId_;</span><br><span class="line">    <span class="comment">/*  转速  */</span></span><br><span class="line">    <span class="keyword">int</span> delay_;</span><br><span class="line">    <span class="comment">/*  是否隐藏  */</span></span><br><span class="line">    <span class="keyword">bool</span> displayedWhenStopped_;</span><br><span class="line">    <span class="comment">/*  菊花转颜色  */</span></span><br><span class="line">    QColor color_;</span><br><span class="line">    <span class="comment">/*  进度  */</span></span><br><span class="line">    <span class="keyword">short</span> progress_;</span><br><span class="line">    <span class="comment">/*  背景图  */</span></span><br><span class="line">    QPixmap currentPix_;</span><br><span class="line">};</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// CUSTOMPROGRESSINDICATOR_H</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>CustomProgressIndicator.cpp</strong></p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"customprogressindicator.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QPainter&gt;</span></span></span><br><span class="line"> </span><br><span class="line">CustomProgressIndicator::CustomProgressIndicator(QWidget* parent)</span><br><span class="line">    : QWidget(parent),</span><br><span class="line">      angle_(<span class="number">0</span>),</span><br><span class="line">      timerId_(<span class="number">-1</span>),</span><br><span class="line">      delay_(<span class="number">20</span>),</span><br><span class="line">      displayedWhenStopped_(<span class="literal">false</span>),</span><br><span class="line">      color_(Qt::green) {</span><br><span class="line">    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);</span><br><span class="line">    setFocusPolicy(Qt::NoFocus);</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">bool</span> CustomProgressIndicator::isAnimated () <span class="keyword">const</span> {</span><br><span class="line">    <span class="keyword">return</span> (timerId_ != <span class="number">-1</span>);</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> CustomProgressIndicator::setDisplayedWhenStopped(<span class="keyword">bool</span> state) {</span><br><span class="line">    displayedWhenStopped_ = state;</span><br><span class="line"> </span><br><span class="line">    update();</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">bool</span> CustomProgressIndicator::isDisplayedWhenStopped() <span class="keyword">const</span> {</span><br><span class="line">    <span class="keyword">return</span> displayedWhenStopped_;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> CustomProgressIndicator::startAnimation() {</span><br><span class="line">    angle_ = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (timerId_ == <span class="number">-1</span>) {</span><br><span class="line">       timerId_ = startTimer(delay_);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> CustomProgressIndicator::stopAnimation() {</span><br><span class="line">    <span class="keyword">if</span> (timerId_ != <span class="number">-1</span>) {</span><br><span class="line">        killTimer(timerId_);</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    timerId_ = <span class="number">-1</span>;</span><br><span class="line"> </span><br><span class="line">    update();</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> CustomProgressIndicator::setAnimationDelay(<span class="keyword">int</span> delay) {</span><br><span class="line">    <span class="keyword">if</span> (timerId_ != <span class="number">-1</span>){</span><br><span class="line">        killTimer(timerId_);</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    delay_ = delay;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (timerId_ != <span class="number">-1</span>){</span><br><span class="line">        timerId_ = startTimer(delay_);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> CustomProgressIndicator::setColor(<span class="keyword">const</span> QColor &amp; color) {</span><br><span class="line">    color_ = color;</span><br><span class="line"> </span><br><span class="line">    update();</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">QSize CustomProgressIndicator::sizeHint() <span class="keyword">const</span> {</span><br><span class="line">    <span class="keyword">return</span> QSize(<span class="number">25</span>,<span class="number">25</span>);</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> CustomProgressIndicator::timerEvent(QTimerEvent * <span class="comment">/*event*/</span>) {</span><br><span class="line">    angle_ = (angle_+<span class="number">30</span>)%<span class="number">360</span>;</span><br><span class="line"> </span><br><span class="line">    update();</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> CustomProgressIndicator::paintEvent(QPaintEvent * <span class="comment">/*event*/</span>) {</span><br><span class="line">    <span class="function">QPainter <span class="title">p</span><span class="params">(<span class="keyword">this</span>)</span></span>;</span><br><span class="line">    p.setRenderHint(QPainter::Antialiasing);</span><br><span class="line">    <span class="keyword">if</span> (!displayedWhenStopped_ &amp;&amp; !isAnimated()) {</span><br><span class="line">        p.drawPixmap(rect(),currentPix_);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> width = qMin(<span class="keyword">this</span>-&gt;width(), <span class="keyword">this</span>-&gt;height());</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> outerRadius = (width<span class="number">-1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> innerRadius = ((width<span class="number">-1</span>) &gt;&gt; <span class="number">1</span>)*<span class="number">0.38</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> capsuleHeight = outerRadius - innerRadius;</span><br><span class="line">    <span class="keyword">int</span> capsuleWidth  = (width &gt; <span class="number">32</span> ) ? capsuleHeight *<span class="number">.23</span> : capsuleHeight *<span class="number">.35</span>;</span><br><span class="line">    <span class="keyword">int</span> capsuleRadius = capsuleWidth &gt;&gt; <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/* 撰写进度 */</span></span><br><span class="line">    <span class="keyword">if</span> (progress_ &gt; <span class="number">0</span> &amp;&amp; progress_ &lt; <span class="number">100</span>) {</span><br><span class="line">        p.setPen(color_);</span><br><span class="line">        p.drawText(rect(), Qt::AlignCenter, QString(<span class="string">"%1%"</span>).arg(progress_));</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (progress_ == <span class="number">100</span>) {</span><br><span class="line">        stopAnimation();</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">12</span>; ++i) {</span><br><span class="line">        QColor color = color_;</span><br><span class="line">        color.setAlphaF(<span class="number">1.0f</span> - (i/<span class="number">12.0f</span>));</span><br><span class="line">        p.setPen(Qt::NoPen);</span><br><span class="line">        p.setBrush(color);</span><br><span class="line">        p.save();</span><br><span class="line">        p.translate(rect().center());</span><br><span class="line">        p.rotate(angle_ - i*<span class="number">30.0f</span>);</span><br><span class="line">        p.drawRoundedRect(((-capsuleWidth) &gt;&gt; <span class="number">1</span>), -(innerRadius+capsuleHeight), capsuleWidth, capsuleHeight, capsuleRadius, capsuleRadius);</span><br><span class="line">        p.restore();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T10:50:22.065Z" itemprop="dateUpdated">2019-10-13 18:50:22</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/08/10/Qt菊花转动画/" target="_blank" rel="external">http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/&title=《Qt菊花转动画》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/&title=《Qt菊花转动画》 — 云笺&source=菊花圆圈转动动画" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt菊花转动画》 — 云笺&url=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/10/IIS允许下载APK安装包/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：IIS允许下载APK安装包
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/04/fread和fwrite转移文件数据/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：fread和fwrite转移文件数据">下一篇：fread和fwrite转移文件数据</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/&title=《Qt菊花转动画》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/&title=《Qt菊花转动画》 — 云笺&source=菊花圆圈转动动画" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt菊花转动画》 — 云笺&url=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/08/10/Qt菊花转动画/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3awW6DQAxFUf7/p+m2VQXcZ08i4bmsooQOc1i4HtvHga/z4rr/9f+dv++/f8rxiUuGDBmvZZDH32+I/xUB8BckQ4aM3RhXS9/fc78OQfLPD3uWIUOGDHxPmhqmv8qQIUMGWQ4laviA2kklZciQsRsjTeNI0OQr9IO4DBkyZjN41f37nz/S35AhQ8arGGd4keJaGl5rO/mzpgwZMkYz0qI/TwH5ptEBlawgQ4aMoQxe/KoFX94AqL0UGTJk7MBYOzzBC2dXq6WHWxkyZOzGIIt2CnMkQVzQAJAhQ8Y4RipOE8Q01HK8DBky9mSkqVtnLIMwgtAvQ4aM0YzOoEPtYWmBLzhmy5AhYzSDJHa8TL9qzKJ4bpUhQ8ZQRhrySMrYr4/xlyVDhowdGLUWIx/LqJXn0m9kyJAxlUEKXjzYke2mAxyokCdDhozRjFqNPQ2m/VBenK+QIUPGCAYPrJ1yWK0tGhyzZciQMZrRKZ+lh9LOSykOh8mQIWMco7PRzigGbw+gopsMGTK2YaQDprxkRr6ptRNkyJCxA6OTonXGNWrPejjEypAhYxDjDC/eSux0Knjgjv8DyJAh44WMVTE7HY/ghbzWsIUMGTIGMWoH0VrzIG0kxOU2GTJkjGZ0ivLkFaw60D6cxWXIkCEjDIv8iJs+MY7fMmTI2IyRthj5dtPiXSvgypAh44WMNL0jyVxaYqsNeciQIWMHBj86psF3VYOBfyNDhoxxjB/JlpNh1fcaZQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
