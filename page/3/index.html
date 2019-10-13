@@ -194,6 +194,226 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-PHP-Redis"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/03/05/PHP-Redis/">PHP Redis</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-03-05 16:29:00" datetime="2019-03-05T08:29:00.000Z"  itemprop="datePublished">2019-03-05</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>开始在 PHP 中使用 Redis 前， 我们需要确保已经安装了 redis 服务及 PHP redis 驱动，且你的机器上能正常使用 PHP。 接下来让我们安装 PHP redis 驱动：下载地址为:<a href="https://github.com/phpredis/phpredis/releases" target="_blank" rel="noopener"><strong>https://github.com/phpredis/phpredis/releases</strong></a>。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/03/05/PHP-Redis/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AJAX"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/02/28/AJAX/">AJAX</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-02-28 15:42:00" datetime="2019-02-28T07:42:00.000Z"  itemprop="datePublished">2019-02-28</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>纯粹的 AJAX</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveInfo</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">var</span> XHR = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">var</span> FD = <span class="keyword">new</span> FormData();</span><br><span class="line">	<span class="keyword">var</span> name = <span class="built_in">document</span>.getElementById(<span class="string">"name"</span>).value;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)</span><br><span class="line">		XHR = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.ActiveXObject)</span><br><span class="line">		XHR = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">	</span><br><span class="line">	FD.append(<span class="string">"name"</span>, name);</span><br><span class="line">	</span><br><span class="line">	XHR.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">if</span> (XHR.readyState == <span class="number">4</span> &amp;&amp; XHR.status == <span class="number">200</span>)</span><br><span class="line">		{</span><br><span class="line">			<span class="keyword">var</span> text = XHR.responseText; <span class="comment">// 返回的文本</span></span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	XHR.open(<span class="string">'POST'</span>, <span class="string">'index.php'</span>, <span class="literal">true</span>)</span><br><span class="line">	XHR.send(FD);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/02/28/AJAX/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/">AJAX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Java-Lambda表达式简写"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/02/28/Java-Lambda表达式简写/">Java Lambda表达式简写</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-02-28 13:11:00" datetime="2019-02-28T05:11:00.000Z"  itemprop="datePublished">2019-02-28</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="1、取代匿名内部类"><a href="#1、取代匿名内部类" class="headerlink" title="1、取代匿名内部类"></a>1、取代匿名内部类</h2><h3 id="无参函数简写"><a href="#无参函数简写" class="headerlink" title="无参函数简写"></a>无参函数简写</h3><p>如果需要新建一个线程，一种常见的写法是这样：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JDK7 匿名内部类写法</span></span><br><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable(){<span class="comment">// 接口名</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{<span class="comment">// 方法名</span></span><br><span class="line">        System.out.println(<span class="string">"Thread run()"</span>);</span><br><span class="line">    }</span><br><span class="line">}).start();</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/02/28/Java-Lambda表达式简写/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lambda/">Lambda</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-generate生成"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/02/28/C-generate生成/">C++ generate生成</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-02-28 07:51:00" datetime="2019-02-27T23:51:00.000Z"  itemprop="datePublished">2019-02-28</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>根据首地址和尾地址来赋值：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">ForwardIterator</span>, <span class="title">class</span> <span class="title">Generator</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">generate</span>(</span></span><br><span class="line"><span class="class">	<span class="title">ForwardIterator</span> _<span class="title">First</span>,</span></span><br><span class="line"><span class="class">	<span class="title">ForwardIterator</span> _<span class="title">Last</span>,</span></span><br><span class="line"><span class="class">	<span class="title">Generator</span> _<span class="title">Gen</span></span></span><br><span class="line"><span class="class">);</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>每次调用该对象，函数为范围的每个元素调用，且不需要返回相同的值。例如，从文件读取或引用和修改本地状态。 生成器的结果类型必须可转换为可用于向前迭代器类型的值范围的。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/02/28/C-generate生成/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android选取相册图片并压缩"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/02/27/Android选取相册图片并压缩/">Android选取相册图片并压缩</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-02-27 11:25:00" datetime="2019-02-27T03:25:00.000Z"  itemprop="datePublished">2019-02-27</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>现在手机中相机的像素越来越高因,手机照的相片就越来越来大, 我们想通过选择相册中图片来显示在界面中,或者进行分享. 因为图片太大的原因很容易造成手机出现OMM而崩溃,一些分享照片的平台对分享图片的大小也有一定的限制.所以我们就必须对从相册选出来的图片进行压缩.</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/02/27/Android选取相册图片并压缩/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Android双指触摸放大图片"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -858,256 +1078,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-Qt加快编译速度"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/01/24/Qt加快编译速度/">Qt加快编译速度</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-01-24 16:58:00" datetime="2019-01-24T08:58:00.000Z"  itemprop="datePublished">2019-01-24</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="设置多核编译"><a href="#设置多核编译" class="headerlink" title="设置多核编译"></a>设置多核编译</h2><p>1.查看是否已经安装了jom工具：C:\Qt\Qt5.4.1\Tools\QtCreator\bin\jom.exe</p>
-<p>2.项目添加参数-j 4【4是cpu的核数，我的是i5，只有四个核心】</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/01/24/Qt加快编译速度/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt发送邮件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/01/23/Qt发送邮件/">Qt发送邮件</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-01-23 18:47:00" datetime="2019-01-23T10:47:00.000Z"  itemprop="datePublished">2019-01-23</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>太难了，卒</p>
-<p>参考博客:<a href="http://www.qtcn.org/bbs/read-htm-tid-56050.html" target="_blank" rel="noopener">http://www.qtcn.org/bbs/read-htm-tid-56050.html</a></p>
-<p>里面有个下载的工具包，包含了api和使用示例。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2019/01/23/Qt发送邮件/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt多显示器"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/01/21/Qt多显示器/">Qt多显示器</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-01-21 18:46:00" datetime="2019-01-21T10:46:00.000Z"  itemprop="datePublished">2019-01-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>先放官方文档链接：QDesktopWidget - Qt5 Reference</p>
-<p>在只有一个显示器的时候，获得显示器分辨率的方法是</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miRPos = QApplication::desktop()-&gt;screenGeometry().width(); <span class="comment">//原来的写法,奇怪的变量名先无视</span></span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/01/21/Qt多显示器/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt窗口出现在屏幕中央（支持多显示器））"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/01/21/Qt窗口出现在屏幕中央（支持多显示器））/">Qt窗口出现在屏幕中央（支持多显示器））</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-01-21 16:55:00" datetime="2019-01-21T08:55:00.000Z"  itemprop="datePublished">2019-01-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>多显示器获取到的是全部屏幕的中央，有时候会卡在两个显示器的中间</p>
-<p>用以下方法解决：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    Window window;<span class="comment">//这个类继承自QWidget</span></span><br><span class="line">    window.move((app.desktop()-&gt;width()&nbsp;- window.width())&nbsp;/&nbsp;<span class="number">2</span>,&nbsp;(app.desktop()-&gt;height()&nbsp;- window.height())&nbsp;/&nbsp;<span class="number">2</span>); </span><br><span class="line">    window.show();</span><br><span class="line">    <span class="keyword">return</span> app.exec();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/01/21/Qt窗口出现在屏幕中央（支持多显示器））/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-ToggleButton开关设置图片"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/01/18/Android-ToggleButton开关设置图片/">Android ToggleButton开关设置图片</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-01-18 10:58:00" datetime="2019-01-18T02:58:00.000Z"  itemprop="datePublished">2019-01-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="图片设置开关"><a href="#图片设置开关" class="headerlink" title="图片设置开关"></a>图片设置开关</h1><ol>
-<li>准备开关不同状态的两张图片放入drawable中。</li>
-<li>xml文件中添加代码：</li>
-</ol>
-    
-        <div class="post-more-div">
-            <a href="/2019/01/18/Android-ToggleButton开关设置图片/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </div>
 </nav>
 
