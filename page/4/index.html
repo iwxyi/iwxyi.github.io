@@ -194,6 +194,551 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Spring框架入门"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/Spring框架入门/">Spring框架入门-学习笔记</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 13:23:00" datetime="2019-01-13T05:23:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>　　Spring框架是个轻量级的Java EE框架。所谓轻量级，是指不依赖于容器就能运行的。Struts、Hibernate也是轻量级的。 </p>
+<p>　　Spring以IoC、AOP为主要思想，其中IoC，Inversion of Control 指控制反转或反向控制。在Spring框架中我们通过配置创建类对象，由Spring在运行阶段实例化、组装对象。AOP，Aspect Oriented Programming，面向切面编程，其思想是在执行某些代码前执行另外的代码，使程序更灵活、扩展性更好，可以随便地添加、删除某些功能。Servlet中的Filter便是一种AOP思想的实现。 </p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/Spring框架入门/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt调用DLL"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/10/Qt调用DLL/">Qt调用DLL</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-10 17:49:00" datetime="2019-01-10T09:49:00.000Z"  itemprop="datePublished">2019-01-10</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="静态链接库（-lib-dll）"><a href="#静态链接库（-lib-dll）" class="headerlink" title="静态链接库（.lib+.dll）"></a>静态链接库（.lib+.dll）</h3><p>声明：** 事先我已经自己动手写了一个简单的dll文件(myDLL.dll),C版接口的。首先，从dll中导出了导入库(.lib)文件，dll中有两个函数，原型如下：</p>
+<p>   void HelloWorld();     //函数内部调用Win32 API,功能是弹出一个helloworld提示框<br>   int add(int a,int b);  //实现两个数相加，并返回结果</p>
+<p> 下面分别通过显示调用和隐式调用两种方法，来模拟Qt如何调用外部dll文件中的功能函数，follow me….</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/10/Qt调用DLL/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-Socket通信"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/08/Qt-Socket通信/">Qt Socket通信</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-08 17:46:00" datetime="2019-01-08T09:46:00.000Z"  itemprop="datePublished">2019-01-08</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>QT的TCP Socket通信仍然有服务端、客户端之分。服务端通过监听某个端口来监听是否有客户端连接到来，如果有连接到来，则建立新的SOCKET连接；客户端通过IP和PORT连接服务端，当成功建立连接之后，就可进行数据的收发了。需要注意的是，在QT中，QT把SOCKET当成输入输出流来对待的，数据的收发是通过read()和write()来进行的，需要与我们常见的send()与recv()进行区分。</p>
+<p>要在QT进行SOCKET通信，需要在 工程名.pro 文件中输入 <code>QT += network</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/08/Qt-Socket通信/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket/">Socket</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android切换Activity"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/03/Android切换Activity/">Android切换Activity并返回数据</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-03 11:19:00" datetime="2019-01-03T03:19:00.000Z"  itemprop="datePublished">2019-01-03</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="切换Activity"><a href="#切换Activity" class="headerlink" title="切换Activity"></a>切换Activity</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(LoginActivity.<span class="keyword">this</span>, MainActivity.class);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="给子Activity传递数据"><a href="#给子Activity传递数据" class="headerlink" title="给子Activity传递数据"></a>给子Activity传递数据</h2><p>如果给新启动的子Activity传递数据，只需要在Intent对象中加入key-value，key为准备传递数据的字符指示名称，value为准备传递的数据</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/03/Android切换Activity/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-QPlainTextEdit用法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/31/Qt-QPlainTextEdit用法/">Qt QPlainTextEdit用法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-31 17:40:00" datetime="2018-12-31T09:40:00.000Z"  itemprop="datePublished">2018-12-31</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>QTextEditor 和 QPlainTextEditor 在一定程度上通用的</p>
+<h2 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toPlainText();</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="设置文本"><a href="#设置文本" class="headerlink" title="设置文本"></a>设置文本</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setPlainText(QString);</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/31/Qt-QPlainTextEdit用法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-SSR-FCM"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/27/SSR-FCM/">SSR+FCM</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-27 14:03:00" datetime="2018-12-27T06:03:00.000Z"  itemprop="datePublished">2018-12-27</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="SSR-FCM"><a href="#SSR-FCM" class="headerlink" title="SSR+FCM"></a>SSR+FCM</h1><h2 id="SSR-BBR"><a href="#SSR-BBR" class="headerlink" title="SSR+BBR"></a>SSR+BBR</h2><h3 id="BBR-加速"><a href="#BBR-加速" class="headerlink" title="BBR 加速"></a>BBR 加速</h3><p>因为安装BBR重启后SSR会失效，需要重新安装，所以先安装BBR</p>
+<blockquote>
+<p>实测 vultr 使用 BBR 加速的话，会经常出现连不上的情况</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>（回车）</li>
+<li>（任意按键重启）</li>
+</ul>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/27/SSR-FCM/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-QCompleter用法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/24/Qt-QCompleter用法/">Qt QCompleter用法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-24 17:33:00" datetime="2018-12-24T09:33:00.000Z"  itemprop="datePublished">2018-12-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="在光标后面弹出"><a href="#在光标后面弹出" class="headerlink" title="在光标后面弹出"></a>在光标后面弹出</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QRect cr = cursorRect();</span><br><span class="line">cr.setWidth(c-&gt;popup()-&gt;sizeHintForColumn(<span class="number">0</span>)</span><br><span class="line">            + c-&gt;popup()-&gt;verticalScrollBar()-&gt;sizeHint().width());</span><br><span class="line">c-&gt;complete(cr);</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/24/Qt-QCompleter用法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++ </a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-解决Ubuntu安装vim的Package-vim-has-no-installation-candidate问题"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/23/解决Ubuntu安装vim的Package-vim-has-no-installation-candidate问题/">解决Ubuntu安装包不存在问题</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-23 13:56:00" datetime="2018-12-23T05:56:00.000Z"  itemprop="datePublished">2018-12-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="解决Ubuntu安装vim的Package-vim-has-no-installation-candidate问题"><a href="#解决Ubuntu安装vim的Package-vim-has-no-installation-candidate问题" class="headerlink" title="解决Ubuntu安装vim的Package vim has no installation candidate问题"></a>解决Ubuntu安装vim的Package vim has no installation candidate问题</h1><p>当输入<code>sudo apt-get install vim-gtk</code>时<br>出现了下面问题：</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/23/解决Ubuntu安装vim的Package-vim-has-no-installation-candidate问题/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-MySQL百万级以上数据常识"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/20/MySQL百万级以上数据常识/">MySQL百万级以上数据常识</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-20 13:33:00" datetime="2018-12-20T05:33:00.000Z"  itemprop="datePublished">2018-12-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/20/MySQL百万级以上数据常识/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C语言CRC校验算法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/20/C语言CRC校验算法/">C语言CRC校验算法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-20 08:20:00" datetime="2018-12-20T00:20:00.000Z"  itemprop="datePublished">2018-12-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><code>CRC32</code> C语言版</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/20/C语言CRC校验算法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/密码学/">密码学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android漂亮的对话框sweet-alert"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/19/Android漂亮的对话框sweet-alert/">Android漂亮的对话框sweet-alert</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-19 11:17:00" datetime="2018-12-19T03:17:00.000Z"  itemprop="datePublished">2018-12-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <ol>
+<li><p>首先在app的build.gradle中添加依赖<br><code>compile 'com.github.f0ris.sweetalert:library:1.5.1'</code></p></li></ol>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/19/Android漂亮的对话框sweet-alert/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android-学习笔记"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/19/Android-学习笔记/">Android-学习笔记</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-19 10:29:00" datetime="2018-12-19T02:29:00.000Z"  itemprop="datePublished">2018-12-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="adb-命令"><a href="#adb-命令" class="headerlink" title="adb 命令"></a>adb 命令</h3><ul>
+<li>adb kill-server 杀死模拟器</li>
+<li>adb start-server 启动模拟器</li>
+<li>cd desktop 进入桌面文件夹</li>
+<li>adb install path/x.apk 安装应用</li>
+<li>adb uninstall com.xxx 卸载应用</li>
+<li>adb shell   进入linux指令（ctrl+C退出）</li>
+<li># ls 列出目录下所有文件（夹）清单</li>
+<li>adb pull a.txt 从手机中导出文件</li>
+<li>adb push a.txt /mnt/sdcard 把一个文件导入到手机</li>
+<li>monkey 1000 随机点模拟器1000次（冒烟测试（压力测试））</li></ul>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/19/Android-学习笔记/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-PHP-学习笔记"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -543,548 +1088,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-ThinkPHP-Socket"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/25/ThinkPHP-Socket/">ThinkPHP+Socket</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-25 16:37:00" datetime="2018-11-25T08:37:00.000Z"  itemprop="datePublished">2018-11-25</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/25/ThinkPHP-Socket/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket/">Socket</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ThinkPHP/">ThinkPHP</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-汇编MASM-学习笔记"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/19/汇编MASM-学习笔记/">汇编MASM-学习笔记</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-19 20:18:00" datetime="2018-11-19T12:18:00.000Z"  itemprop="datePublished">2018-11-19</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="运行-DOSBox"><a href="#运行-DOSBox" class="headerlink" title="运行 DOSBox"></a>运行 DOSBox</h1><ol>
-<li><code>mount c: d:\masm</code></li>
-<li><code>C:</code></li>
-<li><code>masm test.asm</code> 回车3次</li>
-<li><code>link test.obj</code> 回车4次</li>
-<li><code>debug test.exe</code></li>
-</ol>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/19/汇编MASM-学习笔记/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C简单小知识整理"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/13/C简单小知识整理/">C简单小知识整理</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-13 08:18:00" datetime="2018-11-13T00:18:00.000Z"  itemprop="datePublished">2018-11-13</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>C 与 C++相关内容，<br>一部分从网上摘录。<br>个人能力水平有限，<br>不能保证没有错误。</p>
-<p>——王心意，2018.11.13</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/13/C简单小知识整理/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/整理/">整理</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-多个文件共用全局变量"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/06/C-多个文件共用全局变量/">C++多个文件共用全局变量</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-06 08:01:00" datetime="2018-11-06T00:01:00.000Z"  itemprop="datePublished">2018-11-06</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>示例：</p>
-<p>头文件：<strong>state.h</strong>   源文件：<strong>state.cpp</strong><br>其它源文件：t1.cpp  t2.cpp  t3.cpp, 这些源文件都包含头文件state.h。</p>
-<p>需要定义一个全局变量供这些源文件中使用：方法如下</p>
-<p>1、在<code>state.h</code>中<strong>声明</strong>全局变量： <code>extern int a;</code></p>
-<p>2、在<code>state.cpp</code>中<strong>定义</strong>该全局变量：<code>int a =10;</code></p>
-<p>这样其它源文件就可以使用该变量啦，只需要 include 一下 <strong>state.cpp</strong></p>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/06/C-多个文件共用全局变量/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ThinkPHP-view模板用法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/05/ThinkPHP-view模板用法/">ThinkPHP view模板用法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-05 16:38:00" datetime="2018-11-05T08:38:00.000Z"  itemprop="datePublished">2018-11-05</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">if</span> condition=<span class="string">"$monthItem eq I('get.monthParam') "</span>&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/<span class="keyword">if</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;eq name=<span class="string">"userData.user_level"</span> value=<span class="string">"3"</span>&gt;</span><br><span class="line">	&lt;li&gt;&lt;a href=<span class="string">""</span> title=<span class="string">""</span>&gt;管理员功能&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;<span class="keyword">else</span>/&gt;</span><br><span class="line">&lt;/eq&gt;</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/05/ThinkPHP-view模板用法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ThinkPHP/">ThinkPHP</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-贪心算法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/04/贪心算法/">贪心算法-讲解</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-04 20:46:00" datetime="2018-11-04T12:46:00.000Z"  itemprop="datePublished">2018-11-04</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="ACM-贪心算法"><a href="#ACM-贪心算法" class="headerlink" title="ACM 贪心算法"></a>ACM 贪心算法</h1><p>贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在<strong>当前看来是最好的选择</strong>。也就是说，不从整体最优上加以考虑，他所做出的是在某种意义上的<strong>局部最优解</strong>。</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/04/贪心算法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/讲解/">讲解</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ThinkPHP5-学习笔记"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/04/ThinkPHP5-学习笔记/">ThinkPHP5-学习笔记</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-04 16:36:00" datetime="2018-11-04T08:36:00.000Z"  itemprop="datePublished">2018-11-04</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><h2 id="单一入口：index-php"><a href="#单一入口：index-php" class="headerlink" title="单一入口：index.php"></a>单一入口：index.php</h2><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">'APP_DEBUG'</span>, <span class="keyword">true</span>);</span><br><span class="line">define(<span class="string">'APP_NAME'</span>, <span class="string">'App'</span>);         <span class="comment">// 定义应用名称</span></span><br><span class="line">define(<span class="string">'APP_PATH'</span>, <span class="string">'./App2'</span>);      <span class="comment">// 应用路径，生成目录下 /App/ 文件夹，注意别忘了最后的斜线</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'./ThinkPHP/ThinkPHP.php'</span>; <span class="comment">// 加载 ThinkPHP</span></span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/04/ThinkPHP5-学习笔记/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ThinkPHP/">ThinkPHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Python解析网络JSON"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/04/Python解析网络JSON/">Python解析网络JSON</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-04 13:39:00" datetime="2018-11-04T05:39:00.000Z"  itemprop="datePublished">2018-11-04</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line">url = <span class="string">"https://gdata.youtube.com/feeds/api.standardfeeds/top_rated?alt=json"</span></span><br><span class="line">response = urlopen(url)</span><br><span class="line">contents = response.read()</span><br><span class="line">text = contents.decode(<span class="string">'utf8'</span>)</span><br><span class="line">data = json.loads(text)</span><br><span class="line"><span class="keyword">for</span> video <span class="keyword">in</span> data[<span class="string">'feed'</span>][<span class="string">'entry'</span>][<span class="number">0</span>:<span class="number">6</span>]:</span><br><span class="line">print(video[<span class="string">'title'</span>][<span class="string">'$t'</span>])</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/04/Python解析网络JSON/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-ViewPage模板"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/29/Android-ViewPage模板/">Android ViewPage模板</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-29 11:02:00" datetime="2018-10-29T03:02:00.000Z"  itemprop="datePublished">2018-10-29</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>多可左右滑动的分页容器模板</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/29/Android-ViewPage模板/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模板/">模板</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-Color类颜色值坑点"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/29/Android-Color类颜色值坑点/">Android Color类颜色值坑点</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-29 10:39:00" datetime="2018-10-29T02:39:00.000Z"  itemprop="datePublished">2018-10-29</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>Color.alpha 0x00~0xFF  00表示完全透明，FF表示完全不透明</p>
-<p>其中有两个方法</p>
-<p>Color.argb(int alpha, int red, int green, int blue);//设置颜色，同步设置颜色的透明度</p>
-<p>Color.rgb(int red, int green, int blue);//设置颜色，默认透明度为0xFF，完全不透明</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/29/Android-Color类颜色值坑点/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/踩坑/">踩坑</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-ViewPage"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/27/Android-ViewPage/">Android ViewPage</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-27 11:01:00" datetime="2018-10-27T03:01:00.000Z"  itemprop="datePublished">2018-10-27</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>（注：本篇文章的例子使用的是ConstraintLayout布局方式） </p>
-</blockquote>
-<p>ViewPage有两种使用方式，一是直接加载布局文件（使用PagerAdapter），二是加载fragment（使用FragmentPagerAdapter）。</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/27/Android-ViewPage/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-Fragment用法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/23/Android-Fragment用法/">Android Fragment用法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-23 10:44:00" datetime="2018-10-23T02:44:00.000Z"  itemprop="datePublished">2018-10-23</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="Android-Fragment-简单实例"><a href="#Android-Fragment-简单实例" class="headerlink" title="Android Fragment 简单实例"></a>Android Fragment 简单实例</h2>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/23/Android-Fragment用法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
     </div>
 </nav>
 

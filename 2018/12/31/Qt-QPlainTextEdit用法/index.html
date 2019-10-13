@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/">
+    
+    
+    <title>Qt QPlainTextEdit用法 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="C++,Qt">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="QTextEditor 和 QPlainTextEditor 在一定程度上通用的 获取文本1toPlainText();  设置文本1setPlainText(QString);">
+<meta name="keywords" content="C++,Qt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt QPlainTextEdit用法">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="QTextEditor 和 QPlainTextEditor 在一定程度上通用的 获取文本1toPlainText();  设置文本1setPlainText(QString);">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T09:40:53.104Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qt QPlainTextEdit用法">
+<meta name="twitter:description" content="QTextEditor 和 QPlainTextEditor 在一定程度上通用的 获取文本1toPlainText();  设置文本1setPlainText(QString);">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Qt QPlainTextEdit用法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取文本"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取文本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置文本"><span class="post-toc-number">2.</span> <span class="post-toc-text">设置文本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取行数"><span class="post-toc-number">3.</span> <span class="post-toc-text">获取行数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取光标所在行文本"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取光标所在行文本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内容改变信号"><span class="post-toc-number">5.</span> <span class="post-toc-text">内容改变信号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#光标位置改变信号"><span class="post-toc-number">6.</span> <span class="post-toc-text">光标位置改变信号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置光标行列"><span class="post-toc-number">7.</span> <span class="post-toc-text">设置光标行列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#光标在一行中的-字符-位置"><span class="post-toc-number">8.</span> <span class="post-toc-text">光标在一行中的(字符?)位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#光标移动"><span class="post-toc-number">9.</span> <span class="post-toc-text">光标移动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#移动到行首"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">移动到行首</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#移动到文末"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">移动到文末</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#移动到指定字符"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">移动到指定字符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#右移一个单词"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">右移一个单词</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除光标前一个字符"><span class="post-toc-number">10.</span> <span class="post-toc-text">删除光标前一个字符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置行高和行间距"><span class="post-toc-number">11.</span> <span class="post-toc-text">设置行高和行间距</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文字进行加粗操作"><span class="post-toc-number">12.</span> <span class="post-toc-text">文字进行加粗操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高亮光标所在行"><span class="post-toc-number">13.</span> <span class="post-toc-text">高亮光标所在行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置部分字体颜色"><span class="post-toc-number">14.</span> <span class="post-toc-text">设置部分字体颜色</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Qt-QPlainTextEdit用法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Qt QPlainTextEdit用法</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-12-31 17:40:00" datetime="2018-12-31T09:40:00.000Z"  itemprop="datePublished">2018-12-31</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>QTextEditor 和 QPlainTextEditor 在一定程度上通用的</p>
+<h2 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toPlainText();</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="设置文本"><a href="#设置文本" class="headerlink" title="设置文本"></a>设置文本</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setPlainText(QString);</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+
+<h2 id="获取行数"><a href="#获取行数" class="headerlink" title="获取行数"></a>获取行数</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = QString::number(plainTextEdit-&gt;document()-&gt;lineCount()); <span class="comment">// 获取行数</span></span><br><span class="line">str = plainTextEdit-&gt;document()-&gt;findBlockByLineNumber(<span class="number">2</span>).text(); <span class="comment">// 获取某一行</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="获取光标所在行文本"><a href="#获取光标所在行文本" class="headerlink" title="获取光标所在行文本"></a>获取光标所在行文本</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QTextCursor cursor = textEditor-&gt;textCursor();</span><br><span class="line"><span class="keyword">int</span> lineNumber = cursor.blockNumber();<span class="comment">//获取光标所在列用cursor.columnNumber();</span></span><br><span class="line"></span><br><span class="line">QTextBlock textBlock = QTextEdit::document()-&gt;findBlockByLineNumber(lineNumber);<span class="comment">//通过行号找到指定行 数据块</span></span><br><span class="line">QString selectLine = textBlock.text();<span class="comment">//将得到的数据存入一个字符串。</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="内容改变信号"><a href="#内容改变信号" class="headerlink" title="内容改变信号"></a>内容改变信号</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textChanged()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在<code>setText()</code>时也会触发，如果要屏蔽，在setText()前调用<code>QObject::blockSignals(true)</code>,setText()后调用<code>QObject::blockSignals(false)</code></p>
+<h2 id="光标位置改变信号"><a href="#光标位置改变信号" class="headerlink" title="光标位置改变信号"></a>光标位置改变信号</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cursorPositionChanged()</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="设置光标行列"><a href="#设置光标行列" class="headerlink" title="设置光标行列"></a>设置光标行列</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setCursorPos</span><span class="params">(<span class="keyword">int</span> row,<span class="keyword">int</span> col)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">const</span> QTextBlock block = QTextEdit::document()-&gt;findBlockByLineNumber(row<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">if</span>(block.isValid())</span><br><span class="line">    {</span><br><span class="line">        QTextCursor cursor = QTextEdit::textCursor();</span><br><span class="line">        cursor.setPosition(block.position()+col<span class="number">-1</span>);</span><br><span class="line">        setTextCursor(cursor);</span><br><span class="line">        ensureCursorVisible();</span><br><span class="line">    }</span><br><span class="line">    setFocus();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="光标在一行中的-字符-位置"><a href="#光标在一行中的-字符-位置" class="headerlink" title="光标在一行中的(字符?)位置"></a>光标在一行中的(字符?)位置</h2><p>这里的nCursor其实就是我们一个文本在一行中的位置</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QTextCursor tc = myTextEdit-&gt;textCursor();</span><br><span class="line"><span class="keyword">int</span> nCurpos = tc.position() - tc.block().position();</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QTextCursor textCursor= ui.translationInput-&gt;textCursor(); <span class="comment">// 获取光标</span></span><br><span class="line"><span class="comment">/* 这里是针对光标的修改操作 */</span></span><br><span class="line">ui.translationInput-&gt;setTextCursor(textCursor); <span class="comment">// 修改光标后设置成编辑框光标</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="移动到行首"><a href="#移动到行首" class="headerlink" title="移动到行首"></a>移动到行首</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QTextCursor textCursor= ui.translationInput-&gt;textCursor();</span><br><span class="line">textCursor.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, <span class="number">4</span>); <span class="comment">// 行首</span></span><br><span class="line">ui.translationInput-&gt;setTextCursor(textCursor);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="移动到文末"><a href="#移动到文末" class="headerlink" title="移动到文末"></a>移动到文末</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textCursor.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, <span class="number">4</span>); <span class="comment">// 全文尾</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="移动到指定字符"><a href="#移动到指定字符" class="headerlink" title="移动到指定字符"></a>移动到指定字符</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textCursor.setPosition(<span class="number">20</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="右移一个单词"><a href="#右移一个单词" class="headerlink" title="右移一个单词"></a>右移一个单词</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textCursor.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除光标前一个字符"><a href="#删除光标前一个字符" class="headerlink" title="删除光标前一个字符"></a>删除光标前一个字符</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit editer; <span class="comment">// 这个是目标 Editor</span></span><br><span class="line">QTextCursor cursor = editer.textCursor(); <span class="comment">// 获取当前文本光标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//判断当前是否选中了文本，如果选中了文本则取消选中的文本，再删除前一个字符</span></span><br><span class="line"><span class="keyword">if</span>(cursor.hasSelection())</span><br><span class="line">	cursor.clearSelection();</span><br><span class="line"></span><br><span class="line">cursor.deletePreviousChar(); <span class="comment">//删除前一个字符</span></span><br><span class="line"></span><br><span class="line">editer.setTextCursor(cursor); <span class="comment">//设置当前的光标为更改后的光标</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="设置行高和行间距"><a href="#设置行高和行间距" class="headerlink" title="设置行高和行间距"></a>设置行高和行间距</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QTextCursor textCursor = ui-&gt;textEdit-&gt;textCursor();</span><br><span class="line"></span><br><span class="line">QTextBlockFormat textBlockFormat;</span><br><span class="line">textBlockFormat.setLineHeight(<span class="number">40</span>, QTextBlockFormat::FixedHeight); <span class="comment">// 设置固定行高</span></span><br><span class="line">textBlockFormat.setBottomMargin(<span class="number">10</span>); <span class="comment">// 设置两行之间的空白高度</span></span><br><span class="line">textCursor.setBlockFormat(textBlockFormat);</span><br><span class="line"></span><br><span class="line">ui-&gt;textEdit-&gt;setTextCursor(textCursor);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="文字进行加粗操作"><a href="#文字进行加粗操作" class="headerlink" title="文字进行加粗操作"></a>文字进行加粗操作</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">QTextCursor currentTextCursor = currentTextEdit-&gt;textCursor();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!currentTextCursor.hasSelection())</span><br><span class="line">{</span><br><span class="line">	currentTextCursor.insertText(<span class="string">"**"</span> + tr(<span class="string">"Boldface"</span>) + <span class="string">"**"</span>);</span><br><span class="line">	currentTextCursor.movePosition (QTextCursor::Left, QTextCursor::MoveAnchor, <span class="number">2</span>);</span><br><span class="line">	currentTextCursor.movePosition (QTextCursor::WordLeft, QTextCursor::KeepAnchor, <span class="number">1</span>);</span><br><span class="line">	currentTextEdit-&gt;setTextCursor (currentTextCursor);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">{</span><br><span class="line">	currentTextCursor.insertText (<span class="string">"**"</span> +currentTextCursor.selectedText() + <span class="string">"**"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="高亮光标所在行"><a href="#高亮光标所在行" class="headerlink" title="高亮光标所在行"></a>高亮光标所在行</h2><p>使用到qtextedit中的cursorPostionChanged（），这个信号将会在光标移动时实时发送。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit *edit = (QTextEdit *)tab-&gt;widget(tab-&gt;currentIndex());</span><br><span class="line">connect(edit,SIGNAL(cursorPositionChanged()), <span class="keyword">this</span>,SLOT(onCurrentLineHighLight()));</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MainWindow::onCurrentLineHighLight()</span><br><span class="line">{</span><br><span class="line">    QTextEdit *edit = (QTextEdit *)tab-&gt;currentWidget();</span><br><span class="line">    QList&lt;QTextEdit::ExtraSelection&gt; extraSelection;</span><br><span class="line">    QTextEdit::ExtraSelection selection;</span><br><span class="line">    QColor lineColor = QColor(Qt::gray).lighter(<span class="number">150</span>);</span><br><span class="line">    selection.format.setBackground(lineColor);</span><br><span class="line">    selection.format.setProperty(</span><br><span class="line">        QTextFormat::FullWidthSelection,<span class="literal">true</span>);</span><br><span class="line">    selection.cursor = edit-&gt;textCursor();</span><br><span class="line">    selection.cursor.clearSelection();</span><br><span class="line">    <span class="comment">//将刚设置的 selection追加到链表当中</span></span><br><span class="line">   extraSelection.append(selection);</span><br><span class="line">   edit-&gt;setExtraSelections(extraSelection);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="设置部分字体颜色"><a href="#设置部分字体颜色" class="headerlink" title="设置部分字体颜色"></a>设置部分字体颜色</h2><p>只能设置选中区域的字体颜色</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">QTextCursor textCursor = ui-&gt;plainTextEdit-&gt;textCursor();</span><br><span class="line"><span class="keyword">if</span> (textCursor.hasSelection())</span><br><span class="line">{</span><br><span class="line">	<span class="keyword">int</span> start = textCursor.selectionStart();</span><br><span class="line">	<span class="keyword">int</span> end = textCursor.selectionEnd();</span><br><span class="line">	QTextCharFormat f;<span class="comment">// = textCursor.charFormat(); // 返回前一个字的格式（没必要）</span></span><br><span class="line">	f.setForeground(QBrush(QColor(<span class="number">128</span>,<span class="number">128</span>,<span class="number">128</span>, <span class="number">20</span>)));</span><br><span class="line">	textCursor.setCharFormat(f);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T09:40:53.104Z" itemprop="dateUpdated">2019-10-13 17:40:53</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/12/31/Qt-QPlainTextEdit用法/" target="_blank" rel="external">http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/&title=《Qt QPlainTextEdit用法》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/&title=《Qt QPlainTextEdit用法》 — 云笺&source=QTextEditor 和 QPlainTextEditor 在一定程度上通用的
+获取文本1toPlainText();
+
+设置文本1setPlainTe..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt QPlainTextEdit用法》 — 云笺&url=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/03/Android切换Activity/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Android切换Activity并返回数据
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/27/SSR-FCM/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：SSR+FCM">下一篇：SSR+FCM</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/&title=《Qt QPlainTextEdit用法》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/&title=《Qt QPlainTextEdit用法》 — 云笺&source=QTextEditor 和 QPlainTextEditor 在一定程度上通用的
+获取文本1toPlainText();
+
+设置文本1setPlainTe..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt QPlainTextEdit用法》 — 云笺&url=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/12/31/Qt-QPlainTextEdit用法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQW7jMBAEwPz/095rgI2t7qESQGTpZMQxpdKhweHM11d8vb5dn7/9/8pX+/yrGy4MDIzHMpKHSG6c/GplhYsXhIGBcQDjXYLN/ucz+3PItvfFwMDA+Hz7d7G4gsTAwMC4N3BXSuKkuMXAwMBoi9j8UKxd4U9rcQwMjAcy2oj8y8+/0t/AwMB4FONVXusl66wJevFUGBgYWzPygMu3Ze3jzgIXAwPjNEZSfLaDXLOyMx/yuABjYGBsxGiHwNrwbYN42EbFwMA4gLFyKJYMYbQHefVrwsDAOICRFJZLJeUvDGRgYGCcyZgt145Q5C2HYhuKgYGxNePeonQWuDnm4hVjYGBsylgZbsibkXnLMymMf1gZAwPjAMZd+6skdvOCOd+SYmBg7M1Igm/WyBwe8cckDAyMcxizY6/1wJ29xLfPg4GBsTXjrqP/PILzU8C6aYGBgbEpIx/JSj7n66w0L3/4OwYGxtaM/PisHZJIDshWVo5KYgwMjI0Y0URGuXVrt4nr62BgYJzAGLYMy6bmSoMTAwMD465HabeD7at5+1sMDIxNGa/yakvcdmgjid16TgQDA+PhjFnYteNcOSkP+llkY2BgPJfRhmz7l3ykbClwMTAwDmDkwTcbs2jXH5ayGBgYGPHh/qzlkNzloiLHwMDAWAji/Ns23DEwMM5h5IOk+cBEvmVsW5sYGBinMfLSsR2nGE5/lCMdGBgYWzP+Aa70LLpOuwYdAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

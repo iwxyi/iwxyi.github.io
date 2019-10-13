@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/">
+    
+    
+    <title>基于Qt的图像处理技术和算法 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="C++,Qt">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="这篇文章主要阐述了如何使用Qt在像素级别上对图像进行操作，并实现了一些图像效果，这些效果主要有：灰度，模糊，锐化，添加相框，金属质感，改变图像饱和度，亮度还有白平衡。">
+<meta name="keywords" content="C++,Qt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Qt的图像处理技术和算法">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="这篇文章主要阐述了如何使用Qt在像素级别上对图像进行操作，并实现了一些图像效果，这些效果主要有：灰度，模糊，锐化，添加相框，金属质感，改变图像饱和度，亮度还有白平衡。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T08:58:35.991Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于Qt的图像处理技术和算法">
+<meta name="twitter:description" content="这篇文章主要阐述了如何使用Qt在像素级别上对图像进行操作，并实现了一些图像效果，这些效果主要有：灰度，模糊，锐化，添加相框，金属质感，改变图像饱和度，亮度还有白平衡。">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">基于Qt的图像处理技术和算法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#灰度"><span class="post-toc-number">2.</span> <span class="post-toc-text">灰度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#亮度调节"><span class="post-toc-number">3.</span> <span class="post-toc-text">亮度调节</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#暖色调"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">暖色调</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#冷色调"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">冷色调</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#饱和度"><span class="post-toc-number">4.</span> <span class="post-toc-text">饱和度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模糊"><span class="post-toc-number">5.</span> <span class="post-toc-text">模糊</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#锐化"><span class="post-toc-number">6.</span> <span class="post-toc-text">锐化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加相框"><span class="post-toc-number">7.</span> <span class="post-toc-text">添加相框</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-基于Qt的图像处理技术和算法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">基于Qt的图像处理技术和算法</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-10-27 16:57:00" datetime="2018-10-27T08:57:00.000Z"  itemprop="datePublished">2018-10-27</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">11</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>这篇文章主要阐述了如何使用Qt在像素级别上对图像进行操作，并实现了一些图像效果，这些效果主要有：灰度，模糊，锐化，添加相框，金属质感，改变图像饱和度，亮度还有白平衡。</p>
+<a id="more"></a>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>文章中，我们将讨论在Qt中修改图像的一些技术和算法，在这之前，你必须知道在Qt中操作图像的一些方法。</p>
+<p>在Qt中有两种表示图像的类，Qt:QImage和QPixmap，还有QBitmap来存储单色的图像，比如遮罩，QPicture在存储QPainter的一些操作指令。</p>
+<p>当我们想要在屏幕上绘制图像的时候，最快的方法就是使用QPixmap，不过坏处就是无法访问和修改像素；</p>
+<p>QImage在IO操作中有很快的速度，并且给出了访问像素的接口，这篇文章中我们就使用这个类。</p>
+<p>如果你是要处理大的图片，比如摄像头拍摄的照片，这种情况最好是将原图缩小之后作为预览图显示在屏幕上，除非我们允许用户缩放图像。有两种加载并缩放图像的方法。</p>
+<p>将图像加载进QImage或者QPixmap，然后调整大小：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QImage <span class="title">image</span><span class="params">(<span class="string">"sample.png"</span>)</span></span>;</span><br><span class="line">image = image.scaled(width, height);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用QImageReader来读取和缩放图片，然后再加载进QImage中。QImageReader无法将一张图片加载进QPixmap中去，但是可以使用静态方法 QPixmap::fromImage(QImage img)从QImage中加载进QPixmap。这个方法非常快，并且不需要加载大图的内存开销：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QImageReader <span class="title">imgReader</span><span class="params">(<span class="string">"sample.png"</span>)</span></span>;</span><br><span class="line">imgReader.setScaledSize(QSize(width, height));</span><br><span class="line">QImage * image;</span><br><span class="line">imgReader.read(image);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>每一张图片都是由像素点组成，每一个像素都有三个通道：红，绿，蓝，还有一个alpha通道来保存透明度（JPEG格式的图片不支持透明）。每个通道的值是0-255，三个通道都是0的话，表示黑色，都是255表示白色。这篇文章中我们用RGB来表示一种颜色，也就是三个通道的值。</p>
+<p>相比于一个像素一个像素地读取，uchar *  QImage::scanLine(int i)可以一次读取整行的像素值，会更加高效，下面的例子就是按行读取的例子，也是我们将要讲的第一个例子，转灰度图。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">QImage * MainWindow::greyScale(QImage * origin){</span><br><span class="line">    QImage * newImage = <span class="keyword">new</span> QImage(origin-&gt;width(), origin-&gt;height(), QImage::Format_ARGB32);</span><br><span class="line"> </span><br><span class="line">    QRgb * line;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> y = <span class="number">0</span>; y&lt;newImage-&gt;height(); y++){</span><br><span class="line">        QRgb * line = (QRgb *)origin-&gt;scanLine(y);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">0</span>; x&lt;newImage-&gt;width(); x++){</span><br><span class="line">            <span class="keyword">int</span> average = (qRed(line[x]) + qGreen(line[x]) + qRed(line[x]))/<span class="number">3</span>;</span><br><span class="line">            newImage-&gt;setPixel(x,y, qRgb(average, average, average));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="灰度"><a href="#灰度" class="headerlink" title="灰度"></a>灰度</h2><p>我们要学习的第一个技术就是将彩色图转换成灰度图，我们首先要明白的一点就是，其实标准的灰度图就是每个像素点的三个通道的值一样或者近似，我们的策略就是将每个像素的每个通道的值都调成一样，取R,G,B值为三者的算数平均数就可以了，比如原色是RGB(169,204,69), 那么最终的RGB就是（169+204+69）/3 = 147.</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">QImage * MainWindow::greyScale(QImage * origin){</span><br><span class="line">    QImage * newImage = <span class="keyword">new</span> QImage(origin-&gt;width(), origin-&gt;height(), QImage::Format_ARGB32);</span><br><span class="line"> </span><br><span class="line">    QColor oldColor;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">0</span>; x&lt;newImage-&gt;width(); x++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y = <span class="number">0</span>; y&lt;newImage-&gt;height(); y++){</span><br><span class="line">            oldColor = QColor(origin-&gt;pixel(x,y));</span><br><span class="line">            <span class="keyword">int</span> average = (oldColor.red()+oldColor.green()+oldColor.blue())/<span class="number">3</span>;</span><br><span class="line">            newImage-&gt;setPixel(x,y,qRgb(average,average,average));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="亮度调节"><a href="#亮度调节" class="headerlink" title="亮度调节"></a>亮度调节</h2><p>就如之前我们提到的，白色用RGB(255,255,255)表示，黑色用RGB(0,0,0)表示，所以如果我们需要提高图片的亮度（颜色接近白色），我们需要同时增加三个通道的数值，反之就是变暗。</p>
+<p>在这里我们添加了一个函数参数来决定要提高多少亮度，如果参数是负数的话就是减少亮度了。在每个通道都加上delta值之后，需要做的就是让它不要低于0且不要高于255.</p>
+<h3 id="暖色调"><a href="#暖色调" class="headerlink" title="暖色调"></a>暖色调</h3><p>当我们说一一幅暖色调的图片的时候通常是因为这张图色调偏黄。我们没有黄色的通道，但是红色和绿色混合起来就是黄色，所以我们增加这两个通道值，然后蓝色通道值不变就好了。</p>
+<p>我们使用一个delta参数来决定增加红色和绿色通道的值。一张暖色的图片能够给人一种复古效果，如果是有沙子的图片，图片将会更加生动。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">QImage * MainWindow::warm(<span class="keyword">int</span> delta, QImage * origin){</span><br><span class="line">    QImage *newImage = <span class="keyword">new</span> QImage(origin-&gt;width(), origin-&gt;height(), QImage::Format_ARGB32);</span><br><span class="line"> </span><br><span class="line">    QColor oldColor;</span><br><span class="line">    <span class="keyword">int</span> r,g,b;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;newImage-&gt;width(); x++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y=<span class="number">0</span>; y&lt;newImage-&gt;height(); y++){</span><br><span class="line">            oldColor = QColor(origin-&gt;pixel(x,y));</span><br><span class="line"> </span><br><span class="line">            r = oldColor.red() + delta;</span><br><span class="line">            g = oldColor.green() + delta;</span><br><span class="line">            b = oldColor.blue();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//we check if the new values are between 0 and 255</span></span><br><span class="line">            r = qBound(<span class="number">0</span>, r, <span class="number">255</span>);</span><br><span class="line">            g = qBound(<span class="number">0</span>, g, <span class="number">255</span>);</span><br><span class="line"> </span><br><span class="line">            newImage-&gt;setPixel(x,y, qRgb(r,g,b));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="冷色调"><a href="#冷色调" class="headerlink" title="冷色调"></a>冷色调</h3><p>如果说暖色调的图片偏黄色，那么冷色调的图片应该就是偏蓝色了。在这个方法里面我们只增加蓝色通道的值，红色和绿色的值不变。</p>
+<p>冷色调的图片可以联想到未来，死亡或者，冷。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">QImage * MainWindow::cool(<span class="keyword">int</span> delta, QImage * origin){</span><br><span class="line">    QImage *newImage = <span class="keyword">new</span> QImage(origin-&gt;width(), origin-&gt;height(), QImage::Format_ARGB32);</span><br><span class="line"> </span><br><span class="line">    QColor oldColor;</span><br><span class="line">    <span class="keyword">int</span> r,g,b;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;newImage-&gt;width(); x++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y=<span class="number">0</span>; y&lt;newImage-&gt;height(); y++){</span><br><span class="line">            oldColor = QColor(origin-&gt;pixel(x,y));</span><br><span class="line"> </span><br><span class="line">            r = oldColor.red();</span><br><span class="line">            g = oldColor.green();</span><br><span class="line">            b = oldColor.blue()+delta;</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//we check if the new value is between 0 and 255</span></span><br><span class="line">            b = qBound(<span class="number">0</span>, b, <span class="number">255</span>);</span><br><span class="line"> </span><br><span class="line">            newImage-&gt;setPixel(x,y, qRgb(r,g,b));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="饱和度"><a href="#饱和度" class="headerlink" title="饱和度"></a>饱和度</h2><p>我们已经说了，颜色由三个通道组成：红，绿，蓝，尽管如此，RGB不是唯一一个表示色彩的方式，在这里，我们使用HSL格式表示色彩 - hue（色相）, saturation（饱和度）, lightness（明度）。</p>
+<p>饱和的图像拥有更加生动的颜色，通常会比较好看，但是有一点要记住：不要滥用饱和度，因为很容易出现失真。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">QImage * MainWindow::saturation(<span class="keyword">int</span> delta, QImage * origin){</span><br><span class="line">    QImage * newImage = <span class="keyword">new</span> QImage(origin-&gt;width(), origin-&gt;height(), QImage::Format_ARGB32);</span><br><span class="line"> </span><br><span class="line">    QColor oldColor;</span><br><span class="line">    QColor newColor;</span><br><span class="line">    <span class="keyword">int</span> h,s,l;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;newImage-&gt;width(); x++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y=<span class="number">0</span>; y&lt;newImage-&gt;height(); y++){</span><br><span class="line">            oldColor = QColor(origin-&gt;pixel(x,y));</span><br><span class="line"> </span><br><span class="line">            newColor = oldColor.toHsl();</span><br><span class="line">            h = newColor.hue();</span><br><span class="line">            s = newColor.saturation()+delta;</span><br><span class="line">            l = newColor.lightness();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//we check if the new value is between 0 and 255</span></span><br><span class="line">            s = qBound(<span class="number">0</span>, s, <span class="number">255</span>);</span><br><span class="line"> </span><br><span class="line">            newColor.setHsl(h, s, l);</span><br><span class="line"> </span><br><span class="line">            newImage-&gt;setPixel(x, y, qRgb(newColor.red(), newColor.green(), newColor.blue()));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="模糊"><a href="#模糊" class="headerlink" title="模糊"></a>模糊</h2><p>这个效果相对于之前的有一点点复杂。我们会用到一个卷积滤波器，根据当前像素的颜色和相邻像素的颜色来获得一个新的颜色。同时还有一个kernel的矩阵来决定计算中相邻像素的影响程度。</p>
+<p>原像素会在矩阵的中心，因此我们会使用基数行的行和列。我们不会修改边缘的像素点，因为那些点没有我们需要的相邻像素点，虽然我们也可以只使用有效的像素点。</p>
+<p>举了例子，让我们来看看如何计算像素的RGB值。下面的三个举证代表着当前像素和邻接像素的RGB值，最中间的是当前像素。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">R = 20 102 99</span><br><span class="line">150 200 77 </span><br><span class="line">170 210 105</span><br><span class="line"></span><br><span class="line">G = 22 33 40</span><br><span class="line">17 21 33</span><br><span class="line">8 15 24</span><br><span class="line"></span><br><span class="line">B = 88 70 55</span><br><span class="line">90 72 59</span><br><span class="line">85 69 50</span><br><span class="line"></span><br><span class="line">Kenel =  0 2 0</span><br><span class="line">2 5 2</span><br><span class="line">0 2 0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用滤波器进行计算：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r = ( (102*2) + (150*2) + (200*5) + (77*2) + (210*2) ) / (2+2+5+2+2) = 159</span><br><span class="line">g = ( (33*2) + ( 17*2) + (21*5) + (33*2) + (15*2) ) / (2+2+5+2+2) = 23</span><br><span class="line">b = ( (70*2) + (90*2) + (72*5) + (59*2) + (69*2) ) / (2+2+5+2+2) = 72</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由原始的RGB(200, 21, 72)得到了RGB(159, 23, 72).  发现最大的变化是红色的通道，因为红色通道的值差距最大。</p>
+<p>在修改肖像照片的时候通常会使用到模糊的技术，它能后掩盖住皮肤的瑕疵。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">QImage * MainWindow::blur(QImage * origin){</span><br><span class="line">    QImage * newImage = <span class="keyword">new</span> QImage(*origin);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> kernel [<span class="number">5</span>][<span class="number">5</span>]= {{<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>},</span><br><span class="line">                        {<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>},</span><br><span class="line">                        {<span class="number">1</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">1</span>},</span><br><span class="line">                        {<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>},</span><br><span class="line">                        {<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>}};</span><br><span class="line">    <span class="keyword">int</span> kernelSize = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> sumKernel = <span class="number">27</span>;</span><br><span class="line">    <span class="keyword">int</span> r,g,b;</span><br><span class="line">    QColor color;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x=kernelSize/<span class="number">2</span>; x&lt;newImage-&gt;width()-(kernelSize/<span class="number">2</span>); x++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y=kernelSize/<span class="number">2</span>; y&lt;newImage-&gt;height()-(kernelSize/<span class="number">2</span>); y++){</span><br><span class="line"> </span><br><span class="line">            r = <span class="number">0</span>;</span><br><span class="line">            g = <span class="number">0</span>;</span><br><span class="line">            b = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = -kernelSize/<span class="number">2</span>; i&lt;= kernelSize/<span class="number">2</span>; i++){</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = -kernelSize/<span class="number">2</span>; j&lt;= kernelSize/<span class="number">2</span>; j++){</span><br><span class="line">                    color = QColor(origin-&gt;pixel(x+i, y+j));</span><br><span class="line">                    r += color.red()*kernel[kernelSize/<span class="number">2</span>+i][kernelSize/<span class="number">2</span>+j];</span><br><span class="line">                    g += color.green()*kernel[kernelSize/<span class="number">2</span>+i][kernelSize/<span class="number">2</span>+j];</span><br><span class="line">                    b += color.blue()*kernel[kernelSize/<span class="number">2</span>+i][kernelSize/<span class="number">2</span>+j];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line"> </span><br><span class="line">            r = qBound(<span class="number">0</span>, r/sumKernel, <span class="number">255</span>);</span><br><span class="line">            g = qBound(<span class="number">0</span>, g/sumKernel, <span class="number">255</span>);</span><br><span class="line">            b = qBound(<span class="number">0</span>, b/sumKernel, <span class="number">255</span>);</span><br><span class="line"> </span><br><span class="line">            newImage-&gt;setPixel(x,y, qRgb(r,g,b));</span><br><span class="line"> </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="锐化"><a href="#锐化" class="headerlink" title="锐化"></a>锐化</h2><p>像模糊中一样，锐化一张图片也会使用一个卷积滤波器，但是kernel矩阵是不一样的，相邻像素对应的值是负的。</p>
+<p>锐化能够处理模糊的照片，能够提升细节。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">QImage * MainWindow::sharpen(QImage * origin){</span><br><span class="line">    QImage * newImage = <span class="keyword">new</span> QImage(* origin);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> kernel [<span class="number">3</span>][<span class="number">3</span>]= {{<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>},</span><br><span class="line">                        {<span class="number">-1</span>,<span class="number">5</span>,<span class="number">-1</span>},</span><br><span class="line">                        {<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>}};</span><br><span class="line">    <span class="keyword">int</span> kernelSize = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> sumKernel = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> r,g,b;</span><br><span class="line">    QColor color;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x=kernelSize/<span class="number">2</span>; x&lt;newImage-&gt;width()-(kernelSize/<span class="number">2</span>); x++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y=kernelSize/<span class="number">2</span>; y&lt;newImage-&gt;height()-(kernelSize/<span class="number">2</span>); y++){</span><br><span class="line"> </span><br><span class="line">            r = <span class="number">0</span>;</span><br><span class="line">            g = <span class="number">0</span>;</span><br><span class="line">            b = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = -kernelSize/<span class="number">2</span>; i&lt;= kernelSize/<span class="number">2</span>; i++){</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = -kernelSize/<span class="number">2</span>; j&lt;= kernelSize/<span class="number">2</span>; j++){</span><br><span class="line">                    color = QColor(origin-&gt;pixel(x+i, y+j));</span><br><span class="line">                    r += color.red()*kernel[kernelSize/<span class="number">2</span>+i][kernelSize/<span class="number">2</span>+j];</span><br><span class="line">                    g += color.green()*kernel[kernelSize/<span class="number">2</span>+i][kernelSize/<span class="number">2</span>+j];</span><br><span class="line">                    b += color.blue()*kernel[kernelSize/<span class="number">2</span>+i][kernelSize/<span class="number">2</span>+j];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line"> </span><br><span class="line">            r = qBound(<span class="number">0</span>, r/sumKernel, <span class="number">255</span>);</span><br><span class="line">            g = qBound(<span class="number">0</span>, g/sumKernel, <span class="number">255</span>);</span><br><span class="line">            b = qBound(<span class="number">0</span>, b/sumKernel, <span class="number">255</span>);</span><br><span class="line"> </span><br><span class="line">            newImage-&gt;setPixel(x,y, qRgb(r,g,b));</span><br><span class="line"> </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="添加相框"><a href="#添加相框" class="headerlink" title="添加相框"></a>添加相框</h2><p>绘制一个相框是非常见到那的，我们只需要把相框在原图上面绘制就可以了。这里假设我们已经有一个和图片一样大小的相框了，不一样的话要resize到一样大。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">QImage * MainWindow::drawFrame(QImage * origin){</span><br><span class="line">    QImage * newImage = <span class="keyword">new</span> QImage(* origin);</span><br><span class="line">    QPainter painter;</span><br><span class="line"> </span><br><span class="line">    painter.begin(newImage);</span><br><span class="line"> </span><br><span class="line">    painter.drawImage(<span class="number">0</span>,<span class="number">0</span>, QImage(<span class="string">":images/frame.png"</span>));</span><br><span class="line"> </span><br><span class="line">    painter.end();</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/silangquan/article/details/41008183" target="_blank" rel="noopener">https://blog.csdn.net/silangquan/article/details/41008183</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T08:58:35.991Z" itemprop="dateUpdated">2019-10-13 16:58:35</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/10/27/基于Qt的图像处理技术和算法/" target="_blank" rel="external">http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/&title=《基于Qt的图像处理技术和算法》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/&title=《基于Qt的图像处理技术和算法》 — 云笺&source=这篇文章主要阐述了如何使用Qt在像素级别上对图像进行操作，并实现了一些图像效果，这些效果主要有：灰度，模糊，锐化，添加相框，金属质感，改变图像饱和度，亮度..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于Qt的图像处理技术和算法》 — 云笺&url=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/27/Qt-QMap/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Qt QMap
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/27/Android-ViewPage/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Android ViewPage">下一篇：Android ViewPage</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/&title=《基于Qt的图像处理技术和算法》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/&title=《基于Qt的图像处理技术和算法》 — 云笺&source=这篇文章主要阐述了如何使用Qt在像素级别上对图像进行操作，并实现了一些图像效果，这些效果主要有：灰度，模糊，锐化，添加相框，金属质感，改变图像饱和度，亮度..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于Qt的图像处理技术和算法》 — 云笺&url=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/10/27/基于Qt的图像处理技术和算法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3awW7rMAwEwPz/T/ddCwTO2yWtwAXGp0CtbY0OEk3y9Yqvn1/X75Grv76Pv1/v/3k1cnXXbRceHh7eYupXk/jMu3rO5/H8OckzL5cADw8P7xjvakdNfn+eYoJs70rmjIeHh/c03ixcTrb7donx8PDw/gov//ZP7mqfgIeHh/cEXr5l56/cbPr5yG25Fjw8PLyYl2/Wz/l9pL6Hh4eHt66qzw6JfINuj416tnh4eHgHePmGOyt0tSN5YqKYJx4eHt6tvLalKaHmI0kbwWw+eHh4eOd4m6m0idRZUJ4E9NGxgYeHh3eAN3tBEl63DQqzAlv0eYCHh4d3gNfe1r5+v4htaI6Hh4d3L2+WwN0Evvmi3NB6hYeHh3eMl6RlZ6Ft23YwawK7fBoeHh7eAV6+cSetA3mSIi+AbRK+eHh4eN/hzdIHm2B6EzoPM9N4eHh4C16yseZTn6Vuh4FyEnDj4eHhHeDlxa02RG4Xq00i190QeHh4eLfy8gA3n/RdS9NiivAaDw8Pb83LA+i2uJWkGDZBc764eHh4eCd4+VbelsraILhdjhqGh4eHt+bl2/psQ/8pr1d5RQ0EeHh4eDfx2raqTWCdF8/aMw0PDw/vO7zNRpyXo2aHyiytjIeHh3eaNwt/Z2WtvE1hRsLDw8P7Jq9NBLSl/X3YvTm68PDw8M7xTpSdNgnZvMz2n8XCw8PDO8ZLAug8vD5xIA0bHfDw8PBu5c3K+ZsQvG01WC0HHh4e3gHe5jxJAutZuStvJsifg4eHh3cvb9NKlRwYbctUnoZIFgIPDw/vHC+pHG1C8yQ4vjlQxsPDw3swb5O0bVsQ2gMDDw8P7wm8TVdsEQoH740Su3h4eHjHeG3RK2/MmhXhZlnnYdMVHh4e3uTTvL5t015QbOujYwwPDw/vGO8foipUuUJ1FcMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
