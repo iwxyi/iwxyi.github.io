@@ -41,22 +41,22 @@
 
 
     
-    <meta name="description" content="## 一：php调用python脚本 并传入参数，并接收返回值  php调用python脚本可以用 system()，exec()和passthru() 函数，本篇文章主要介绍exec 函数                                                                                              img">
+    <meta name="description" content="## 一：php调用python脚本 并传入参数，并接收返回值  php调用python脚本可以用 system()，exec()和passthru() 函数，本篇文章主要介绍exec 函数">
 <meta name="keywords" content="PHP,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP调用Python并获取返回值">
 <meta property="og:url" content="http://blog.iwxyi.com/2018/10/11/PHP调用Python并获取返回值/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="## 一：php调用python脚本 并传入参数，并接收返回值  php调用python脚本可以用 system()，exec()和passthru() 函数，本篇文章主要介绍exec 函数                                                                                              img">
+<meta property="og:description" content="## 一：php调用python脚本 并传入参数，并接收返回值  php调用python脚本可以用 system()，exec()和passthru() 函数，本篇文章主要介绍exec 函数">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdn.net/20180810085328518?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180810085356877?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180809201453447?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180810085414603?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2019-10-13T08:29:48.885Z">
+<meta property="og:updated_time" content="2019-10-13T11:29:20.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP调用Python并获取返回值">
-<meta name="twitter:description" content="## 一：php调用python脚本 并传入参数，并接收返回值  php调用python脚本可以用 system()，exec()和passthru() 函数，本篇文章主要介绍exec 函数                                                                                              img">
+<meta name="twitter:description" content="## 一：php调用python脚本 并传入参数，并接收返回值  php调用python脚本可以用 system()，exec()和passthru() 函数，本篇文章主要介绍exec 函数">
 <meta name="twitter:image" content="https://img-blog.csdn.net/20180810085328518?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
@@ -238,20 +238,20 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://img-blog.csdn.net/20180810085328518?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" title="">
+                    <img src="https://img-blog.csdn.net/20180810085328518?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="">
                 </div>
-                <div class="image-caption">img</div>
+                <div class="image-caption"></div>
             </figure>
-
+<a id="more"></a>
 <p>exec有三个参数，第一个参数为一个字符串，包括三个子串，起一个子串为使用的当前系统的解释器，如果直接写python则默认为系统默认的解释器，也可以指定本地python.exe 的路径。第二个子串为所要执行的python脚本的位置。第三个子串为所需传入的参数不限个数，中间用空格分隔，注意格式。子串间空格分割。</p>
 <p>tips:如果使用相对路径指定脚本位置，或者在python脚本中使用了文件的相对路径，都需要改为当前php文件所对应的相对路径。</p>
 <p>第二个参数是php接收的python脚本的返回值，注意，此处的$out中存放的并非python中return的值，并且所有return的值都不会进行保存，$out中存放的是python脚本中输出的值，即为print（）函数所输出的所有数据，每次print（）都会记录为一条字典数据，组合成array数组如下图：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://img-blog.csdn.net/20180810085356877?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" title="">
+                    <img src="https://img-blog.csdn.net/20180810085356877?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="">
                 </div>
-                <div class="image-caption">img</div>
+                <div class="image-caption"></div>
             </figure>
 
 <p>第三个参数为执行情况的状态码，如果执行成功，返回0，否则返回一个非0数</p>
@@ -279,7 +279,7 @@
 </blockquote>
 <hr>
 <blockquote>
-<p>参考：<a href="https://blog.csdn.net/qq_39490713/article/details/81543174?utm_source=copy" target="_blank" rel="noopener">https://blog.csdn.net/qq_39490713/article/details/81543174?utm_source=copy</a> </p>
+<p>参考：<a href="https://blog.csdn.net/qq_39490713/article/details/81543174?utm_source=copy" target="_blank" rel="noopener">https://blog.csdn.net/qq_39490713/article/details/81543174?utm_source=copy</a></p>
 </blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -306,7 +306,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T08:29:48.885Z" itemprop="dateUpdated">2019-10-13 16:29:48</time>
+    最后更新：<time datetime="2019-10-13T11:29:20.058Z" itemprop="dateUpdated">2019-10-13 19:29:20</time>
 </span>
 
 
@@ -353,7 +353,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/10/11/PHP调用Python并获取返回值/&title=《PHP调用Python并获取返回值》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/10/11/PHP调用Python并获取返回值/&title=《PHP调用Python并获取返回值》 — 云笺&source=## 一：php调用python脚本 并传入参数，并接收返回值
+
+php调用python脚本可以用 system()，exec()和passthru() ..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -535,7 +537,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/10/11/PHP调用Python并获取返回值/&title=《PHP调用Python并获取返回值》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/10/11/PHP调用Python并获取返回值/&title=《PHP调用Python并获取返回值》 — 云笺&source=## 一：php调用python脚本 并传入参数，并接收返回值
+
+php调用python脚本可以用 system()，exec()和passthru() ..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
