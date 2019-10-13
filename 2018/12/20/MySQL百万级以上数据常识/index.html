@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="使用MySQL处理百万级以上数据时，不得不知道的几个常识最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：">
+    <meta name="description" content="最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL百万级以上数据常识">
 <meta property="og:url" content="http://blog.iwxyi.com/2018/12/20/MySQL百万级以上数据常识/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="使用MySQL处理百万级以上数据时，不得不知道的几个常识最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：">
+<meta property="og:description" content="最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T05:34:37.161Z">
+<meta property="og:updated_time" content="2019-10-13T06:10:54.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL百万级以上数据常识">
-<meta name="twitter:description" content="使用MySQL处理百万级以上数据时，不得不知道的几个常识最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：">
+<meta name="twitter:description" content="最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -194,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用MySQL处理百万级以上数据时，不得不知道的几个常识"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用MySQL处理百万级以上数据时，不得不知道的几个常识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#索引不会生效的情况"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">索引不会生效的情况</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#建索引需要注意的地方"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">建索引需要注意的地方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他需要注意的地方"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">其他需要注意的地方</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#索引不会生效的情况"><span class="post-toc-number">1.</span> <span class="post-toc-text">索引不会生效的情况</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#建索引需要注意的地方"><span class="post-toc-number">2.</span> <span class="post-toc-text">建索引需要注意的地方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他需要注意的地方"><span class="post-toc-number">3.</span> <span class="post-toc-text">其他需要注意的地方</span></a></li></ol>
         </nav>
     </aside>
    
@@ -227,7 +227,7 @@
             阅读本文可能花费您&nbsp;<span class="post-count">9</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="使用MySQL处理百万级以上数据时，不得不知道的几个常识"><a href="#使用MySQL处理百万级以上数据时，不得不知道的几个常识" class="headerlink" title="使用MySQL处理百万级以上数据时，不得不知道的几个常识"></a>使用MySQL处理百万级以上数据时，不得不知道的几个常识</h1><p>最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：</p>
+            <p>最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，但是访问速度实在太慢，查阅相关的资料，发现导致节点插入时间非常慢的原因：</p>
 <a id="more"></a>
 
 <ol>
@@ -315,7 +315,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T05:34:37.161Z" itemprop="dateUpdated">2019-10-13 13:34:37</time>
+    最后更新：<time datetime="2019-10-13T06:10:54.062Z" itemprop="dateUpdated">2019-10-13 14:10:54</time>
 </span>
 
 
@@ -362,7 +362,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/20/MySQL百万级以上数据常识/&title=《MySQL百万级以上数据常识》 — 云笺&source=使用MySQL处理百万级以上数据时，不得不知道的几个常识最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/20/MySQL百万级以上数据常识/&title=《MySQL百万级以上数据常识》 — 云笺&source=最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -544,7 +544,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/20/MySQL百万级以上数据常识/&title=《MySQL百万级以上数据常识》 — 云笺&source=使用MySQL处理百万级以上数据时，不得不知道的几个常识最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/20/MySQL百万级以上数据常识/&title=《MySQL百万级以上数据常识》 — 云笺&source=最近的项目需要用到实现节点的管理规模达到百万规模，需要用数据库对中间数据以及最后的结果进行存储，存储规模可以达到千万级别。初步实现了10万节点数据的存储，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
