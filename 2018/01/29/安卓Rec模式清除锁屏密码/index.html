@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="安卓REC清除锁屏密码打开TWRP的adb shell 12345rm /data/system/locksettings.dbrm /data/system/locksettings.db-shmrm /data/system/locksettings.db-walrm /data/system/gatekeeper.password.keyrm /data/system/gatekeeper.">
+    <meta name="description" content="打开TWRP的adb shell 12345rm /data/system/locksettings.dbrm /data/system/locksettings.db-shmrm /data/system/locksettings.db-walrm /data/system/gatekeeper.password.keyrm /data/system/gatekeeper.pattern.key">
 <meta name="keywords" content="搞机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓Rec模式清除锁屏密码">
 <meta property="og:url" content="http://blog.iwxyi.com/2018/01/29/安卓Rec模式清除锁屏密码/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="安卓REC清除锁屏密码打开TWRP的adb shell 12345rm /data/system/locksettings.dbrm /data/system/locksettings.db-shmrm /data/system/locksettings.db-walrm /data/system/gatekeeper.password.keyrm /data/system/gatekeeper.">
+<meta property="og:description" content="打开TWRP的adb shell 12345rm /data/system/locksettings.dbrm /data/system/locksettings.db-shmrm /data/system/locksettings.db-walrm /data/system/gatekeeper.password.keyrm /data/system/gatekeeper.pattern.key">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-12T12:45:42.948Z">
+<meta property="og:updated_time" content="2019-10-12T23:35:06.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓Rec模式清除锁屏密码">
-<meta name="twitter:description" content="安卓REC清除锁屏密码打开TWRP的adb shell 12345rm /data/system/locksettings.dbrm /data/system/locksettings.db-shmrm /data/system/locksettings.db-walrm /data/system/gatekeeper.password.keyrm /data/system/gatekeeper.">
+<meta name="twitter:description" content="打开TWRP的adb shell 12345rm /data/system/locksettings.dbrm /data/system/locksettings.db-shmrm /data/system/locksettings.db-walrm /data/system/gatekeeper.password.keyrm /data/system/gatekeeper.pattern.key">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -191,13 +191,6 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安卓REC清除锁屏密码"><span class="post-toc-number">1.</span> <span class="post-toc-text">安卓REC清除锁屏密码</span></a></li></ol>
-        </nav>
-    </aside>
-   
 <article id="post-安卓Rec模式清除锁屏密码"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -227,7 +220,7 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="安卓REC清除锁屏密码"><a href="#安卓REC清除锁屏密码" class="headerlink" title="安卓REC清除锁屏密码"></a>安卓REC清除锁屏密码</h2><p>打开TWRP的<code>adb shell</code></p>
+            <p>打开TWRP的<code>adb shell</code></p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm /data/system/locksettings.db</span><br><span class="line">rm /data/system/locksettings.db-shm</span><br><span class="line">rm /data/system/locksettings.db-wal</span><br><span class="line">rm /data/system/gatekeeper.password.key</span><br><span class="line">rm /data/system/gatekeeper.pattern.key</span><br></pre></td></tr></tbody></table></figure>
 
 <p>实测可以用文件管理删除前两项即可（不同类型密码的文件不同）</p>
@@ -256,7 +249,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-12T12:45:42.948Z" itemprop="dateUpdated">2019-10-12 20:45:42</time>
+    最后更新：<time datetime="2019-10-12T23:35:06.468Z" itemprop="dateUpdated">2019-10-13 07:35:06</time>
 </span>
 
 

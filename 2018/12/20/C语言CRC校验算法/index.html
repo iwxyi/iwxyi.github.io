@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/">
+    
+    
+    <title>C语言CRC校验算法 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="C,密码学">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="CRC32 C语言版">
+<meta name="keywords" content="C,密码学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言CRC校验算法">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="CRC32 C语言版">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T00:22:28.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言CRC校验算法">
+<meta name="twitter:description" content="CRC32 C语言版">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C语言CRC校验算法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-C语言CRC校验算法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C语言CRC校验算法</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-12-20 08:20:00" datetime="2018-12-20T00:20:00.000Z"  itemprop="datePublished">2018-12-20</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">2</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><code>CRC32</code> C语言版</p>
+<a id="more"></a>
+
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> crc32tab[] = {</span><br><span class="line"> <span class="number">0x00000000</span>L, <span class="number">0x77073096</span>L, <span class="number">0xee0e612c</span>L, <span class="number">0x990951ba</span>L,</span><br><span class="line"> <span class="number">0x076dc419</span>L, <span class="number">0x706af48f</span>L, <span class="number">0xe963a535</span>L, <span class="number">0x9e6495a3</span>L,</span><br><span class="line"> <span class="number">0x0edb8832</span>L, <span class="number">0x79dcb8a4</span>L, <span class="number">0xe0d5e91e</span>L, <span class="number">0x97d2d988</span>L,</span><br><span class="line"> <span class="number">0x09b64c2b</span>L, <span class="number">0x7eb17cbd</span>L, <span class="number">0xe7b82d07</span>L, <span class="number">0x90bf1d91</span>L,</span><br><span class="line"> <span class="number">0x1db71064</span>L, <span class="number">0x6ab020f2</span>L, <span class="number">0xf3b97148</span>L, <span class="number">0x84be41de</span>L,</span><br><span class="line"> <span class="number">0x1adad47d</span>L, <span class="number">0x6ddde4eb</span>L, <span class="number">0xf4d4b551</span>L, <span class="number">0x83d385c7</span>L,</span><br><span class="line"> <span class="number">0x136c9856</span>L, <span class="number">0x646ba8c0</span>L, <span class="number">0xfd62f97a</span>L, <span class="number">0x8a65c9ec</span>L,</span><br><span class="line"> <span class="number">0x14015c4f</span>L, <span class="number">0x63066cd9</span>L, <span class="number">0xfa0f3d63</span>L, <span class="number">0x8d080df5</span>L,</span><br><span class="line"> <span class="number">0x3b6e20c8</span>L, <span class="number">0x4c69105e</span>L, <span class="number">0xd56041e4</span>L, <span class="number">0xa2677172</span>L,</span><br><span class="line"> <span class="number">0x3c03e4d1</span>L, <span class="number">0x4b04d447</span>L, <span class="number">0xd20d85fd</span>L, <span class="number">0xa50ab56b</span>L,</span><br><span class="line"> <span class="number">0x35b5a8fa</span>L, <span class="number">0x42b2986c</span>L, <span class="number">0xdbbbc9d6</span>L, <span class="number">0xacbcf940</span>L,</span><br><span class="line"> <span class="number">0x32d86ce3</span>L, <span class="number">0x45df5c75</span>L, <span class="number">0xdcd60dcf</span>L, <span class="number">0xabd13d59</span>L,</span><br><span class="line"> <span class="number">0x26d930ac</span>L, <span class="number">0x51de003a</span>L, <span class="number">0xc8d75180</span>L, <span class="number">0xbfd06116</span>L,</span><br><span class="line"> <span class="number">0x21b4f4b5</span>L, <span class="number">0x56b3c423</span>L, <span class="number">0xcfba9599</span>L, <span class="number">0xb8bda50f</span>L,</span><br><span class="line"> <span class="number">0x2802b89e</span>L, <span class="number">0x5f058808</span>L, <span class="number">0xc60cd9b2</span>L, <span class="number">0xb10be924</span>L,</span><br><span class="line"> <span class="number">0x2f6f7c87</span>L, <span class="number">0x58684c11</span>L, <span class="number">0xc1611dab</span>L, <span class="number">0xb6662d3d</span>L,</span><br><span class="line"> <span class="number">0x76dc4190</span>L, <span class="number">0x01db7106</span>L, <span class="number">0x98d220bc</span>L, <span class="number">0xefd5102a</span>L,</span><br><span class="line"> <span class="number">0x71b18589</span>L, <span class="number">0x06b6b51f</span>L, <span class="number">0x9fbfe4a5</span>L, <span class="number">0xe8b8d433</span>L,</span><br><span class="line"> <span class="number">0x7807c9a2</span>L, <span class="number">0x0f00f934</span>L, <span class="number">0x9609a88e</span>L, <span class="number">0xe10e9818</span>L,</span><br><span class="line"> <span class="number">0x7f6a0dbb</span>L, <span class="number">0x086d3d2d</span>L, <span class="number">0x91646c97</span>L, <span class="number">0xe6635c01</span>L,</span><br><span class="line"> <span class="number">0x6b6b51f4</span>L, <span class="number">0x1c6c6162</span>L, <span class="number">0x856530d8</span>L, <span class="number">0xf262004e</span>L,</span><br><span class="line"> <span class="number">0x6c0695ed</span>L, <span class="number">0x1b01a57b</span>L, <span class="number">0x8208f4c1</span>L, <span class="number">0xf50fc457</span>L,</span><br><span class="line"> <span class="number">0x65b0d9c6</span>L, <span class="number">0x12b7e950</span>L, <span class="number">0x8bbeb8ea</span>L, <span class="number">0xfcb9887c</span>L,</span><br><span class="line"> <span class="number">0x62dd1ddf</span>L, <span class="number">0x15da2d49</span>L, <span class="number">0x8cd37cf3</span>L, <span class="number">0xfbd44c65</span>L,</span><br><span class="line"> <span class="number">0x4db26158</span>L, <span class="number">0x3ab551ce</span>L, <span class="number">0xa3bc0074</span>L, <span class="number">0xd4bb30e2</span>L,</span><br><span class="line"> <span class="number">0x4adfa541</span>L, <span class="number">0x3dd895d7</span>L, <span class="number">0xa4d1c46d</span>L, <span class="number">0xd3d6f4fb</span>L,</span><br><span class="line"> <span class="number">0x4369e96a</span>L, <span class="number">0x346ed9fc</span>L, <span class="number">0xad678846</span>L, <span class="number">0xda60b8d0</span>L,</span><br><span class="line"> <span class="number">0x44042d73</span>L, <span class="number">0x33031de5</span>L, <span class="number">0xaa0a4c5f</span>L, <span class="number">0xdd0d7cc9</span>L,</span><br><span class="line"> <span class="number">0x5005713c</span>L, <span class="number">0x270241aa</span>L, <span class="number">0xbe0b1010</span>L, <span class="number">0xc90c2086</span>L,</span><br><span class="line"> <span class="number">0x5768b525</span>L, <span class="number">0x206f85b3</span>L, <span class="number">0xb966d409</span>L, <span class="number">0xce61e49f</span>L,</span><br><span class="line"> <span class="number">0x5edef90e</span>L, <span class="number">0x29d9c998</span>L, <span class="number">0xb0d09822</span>L, <span class="number">0xc7d7a8b4</span>L,</span><br><span class="line"> <span class="number">0x59b33d17</span>L, <span class="number">0x2eb40d81</span>L, <span class="number">0xb7bd5c3b</span>L, <span class="number">0xc0ba6cad</span>L,</span><br><span class="line"> <span class="number">0xedb88320</span>L, <span class="number">0x9abfb3b6</span>L, <span class="number">0x03b6e20c</span>L, <span class="number">0x74b1d29a</span>L,</span><br><span class="line"> <span class="number">0xead54739</span>L, <span class="number">0x9dd277af</span>L, <span class="number">0x04db2615</span>L, <span class="number">0x73dc1683</span>L,</span><br><span class="line"> <span class="number">0xe3630b12</span>L, <span class="number">0x94643b84</span>L, <span class="number">0x0d6d6a3e</span>L, <span class="number">0x7a6a5aa8</span>L,</span><br><span class="line"> <span class="number">0xe40ecf0b</span>L, <span class="number">0x9309ff9d</span>L, <span class="number">0x0a00ae27</span>L, <span class="number">0x7d079eb1</span>L,</span><br><span class="line"> <span class="number">0xf00f9344</span>L, <span class="number">0x8708a3d2</span>L, <span class="number">0x1e01f268</span>L, <span class="number">0x6906c2fe</span>L,</span><br><span class="line"> <span class="number">0xf762575d</span>L, <span class="number">0x806567cb</span>L, <span class="number">0x196c3671</span>L, <span class="number">0x6e6b06e7</span>L,</span><br><span class="line"> <span class="number">0xfed41b76</span>L, <span class="number">0x89d32be0</span>L, <span class="number">0x10da7a5a</span>L, <span class="number">0x67dd4acc</span>L,</span><br><span class="line"> <span class="number">0xf9b9df6f</span>L, <span class="number">0x8ebeeff9</span>L, <span class="number">0x17b7be43</span>L, <span class="number">0x60b08ed5</span>L,</span><br><span class="line"> <span class="number">0xd6d6a3e8</span>L, <span class="number">0xa1d1937e</span>L, <span class="number">0x38d8c2c4</span>L, <span class="number">0x4fdff252</span>L,</span><br><span class="line"> <span class="number">0xd1bb67f1</span>L, <span class="number">0xa6bc5767</span>L, <span class="number">0x3fb506dd</span>L, <span class="number">0x48b2364b</span>L,</span><br><span class="line"> <span class="number">0xd80d2bda</span>L, <span class="number">0xaf0a1b4c</span>L, <span class="number">0x36034af6</span>L, <span class="number">0x41047a60</span>L,</span><br><span class="line"> <span class="number">0xdf60efc3</span>L, <span class="number">0xa867df55</span>L, <span class="number">0x316e8eef</span>L, <span class="number">0x4669be79</span>L,</span><br><span class="line"> <span class="number">0xcb61b38c</span>L, <span class="number">0xbc66831a</span>L, <span class="number">0x256fd2a0</span>L, <span class="number">0x5268e236</span>L,</span><br><span class="line"> <span class="number">0xcc0c7795</span>L, <span class="number">0xbb0b4703</span>L, <span class="number">0x220216b9</span>L, <span class="number">0x5505262f</span>L,</span><br><span class="line"> <span class="number">0xc5ba3bbe</span>L, <span class="number">0xb2bd0b28</span>L, <span class="number">0x2bb45a92</span>L, <span class="number">0x5cb36a04</span>L,</span><br><span class="line"> <span class="number">0xc2d7ffa7</span>L, <span class="number">0xb5d0cf31</span>L, <span class="number">0x2cd99e8b</span>L, <span class="number">0x5bdeae1d</span>L,</span><br><span class="line"> <span class="number">0x9b64c2b0</span>L, <span class="number">0xec63f226</span>L, <span class="number">0x756aa39c</span>L, <span class="number">0x026d930a</span>L,</span><br><span class="line"> <span class="number">0x9c0906a9</span>L, <span class="number">0xeb0e363f</span>L, <span class="number">0x72076785</span>L, <span class="number">0x05005713</span>L,</span><br><span class="line"> <span class="number">0x95bf4a82</span>L, <span class="number">0xe2b87a14</span>L, <span class="number">0x7bb12bae</span>L, <span class="number">0x0cb61b38</span>L,</span><br><span class="line"> <span class="number">0x92d28e9b</span>L, <span class="number">0xe5d5be0d</span>L, <span class="number">0x7cdcefb7</span>L, <span class="number">0x0bdbdf21</span>L,</span><br><span class="line"> <span class="number">0x86d3d2d4</span>L, <span class="number">0xf1d4e242</span>L, <span class="number">0x68ddb3f8</span>L, <span class="number">0x1fda836e</span>L,</span><br><span class="line"> <span class="number">0x81be16cd</span>L, <span class="number">0xf6b9265b</span>L, <span class="number">0x6fb077e1</span>L, <span class="number">0x18b74777</span>L,</span><br><span class="line"> <span class="number">0x88085ae6</span>L, <span class="number">0xff0f6a70</span>L, <span class="number">0x66063bca</span>L, <span class="number">0x11010b5c</span>L,</span><br><span class="line"> <span class="number">0x8f659eff</span>L, <span class="number">0xf862ae69</span>L, <span class="number">0x616bffd3</span>L, <span class="number">0x166ccf45</span>L,</span><br><span class="line"> <span class="number">0xa00ae278</span>L, <span class="number">0xd70dd2ee</span>L, <span class="number">0x4e048354</span>L, <span class="number">0x3903b3c2</span>L,</span><br><span class="line"> <span class="number">0xa7672661</span>L, <span class="number">0xd06016f7</span>L, <span class="number">0x4969474d</span>L, <span class="number">0x3e6e77db</span>L,</span><br><span class="line"> <span class="number">0xaed16a4a</span>L, <span class="number">0xd9d65adc</span>L, <span class="number">0x40df0b66</span>L, <span class="number">0x37d83bf0</span>L,</span><br><span class="line"> <span class="number">0xa9bcae53</span>L, <span class="number">0xdebb9ec5</span>L, <span class="number">0x47b2cf7f</span>L, <span class="number">0x30b5ffe9</span>L,</span><br><span class="line"> <span class="number">0xbdbdf21c</span>L, <span class="number">0xcabac28a</span>L, <span class="number">0x53b39330</span>L, <span class="number">0x24b4a3a6</span>L,</span><br><span class="line"> <span class="number">0xbad03605</span>L, <span class="number">0xcdd70693</span>L, <span class="number">0x54de5729</span>L, <span class="number">0x23d967bf</span>L,</span><br><span class="line"> <span class="number">0xb3667a2e</span>L, <span class="number">0xc4614ab8</span>L, <span class="number">0x5d681b02</span>L, <span class="number">0x2a6f2b94</span>L,</span><br><span class="line"> <span class="number">0xb40bbe37</span>L, <span class="number">0xc30c8ea1</span>L, <span class="number">0x5a05df1b</span>L, <span class="number">0x2d02ef8d</span>L</span><br><span class="line">};</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">crc32</span><span class="params">( <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *buf, <span class="keyword">unsigned</span> <span class="keyword">int</span> size)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">     <span class="keyword">unsigned</span> <span class="keyword">int</span> i, crc;</span><br><span class="line">     crc = <span class="number">0xFFFFFFFF</span>;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">     <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">      crc = crc32tab[(crc ^ buf[i]) &amp; <span class="number">0xff</span>] ^ (crc &gt;&gt; <span class="number">8</span>);</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">return</span> crc^<span class="number">0xFFFFFFFF</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/gongmin856/article/details/77101397" target="_blank" rel="noopener">https://blog.csdn.net/gongmin856/article/details/77101397</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T00:22:28.838Z" itemprop="dateUpdated">2019-10-13 08:22:28</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/12/20/C语言CRC校验算法/" target="_blank" rel="external">http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/密码学/">密码学</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/&title=《C语言CRC校验算法》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/&title=《C语言CRC校验算法》 — 云笺&source=CRC32 C语言版" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C语言CRC校验算法》 — 云笺&url=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/15/ASP-NET-学习笔记/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：ASP.NET-学习笔记
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/07/正则表达式-讲解/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Markdown-讲解">下一篇：Markdown-讲解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/&title=《C语言CRC校验算法》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/&title=《C语言CRC校验算法》 — 云笺&source=CRC32 C语言版" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C语言CRC校验算法》 — 云笺&url=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/12/20/C语言CRC校验算法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aS27DMAxF0e5/0+40QGH5PkopYPJ6VMRO5KMBy49+fvB1fVx/P1l//nn38xmyyuFLhgwZr2Vcy4u/9N0vr59M171dUYYMGQMY5CXWz6zBa9jdWnxdGTJkyOChs5bF7W+fDBkyZOykg7WQLUOGDBm1InanQZY23b5Yi8uQIeOFDJ7M/f/fX5lvyJAh41WMK7zSIjYNkVfpkiFDRm8GD3Bpspg22tKAK0OGjGmM9YsSQO1wGN8ssqIMGTK6Ms4meeR1+RaQQCxDhoxpjJ2RQO3YRHqYtVj7ypAh4+UMMjjkd3lit18Gy5AhYw6DLMzv7rT7SQJ6u5YMGTLGM3iBmpa7620KyloZMmS0ZqTtsLS4raV6tSGoDBkyejPSxlbtiFhKjYcTMmTIaMrg6Rdv+qPDpmG77eETGTJkDGDwVn6tKUaeT4epD8fCZMiQ0YjBu+unQjBv6hWPoMmQIaMdI22i7YTds4mjDBky5jDIUPAUNU0H06MYMmTImMPgrfz0u+kvx2FdhgwZAxjx0auNgMu3jIwcZMiQMYdRa7GdKn3ToI8yXBkyZLRgnC0myTCgFlgfqDJkyGjNqKVrfOhIErt0FLqTdMqQIeO9DB5k050gr1tLHx9Oi8iQIaMpY12C8jCaNvTT/wCo3SZDhozxDJ4a8u+mKwaTUhkyZAxm1FpptQobhXIZMmQMYPBhQA1ZK32D4C5DhozWjJ0jX2kqWYPxsagMGTLaMX4BVofbGeKAhckAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

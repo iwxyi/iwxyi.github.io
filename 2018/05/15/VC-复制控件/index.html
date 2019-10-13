@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/05/15/VC-复制控件/">
+    
+    
+    <title>VC++复制控件 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="VC++">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="vc中如何拷贝一个工程的对话框资源到另一个工程中? 方法一：在你的工程中添加另一个工程的rc文件，这时资源视图中就会出现两个rc,从后加的rc中拷贝资源到你自己工程的rc中就可以了。">
+<meta name="keywords" content="VC++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VC++复制控件">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/05/15/VC-复制控件/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="vc中如何拷贝一个工程的对话框资源到另一个工程中? 方法一：在你的工程中添加另一个工程的rc文件，这时资源视图中就会出现两个rc,从后加的rc中拷贝资源到你自己工程的rc中就可以了。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T01:37:04.165Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VC++复制控件">
+<meta name="twitter:description" content="vc中如何拷贝一个工程的对话框资源到另一个工程中? 方法一：在你的工程中添加另一个工程的rc文件，这时资源视图中就会出现两个rc,从后加的rc中拷贝资源到你自己工程的rc中就可以了。">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">VC++复制控件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-VC-复制控件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">VC++复制控件</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-05-15 09:35:00" datetime="2018-05-15T01:35:00.000Z"  itemprop="datePublished">2018-05-15</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>vc中如何拷贝一个工程的对话框资源到另一个工程中?</p>
+<p>方法一：在你的工程中添加另一个工程的rc文件，这时资源视图中就会出现两个rc,从后加的rc中拷贝资源到你自己工程的rc中就可以了。</p>
+<a id="more"></a>
+<hr>
+<p>在VC6环境下，选择Class视图，选中想要克隆的对话框所对应的类，例如CAboutDlg，点击鼠标右键，选择Add to gallery。在新工程中选择Project菜单，选择Add Component and ActivX，你会看到多了一个文件夹（与上一个工程同名），进入该文件夹，选择*.ogx。选择Insert，你会发现原来的对话框被加入到新的工程中了！</p>
+<p>补充：</p>
+<p>.net下更简单，将原来的工程加到新的工程中，直接将对话框拷贝过去就行了！</p>
+<hr>
+<p>VC++中如何复制对话框资源</p>
+<p>第一步：用记事本打开原工程的.rc文件，找到想复制的对话框的信息，如下所示</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">IDD_UGMS_DIALOGDIALOGEX 0, 0, 320, 230</span><br><span class="line">STYLE WS_CHILD | WS_VISIBLE</span><br><span class="line">EXSTYLE WS_EX_APPWINDOW</span><br><span class="line">FONT 9, "宋体"</span><br><span class="line">BEGIN</span><br><span class="line">  GROUPBOX      "学生信息",IDC_STATIC,10,8,290,200</span><br><span class="line">  GROUPBOX      "",IDC_STATIC,25,55,205,120</span><br><span class="line">  PUSHBUTTON    "最前(&amp;F)",IDC_BUTTON_FIRST,30,30,35,15</span><br><span class="line">  PUSHBUTTON    "向前(&amp;B)",IDC_BUTTON_PRE,82,30,35,15</span><br><span class="line">  PUSHBUTTON    "向后(&amp;N)",IDC_BUTTON_NEXT,134,30,35,15</span><br><span class="line">  PUSHBUTTON    "最后(&amp;L)",IDC_BUTTON_LAST,186,30,35,15</span><br><span class="line">  PUSHBUTTON    "查询(&amp;Q)",IDC_BUTTON_QUERY,246,70,40,15</span><br><span class="line">  PUSHBUTTON    "增加(&amp;A)",IDC_BUTTON_ADD,246,96,40,15</span><br><span class="line">  PUSHBUTTON    "修改(&amp;M)",IDC_BUTTON_MODIFY,246,122,40,15</span><br><span class="line">  PUSHBUTTON    "删除(&amp;D)",IDC_BUTTON_DELETE,246,148,40,15</span><br><span class="line">  PUSHBUTTON    "确定(&amp;O)",IDC_BUTTON_OK,58,183,40,15</span><br><span class="line">  PUSHBUTTON    "取消(&amp;C)",IDC_BUTTON_CANCEL,150,183,40,15</span><br><span class="line">  LTEXT          "学号：",IDC_STATIC,52,75,25,8</span><br><span class="line">  LTEXT          "姓名：",IDC_STATIC,52,100,25,8</span><br><span class="line">  LTEXT          "性别：",IDC_STATIC,52,125,25,8</span><br><span class="line">  LTEXT          "入学时间：",IDC_STATIC,44,151,41,8</span><br><span class="line">  EDITTEXT      IDC_EDIT_SID,91,72,95,15,ES_AUTOHSCROLL</span><br><span class="line">  EDITTEXT      IDC_EDIT_SNAME,91,96,95,15,ES_AUTOHSCROLL</span><br><span class="line">  EDITTEXT      IDC_EDIT_SSEX,91,120,95,15,ES_AUTOHSCROLL</span><br><span class="line">  CONTROL        "DateTimePicker1",IDC_DATETIMEPICKER_SCOMEDATE, "SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,91,144, 95,15</span><br><span class="line">  GROUPBOX      "",IDC_STATIC,25,19,205,35</span><br><span class="line">END</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中绿色背景代表的是要复制的对话框资源的ID，此段代码也就是.rc文件中记录的此对话框的信息，黄色背景中间的代码就是</p>
+<p>相应对话框中添加的控件信息，只需将相应代码拷到新工程的相应.rc文件相应的ID对话框资源的BEGIN 和END之间即可；</p>
+<p>第二步：打开原工程的FileView视图下的Header Files 下的resource.h文件，将其中相应ID的信息复制到新工程的resource.h中即可；</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//复制的资源ID</span><br><span class="line">#define IDC_BUTTON_FIRST              1000</span><br><span class="line">#define IDC_BUTTON_PRE                1001</span><br><span class="line">#define IDC_BUTTON_NEXT              1002</span><br><span class="line">#define IDC_BUTTON_LAST              1003</span><br><span class="line">#define IDC_BUTTON_QUERY              1004</span><br><span class="line">#define IDC_BUTTON_ADD                1005</span><br><span class="line">#define IDC_BUTTON_MODIFY              1006</span><br><span class="line">#define IDC_BUTTON_DELETE              1007</span><br><span class="line">#define IDC_BUTTON_OK                1008</span><br><span class="line">#define IDC_BUTTON_CANCEL              1009</span><br><span class="line">#define IDC_EDIT_SID                  1010</span><br><span class="line">#define IDC_EDIT_SNAME                1011</span><br><span class="line">#define IDC_EDIT_SSEX                1012</span><br><span class="line">#define IDC_DATETIMEPICKER_SCOMEDATE    1013</span><br></pre></td></tr></tbody></table></figure>
+
+<p>第三步：记得不要遗漏啊，如有ID重复，可以更改一下即可！</p>
+<p>法4：</p>
+<p>今天碰到模块移植问题了,自己做的对话框类(继承于CDialog)要移植到目标工程中.在网上搜了几个帖子发现都说的很生涩.问了我们的技术总监之后总算解决这个问题了.</p>
+<p>   问题:把一个MFC SDI工程中的一个对话框资源和类拷贝到另一个MFC SDI中.</p>
+<p>   1.在VC6中打开老的工程,在工作区Resource标签页中选中Dialog文件夹下的资源文件(就是双击后会出现编辑窗口界面的那个东西),按Ctrl+C(Edit-&gt;Copy也一样).</p>
+<p>   2.关闭当前工程,注意不要关闭VC6,打开目标工程(File-&gt;OpenWorkspace),然后选中工作区的Resource标签页中的Dialog文件夹,然后按Ctrl+V(Edit-&gt;Paste也一样).好了,对话框拷贝过来了.</p>
+<p>   3.将对话框类的cpp h文件拷贝到目标工程中(不详细说了,往当前工程添加文件)</p>
+<p>   4.打开复制过来的类cpp和h文件,删除没用的头文件(老工程相关的),并且在.h文件中添加文件包含</p>
+<p>#include “Resource.h”</p>
+<p>第四步很关键,老工程中根本就没有这个文件包含,可是移植之后必须手动添加头文件包含.因为这个问题卡了10几分钟…</p>
+<p>当你用资源ID时（通常资源编辑器编辑的资源ID都在resource.h中），如果没有包含CWinApp的派生类所在的头文件就会出错，你看一下它的头文件里，包含了这个文件， 而向导生成的类，它的实现文件都有包含CWinApp派生类所在的头文件的</p>
+<p>然后在新工程中就可以使用这个类了,主要就是这个类的对话框中的资源复制头一次遇到.不敢独享,拿出来跟新手们一起学习.</p>
+<p>于是，当有已经创建好的对话框资源要添加到新工程中时：</p>
+<p>（1）右键单击新工程所在的解决方案添加“现有项目”把旧工程添加进来；</p>
+<p>（2）切换到“资源视图”并在旧工程对话框资源上右键“复制”；</p>
+<p>（3）在新工程对话框资源上右键“粘贴”；</p>
+<p>（4）现在就可以为新对话框添加类了，顺便把旧工程的响应函数拷贝过来；</p>
+<p>（5）切换回“解决方案资源管理器”，右键旧工程“移除”。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T01:37:04.165Z" itemprop="dateUpdated">2019-10-13 09:37:04</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/05/15/VC-复制控件/" target="_blank" rel="external">http://blog.iwxyi.com/2018/05/15/VC-复制控件/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VC/">VC++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/05/15/VC-复制控件/&title=《VC++复制控件》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/05/15/VC-复制控件/&title=《VC++复制控件》 — 云笺&source=vc中如何拷贝一个工程的对话框资源到另一个工程中?
+方法一：在你的工程中添加另一个工程的rc文件，这时资源视图中就会出现两个rc,从后加的rc中拷贝资源到..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/05/15/VC-复制控件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VC++复制控件》 — 云笺&url=http://blog.iwxyi.com/2018/05/15/VC-复制控件/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/05/15/VC-复制控件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/05/15/MFC常用控件/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：MFC常用控件
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/15/VC-动态链接库DLL/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：VC++动态链接库DLL">下一篇：VC++动态链接库DLL</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/05/15/VC-复制控件/&title=《VC++复制控件》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/05/15/VC-复制控件/&title=《VC++复制控件》 — 云笺&source=vc中如何拷贝一个工程的对话框资源到另一个工程中?
+方法一：在你的工程中添加另一个工程的rc文件，这时资源视图中就会出现两个rc,从后加的rc中拷贝资源到..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/05/15/VC-复制控件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VC++复制控件》 — 云笺&url=http://blog.iwxyi.com/2018/05/15/VC-复制控件/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/05/15/VC-复制控件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aSW7EMAwF0b7/pZ0DJFbXJ+0AEksrowdbzwuCgz4fvK5fa/0t+f36KZ83lgwZMrZlkMfzz9ebXl/z+/9BlSFDxgDGXQR76jd3W+TXX/YsQ4YMGSBdW4dLngLKkCFDRp+xDp0cefdfGTJkyOgUsbwp1rnD67W4DBkyNmTwrvv/X78y35AhQ8ZWjCtctZSOh8irtGTIkHE2o1aCksQuTRxJUf3lDjJkyDiaQdr6abr2VEsuBsuQIeM4Rrr1FNZ6r6C4lSFDxgRGOh7gTX8SZPvjh7gOliFDxoYMFMJwqpeWtZ3ALUOGjJmM2pGLdcrIU88HRpgyZMg4mpEmf7V2Pw/TMV6GDBnDGJ1RZbohUriiFy1DhoyjGf1iMm2QkdSQfIJmsDJkyDiCwUtKXuJ2jsDWSDJkyJjA4DdKG2dpk66YRMqQIWM8Iz27kY4HOs+VIUPGBEatWc/bcGn6yA+TyZAhYxqDt9jSx9SSSB6Oi+dKZMiQsSHjqVKWh+Y0vKIDZDJkyBjD6AwJ+jG+NVqQIUPGAEaatPEytXakLC2PZciQcSrjCldtMEkS0M4dZMiQcTYjbbp1wmg6WuAvS4YMGRMYtbFifBjitUGCDBky5jDSYw2cXRsexKFfhgwZMsJ2WA3Ai94gusuQIWMkg488eeBep5soMZUhQ8YABh9MdgafaciOU0MZMmQcyuClYzFpa4xO+0c0ZMiQsTnjB7vq2xmmp0Y2AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

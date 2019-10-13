@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/05/15/MFC常用控件/">
+    
+    
+    <title>MFC常用控件 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="MFC">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="静态文本框1m_stext.SetWindowTextW(TEXT(&quot;Hello&quot;));">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MFC常用控件">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/05/15/MFC常用控件/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="静态文本框1m_stext.SetWindowTextW(TEXT(&quot;Hello&quot;));">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T02:14:00.079Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MFC常用控件">
+<meta name="twitter:description" content="静态文本框1m_stext.SetWindowTextW(TEXT(&quot;Hello&quot;));">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">MFC常用控件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态文本框"><span class="post-toc-number">1.</span> <span class="post-toc-text">静态文本框</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编辑框"><span class="post-toc-number">2.</span> <span class="post-toc-text">编辑框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本函数"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">基本函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数值与控件转换"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">数值与控件转换</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图像框"><span class="post-toc-number">3.</span> <span class="post-toc-text">图像框</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组框-Group-Box"><span class="post-toc-number">4.</span> <span class="post-toc-text">组框 Group Box</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#按钮"><span class="post-toc-number">5.</span> <span class="post-toc-text">按钮</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#复选框"><span class="post-toc-number">6.</span> <span class="post-toc-text">复选框</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单选框"><span class="post-toc-number">7.</span> <span class="post-toc-text">单选框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#按下单选框"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">按下单选框</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化选中"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">初始化选中</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取状态"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">获取状态</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合框"><span class="post-toc-number">8.</span> <span class="post-toc-text">组合框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化时添加下拉列表框项目"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">初始化时添加下拉列表框项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化时选中字符串"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">初始化时选中字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取并弹出选中项目"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">获取并弹出选中项目</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表框"><span class="post-toc-number">9.</span> <span class="post-toc-text">列表框</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#水平滚动条"><span class="post-toc-number">10.</span> <span class="post-toc-text">水平滚动条</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#垂直滚动条"><span class="post-toc-number">11.</span> <span class="post-toc-text">垂直滚动条</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#旋转-Spin"><span class="post-toc-number">12.</span> <span class="post-toc-text">旋转 Spin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进度条-Progress"><span class="post-toc-number">13.</span> <span class="post-toc-text">进度条 Progress</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#滑块"><span class="post-toc-number">14.</span> <span class="post-toc-text">滑块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#热键"><span class="post-toc-number">15.</span> <span class="post-toc-text">热键</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表控件"><span class="post-toc-number">16.</span> <span class="post-toc-text">列表控件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#树状控件"><span class="post-toc-number">17.</span> <span class="post-toc-text">树状控件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tab控件"><span class="post-toc-number">18.</span> <span class="post-toc-text">Tab控件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动画"><span class="post-toc-number">19.</span> <span class="post-toc-text">动画</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#富文本-Rich-Edit"><span class="post-toc-number">20.</span> <span class="post-toc-text">富文本 Rich Edit</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#月历"><span class="post-toc-number">21.</span> <span class="post-toc-text">月历</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#日期时间选择器"><span class="post-toc-number">22.</span> <span class="post-toc-text">日期时间选择器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IP地址"><span class="post-toc-number">23.</span> <span class="post-toc-text">IP地址</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义控件"><span class="post-toc-number">24.</span> <span class="post-toc-text">自定义控件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展组合框"><span class="post-toc-number">25.</span> <span class="post-toc-text">扩展组合框</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-MFC常用控件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MFC常用控件</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-05-15 10:10:00" datetime="2018-05-15T02:10:00.000Z"  itemprop="datePublished">2018-05-15</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">7</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="静态文本框"><a href="#静态文本框" class="headerlink" title="静态文本框"></a>静态文本框</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m_stext.SetWindowTextW(TEXT(<span class="string">"Hello"</span>));</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+
+<h2 id="编辑框"><a href="#编辑框" class="headerlink" title="编辑框"></a>编辑框</h2><h3 id="基本函数"><a href="#基本函数" class="headerlink" title="基本函数"></a>基本函数</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">m_Edit1.SetSel(<span class="number">0</span>,<span class="number">-1</span>);	<span class="comment">//表示选中编辑框IDC_EDIT1中的全部内容。</span></span><br><span class="line">m_Edit1.ReplaceSel(<span class="string">""</span>);	<span class="comment">//用空字符串代替所选中的文本，即把所选的文本删除掉</span></span><br><span class="line">m_Edit1.Copy();		<span class="comment">//将m_Editl编辑框中所选的内容拷贝到剪贴板上</span></span><br><span class="line">m_Edit2.Paste();	<span class="comment">//将剪贴板中的内容粘贴到m_Edit2编辑框中</span></span><br><span class="line">m_Edit1.Undo();	<span class="comment">// Undo（）函数是CEdit类中的成员函数，表示取消编辑框中上一次操作</span></span><br><span class="line">m_Edit1.GetWindowText(str, <span class="number">10</span>); <span class="comment">// 将内容放到字符串上，参数2是长度（包括\0）</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="数值与控件转换"><a href="#数值与控件转换" class="headerlink" title="数值与控件转换"></a>数值与控件转换</h3><p>IDC_EDIT1 绑定 int 变量 m_A</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">UpdateData(TRUE); <span class="comment">// 刷新成数值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i=m_A*m_B;</span><br><span class="line">m_Result.Format(<span class="string">"%d"</span>, i);</span><br><span class="line"></span><br><span class="line">UpdateData(FALSE); <span class="comment">// 刷新回控件</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="图像框"><a href="#图像框" class="headerlink" title="图像框"></a>图像框</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="组框-Group-Box"><a href="#组框-Group-Box" class="headerlink" title="组框 Group Box"></a>组框 Group Box</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><p>按下按钮</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m_btn1.SetWindowText(<span class="string">"你已按下了按钮！"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(m_chk1.GetCheck()&gt;<span class="number">0</span>)</span><br><span class="line">    m_chk1.SetCheck(<span class="number">0</span>);</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line">    m_chk1.SetCheck(<span class="number">1</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="单选框"><a href="#单选框" class="headerlink" title="单选框"></a>单选框</h2><h3 id="按下单选框"><a href="#按下单选框" class="headerlink" title="按下单选框"></a>按下单选框</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m_rad1.SetCheck(<span class="number">1</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="初始化选中"><a href="#初始化选中" class="headerlink" title="初始化选中"></a>初始化选中</h3><p>给一组单选按钮中的一个指定按钮加上选中标志，并且清除组中其他按钮的选中标志。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BOOL <span class="title">CheckRadioButton</span><span class="params">([HWND hDlg,] <span class="keyword">int</span> nlDFirstButton, <span class="keyword">int</span> nlDLastBUtton, <span class="keyword">int</span> nlDCheckButton)</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="获取状态"><a href="#获取状态" class="headerlink" title="获取状态"></a>获取状态</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> iSexRADIO = GetCheckedRadioButton(IDC_BOY_RADIO, IDC_GIRL_RADIO); <span class="comment">// 参数是第一个和最后一个</span></span><br><span class="line"><span class="keyword">if</span> (iSexRADIO == IDC_BOY_RADIO)</span><br><span class="line">	;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="组合框"><a href="#组合框" class="headerlink" title="组合框"></a>组合框</h2><h3 id="初始化时添加下拉列表框项目"><a href="#初始化时添加下拉列表框项目" class="headerlink" title="初始化时添加下拉列表框项目"></a>初始化时添加下拉列表框项目</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m_cb.AddString(<span class="string">"Monday"</span>); <span class="comment">// 添加项目</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="初始化时选中字符串"><a href="#初始化时选中字符串" class="headerlink" title="初始化时选中字符串"></a>初始化时选中字符串</h3><p><code>SelectString</code>：搜索在组合框的列表框中的字符串，如果找到该字符串，选择列表框和复制的字符串到编辑控件。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m_Combo.SelectString(<span class="number">-1</span>, <span class="string">"a"</span>); <span class="comment">// 参数1：从0开始的索引，-1为全部；参数2：搜索词，区分大小写</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="获取并弹出选中项目"><a href="#获取并弹出选中项目" class="headerlink" title="获取并弹出选中项目"></a>获取并弹出选中项目</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CString msg;</span><br><span class="line">m_cb.GetLBText(m_cb.GetCurSel(), msg);</span><br><span class="line">AfxMessageBox(msg);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="列表框"><a href="#列表框" class="headerlink" title="列表框"></a>列表框</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="水平滚动条"><a href="#水平滚动条" class="headerlink" title="水平滚动条"></a>水平滚动条</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="垂直滚动条"><a href="#垂直滚动条" class="headerlink" title="垂直滚动条"></a>垂直滚动条</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="旋转-Spin"><a href="#旋转-Spin" class="headerlink" title="旋转 Spin"></a>旋转 Spin</h2><p>滑块的滚动事件在对话框的事件里，与其他控件不同。<br>为什么？它就是这样设计的。</p>
+<p>初始化</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CSpinButtonCtrl* pSpin =(CSpinButtonCtrl*) GetDlgItem(IDC_SPIN1);</span><br><span class="line">pSpin-&gt;SetRange(<span class="number">0</span>, <span class="number">100</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>滚动事件</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> CTestDlg::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) </span><br><span class="line">{</span><br><span class="line">	<span class="keyword">if</span> (pScrollBar-&gt;GetDlgCtrlID() == IDC_SPIN1)</span><br><span class="line">	{</span><br><span class="line">		CString strValue;</span><br><span class="line">		strValue.Format(<span class="string">"%3.1f"</span>, (<span class="keyword">double</span>) nPos / <span class="number">10.0</span>); <span class="comment">// 共3位，小数点后1位</span></span><br><span class="line">		( (CSpinButtonCtrl*) pScrollBar )-&gt;GetBuddy()-&gt;SetWindowText(strValue);</span><br><span class="line">	}</span><br><span class="line">	CDialog::OnVScroll(nSBCode, nPos, pScrollBar);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="进度条-Progress"><a href="#进度条-Progress" class="headerlink" title="进度条 Progress"></a>进度条 Progress</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CProgressCtrl* pProg = (CProgressCtrl*) GetDlgItem(IDC_PROGRESS1);</span><br><span class="line">pSlide1-&gt;SetRange(<span class="number">0</span>, <span class="number">100</span>); <span class="comment">// 范围</span></span><br><span class="line">pProg-&gt;SetPos(<span class="number">0</span>); <span class="comment">// 进度=0</span></span><br><span class="line">pProg-&gt;SetPos( pProg-&gt;GetPos()+<span class="number">1</span> ); <span class="comment">// 获取进度并+1</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="滑块"><a href="#滑块" class="headerlink" title="滑块"></a>滑块</h2><p>滑块事件也是在对话框滚动事件里面。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> CTestDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) </span><br><span class="line">{</span><br><span class="line">	<span class="keyword">if</span>(pScrollBar-&gt;GetDlgCtrlID() == IDC_SLIDER1) </span><br><span class="line">	{</span><br><span class="line">		CSliderCtrl* pSlide = (CSliderCtrl*) pScrollBar;</span><br><span class="line">		CString strText;</span><br><span class="line">		strText.Format(<span class="string">"%d"</span>, pSlide-&gt;GetPos());</span><br><span class="line">		SetDlgItemText(IDC_STATIC_SLIDER, strText);	<span class="comment">// 滑块位置显示到编辑框里</span></span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="热键"><a href="#热键" class="headerlink" title="热键"></a>热键</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="列表控件"><a href="#列表控件" class="headerlink" title="列表控件"></a>列表控件</h2><p>初始化</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> * color[] = {<span class="string">"white"</span>,<span class="string">"black"</span>,<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"yellow"</span>,<span class="string">"cyan"</span>,<span class="string">"purple"</span>,<span class="string">"green"</span>};</span><br><span class="line">HICON hIcon[<span class="number">8</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">m_imageList.Create(<span class="number">16</span>,<span class="number">16</span>,<span class="number">0</span>,<span class="number">8</span>,<span class="number">8</span>); </span><br><span class="line">hIcon[<span class="number">0</span>] = AfxGetApp()-&gt;LoadIcon(IDI_ICON_WHITE);</span><br><span class="line">hIcon[<span class="number">1</span>] = ...略...</span><br><span class="line"><span class="keyword">for</span> (n=<span class="number">0</span>;n&lt;<span class="number">8</span>;n++)</span><br><span class="line">	m_imageList.Add(hIcon[n]);</span><br><span class="line"></span><br><span class="line">CListCtrl* pList = (CListCtrl*) GetDlgItem(IDC_LIST1);    <span class="comment">// 获得控件对象</span></span><br><span class="line">pList-&gt;SetImageList(&amp;m_imageList, LVSIL_SMALL);    <span class="comment">// 设置小图标图片列表</span></span><br><span class="line"><span class="keyword">for</span> (n = <span class="number">0</span>; n &lt; <span class="number">8</span>; n++) </span><br><span class="line">	pList-&gt;InsertItem(n, color[n], n);		<span class="comment">// 第一个参数为项id，第二个为标签文字，第三个为对应图片列表id</span></span><br><span class="line">pList-&gt;SetBkColor(RGB(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>));		<span class="comment">// 设置背景色</span></span><br><span class="line">pList-&gt;SetTextBkColor(RGB(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>));    <span class="comment">//设置文字的背景色</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>事件</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> CTestDlg::OnItemchangedList1(NMHDR* pNMHDR, LRESULT* pResult) <span class="comment">// 选中，修改用来显示的标签</span></span><br><span class="line">{</span><br><span class="line">	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;</span><br><span class="line">	CListCtrl* pList = (CListCtrl*) GetDlgItem(IDC_LIST1);</span><br><span class="line">	<span class="keyword">int</span> nSelected = pNMListView-&gt;iItem;</span><br><span class="line">	<span class="keyword">if</span> (nSelected &gt;= <span class="number">0</span>) </span><br><span class="line">	{</span><br><span class="line">		CString strItem = pList-&gt;GetItemText(nSelected, <span class="number">0</span>);</span><br><span class="line">		SetDlgItemText(IDC_STATIC_LIST, strItem);</span><br><span class="line">	}</span><br><span class="line">	*pResult = <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> CTestDlg::OnRclickList1(NMHDR* pNMHDR, LRESULT* pResult) <span class="comment">// 右键修改成输入文本</span></span><br><span class="line">{</span><br><span class="line">	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;</span><br><span class="line">	CListCtrl* pList = (CListCtrl*) GetDlgItem(IDC_LIST1);</span><br><span class="line">	<span class="keyword">int</span> nSelected = pNMListView-&gt;iItem;</span><br><span class="line">	<span class="keyword">if</span> (nSelected &gt;= <span class="number">0</span>) </span><br><span class="line">		pList-&gt;EditLabel(nSelected);</span><br><span class="line">	*pResult = <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> CTestDlg::OnEndlabeleditList1(NMHDR* pNMHDR, LRESULT* pResult) <span class="comment">// 选中后并单击编辑</span></span><br><span class="line">{</span><br><span class="line">	LV_DISPINFO* pDispInfo = (LV_DISPINFO*)pNMHDR;</span><br><span class="line">	LVITEMA item = pDispInfo-&gt;item;</span><br><span class="line">	CString str =item.pszText;</span><br><span class="line">	str.TrimLeft();</span><br><span class="line">	str.TrimRight();</span><br><span class="line">	<span class="keyword">if</span>(str.GetLength() &gt; <span class="number">0</span>)</span><br><span class="line">	{</span><br><span class="line">		CListCtrl* pList = (CListCtrl*) GetDlgItem(IDC_LIST1);</span><br><span class="line">		pList-&gt;SetItemText(item.iItem, item.iSubItem, item.pszText);</span><br><span class="line">	}</span><br><span class="line">	*pResult = <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="树状控件"><a href="#树状控件" class="headerlink" title="树状控件"></a>树状控件</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">CTreeCtrl* pTree =	(CTreeCtrl*) GetDlgItem(IDC_TREE1);</span><br><span class="line">pTree-&gt;SetImageList(&amp;m_imageList, TVSIL_NORMAL); <span class="comment">// 设置图片列表</span></span><br><span class="line"></span><br><span class="line">TV_INSERTSTRUCT tvinsert;           <span class="comment">// 创建待插入的TV_INSERTSTRUCT结构</span></span><br><span class="line">tvinsert.hParent = <span class="literal">NULL</span>;			<span class="comment">// 无父结点</span></span><br><span class="line">tvinsert.hInsertAfter = TVI_LAST;	<span class="comment">// 插入到本层最后</span></span><br><span class="line">tvinsert.item.mask = TVIF_IMAGE | TVIF_SELECTEDIMAGE| TVIF_TEXT;</span><br><span class="line">		<span class="comment">// 掩码包括   图标         选中图标            文字</span></span><br><span class="line">tvinsert.item.hItem = <span class="literal">NULL</span>;			<span class="comment">// 句柄为空</span></span><br><span class="line">tvinsert.item.state = <span class="number">0</span>;			<span class="comment">// 状态</span></span><br><span class="line">tvinsert.item.stateMask = <span class="number">0</span>;		<span class="comment">// 状态掩码，不使用这两项</span></span><br><span class="line">tvinsert.item.cchTextMax = <span class="number">6</span>;		<span class="comment">// 最大文字长度，忽略</span></span><br><span class="line">tvinsert.item.iSelectedImage = <span class="number">1</span>;	<span class="comment">// 选中图标索引</span></span><br><span class="line">tvinsert.item.cChildren = <span class="number">0</span>;		<span class="comment">// 没有子节点</span></span><br><span class="line">tvinsert.item.lParam = <span class="number">0</span>;			<span class="comment">// 自定义数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一层</span></span><br><span class="line">tvinsert.item.iImage = <span class="number">2</span>;			<span class="comment">// 一般图标</span></span><br><span class="line"></span><br><span class="line">tvinsert.item.pszText = <span class="string">"father"</span>;   <span class="comment">// 插入第一层第一个节点"father"</span></span><br><span class="line">HTREEITEM hDad = pTree -&gt;InsertItem(&amp;tvinsert);</span><br><span class="line"></span><br><span class="line">tvinsert.item.pszText = <span class="string">"mother"</span>;   <span class="comment">// 插入第一层第二个节点"mother"</span></span><br><span class="line">HTREEITEM hMom = pTree-&gt;InsertItem(&amp;tvinsert);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建第二层</span></span><br><span class="line">tvinsert.hParent = hDad;			<span class="comment">// 父节点为"father"</span></span><br><span class="line">tvinsert.item.iImage = <span class="number">3</span>;			<span class="comment">// 一般图标</span></span><br><span class="line"></span><br><span class="line">tvinsert.item.pszText = <span class="string">"son"</span>;      <span class="comment">// 插入第二层"father"的第一个节点"son"</span></span><br><span class="line">pTree-&gt;InsertItem(&amp;tvinsert);</span><br><span class="line"></span><br><span class="line">tvinsert.item.pszText = <span class="string">"daughter"</span>;  <span class="comment">// 插入第二层"father"的第二个节点"daughter"</span></span><br><span class="line">pTree-&gt;InsertItem(&amp;tvinsert);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 还是创建第二层，但是父节点变成 Mom</span></span><br><span class="line">tvinsert.hParent = hMom;			<span class="comment">// 父结点为"mother"</span></span><br><span class="line">tvinsert.item.iImage = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">tvinsert.item.pszText = <span class="string">"cartoon"</span>;  <span class="comment">// 插入第二层"mother"的节点"cartoon"</span></span><br><span class="line">HTREEITEM hOther = pTree-&gt;InsertItem(&amp;tvinsert);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建第三层</span></span><br><span class="line">tvinsert.hParent = hOther; <span class="comment">// 连续不断地创建</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>事件</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> CTestDlg::OnSelchangedTree1(NMHDR* pNMHDR, LRESULT* pResult) <span class="comment">// 被选中，修改选中项的图标</span></span><br><span class="line">{</span><br><span class="line">	NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;</span><br><span class="line">	CTreeCtrl* pTree =	(CTreeCtrl*) GetDlgItem(IDC_TREE1);</span><br><span class="line">	HTREEITEM hSelected = pNMTreeView-&gt;itemNew.hItem;</span><br><span class="line">	<span class="keyword">if</span> (hSelected != <span class="literal">NULL</span>) {</span><br><span class="line">		<span class="keyword">char</span> text[<span class="number">31</span>];</span><br><span class="line">		TV_ITEM item;</span><br><span class="line">		item.mask = TVIF_HANDLE | TVIF_TEXT;</span><br><span class="line">		item.hItem = hSelected;</span><br><span class="line">		item.pszText = text;</span><br><span class="line">		item.cchTextMax = <span class="number">30</span>;</span><br><span class="line">		VERIFY(pTree-&gt;GetItem(&amp;item));</span><br><span class="line">		SetDlgItemText(IDC_STATIC_TREE, text);</span><br><span class="line">	}</span><br><span class="line">	*pResult = <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> CTestDlg::OnEndlabeleditTree1(NMHDR* pNMHDR, LRESULT* pResult) <span class="comment">// 选中后并单击编辑</span></span><br><span class="line">{</span><br><span class="line">	TV_DISPINFO* pTVDispInfo = (TV_DISPINFO*)pNMHDR;</span><br><span class="line">	TVITEMA item = pTVDispInfo-&gt;item;</span><br><span class="line">	CString str =item.pszText;</span><br><span class="line">	str.TrimLeft();</span><br><span class="line">	str.TrimRight();</span><br><span class="line">	<span class="keyword">if</span>(str.GetLength() &gt; <span class="number">0</span>)</span><br><span class="line">	{</span><br><span class="line">		CTreeCtrl* pTree =	(CTreeCtrl*) GetDlgItem(IDC_TREE1);</span><br><span class="line">		pTree-&gt;SetItemText(item.hItem,item.pszText);	</span><br><span class="line">	}</span><br><span class="line">	*pResult = <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Tab控件"><a href="#Tab控件" class="headerlink" title="Tab控件"></a>Tab控件</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="富文本-Rich-Edit"><a href="#富文本-Rich-Edit" class="headerlink" title="富文本 Rich Edit"></a>富文本 Rich Edit</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="月历"><a href="#月历" class="headerlink" title="月历"></a>月历</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="日期时间选择器"><a href="#日期时间选择器" class="headerlink" title="日期时间选择器"></a>日期时间选择器</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CDateTimeCtrl* pDT =(CDateTimeCtrl*) GetDlgItem(IDC_DATETIMEPICKER1);</span><br><span class="line">CString formatStr= _T(<span class="string">"'今天是: 'yy'/'MM'/'dd"</span>);</span><br><span class="line">pDT-&gt;SetFormat(formatStr); <span class="comment">// 设置控件内容的格式</span></span><br><span class="line"></span><br><span class="line">CTime t;</span><br><span class="line">pDT-&gt;GetTime(t);</span><br><span class="line">CString s = t.Format( <span class="string">"%A, %B %d, %Y %H:%M:%S"</span> );</span><br><span class="line">AfxMessageBox(s);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="自定义控件"><a href="#自定义控件" class="headerlink" title="自定义控件"></a>自定义控件</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="扩展组合框"><a href="#扩展组合框" class="headerlink" title="扩展组合框"></a>扩展组合框</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-13T02:14:00.079Z" itemprop="dateUpdated">2019-10-13 10:14:00</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/05/15/MFC常用控件/" target="_blank" rel="external">http://blog.iwxyi.com/2018/05/15/MFC常用控件/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/05/15/MFC常用控件/&title=《MFC常用控件》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/05/15/MFC常用控件/&title=《MFC常用控件》 — 云笺&source=静态文本框1m_stext.SetWindowTextW(TEXT("Hello"));" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/05/15/MFC常用控件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MFC常用控件》 — 云笺&url=http://blog.iwxyi.com/2018/05/15/MFC常用控件/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/05/15/MFC常用控件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/05/20/嵌套循环优化/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：嵌套循环优化
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/15/VC-复制控件/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：VC++复制控件">下一篇：VC++复制控件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/05/15/MFC常用控件/&title=《MFC常用控件》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/05/15/MFC常用控件/&title=《MFC常用控件》 — 云笺&source=静态文本框1m_stext.SetWindowTextW(TEXT("Hello"));" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/05/15/MFC常用控件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MFC常用控件》 — 云笺&url=http://blog.iwxyi.com/2018/05/15/MFC常用控件/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/05/15/MFC常用控件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aSY7cQAwEwPn/p9uATzZmcSapNqBS1KkhaKm4sIvLx0e8Xr/X5yt/rp/vz9/z3bMXLAwMjNsyXj+uzT0J+DOv/S4GBsZzGO2rk9Ccby55wz/2jIGBgRGEvFewki9iYGBgXMVIeDmjDe4YGBjPZLQhsk1N8+tvz8UxMDBuyGgbA//z9xv7GxgYGDdhvN6wrg270RcxMDCOZsxK9pvSf5sYF2U4DAyMQxntiENSLEuuz0bHvsVjYGAczWjbk3lpbBam83JeUTXEwMA4jpF8JklZN2MTs5QYAwPjVEaeRs62OztuXlA1xMDAOIjRluPzI2D7+TZMr9qZGBgYt2LU1tFYWJ4SzwY+MDAwzmbMDnDJ5vbBN0lxi2ELDAyMmzPaAtwsKL8jHGNgYDyHsUkv88LZjF2UAjEwMA5lzIpc+7jejmUU/w8YGBhHM5JEdDOccW0l/6/fGBgYRzOS0lhSUKsLYXFYv2zMAgMD47aMYdY7SjvbUJsfHzEwMM5mzNLUWesxv56X/zAwMJ7A2I+rtoe8fOtJyP4iF8fAwDiO0QbZtiQ3e3a1MDAwjmPMxkyTYa9ZQa1tSGBgYDyBsWkctofIduBs3+zEwMA4idEG2f1Axoa3GrbAwMC4OSMPsm3cy2GzpiYGBgZGG3BnKfFsjAMDAwNj0wxoRy42R0kMDIznMNokth2eaFsIybMX5OIYGBg3YVzVGEhS332AXjUyMTAw7sf4BeIfhJqo9AxpAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

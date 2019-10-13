@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2018/06/23/C-学习笔记/">
+    
+    
+    <title>C#-学习笔记 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="学习笔记,C#">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="入门 需要C++基础">
+<meta name="keywords" content="学习笔记,C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#-学习笔记">
+<meta property="og:url" content="http://blog.iwxyi.com/2018/06/23/C-学习笔记/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="入门 需要C++基础">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T23:22:41.743Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#-学习笔记">
+<meta name="twitter:description" content="入门 需要C++基础">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">命燃芯乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C#-学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#入门"><span class="post-toc-number">1.</span> <span class="post-toc-text">入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#示例代码"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">示例代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本语法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">基本语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据类型：引用类型"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">数据类型：引用类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对象（Object）类型"><span class="post-toc-number">1.2.1.1.</span> <span class="post-toc-text">对象（Object）类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态（Dynamic）类型"><span class="post-toc-number">1.2.1.2.</span> <span class="post-toc-text">动态（Dynamic）类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字符串（String）类型"><span class="post-toc-number">1.2.1.3.</span> <span class="post-toc-text">字符串（String）类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类型转换"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">类型转换</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-C-学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C#-学习笔记</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-06-23 07:21:00" datetime="2018-06-22T23:21:00.000Z"  itemprop="datePublished">2018-06-23</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><blockquote>
+<p>需要C++基础</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">HelloWorldApplication</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">class</span> <span class="title">HelloWorld</span></span><br><span class="line">   {</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>      {</span><br><span class="line">         <span class="comment">/* 我的第一个 C# 程序*/</span></span><br><span class="line">         Console.WriteLine(<span class="string">"Hello World"</span>);</span><br><span class="line">         Console.ReadKey();</span><br><span class="line">      }</span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面程序的各个部分： </p>
+<ul>
+<li>程序的第一行 <strong>using System;</strong> - <strong>using</strong> 关键字用于在程序中包含 <strong>System</strong> 命名空间。 一个程序一般有多个 <strong>using</strong> 语句。</li>
+<li>下一行是 <strong>namespace</strong> 声明。一个 namespace 是一系列的类。<strong>HelloWorldApplication</strong> 命名空间包含了类 HelloWorld。</li>
+</ul>
+<p>几个注意点：</p>
+<ul>
+<li>C# 是大小写敏感的。</li>
+<li>所有的语句和表达式必须以分号（;）结尾。</li>
+<li>程序的执行从 Main 方法开始。</li>
+<li>与 Java 不同的是，文件名可以不同于类的名称。</li>
+</ul>
+<hr>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="数据类型：引用类型"><a href="#数据类型：引用类型" class="headerlink" title="数据类型：引用类型"></a>数据类型：引用类型</h3><p>引用类型不包含存储在变量中的实际数据，但它们包含对变量的引用。换句话说，它们指的是一个内存位置。</p>
+<p>内置的引用类型有：<strong>object</strong>、<strong>dynamic</strong> 和 <strong>string</strong>。</p>
+<h4 id="对象（Object）类型"><a href="#对象（Object）类型" class="headerlink" title="对象（Object）类型"></a>对象（Object）类型</h4><p><strong>对象（Object）类型</strong> 是 C# 通用类型系统（Common Type System - CTS）中所有数据类型的终极基类。Object 是 System.Object 类的别名。所以对象（Object）类型可以被分配任何其他类型（值类型、引用类型、预定义类型或用户自定义类型）的值。但是，在分配值之前，需要先进行类型转换。</p>
+<p>当一个值类型转换为对象类型时，则被称为 <strong>装箱</strong>；另一方面，当一个对象类型转换为值类型时，则被称为 <strong>拆箱</strong>。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">object obj;</span><br><span class="line">obj = 100; // 这是装箱</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="动态（Dynamic）类型"><a href="#动态（Dynamic）类型" class="headerlink" title="动态（Dynamic）类型"></a>动态（Dynamic）类型</h4><p>存储任何类型的值在动态数据类型变量中。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dynamic &lt;variable_name&gt; = value;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dynamic d = 20;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>动态类型与对象类型相似，但是<strong>对象类型变量的类型检查是在编译时发生的，而动态类型变量的类型检查是在运行时发生的</strong>。</p>
+<h4 id="字符串（String）类型"><a href="#字符串（String）类型" class="headerlink" title="字符串（String）类型"></a>字符串（String）类型</h4><p><strong>字符串（String）类型</strong> 允许您给变量分配任何字符串值。字符串（String）类型是 System.String 类的别名。它是从对象（Object）类型派生的。字符串（String）类型的值可以通过两种形式进行分配：引号和 @引号。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String str = "runoob.com";</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一个 @引号字符串：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@"runoob.com";</span><br></pre></td></tr></tbody></table></figure>
+
+<p>C# string 字符串的前面可以加 @（称作”逐字字符串”）将转义字符（\）当作普通字符对待，比如：</p>
+<p><code>string str = @"C:\Windows";</code>   等价于   <code>string str = "C:\\Windows";</code></p>
+<p>@ 字符串中可以任意换行，换行符及缩进空格都计算在字符串长度之内。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str = @"&lt;script type=""text/javascript""&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">    --&gt;</span><br><span class="line">&lt;/script&gt;";</span><br></pre></td></tr></tbody></table></figure>
+
+<p>用户自定义引用类型有：class、interface 或 delegate。</p>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>C# 提供了下列内置的类型转换方法：</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>ToBoolean</strong> 如果可能的话，把类型转换为布尔型。</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>ToByte</strong> 把类型转换为字节类型。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>ToChar</strong> 如果可能的话，把类型转换为单个 Unicode 字符类型。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>ToDateTime</strong> 把类型（整数或字符串类型）转换为 日期-时间 结构。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>ToDecimal</strong> 把浮点型或整数类型转换为十进制类型。</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>ToDouble</strong> 把类型转换为双精度浮点型。</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>ToInt16</strong> 把类型转换为 16 位整数类型。</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>ToInt32</strong> 把类型转换为 32 位整数类型。</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>ToInt64</strong> 把类型转换为 64 位整数类型。</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>ToSbyte</strong> 把类型转换为有符号字节类型。</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>ToSingle</strong> 把类型转换为小浮点数类型。</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>ToString</strong> 把类型转换为字符串类型。</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>ToType</strong> 把类型转换为指定类型。</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>ToUInt16</strong> 把类型转换为 16 位无符号整数类型。</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>ToUInt32</strong> 把类型转换为 32 位无符号整数类型。</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>ToUInt64</strong> 把类型转换为 64 位无符号整数类型。</td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.ToString()</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2019-10-12T23:22:41.743Z" itemprop="dateUpdated">2019-10-13 07:22:41</time>
+</span>
+
+
+        
+        原文链接：<a href="/2018/06/23/C-学习笔记/" target="_blank" rel="external">http://blog.iwxyi.com/2018/06/23/C-学习笔记/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="命燃芯乂">
+            <a>命燃芯乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/06/23/C-学习笔记/&title=《C#-学习笔记》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/06/23/C-学习笔记/&title=《C#-学习笔记》 — 云笺&source=入门
+需要C++基础
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/06/23/C-学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C#-学习笔记》 — 云笺&url=http://blog.iwxyi.com/2018/06/23/C-学习笔记/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/06/23/C-学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/04/fread和fwrite转移文件数据/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：fread和fwrite转移文件数据
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/19/VC-绘制字体及透明文字/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Win32 SDK绘制字体及透明文字">下一篇：Win32 SDK绘制字体及透明文字</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2018/06/23/C-学习笔记/&title=《C#-学习笔记》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/06/23/C-学习笔记/&title=《C#-学习笔记》 — 云笺&source=入门
+需要C++基础
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2018/06/23/C-学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C#-学习笔记》 — 云笺&url=http://blog.iwxyi.com/2018/06/23/C-学习笔记/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2018/06/23/C-学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aQXLCMAwFUO5/6XTdBeZLCszEfll1IE38vBCypNcrvq43V3Ln+p7k89suDAyMxzKu5ZXcs15uvvTqezEwME5jJItIvu3B1k9bPwcDAwMjJ92VCGJgYGDcy6iGy+R+DAwMjMkhNkkTk2pYdftuPotjYGA8kJFX3X//91f6GxgYGI9iXMWr2tScPy1aFQYGxtaMXmK3vj/5ttcM+FCqw8DA2Joxn7DKD59rcPIWDAyM0xi9kJcMb1XbBtUWwr9PMDAwDmDkqV4+8pUklMl2RKU3DAyMYxiTY2QecKsBujlmgYGBsR1jUprPA3GvxBZtLgYGxgGM5Dg6mXyoLq78vxgYGAcwemW1u8a88lD+diUYGBhbM/JC/IQ0L/MVfgwwMDA2ZfTC3Hp4olfC+9CqzGuHGBgYmzLuGpuoBtkkNYyaqRgYGFszJsfRSWrYXGgerTEwMLZgVNsA+djWJNGslucwMDD2Zkxakr0hjGQj5qU6DAyM/RjJgiY70Usuq4MXGBgY5zAS2LzNuV5WvpUYGBhnMqrtyUJAHBxco/diYGBsyriKV68cVg2d5fdiYGBszZgU3ZKEL1/iT/u0GBgYD2RMDqs5L9+5fA3lSI+BgfFwxrygX00Ke78AH87iGBgYGEEprTeuEYXUvFOKgYGBcVOhLQ++0RAGBgbGAYxvFNTy5K/XSMDAwDiH0cu7qmMWk+ZlkkpiYGBsyvgDr+c39c/NBnYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "命燃芯乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

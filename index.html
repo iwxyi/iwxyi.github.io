@@ -217,7 +217,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><p>在平时编程中，构建对象最常用的方式是 new 一个对象。乍一看这种做法没什么不好，而实际上这也属于一种硬编码。每 new 一个对象，相当于<strong>调用者多知道了一个类</strong>，增加了类与类之间的联系，不利于程序的松耦合。其实构建过程可以被封装起来，工厂模式便是用于封装对象的设计模式。</p>
+        <p>在平时编程中，构建对象最常用的方式是 new 一个对象。乍一看这种做法没什么不好，而实际上这也属于一种硬编码。每 new 一个对象，相当于<strong>调用者多知道了一个类</strong>，增加了类与类之间的联系，不利于程序的松耦合。其实构建过程可以被封装起来，工厂模式便是用于封装对象的设计模式。</p>
     
         <div class="post-more-div">
             <a href="/2019/10/12/工厂模式/" class="post-more waves-button">
@@ -260,7 +260,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>单例模式非常常见，某个对象全局只需要一个实例时，就可以使用单例模式。它的优点也显而易见：</p>
+        <p>单例模式非常常见，某个对象全局只需要一个实例时，就可以使用单例模式。它的优点也显而易见：</p>
 <ul>
 <li>它能够避免对象重复创建，节约空间并提升效率</li>
 <li>避免由于操作不同实例导致的逻辑错误</li>
@@ -276,7 +276,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </div>
     
@@ -285,7 +285,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-修电脑"
+            <article id="post-GCC和G-的区别"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -293,7 +293,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2019/09/24/修电脑/">修电脑</a>
+      <a href="/2019/09/18/GCC和G-的区别/">GCC和G++的区别</a>
     </h3>
   
 
@@ -301,17 +301,18 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2019-09-24 20:39:00" datetime="2019-09-24T12:39:00.000Z"  itemprop="datePublished">2019-09-24</time>
+        <time class="post-time" title="2019-09-18 08:23:00" datetime="2019-09-18T00:23:00.000Z"  itemprop="datePublished">2019-09-18</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h2 id="WIN无操作自动休眠"><a href="#WIN无操作自动休眠" class="headerlink" title="WIN无操作自动休眠"></a>WIN无操作自动休眠</h2><p>这是系统<strong>无人值守时睡眠时间</strong>的设定，默认是两分钟。</p>
+        <p>gcc和g++都是GNU(组织)的一个编译器。</p>
+<p>误区一:<strong>gcc只能编译c代码,g++只能编译c++代码</strong><br><strong>两者都可以</strong>，但是请注意：<br>1<strong>.后缀为.c的，gcc把它当作是C程序，而g++当作是c++程序</strong>；后缀为.cpp的，两者都会认为是c++程序，注意，虽然<strong>c++是c的超集，但是两者对语法的要求是有区别的。C++的语法规则更加严谨一些。</strong><br>2.<strong>编译阶段，g++会调用gcc，对于c++代码，两者是等价的</strong>，但是因为<strong>gcc命令不能自动和C＋＋程序使用的库联接，所以通常用g++来完成链接</strong>，<strong>为了统一起见，干脆编译/链接统统用g++了，这就给人一种错觉，好像cpp程序只能用g++似的。</strong> </p>
     
         <div class="post-more-div">
-            <a href="/2019/09/24/修电脑/" class="post-more waves-button">
+            <a href="/2019/09/18/GCC和G-的区别/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -319,7 +320,50 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/">Windows</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译原理/">编译原理</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-可变长参数"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/08/11/C-可变长参数/">C++可变长参数</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-08-11 08:13:00" datetime="2019-08-11T00:13:00.000Z"  itemprop="datePublished">2019-08-11</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><code>type function(type arg1, ...) { }</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2019/08/11/C-可变长参数/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
     </div>
     
@@ -371,6 +415,51 @@
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-C-new和malloc的区别"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/04/18/C-new和malloc的区别/">C++ new和malloc的10点区别</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-04-18 08:27:00" datetime="2019-04-18T00:27:00.000Z"  itemprop="datePublished">2019-04-18</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        ## 1. 申请的内存所在位置
+
+<p>new操作符从<strong>自由存储区（free store）</strong>上为对象动态分配内存空间，而malloc函数从<strong>堆</strong>上动态分配内存。自由存储区是C++基于new操作符的一个抽象概念，凡是通过new操作符进行内存申请，该内存即为自由存储区。而堆是操作系统中的术语，是操作系统所维护的一块特殊内存，用于程序的内存动态分配，C语言使用malloc从堆上分配内存，使用free释放已分配的对应内存。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/04/18/C-new和malloc的区别/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存管理/">内存管理</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-公众号token服务器配置"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -408,6 +497,52 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-generate生成"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/02/28/C-generate生成/">C++ generate生成</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-02-28 07:51:00" datetime="2019-02-27T23:51:00.000Z"  itemprop="datePublished">2019-02-28</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>根据首地址和尾地址来赋值：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">ForwardIterator</span>, <span class="title">class</span> <span class="title">Generator</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">generate</span>(</span></span><br><span class="line"><span class="class">	<span class="title">ForwardIterator</span> _<span class="title">First</span>,</span></span><br><span class="line"><span class="class">	<span class="title">ForwardIterator</span> _<span class="title">Last</span>,</span></span><br><span class="line"><span class="class">	<span class="title">Generator</span> _<span class="title">Gen</span></span></span><br><span class="line"><span class="class">);</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>每次调用该对象，函数为范围的每个元素调用，且不需要返回相同的值。例如，从文件读取或引用和修改本地状态。 生成器的结果类型必须可转换为可用于向前迭代器类型的值范围的。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/02/28/C-generate生成/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
     </div>
     
@@ -494,6 +629,49 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ASP-NET/">ASP.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C语言CRC校验算法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/20/C语言CRC校验算法/">C语言CRC校验算法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-20 08:20:00" datetime="2018-12-20T00:20:00.000Z"  itemprop="datePublished">2018-12-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><code>CRC32</code> C语言版</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/20/C语言CRC校验算法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/密码学/">密码学</a></li></ul>
 
     </div>
     
@@ -631,12 +809,325 @@
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-汇编MASM-学习笔记"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/11/19/汇编MASM-学习笔记/">汇编MASM-学习笔记</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-11-19 20:18:00" datetime="2018-11-19T12:18:00.000Z"  itemprop="datePublished">2018-11-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="运行-DOSBox"><a href="#运行-DOSBox" class="headerlink" title="运行 DOSBox"></a>运行 DOSBox</h1><ol>
+<li><code>mount c: d:\masm</code></li>
+<li><code>C:</code></li>
+<li><code>masm test.asm</code> 回车3次</li>
+<li><code>link test.obj</code> 回车4次</li>
+<li><code>debug test.exe</code></li>
+</ol>
+    
+        <div class="post-more-div">
+            <a href="/2018/11/19/汇编MASM-学习笔记/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C简单小知识整理"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/11/13/C简单小知识整理/">C简单小知识整理</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-11-13 08:18:00" datetime="2018-11-13T00:18:00.000Z"  itemprop="datePublished">2018-11-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>C 与 C++相关内容，<br>一部分从网上摘录。<br>个人能力水平有限，<br>不能保证没有错误。</p>
+<p>——王心意，2018.11.13</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/11/13/C简单小知识整理/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/整理/">整理</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-多个文件共用全局变量"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/11/06/C-多个文件共用全局变量/">C++多个文件共用全局变量</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-11-06 08:01:00" datetime="2018-11-06T00:01:00.000Z"  itemprop="datePublished">2018-11-06</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>示例：</p>
+<p>头文件：<strong>state.h</strong>   源文件：<strong>state.cpp</strong><br>其它源文件：t1.cpp  t2.cpp  t3.cpp, 这些源文件都包含头文件state.h。</p>
+<p>需要定义一个全局变量供这些源文件中使用：方法如下</p>
+<p>1、在<code>state.h</code>中<strong>声明</strong>全局变量： <code>extern int a;</code></p>
+<p>2、在<code>state.cpp</code>中<strong>定义</strong>该全局变量：<code>int a =10;</code></p>
+<p>这样其它源文件就可以使用该变量啦，只需要 include 一下 <strong>state.cpp</strong></p>
+    
+        <div class="post-more-div">
+            <a href="/2018/11/06/C-多个文件共用全局变量/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-贪心算法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/11/04/贪心算法/">贪心算法-讲解</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-11-04 20:46:00" datetime="2018-11-04T12:46:00.000Z"  itemprop="datePublished">2018-11-04</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="ACM-贪心算法"><a href="#ACM-贪心算法" class="headerlink" title="ACM 贪心算法"></a>ACM 贪心算法</h1><p>贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在<strong>当前看来是最好的选择</strong>。也就是说，不从整体最优上加以考虑，他所做出的是在某种意义上的<strong>局部最优解</strong>。</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/11/04/贪心算法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/讲解/">讲解</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-VC-连接外部DLL"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/11/01/VC-连接外部DLL/">VC++连接外部DLL</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-11-01 09:38:00" datetime="2018-11-01T01:38:00.000Z"  itemprop="datePublished">2018-11-01</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="1、隐式的加载时链接"><a href="#1、隐式的加载时链接" class="headerlink" title="1、隐式的加载时链接"></a>1、隐式的加载时链接</h2><p>这种方法需要<strong>DLL工程经编译产生的LIB文件</strong>，此文件中包含了DLL允许应用程序调用的所有函数的列表，当链接器发现应用程序调用了LIB文件列出的某个函数，就会在应用程序的可执行文件的文件映像中加入一些信息，这些信息指出了包含这个函数的DLL文件的名字。当这个应用程序运行时，也就是它的可执行文件被操作系统产生映像文件时，系统会查看这个映像文件中关于DLL的信息，然后将这个DLL文件映像到进程的地址空间。</p>
+<p>系统通过DLL文件的名称，试图加载这个文件到进程地址空间时，它寻找DLL 文件的路径按照先后顺序如下：</p>
+<ul>
+<li>程序运行时的目录，即可执行文件所在的目录；</li>
+<li>当前程序工作目录</li>
+<li>系统目录：对于Windows95/98来说，可以调用GetSystemDirectory函数来得到，对于WindowsNT/2000 来说，指的是32位Windows的系统目录，也可以调用GetSystemDirectory函数来得到，得到的值为SYSTEM32。</li>
+<li>Windows目录</li>
+<li>列在PATH环境变量中的所有目录</li>
+</ul>
+<p>VC中加载DLL的LIB文件的方法有以下三种：</p>
+<ul>
+<li>①LIB文件直接加入到工程文件列表中<br>在VC中打开File View一页，选中工程名，单击鼠标右键，然后选中“Add Files to Project”菜单，在弹出的文件对话框中选中要加入DLL的LIB文件即可。</li>
+<li>②设置工程的 Project Settings来加载DLL的LIB文件<br>打开工程的 Project Settings菜单，选中Link，然后在Object/library modules下的文本框中输入DLL的LIB文件。</li>
+<li>③通过程序代码的方式<br>加入预编译指令#pragma comment (lib,”<em>.lib”)，这种方法优点是可以利用条件预编译指令链接不同版本的LIB文件。因为，在Debug方式下，产生的LIB文件是Debug 版本，如Regd.lib；在Release方式下，产生的LIB文件是Release版本，如Regr.lib。<br>当应用程序对DLL的LIB文件加载后，还需要把DLL对应的头文件（</em>.h）包含到其中，在这个头文件中给出了DLL中定义的函数原型，然后声明。</li>
+</ul>
+<h2 id="2、显式的运行时链接"><a href="#2、显式的运行时链接" class="headerlink" title="2、显式的运行时链接"></a>2、显式的运行时链接</h2><p>  隐式链接虽然实现较简单，但除了必须的<em>.dll文件外还需要DLL的</em>.h文件和<em>.lib文件，在那些只提供</em>.dll文件的场合就无法使用，而只能采用显式链接的方式。这种方式通过调用API函数来完成对DLL的加载与卸载，其能更加有效地使用内存，在编写大型应用程序时往往采用此方式。这种方法编程具体实现步骤如下：</p>
+<ul>
+<li>①使用Windows API函数Load Library或者MFC提供的AfxLoadLibrary将DLL模块映像到进程的内存空间，对DLL模块进行动态加载。</li>
+<li>②使用GetProcAddress函数得到要调用DLL中的函数的指针。</li>
+<li>③不用DLL时，用Free Library函数或者AfxFreeLibrary函数从进程的地址空间显式卸载DLL。</li>
+</ul>
+<hr>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/yu444/article/details/4728068" target="_blank" rel="noopener">https://blog.csdn.net/yu444/article/details/4728068</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/2018/11/01/VC-连接外部DLL/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VC/">VC++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-修电脑"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/09/24/修电脑/">修电脑</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-09-24 20:39:00" datetime="2018-09-24T12:39:00.000Z"  itemprop="datePublished">2018-09-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="WIN无操作自动休眠"><a href="#WIN无操作自动休眠" class="headerlink" title="WIN无操作自动休眠"></a>WIN无操作自动休眠</h2><p>这是系统<strong>无人值守时睡眠时间</strong>的设定，默认是两分钟。</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/09/24/修电脑/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/">Windows</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </div>
 </nav>
 
