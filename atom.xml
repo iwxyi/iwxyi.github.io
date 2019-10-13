@@ -338,6 +338,30 @@
   </entry>
   
   <entry>
+    <title>AHK鼠标X1X2按键映射</title>
+    <link href="http://blog.iwxyi.com/2019/06/29/AHK%E9%BC%A0%E6%A0%87X1X2%E6%8C%89%E9%94%AE%E6%98%A0%E5%B0%84/"/>
+    <id>http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/</id>
+    <published>2019-06-29T11:55:00.000Z</published>
+    <updated>2019-10-13T11:55:42.051Z</updated>
+    
+    <content type="html"><![CDATA[<p>AutoHotKey 针对鼠标 X1、X2 的按键映射</p><p>实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creator，按 X1 编译，X2 调试</p><a id="more"></a><p>快捷键按需配置，我自己是 ctrl+r 编译运行，ctrl+shift+r 调试</p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">run1()</span><br><span class="line">{</span><br><span class="line">    send ^r ; ctrl+r</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">run2()</span><br><span class="line">{</span><br><span class="line">send ^+r ; ctrl+shift+r</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">XButton1:: ; 靠近自己的那边</span><br><span class="line">WinGetClass, class, A</span><br><span class="line">rst:=InStr(%class%, SunAwtFrame)</span><br><span class="line">;MsgBox %class% ans result is %rst%</span><br><span class="line">IfInString class, SunAwtFrame</span><br><span class="line">run1()</span><br><span class="line">IfInString class, Qt5QWindowIcon</span><br><span class="line">run1()</span><br><span class="line">return</span><br><span class="line"></span><br><span class="line">XButton2:: ; 靠近屏幕的那边</span><br><span class="line">WinGetClass, class, A</span><br><span class="line">IfInString class, SunAwtFrame</span><br><span class="line">run2()</span><br><span class="line">return</span><br></pre></td></tr></tbody></table></figure><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AutoHotKey 针对鼠标 X1、X2 的按键映射&lt;/p&gt;
+&lt;p&gt;实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creator，按 X1 编译，X2 调试&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Code" scheme="http://blog.iwxyi.com/categories/Code/"/>
+    
+    
+      <category term="AHK" scheme="http://blog.iwxyi.com/tags/AHK/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Qt加载自定义字体</title>
     <link href="http://blog.iwxyi.com/2019/05/28/Qt%E5%8A%A0%E8%BD%BD%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/"/>
     <id>http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/</id>
@@ -759,9 +783,9 @@
     
       <category term="AJAX" scheme="http://blog.iwxyi.com/tags/AJAX/"/>
     
-      <category term="PHP" scheme="http://blog.iwxyi.com/tags/PHP/"/>
-    
       <category term="jQuery" scheme="http://blog.iwxyi.com/tags/jQuery/"/>
+    
+      <category term="PHP" scheme="http://blog.iwxyi.com/tags/PHP/"/>
     
       <category term="Gateway" scheme="http://blog.iwxyi.com/tags/Gateway/"/>
     

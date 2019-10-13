@@ -194,6 +194,55 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-CentOS安装可视化界面"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/07/07/CentOS安装可视化界面/">CentOS安装可视化界面</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-07-07 13:59:00" datetime="2018-07-07T05:59:00.000Z"  itemprop="datePublished">2018-07-07</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>在联网的情况下使用yum命令安装即可<br>需要安装x window服务与desktop桌面，不分先后，命令如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall "GNOME Desktop"</span><br><span class="line">yum groupinstall "X Window System"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>最后启动<br>输入命令</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startX</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果在本地使用即可正常切换，通过ssh登录则不能切换，会报错</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/07/07/CentOS安装可视化界面/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Node-js添加字符串到文本文件末尾"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1099,50 +1148,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-JS捕捉按键按下"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/06/03/JS捕捉按键按下/">JS捕捉按键按下</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-06-03 15:31:00" datetime="2018-06-03T07:31:00.000Z"  itemprop="datePublished">2018-06-03</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>必须要在按下按键的事件里添加函数并且<code>return false</code>才能消除原有的按键操作。</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"name"</span> <span class="attr">onkeydown</span>=<span class="string">"nameClick();"</span> <span class="attr">type</span>=<span class="string">"text"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/06/03/JS捕捉按键按下/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
 
     </div>
     

@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/">
+    <link rel="canonical" href="http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/">
     
     
-    <title>Qt加载自定义字体 | 云笺 | 一些技术摘要和写作技巧</title>
+    <title>AHK鼠标X1X2按键映射 | 云笺 | 一些技术摘要和写作技巧</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
     
     
-    <meta name="keywords" content="C++,Qt">
+    <meta name="keywords" content="AHK">
     
     
 
@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="加载外部字体，但是会稍微影响开启速度。">
-<meta name="keywords" content="C++,Qt">
+    <meta name="description" content="AutoHotKey 针对鼠标 X1、X2 的按键映射 实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creator，按 X1 编译，X2 调试">
+<meta name="keywords" content="AHK">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qt加载自定义字体">
-<meta property="og:url" content="http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/index.html">
+<meta property="og:title" content="AHK鼠标X1X2按键映射">
+<meta property="og:url" content="http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="加载外部字体，但是会稍微影响开启速度。">
+<meta property="og:description" content="AutoHotKey 针对鼠标 X1、X2 的按键映射 实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creator，按 X1 编译，X2 调试">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T09:02:04.583Z">
+<meta property="og:updated_time" content="2019-10-13T11:55:42.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Qt加载自定义字体">
-<meta name="twitter:description" content="加载外部字体，但是会稍微影响开启速度。">
+<meta name="twitter:title" content="AHK鼠标X1X2按键映射">
+<meta name="twitter:description" content="AutoHotKey 针对鼠标 X1、X2 的按键映射 实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creator，按 X1 编译，X2 调试">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -154,7 +154,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Qt加载自定义字体</div>
+        <div class="flex-col header-title ellipsis">AHK鼠标X1X2按键映射</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -191,15 +191,15 @@
 
 <div class="container body-wrap">
     
-<article id="post-Qt加载自定义字体"
+<article id="post-AHK鼠标X1X2按键映射"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Qt加载自定义字体</h1>
+        <h1 class="post-card-title">AHK鼠标X1X2按键映射</h1>
         <div class="post-meta">
             <i class="icon icon-lg icon-calendar-o"></i>
             发表于
-            <time class="post-time" title="2019-05-28 17:01:00" datetime="2019-05-28T09:01:00.000Z"  itemprop="datePublished">2019-05-28</time>
+            <time class="post-time" title="2019-06-29 19:55:00" datetime="2019-06-29T11:55:00.000Z"  itemprop="datePublished">2019-06-29</time>
 
             <br id="mybreak"/>
             
@@ -220,10 +220,14 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>加载外部字体，但是会稍微影响开启速度。</p>
+            <p>AutoHotKey 针对鼠标 X1、X2 的按键映射</p>
+<p>实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creator，按 X1 编译，X2 调试</p>
 <a id="more"></a>
 
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QStyleFactory&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QFontDataBase&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QIODevice&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">QString <span class="title">loadFontFamilyFromFiles</span><span class="params">(<span class="keyword">const</span> QString &amp;fontFilePath)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QString font = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">QFile <span class="title">fontFile</span><span class="params">(fontFilePath)</span></span>;</span><br><span class="line">    <span class="keyword">if</span>(!fontFile.open(QIODevice::ReadOnly))</span><br><span class="line">    {</span><br><span class="line">        qDebug()&lt;&lt;<span class="string">"Open font file error"</span>;</span><br><span class="line">        <span class="keyword">return</span> font;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> loadedFontID = QFontDatabase::addApplicationFontFromData(fontFile.readAll());</span><br><span class="line">    QStringList loadedFontFamilies = QFontDatabase::applicationFontFamilies(loadedFontID);</span><br><span class="line">    <span class="keyword">if</span>(!loadedFontFamilies.empty())</span><br><span class="line">    {</span><br><span class="line">        font = loadedFontFamilies.at(<span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line">    fontFile.close();</span><br><span class="line">    <span class="keyword">return</span> font;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    QString font_path = <span class="string">"字体路径（ttf/otf）"</span>;</span><br><span class="line">    <span class="keyword">if</span> (isFileExist(font_path))</span><br><span class="line">    {</span><br><span class="line">        QString strFont =  loadFontFamilyFromFiles(font_path);</span><br><span class="line">        <span class="function">QFont <span class="title">font</span><span class="params">(strFont, <span class="number">9</span>)</span></span>;</span><br><span class="line">        a.setFont(font);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    MainWindow w;</span><br><span class="line">    w.show();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.exec();</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure><script>
+<p>快捷键按需配置，我自己是 ctrl+r 编译运行，ctrl+shift+r 调试</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">run1()</span><br><span class="line">{</span><br><span class="line">    send ^r ; ctrl+r</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">run2()</span><br><span class="line">{</span><br><span class="line">	send ^+r ; ctrl+shift+r</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">XButton1:: ; 靠近自己的那边</span><br><span class="line">	WinGetClass, class, A</span><br><span class="line">	rst:=InStr(%class%, SunAwtFrame)</span><br><span class="line">	;MsgBox %class% ans result is %rst%</span><br><span class="line">	IfInString class, SunAwtFrame</span><br><span class="line">		run1()</span><br><span class="line">	IfInString class, Qt5QWindowIcon</span><br><span class="line">		run1()</span><br><span class="line">	return</span><br><span class="line">	</span><br><span class="line">XButton2:: ; 靠近屏幕的那边</span><br><span class="line">	WinGetClass, class, A</span><br><span class="line">	IfInString class, SunAwtFrame</span><br><span class="line">		run2()</span><br><span class="line">	return</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -248,12 +252,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T09:02:04.583Z" itemprop="dateUpdated">2019-10-13 17:02:04</time>
+    最后更新：<time datetime="2019-10-13T11:55:42.051Z" itemprop="dateUpdated">2019-10-13 19:55:42</time>
 </span>
 
 
         
-        原文链接：<a href="/2019/05/28/Qt加载自定义字体/" target="_blank" rel="external">http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/</a>
+        原文链接：<a href="/2019/06/29/AHK鼠标X1X2按键映射/" target="_blank" rel="external">http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/</a>
         
     </div>
     <footer>
@@ -275,7 +279,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AHK/">AHK</a></li></ul>
 
 
             
@@ -285,7 +289,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/&title=《Qt加载自定义字体》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/&title=《AHK鼠标X1X2按键映射》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -295,22 +299,23 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/&title=《Qt加载自定义字体》 — 云笺&source=加载外部字体，但是会稍微影响开启速度。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/&title=《AHK鼠标X1X2按键映射》 — 云笺&source=AutoHotKey 针对鼠标 X1、X2 的按键映射
+实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creato..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt加载自定义字体》 — 云笺&url=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/&via=http://blog.iwxyi.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AHK鼠标X1X2按键映射》 — 云笺&url=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/&via=http://blog.iwxyi.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -333,9 +338,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/06/29/AHK鼠标X1X2按键映射/" id="post-prev" class="post-nav-link">
+      <a href="/2019/07/07/Qt-QString和unsigned-char互转/" id="post-prev" class="post-nav-link">
         <h4 class="title" >
-          上一篇：AHK鼠标X1X2按键映射
+          上一篇：Qt QString和unsigned char互转
         </h4>
       </a>
     </div>
@@ -343,8 +348,8 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/05/27/C-调用Python/" id="post-next" class="post-nav-link">
-        <h4 class="title" data-hover="下一篇：C++调用Python">下一篇：C++调用Python</h4>
+      <a href="/2019/05/28/Qt加载自定义字体/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Qt加载自定义字体">下一篇：Qt加载自定义字体</h4>
       </a>
     </div>
   
@@ -467,7 +472,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/&title=《Qt加载自定义字体》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/&title=《AHK鼠标X1X2按键映射》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -477,22 +482,23 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/&title=《Qt加载自定义字体》 — 云笺&source=加载外部字体，但是会稍微影响开启速度。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/&title=《AHK鼠标X1X2按键映射》 — 云笺&source=AutoHotKey 针对鼠标 X1、X2 的按键映射
+实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creato..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt加载自定义字体》 — 云笺&url=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/&via=http://blog.iwxyi.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AHK鼠标X1X2按键映射》 — 云笺&url=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/&via=http://blog.iwxyi.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/05/28/Qt加载自定义字体/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2019/06/29/AHK鼠标X1X2按键映射/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -503,7 +509,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aOY7DMAwF0Nz/0h5g2sDKpygXlp6rwNn0XBDcPp/4uv6v7zvf9+8+n/zO+DcXXBgYGK9lXMNr/PdV9t0jGP9vRMXAwDiAMT7KXBBMHsT4kRUCOgYGBsYw2FUDdB6sMTAwMOYCbjVlrIZdDAwMjE4RO76T9MGSdx+vxTEwMF7I6JSjT79+cL6BgYHxEsY1dXXaatUQHJ0HAwNja0Y1ycubcUljrpMyljNQDAyMlzM6R8xHAnlSuGzHDQMDY1NG3j6rjgHmQu2CthoGBsbLGclH8/K1k9JVxxIYGBjnMOZCbbX1Nrc80ZrHYmBgbM1IGmTVYUA11Ruf5EcIxsDA2JrRCYhzJW71u4WkFgMD4xhGJxGca/3PrXdgYGCcwMiP0jlcNaRWW3IYGBi7MqqNsOoi19y3qq8xMDBOY6wKjvnixYImHQYGxtaMuZCXpICPtPsxMDCOZORBrbOK0WmrRaEfAwNja0be0sqbaMlBk2CdjxAwMDBOYPSTv2SQUE0HJxNEDAyMrRnVRdW1i6150P8xHsDAwNiUUS1c8zDaad4tLmgxMDBey7iKV6EajkPnOK2MhqAYGBhbM/qF7lxcz1tv1SYdBgbGroxquZiEyHzhbG4UejsYwMDA2JoxV5QmpWk+Tmhtf2FgYGAERWyeFOYla6Elh4GBgREHxyo+Tx8xMDAw1hai+dE7Z8DAwDiHUR0M5OOBZOUrb7QtHmFiYGC8g/EH1hpVg37mL5oAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS2oDMRAFQN//0s7WkIzzntoJjFSzCmawVArI/Xs84uf58iTvfH+Sb0tWGT0YGBi3ZSTLt4zXT/Ktv1/3/dFgYGCcwLja1tU7yfLvvzPHJ9+DgYGBcbV8sqHkCBISBgYGRs5YSzLbBBgDAwNjLYldCxyThPZfc3EMDIwbMtrr8j///pP+BgYGxq0Yz/JZu6DzpsLirjAwMLZm5BdcWyCbNzvr4Q8MDIxNGXkRP28PtCX+eWsBAwPjBMZaePfZQbH88x8OEQMD4wBGW4J/D8gv2Tw9rmuBGBgY2zHmC88DxzZ8xMDAOIeRX7v5yEWbgrb40a8HBgbGbRlrsdZkYKvFj/4/GBgYWzDy0Yq1azQ/jjwNvuzEYmBgbMfI7+M2fEyWzwfFfuFhYGBszZgEhW0bMk9Bk7QWAwPjTMbaNToZLJukspdHg4GBcQwjD8jm42JrhbaiK4uBgXFzRjsMkSe0kyJde3AYGBh7M9ZGu/IGQJ7cJunuL+9gYGAcwGgT1GT5SZhYD5BhYGAcwMiXyQPHokxWNjizxBwDA2NPxry4nxxQW1aLhi0wMDA2ZTzLp203roV9eekNAwPjBEYbd7VF/LURsbXhDAwMjL0Z7RbXZjryYly7BwwMjHMYk03koxXzX4DLixsDAwOjTFnb9uTkgsbAwMD41MjXZzuPH75wMTAwbsLIQ7128CJvEowGMjAwMLZmTEbH2uu1bZ3ORzQwMDBuzvgCkRXwLm8OPpsAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
