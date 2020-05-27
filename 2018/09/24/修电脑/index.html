@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。">
+    <meta name="description" content="WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。 解决方法： regedit进入注册表管理器，定位到HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785">
 <meta name="keywords" content="Windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修电脑">
 <meta property="og:url" content="http://blog.iwxyi.com/2018/09/24/修电脑/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。">
+<meta property="og:description" content="WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。 解决方法： regedit进入注册表管理器，定位到HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T00:25:03.212Z">
+<meta property="og:updated_time" content="2020-05-27T06:08:42.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修电脑">
-<meta name="twitter:description" content="WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。">
+<meta name="twitter:description" content="WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。 解决方法： regedit进入注册表管理器，定位到HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -78,7 +78,7 @@
           <img src="/img/avatar.jpg" alt="avatar">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname" id="name">命燃芯乂</h5>
+          <h5 class="nickname" id="name">小乂</h5>
           
             <div id="yiyanmotto" class="motto">&nbsp;</div>
           
@@ -194,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WIN无操作自动休眠"><span class="post-toc-number">1.</span> <span class="post-toc-text">WIN无操作自动休眠</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开关操作中心"><span class="post-toc-number">2.</span> <span class="post-toc-text">开关操作中心</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WIN无操作自动休眠"><span class="post-toc-number">1.</span> <span class="post-toc-text">WIN无操作自动休眠</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开关操作中心"><span class="post-toc-number">2.</span> <span class="post-toc-text">开关操作中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开启休眠选项"><span class="post-toc-number">3.</span> <span class="post-toc-text">开启休眠选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改安装路径"><span class="post-toc-number">4.</span> <span class="post-toc-text">修改安装路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#npm"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">npm</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#连接wifi，提示需要执行操作，并自动打开微软网站的问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">连接wifi，提示需要执行操作，并自动打开微软网站的问题</span></a></li></ol>
         </nav>
     </aside>
    
@@ -228,11 +228,18 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="WIN无操作自动休眠"><a href="#WIN无操作自动休眠" class="headerlink" title="WIN无操作自动休眠"></a>WIN无操作自动休眠</h2><p>这是系统<strong>无人值守时睡眠时间</strong>的设定，默认是两分钟。</p>
-<a id="more"></a>
 <p>解决方法：</p>
 <p><code>regedit</code>进入注册表管理器，定位到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785aaca0</code>，修改<code>attributes</code>的值为2。</p>
 <p>进入高级电源设置，在睡眠选项中会出现“无人参与系统睡眠超时”，将默认的2分钟修改成你想要的时间。</p>
 <h2 id="开关操作中心"><a href="#开关操作中心" class="headerlink" title="开关操作中心"></a>开关操作中心</h2><p><code>regedit</code>进入注册表编辑器，<code>计算机\HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>新建项<code>DisableNotificationCenter</code>，值为1时关闭操作中心。重启电脑生效。</p>
+<h2 id="开启休眠选项"><a href="#开启休眠选项" class="headerlink" title="开启休眠选项"></a>开启休眠选项</h2><p>Power Sheel(管理员) 输入 <code>powercfg /h on</code>并运行，重新打开控制面板后会出现休眠选项。</p>
+<h2 id="修改安装路径"><a href="#修改安装路径" class="headerlink" title="修改安装路径"></a>修改安装路径</h2><h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>命令行输入<code>npm config ls</code>查看 npm 当前配置</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm  config set prefix "D:\DevKits\nodejs\modules"     # 默认已有个 node_modules 文件夹 </span><br><span class="line">npm  config set cache "D:\DevKits\nodejs\node_cache"</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="连接wifi，提示需要执行操作，并自动打开微软网站的问题"><a href="#连接wifi，提示需要执行操作，并自动打开微软网站的问题" class="headerlink" title="连接wifi，提示需要执行操作，并自动打开微软网站的问题"></a>连接wifi，提示需要执行操作，并自动打开微软网站的问题</h2><ol>
+<li>注册表键值<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet</code></li>
+<li>窗口右侧中的“EnableActiveProbing”，然后将其值更改为0，重启计算机</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -258,7 +265,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T00:25:03.212Z" itemprop="dateUpdated">2019-10-13 08:25:03</time>
+    最后更新：<time datetime="2020-05-27T06:08:42.197Z" itemprop="dateUpdated">2020-05-27 14:08:42</time>
 </span>
 
 
@@ -268,8 +275,8 @@
     </div>
     <footer>
         <div onclick="location.href='http://blog.iwxyi.com'">
-            <img src="/img/avatar.jpg" alt="命燃芯乂">
-            <a>命燃芯乂</a>
+            <img src="/img/avatar.jpg" alt="小乂">
+            <a>小乂</a>
         </div>
     </footer>
 </blockquote>
@@ -305,7 +312,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/09/24/修电脑/&title=《修电脑》 — 云笺&source=WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/09/24/修电脑/&title=《修电脑》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -487,7 +494,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/09/24/修电脑/&title=《修电脑》 — 云笺&source=WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/09/24/修电脑/&title=《修电脑》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -618,7 +625,7 @@ postshow();
 
 
 /* 粘贴提示 */
-G($(".post-content"), location.href, "命燃芯乂");
+G($(".post-content"), location.href, "小乂");
 
 
 /* 控制台 */
