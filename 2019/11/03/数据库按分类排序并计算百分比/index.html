@@ -49,7 +49,7 @@
 <meta property="og:site_name" content="云笺">
 <meta property="og:description" content="1234567891011121314SELECT	字段名,	n,	round( n / s * 100, 5 ) rat FROM (	SELECT * FROM(         SELECT 字段名, count( 1 ) n FROM sendsms_log         GROUP BY 字段名    ) t1	INNER JOIN (        SELECT count( 1 )">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-27T06:05:24.803Z">
+<meta property="og:updated_time" content="2020-05-27T06:34:18.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库按分类排序及百分比">
 <meta name="twitter:description" content="1234567891011121314SELECT	字段名,	n,	round( n / s * 100, 5 ) rat FROM (	SELECT * FROM(         SELECT 字段名, count( 1 ) n FROM sendsms_log         GROUP BY 字段名    ) t1	INNER JOIN (        SELECT count( 1 )">
@@ -222,6 +222,8 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	字段名,</span><br><span class="line">	n,</span><br><span class="line">	<span class="keyword">round</span>( n / s * <span class="number">100</span>, <span class="number">5</span> ) rat </span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span>( </span><br><span class="line">        <span class="keyword">SELECT</span> 字段名, <span class="keyword">count</span>( <span class="number">1</span> ) n <span class="keyword">FROM</span> sendsms_log </span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段名</span><br><span class="line">    ) t1</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> (</span><br><span class="line">        <span class="keyword">SELECT</span> <span class="keyword">count</span>( <span class="number">1</span> ) s <span class="keyword">FROM</span> sendsms_log</span><br><span class="line">    ) t2</span><br><span class="line">    <span class="keyword">ON</span> <span class="number">1</span> = <span class="number">1</span> </span><br><span class="line">) t</span><br></pre></td></tr></tbody></table></figure>
 
+<a id="more"></a>
+
 <blockquote>
 <p>where条件在两个最里面的 <code>from</code>后，都要加上，否则百分比不准确</p>
 </blockquote>
@@ -366,7 +368,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2020-05-27T06:05:24.803Z" itemprop="dateUpdated">2020-05-27 14:05:24</time>
+    最后更新：<time datetime="2020-05-27T06:34:18.699Z" itemprop="dateUpdated">2020-05-27 14:34:18</time>
 </span>
 
 
@@ -413,7 +415,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/11/03/数据库按分类排序并计算百分比/&title=《数据库按分类排序及百分比》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/11/03/数据库按分类排序并计算百分比/&title=《数据库按分类排序及百分比》 — 云笺&source=1234567891011121314SELECT	字段名,	n,	round( n / s * 100, 5 ) rat FROM (	SELECT *..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -595,7 +597,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/11/03/数据库按分类排序并计算百分比/&title=《数据库按分类排序及百分比》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/11/03/数据库按分类排序并计算百分比/&title=《数据库按分类排序及百分比》 — 云笺&source=1234567891011121314SELECT	字段名,	n,	round( n / s * 100, 5 ) rat FROM (	SELECT *..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

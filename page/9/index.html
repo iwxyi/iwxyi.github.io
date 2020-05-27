@@ -194,6 +194,70 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-PHP调用Python"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/07/08/PHP调用Python/">PHP调用Python</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-07-08 16:26:00" datetime="2018-07-08T08:26:00.000Z"  itemprop="datePublished">2018-07-08</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><code>$output = shell_exec('python script/test.py');</code></p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$output = shell_exec(<span class="string">'python script/test.py'</span>);</span><br><span class="line">$array = explode(<span class="string">','</span>, $output);</span><br><span class="line"><span class="keyword">foreach</span> ($array <span class="keyword">as</span> $value) {</span><br><span class="line">    <span class="keyword">echo</span> $value;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/2018/07/08/PHP调用Python/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-E4A-PHP上传图片"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1067,49 +1131,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-JS判断PC端还是移动端"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/06/03/JS判断PC端还是移动端/">JS判断PC端还是移动端</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-06-03 15:56:00" datetime="2018-06-03T07:56:00.000Z"  itemprop="datePublished">2018-06-03</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>根据<code>UA</code>名字来判断设备类型：</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/06/03/JS判断PC端还是移动端/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
 
     </div>
     

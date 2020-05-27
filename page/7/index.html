@@ -194,6 +194,49 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Python解析网络JSON"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/11/04/Python解析网络JSON/">Python解析网络JSON</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-11-04 13:39:00" datetime="2018-11-04T05:39:00.000Z"  itemprop="datePublished">2018-11-04</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line">url = <span class="string">"https://gdata.youtube.com/feeds/api.standardfeeds/top_rated?alt=json"</span></span><br><span class="line">response = urlopen(url)</span><br><span class="line">contents = response.read()</span><br><span class="line">text = contents.decode(<span class="string">'utf8'</span>)</span><br><span class="line">data = json.loads(text)</span><br><span class="line"><span class="keyword">for</span> video <span class="keyword">in</span> data[<span class="string">'feed'</span>][<span class="string">'entry'</span>][<span class="number">0</span>:<span class="number">6</span>]:</span><br><span class="line">print(video[<span class="string">'title'</span>][<span class="string">'$t'</span>])</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2018/11/04/Python解析网络JSON/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Android-ViewPage模板"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1114,49 +1157,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AJAX实现图片拖拽上传"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/11/AJAX实现图片拖拽上传/">AJAX实现图片拖拽上传</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-09-11 15:44:00" datetime="2018-09-11T07:44:00.000Z"  itemprop="datePublished">2018-09-11</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="1-html中div标签预览显示，button标签触发上传事件"><a href="#1-html中div标签预览显示，button标签触发上传事件" class="headerlink" title="1.html中div标签预览显示，button标签触发上传事件"></a>1.html中div标签预览显示，button标签触发上传事件</h2><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">id</span>=<span class="string">"drop_area"</span> <span class="attr">style</span>=<span class="string">"border:3px dashed silver;width:200px; height:200px"</span>&gt;</span>将图片拖拽到此<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"xhr2()"</span>&gt;</span>ajax上传<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/09/11/AJAX实现图片拖拽上传/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/">AJAX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
 
     </div>
     

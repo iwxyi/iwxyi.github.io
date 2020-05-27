@@ -260,7 +260,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>非常简单的搭建模板</p>
+        <p>Flutter最基础的空程序</p>
     
         <div class="post-more-div">
             <a href="/2020/05/27/Flutter模板参考/" class="post-more waves-button">
@@ -288,7 +288,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/04/13/GAP8搭建PulpOS运行HelloWorld/">GAP8搭建PulpOS运行HelloWorld</a>
+      <a href="/2020/04/13/GAP8搭建PulpOS运行HelloWorld/">GAP8搭建PulpOS</a>
     </h3>
   
 
@@ -303,40 +303,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="运行-HelloWorld"><a href="#运行-HelloWorld" class="headerlink" title="运行 HelloWorld"></a>运行 HelloWorld</h1><ol>
-<li><p>下载 SDK： <a href="https://github.com/GreenWaves-Technologies/gap_sdk" target="_blank" rel="noopener">https://github.com/GreenWaves-Technologies/gap_sdk</a></p>
-</li>
-<li><p>在 <code>gap_sdk</code> 文件夹下执行命令</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source sourceme.sh</span><br></pre></td></tr></tbody></table></figure>
-
-<p>选择平台，第<code>1</code>个即可</p>
-</li>
-<li><p>运行 <code>HelloWorld</code> Demo</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd examples/native/pulpos/helloworld</span><br><span class="line">make clean all run platform=gvsoc</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+        <h1 id="运行-HelloWorld"><a href="#运行-HelloWorld" class="headerlink" title="运行 HelloWorld"></a>运行 HelloWorld</h1>
     
         <div class="post-more-div">
             <a href="/2020/04/13/GAP8搭建PulpOS运行HelloWorld/" class="post-more waves-button">
@@ -423,30 +390,6 @@
 
     
         <p>以<code>Apache</code>为例，需要在入口文件的同级添加<code>.htaccess</code>文件（官方默认自带了该文件），内容如下：</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">mod_rewrite.c</span>&gt;</span></span><br><span class="line">Options +FollowSymlinks -Multiviews</span><br><span class="line">RewriteEngine on</span><br><span class="line">RewriteCond %{REQUEST_FILENAME} !-d</span><br><span class="line">RewriteCond %{REQUEST_FILENAME} !-f</span><br><span class="line">RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]</span><br><span class="line"><span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果用的<code>phpstudy</code>，规则如下：</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">mod_rewrite.c</span>&gt;</span> </span><br><span class="line">Options +FollowSymlinks -Multiviews </span><br><span class="line">RewriteEngine on </span><br><span class="line">RewriteCond %{REQUEST_FILENAME} !-d </span><br><span class="line">RewriteCond %{REQUEST_FILENAME} !-f </span><br><span class="line">RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1] </span><br><span class="line"><span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
             <a href="/2020/03/05/ThinkPHP隐藏URL中index文件/" class="post-more waves-button">
@@ -490,30 +433,6 @@
 
     
         <h2 id="还原-psc文件大表没有数据"><a href="#还原-psc文件大表没有数据" class="headerlink" title="还原.psc文件大表没有数据"></a>还原<code>.psc</code>文件大表没有数据</h2><p><strong>mysql是根据配置文件限制server接受的数据包大小，有时候大的插入和更新会被 max_allowed_packet 参数限制掉，导致失败</strong></p>
-<p>在MySQL安装目录下找到<code>my.ini</code>，在<code>[mysqld]</code>字段下修改或加上：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max_allowed_packet=1000M</span><br></pre></td></tr></tbody></table></figure>
-
-<p>至少要大于 <code>.psc</code> 文件的大小吧</p>
-<p>重启MySQL重新导入 <code>.psc</code> 文件</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
             <a href="/2020/03/03/数据库常见问题/" class="post-more waves-button">
@@ -563,32 +482,7 @@
 <p>平台注意事项：</p>
 <ul>
 <li>X11（linux）：此特性依赖于能提供支持ARGB视觉效果和复合式视窗管理的X服务的功能开启。</li>
-<li>Windows：此控件需要设置窗口标志Qt::FramelessWindowHint才能开启透明功能。</li>
-</ul>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>setWindowFlags(Qt::FramelessWindowHint);<br>setAttribute(Qt::WA_TranslucentBackground,true);<br>可以实现透明功能</p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>需要安装渲染工具compiz 方法如下：<br>root用户下： yum install compiz<br>运行：compiz –replace &amp;</p>
-<blockquote>
-<p>参考：<a href="https://blog.csdn.net/weixin_38980184/article/details/89342922" target="_blank" rel="noopener">https://blog.csdn.net/weixin_38980184/article/details/89342922</a></p>
-</blockquote>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<li>Windows：此控件需要设置窗口标志Qt::FramelessWindowHint才能开启透明功能。</li></ul>
     
         <div class="post-more-div">
             <a href="/2020/02/28/Qt在Linux下透明窗口失效/" class="post-more waves-button">
@@ -632,86 +526,6 @@
 
     
         <h1 id="第一个应用"><a href="#第一个应用" class="headerlink" title="第一个应用"></a>第一个应用</h1><p>本笔记来源：<a href="https://flutterchina.club/" target="_blank" rel="noopener">Flutter中文网</a></p>
-<h2 id="1、Hello-World"><a href="#1、Hello-World" class="headerlink" title="1、Hello World"></a>1、Hello World</h2><p><code>lib/main.dart</code>文件</p>
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() =&gt; runApp(<span class="keyword">new</span> MyApp());</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MaterialApp(</span><br><span class="line">      title: <span class="string">'Welcome to Flutter'</span>,</span><br><span class="line">      home: <span class="keyword">new</span> Scaffold( <span class="comment">// Scaffold提供默认的导航栏、标题和主屏幕widget树</span></span><br><span class="line">        appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">          title: <span class="keyword">new</span> Text(<span class="string">'Welcome to Flutter'</span>),</span><br><span class="line">        ),</span><br><span class="line">        body: <span class="keyword">new</span> Center(</span><br><span class="line">          child: <span class="keyword">new</span> Text(<span class="string">'Hello World'</span>),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="2、Package"><a href="#2、Package" class="headerlink" title="2、Package"></a>2、Package</h2><p><code>pubspec.yaml</code></p>
-<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dependencies:</span></span><br><span class="line"><span class="attr">  flutter:</span></span><br><span class="line"><span class="attr">    sdk:</span> <span class="string">flutter</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  cupertino_icons:</span> <span class="string">^0.1.0</span></span><br><span class="line"><span class="attr">  english_words:</span> <span class="string">^3.1.0</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>点击右上角的 Packages get，会自动下载依赖包</p>
-<p><code>lib/main.dart</code></p>
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:english_words/english_words.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() =&gt; runApp(<span class="keyword">new</span> MyApp());</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">final</span> wordPair = <span class="keyword">new</span> WordPair.random();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MaterialApp(</span><br><span class="line">      title: <span class="string">'Welcome to Flutter'</span>,</span><br><span class="line">      home: <span class="keyword">new</span> Scaffold(</span><br><span class="line">        appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">          title: <span class="keyword">new</span> Text(<span class="string">'Welcome to Flutter'</span>),</span><br><span class="line">        ),</span><br><span class="line">        body: <span class="keyword">new</span> Center(</span><br><span class="line"><span class="comment">//          child: new Text('Hello World'),</span></span><br><span class="line">          child: <span class="keyword">new</span> Text(wordPair.asPascalCase),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3、State"><a href="#3、State" class="headerlink" title="3、State"></a>3、State</h2><p>StatefulWidget类本身是不变的，但是 State类在widget生命周期中始终存在</p>
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:english_words/english_words.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() =&gt; runApp(<span class="keyword">new</span> MyApp());</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">final</span> wordPair = <span class="keyword">new</span> WordPair.random();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MaterialApp(</span><br><span class="line">      title: <span class="string">'Welcome to Flutter'</span>,</span><br><span class="line">      home: <span class="keyword">new</span> RandomWords(),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomWords</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  createState() =&gt; <span class="keyword">new</span> RandomWordsState();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomWordsState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">RandomWords</span>&gt; </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">final</span> wordPair = <span class="keyword">new</span> WordPair.random();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Text(wordPair.asPascalCase);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4、ListView"><a href="#4、ListView" class="headerlink" title="4、ListView"></a>4、ListView</h2><p>ListView设置方法：<code>ListView.builder( itemBuilder：(context, i) { } )</code></p>
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildList() {</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> ListView.builder(itemBuilder: (context, i){</span><br><span class="line">    <span class="comment">// return new Text("Text"); // 简单文字</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ListTile( <span class="comment">// 列表项组</span></span><br><span class="line">      title: <span class="keyword">new</span> Text(<span class="string">"text"</span>),</span><br><span class="line">      trailing: <span class="keyword">new</span> Icon(Icons.favorite),</span><br><span class="line">      onTap: (){},</span><br><span class="line">    );</span><br><span class="line">  });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*...*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomWordsState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">RandomWords</span>&gt; </span>{</span><br><span class="line">  <span class="keyword">final</span> _suggestions = &lt;WordPair&gt;[]; <span class="comment">// 列表项</span></span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Scaffold( <span class="comment">// 设置整体界面</span></span><br><span class="line">      appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">        title: <span class="keyword">new</span> Text(<span class="string">'Flutter'</span>),</span><br><span class="line">      ),</span><br><span class="line">      body: _buildSuggestions(),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在Dart语言中使用下划线前缀标识符，会强制其变成私有的</span></span><br><span class="line">  Widget _buildSuggestions() {</span><br><span class="line">    <span class="comment">// ListView类提供了一个builder属性，itemBuilder 值是一个匿名回调函数， 接受两个参数</span></span><br><span class="line">    <span class="comment">// - BuildContext和行迭代器i。迭代器从0开始， 每调用一次该函数，i就会自增1，对于每个</span></span><br><span class="line">    <span class="comment">// 建议的单词对都会执行一次。该模型允许建议的单词对列表在用户滚动时无限增长。</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ListView.builder(</span><br><span class="line">      padding: <span class="keyword">const</span> EdgeInsets.all(<span class="number">16.0</span>),</span><br><span class="line">      <span class="comment">// 对于每个建议的单词对都会调用一次itemBuilder，然后将单词对添加到ListTile行中</span></span><br><span class="line">      <span class="comment">// 在偶数行，该函数会为单词对添加一个ListTile row.</span></span><br><span class="line">      <span class="comment">// 在奇数行，该函数会添加一个分割线widget，来分隔相邻的词对。</span></span><br><span class="line">      <span class="comment">// 注意，在小屏幕上，分割线看起来可能比较吃力。</span></span><br><span class="line">      itemBuilder: (context, i) {</span><br><span class="line">        <span class="comment">// 在每一列之前，添加一个1像素高的分隔线widget</span></span><br><span class="line">        <span class="keyword">if</span> (i.isOdd) <span class="keyword">return</span> <span class="keyword">new</span> Divider();</span><br><span class="line">        <span class="comment">// 语法 "i ~/ 2" 表示i除以2，但返回值是整形（向下取整），比如i为：1, 2, 3, 4, 5</span></span><br><span class="line">        <span class="comment">// 时，结果为0, 1, 1, 2, 2， 这可以计算出ListView中减去分隔线后的实际单词对数量</span></span><br><span class="line">        <span class="keyword">final</span> index = i ~/ <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 如果是建议列表中最后一个单词对</span></span><br><span class="line">        <span class="keyword">if</span> (index &gt;= _suggestions.length) {</span><br><span class="line">          <span class="comment">// 接着再生成10个单词对，然后添加到建议列表</span></span><br><span class="line">          _suggestions.addAll(generateWordPairs().take(<span class="number">10</span>));</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> _buildRow(_suggestions[index]);</span><br><span class="line">      },</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  Widget _buildRow(WordPair pair) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ListTile(</span><br><span class="line">      title: <span class="keyword">new</span> Text(</span><br><span class="line">        pair.asPascalCase,</span><br><span class="line">        style: <span class="keyword">new</span> TextStyle(fontSize: <span class="number">18.0</span>),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="5、onTap"><a href="#5、onTap" class="headerlink" title="5、onTap"></a>5、onTap</h2><figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*...*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomWordsState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">RandomWords</span>&gt; </span>{</span><br><span class="line">  <span class="keyword">final</span> _suggestions = &lt;WordPair&gt;[];</span><br><span class="line">  <span class="keyword">final</span> _saved = <span class="keyword">new</span> <span class="built_in">Set</span>&lt;WordPair&gt;(); <span class="comment">// 收藏的单词</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*...*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 记录每一项的状态</span></span><br><span class="line">  Widget _buildRow(WordPair pair) {</span><br><span class="line">    <span class="keyword">final</span> alreadySaved = _saved.contains(pair);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ListTile(</span><br><span class="line">      title: <span class="keyword">new</span> Text(</span><br><span class="line">        pair.asPascalCase,</span><br><span class="line">        style: <span class="keyword">new</span> TextStyle(fontSize: <span class="number">18.0</span>),</span><br><span class="line">      ),</span><br><span class="line">      trailing: <span class="keyword">new</span> Icon(</span><br><span class="line">        alreadySaved ? Icons.favorite : Icons.favorite_border,</span><br><span class="line">        color: alreadySaved ? Colors.red : <span class="keyword">null</span>,</span><br><span class="line">      ),</span><br><span class="line">      onTap: (){ <span class="comment">// 会出现点击水波纹动画效果</span></span><br><span class="line">        setState((){ <span class="comment">// 调用setState() 会为State对象触发build()方法，导致UI更新</span></span><br><span class="line">          <span class="keyword">if</span> (alreadySaved) {</span><br><span class="line">            _saved.remove(pair); <span class="comment">// 移除出收藏夹</span></span><br><span class="line">          } <span class="keyword">else</span> {</span><br><span class="line">            _saved.add(pair);    <span class="comment">// 加入到收藏夹</span></span><br><span class="line">          }</span><br><span class="line">        });</span><br><span class="line">      },</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="6、Router"><a href="#6、Router" class="headerlink" title="6、Router"></a>6、Router</h2><figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomWordsState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">RandomWords</span>&gt; </span>{</span><br><span class="line">  <span class="keyword">final</span> _suggestions = &lt;WordPair&gt;[];</span><br><span class="line">  <span class="keyword">final</span> _saved = <span class="keyword">new</span> <span class="built_in">Set</span>&lt;WordPair&gt;();</span><br><span class="line">  <span class="keyword">final</span> _biggerFont = <span class="keyword">const</span> TextStyle(fontSize: <span class="number">18.0</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Scaffold(</span><br><span class="line">      appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">        title: <span class="keyword">new</span> Text(<span class="string">'Flutter'</span>),</span><br><span class="line">        <span class="comment">// 为AppBar添加一个列表图标，以及点击事件</span></span><br><span class="line">        actions: &lt;Widget&gt;[</span><br><span class="line">          <span class="keyword">new</span> IconButton(icon: <span class="keyword">new</span> Icon(Icons.list), onPressed: _pushSaved),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">      body: _buildSuggestions(),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">    </span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span> _pushSaved() {</span><br><span class="line">    <span class="comment">// 添加Navigator.push调用，这会使路由入栈（以后路由入栈均指推入到导航管理器的栈）s</span></span><br><span class="line">    Navigator.of(context).push(</span><br><span class="line">      <span class="comment">// 添加MaterialPageRoute及其builder</span></span><br><span class="line">      <span class="keyword">new</span> MaterialPageRoute(builder: (context){</span><br><span class="line">        <span class="comment">// 生成ListTile行</span></span><br><span class="line">        <span class="keyword">final</span> tiles = _saved.map((pair) {</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> ListTile(</span><br><span class="line">            title: <span class="keyword">new</span> Text(</span><br><span class="line">              pair.asPascalCase,</span><br><span class="line">              style: _biggerFont,</span><br><span class="line">            ),</span><br><span class="line">          );</span><br><span class="line">        });</span><br><span class="line">        <span class="comment">// ListTile的divideTiles()方法在每个ListTile之间添加1像素的分割线</span></span><br><span class="line">        <span class="keyword">final</span> divided = ListTile</span><br><span class="line">            .divideTiles(</span><br><span class="line">            context: context,</span><br><span class="line">            tiles: tiles</span><br><span class="line">        ).toList();</span><br><span class="line">      </span><br><span class="line">        <span class="comment">// builder返回一个Scaffold</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Scaffold(</span><br><span class="line">          appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">            title: <span class="keyword">new</span> Text(<span class="string">'Saved Suggestions'</span>),</span><br><span class="line">          ),</span><br><span class="line">          body: <span class="keyword">new</span> ListView(children: divided),</span><br><span class="line">        );</span><br><span class="line">      }),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="7、Theme"><a href="#7、Theme" class="headerlink" title="7、Theme"></a>7、Theme</h2><figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MaterialApp(</span><br><span class="line">      title: <span class="string">'Welcome to Flutter'</span>,</span><br><span class="line">      <span class="comment">// 设置主色调白色（包括应用栏）</span></span><br><span class="line">      theme: <span class="keyword">new</span> ThemeData(</span><br><span class="line">        primaryColor: Colors.white,</span><br><span class="line">      ),</span><br><span class="line">      home: <span class="keyword">new</span> RandomWords(),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:english_words/english_words.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() =&gt; runApp(<span class="keyword">new</span> MyApp());</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MaterialApp(</span><br><span class="line">      title: <span class="string">'Welcome to Flutter'</span>,</span><br><span class="line">      <span class="comment">// 设置主色调白色（包括应用栏）</span></span><br><span class="line">      theme: <span class="keyword">new</span> ThemeData(</span><br><span class="line">        primaryColor: Colors.white,</span><br><span class="line">      ),</span><br><span class="line">      home: <span class="keyword">new</span> RandomWords(),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomWords</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  createState() =&gt; <span class="keyword">new</span> RandomWordsState();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomWordsState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">RandomWords</span>&gt; </span>{</span><br><span class="line">  <span class="comment">// 在Dart语言中使用下划线前缀标识符，会强制其变成私有的</span></span><br><span class="line">  <span class="keyword">final</span> _suggestions = &lt;WordPair&gt;[];  <span class="comment">// 列表项</span></span><br><span class="line">  <span class="keyword">final</span> _saved = <span class="keyword">new</span> <span class="built_in">Set</span>&lt;WordPair&gt;(); <span class="comment">// 收藏的单词</span></span><br><span class="line">  <span class="keyword">final</span> _biggerFont = <span class="keyword">const</span> TextStyle(fontSize: <span class="number">18.0</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Scaffold(  <span class="comment">// Scaffold提供默认的导航栏、标题和主屏幕widget树</span></span><br><span class="line">      appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">        title: <span class="keyword">new</span> Text(<span class="string">'Flutter'</span>),</span><br><span class="line">        <span class="comment">// 为AppBar添加一个列表图标</span></span><br><span class="line">        actions: &lt;Widget&gt;[</span><br><span class="line">          <span class="keyword">new</span> IconButton(icon: <span class="keyword">new</span> Icon(Icons.list), onPressed: _pushSaved),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">      body: _buildSuggestions(),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment"><span class="markdown">/// 加载整个列表</span></span></span><br><span class="line">  Widget _buildSuggestions() {</span><br><span class="line">    <span class="comment">// ListView类提供了一个builder属性，itemBuilder 值是一个匿名回调函数， 接受两个参数</span></span><br><span class="line">    <span class="comment">// - BuildContext和行迭代器i。迭代器从0开始， 每调用一次该函数，i就会自增1，对于每个</span></span><br><span class="line">    <span class="comment">// 建议的单词对都会执行一次。该模型允许建议的单词对列表在用户滚动时无限增长。</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ListView.builder(</span><br><span class="line">      padding: <span class="keyword">const</span> EdgeInsets.all(<span class="number">16.0</span>),</span><br><span class="line">      <span class="comment">// 对于每个建议的单词对都会调用一次itemBuilder，然后将单词对添加到ListTile行中</span></span><br><span class="line">      <span class="comment">// 在偶数行，该函数会为单词对添加一个ListTile row.</span></span><br><span class="line">      <span class="comment">// 在奇数行，该函数会添加一个分割线widget，来分隔相邻的词对。</span></span><br><span class="line">      <span class="comment">// 注意，在小屏幕上，分割线看起来可能比较吃力。</span></span><br><span class="line">      itemBuilder: (context, i) {</span><br><span class="line">        <span class="comment">// 在每一列之前，添加一个1像素高的分隔线widget</span></span><br><span class="line">        <span class="keyword">if</span> (i.isOdd) <span class="keyword">return</span> <span class="keyword">new</span> Divider();</span><br><span class="line">        <span class="comment">// 语法 "i ~/ 2" 表示i除以2，但返回值是整形（向下取整），比如i为：1, 2, 3, 4, 5</span></span><br><span class="line">        <span class="comment">// 时，结果为0, 1, 1, 2, 2， 这可以计算出ListView中减去分隔线后的实际单词对数量</span></span><br><span class="line">        <span class="keyword">final</span> index = i ~/ <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 如果是建议列表中最后一个单词对</span></span><br><span class="line">        <span class="keyword">if</span> (index &gt;= _suggestions.length) {</span><br><span class="line">          <span class="comment">// 接着再生成10个单词对，然后添加到建议列表</span></span><br><span class="line">          _suggestions.addAll(generateWordPairs().take(<span class="number">10</span>));</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> _buildRow(_suggestions[index]);</span><br><span class="line">      },</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment"><span class="markdown">/// 加载一行</span></span></span><br><span class="line">  Widget _buildRow(WordPair pair) {</span><br><span class="line">    <span class="keyword">final</span> alreadySaved = _saved.contains(pair); <span class="comment">// 记录每一项的状态</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ListTile(</span><br><span class="line">      title: <span class="keyword">new</span> Text(</span><br><span class="line">        pair.asPascalCase,</span><br><span class="line">        style: _biggerFont,</span><br><span class="line">      ),</span><br><span class="line">      trailing: <span class="keyword">new</span> Icon(</span><br><span class="line">        alreadySaved ? Icons.favorite : Icons.favorite_border,</span><br><span class="line">        color: alreadySaved ? Colors.red : <span class="keyword">null</span>,</span><br><span class="line">      ),</span><br><span class="line">      onTap: (){ <span class="comment">// 会出现点击水波纹动画效果</span></span><br><span class="line">        setState((){ <span class="comment">// 调用setState() 会为State对象触发build()方法，导致UI更新</span></span><br><span class="line">          <span class="keyword">if</span> (alreadySaved) {</span><br><span class="line">            _saved.remove(pair); <span class="comment">// 移除出收藏夹</span></span><br><span class="line">          } <span class="keyword">else</span> {</span><br><span class="line">            _saved.add(pair);    <span class="comment">// 加入到收藏夹</span></span><br><span class="line">          }</span><br><span class="line">        });</span><br><span class="line">      },</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment"><span class="markdown">/// 单击事件</span></span></span><br><span class="line">  <span class="keyword">void</span> _pushSaved() {</span><br><span class="line">    <span class="comment">// 添加Navigator.push调用，这会使路由入栈（以后路由入栈均指推入到导航管理器的栈）s</span></span><br><span class="line">    Navigator.of(context).push(</span><br><span class="line">      <span class="comment">// 添加MaterialPageRoute及其builder</span></span><br><span class="line">      <span class="keyword">new</span> MaterialPageRoute(builder: (context){</span><br><span class="line">        <span class="comment">// 生成ListTile行</span></span><br><span class="line">        <span class="keyword">final</span> tiles = _saved.map((pair) {</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> ListTile(</span><br><span class="line">            title: <span class="keyword">new</span> Text(</span><br><span class="line">              pair.asPascalCase,</span><br><span class="line">              style: _biggerFont,</span><br><span class="line">            ),</span><br><span class="line">          );</span><br><span class="line">        });</span><br><span class="line">        <span class="comment">// ListTile的divideTiles()方法在每个ListTile之间添加1像素的分割线</span></span><br><span class="line">        <span class="keyword">final</span> divided = ListTile</span><br><span class="line">            .divideTiles(</span><br><span class="line">            context: context,</span><br><span class="line">            tiles: tiles</span><br><span class="line">        ).toList();</span><br><span class="line">      </span><br><span class="line">        <span class="comment">// builder返回一个Scaffold</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Scaffold(</span><br><span class="line">          appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">            title: <span class="keyword">new</span> Text(<span class="string">'Saved Suggestions'</span>),</span><br><span class="line">          ),</span><br><span class="line">          body: <span class="keyword">new</span> ListView(children: divided),</span><br><span class="line">        );</span><br><span class="line">      }),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="Widget总览"><a href="#Widget总览" class="headerlink" title="Widget总览"></a>Widget总览</h1><p><a href="https://flutterchina.club/widgets/" target="_blank" rel="noopener">Widget目录</a></p>
-<h2 id="基础-Widget"><a href="#基础-Widget" class="headerlink" title="基础 Widget"></a>基础 Widget</h2><ul>
-<li>Text</li>
-<li>Row、Column</li>
-<li>Stack</li>
-<li>Container：矩形视觉元素</li>
-</ul>
-<h2 id="处理手势"><a href="#处理手势" class="headerlink" title="处理手势"></a>处理手势</h2><figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyButton</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="comment">// 使用GestureDetector来检测各种输入手势，包括点击、拖动和缩放</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> GestureDetector( <span class="comment">// GestureDetector 不具有显示效果</span></span><br><span class="line">      onTap: () {</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'MyButton was tapped!'</span>);</span><br><span class="line">      },</span><br><span class="line">      child: <span class="keyword">new</span> Container(</span><br><span class="line">        height: <span class="number">36.0</span>,</span><br><span class="line">        padding: <span class="keyword">const</span> EdgeInsets.all(<span class="number">8.0</span>),</span><br><span class="line">        margin: <span class="keyword">const</span> EdgeInsets.symmetric(horizontal: <span class="number">8.0</span>),</span><br><span class="line">        decoration: <span class="keyword">new</span> BoxDecoration(</span><br><span class="line">          borderRadius: <span class="keyword">new</span> BorderRadius.circular(<span class="number">5.0</span>),</span><br><span class="line">          color: Colors.lightGreen[<span class="number">500</span>],</span><br><span class="line">        ),</span><br><span class="line">        child: <span class="keyword">new</span> Center(</span><br><span class="line">          child: <span class="keyword">new</span> Text(<span class="string">'Engage'</span>),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="StatefulWidget"><a href="#StatefulWidget" class="headerlink" title="StatefulWidget"></a>StatefulWidget</h2><p>每次点击“Increment”按钮，显示的Count+1</p>
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_CounterState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">Counter</span>&gt; </span>{</span><br><span class="line">  <span class="built_in">int</span> _counter = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">void</span> _increment() {</span><br><span class="line">    setState(() {</span><br><span class="line">      <span class="comment">// 告诉Flutter这个State发生改变，并通过build()刷新界面</span></span><br><span class="line">      _counter++;</span><br><span class="line">    });</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 多次build()，class中的成员变量保持不变</span></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="comment">// 每次setState()被调用(即_increment())，立即运行build()</span></span><br><span class="line">    <span class="comment">// 任何更新界面的改动都会在这里</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Row(</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        <span class="keyword">new</span> RaisedButton(</span><br><span class="line">          onPressed: _increment,</span><br><span class="line">          child: <span class="keyword">new</span> Text(<span class="string">'Increment'</span>),</span><br><span class="line">        ),</span><br><span class="line">        <span class="keyword">new</span> Text(<span class="string">'Count: <span class="subst">$_counter</span>'</span>),</span><br><span class="line">      ],</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="Stateless-Stateful"><a href="#Stateless-Stateful" class="headerlink" title="Stateless+Stateful"></a>Stateless+Stateful</h3><figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() {</span><br><span class="line">  runApp(<span class="keyword">new</span> MaterialApp(</span><br><span class="line">    title: <span class="string">'Flutter Tutorial'</span>,</span><br><span class="line">    home: <span class="keyword">new</span> Counter(),</span><br><span class="line">  ));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计数显示</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CounterDisplay</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  CounterDisplay({<span class="keyword">this</span>.count});</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">int</span> count;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Text(<span class="string">'Count: <span class="subst">$count</span>'</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计数按钮</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CounterIncrementor</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  CounterIncrementor({<span class="keyword">this</span>.onPressed});</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">final</span> VoidCallback onPressed; <span class="comment">// 按下按钮的回调</span></span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> RaisedButton(</span><br><span class="line">      onPressed: onPressed,</span><br><span class="line">      child: <span class="keyword">new</span> Text(<span class="string">'Increment'</span>),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计数组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  _CounterState createState() =&gt; <span class="keyword">new</span> _CounterState();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计数State</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_CounterState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">Counter</span>&gt; </span>{</span><br><span class="line">  <span class="built_in">int</span> _counter = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">void</span> _increment() {</span><br><span class="line">    setState(() {</span><br><span class="line">      ++_counter;</span><br><span class="line">    });</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Row(children: &lt;Widget&gt;[</span><br><span class="line">      <span class="keyword">new</span> CounterIncrementor(onPressed: _increment),</span><br><span class="line">      <span class="keyword">new</span> CounterDisplay(count: _counter),</span><br><span class="line">    ]);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="购物车示例"><a href="#购物车示例" class="headerlink" title="购物车示例"></a>购物车示例</h3><figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Product</span> </span>{</span><br><span class="line">  <span class="keyword">const</span> Product({<span class="keyword">this</span>.name});</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> name;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> CartChangedCallback(Product product, <span class="built_in">bool</span> inCart);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单个Item的控件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShoppingListItem</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  ShoppingListItem({Product product, <span class="keyword">this</span>.inCart, <span class="keyword">this</span>.onCartChanged})</span><br><span class="line">      : product = product,</span><br><span class="line">        <span class="keyword">super</span>(key: <span class="keyword">new</span> ObjectKey(product)); <span class="comment">// 属性值作为构造函数参数传入</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">final</span> Product product;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">bool</span> inCart;</span><br><span class="line">  <span class="keyword">final</span> CartChangedCallback onCartChanged;</span><br><span class="line">  </span><br><span class="line">  Color _getColor(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> inCart ? Colors.black54 : Theme.of(context).primaryColor;</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">  TextStyle _getTextStyle(BuildContext context) {</span><br><span class="line">    <span class="keyword">if</span> (!inCart) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> TextStyle(</span><br><span class="line">      color: Colors.black54,</span><br><span class="line">      decoration: TextDecoration.lineThrough,</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ListTile(</span><br><span class="line">      onTap: () {</span><br><span class="line">        onCartChanged(product, !inCart);</span><br><span class="line">      },</span><br><span class="line">      leading: <span class="keyword">new</span> CircleAvatar( <span class="comment">// 圆角图像框</span></span><br><span class="line">        backgroundColor: _getColor(context),</span><br><span class="line">        child: <span class="keyword">new</span> Text(product.name[<span class="number">0</span>]), <span class="comment">// 名字首字母作为头像</span></span><br><span class="line">      ),</span><br><span class="line">      title: <span class="keyword">new</span> Text(product.name, style: _getTextStyle(context)),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>该<code>ShoppingListItem</code> widget是无状态的。它将其在构造函数中接收到的值存储在<code>final</code>成员变量中，然后在<code>build</code>函数中使用它们。 例如，<code>inCart</code>布尔值表示在两种视觉展示效果之间切换：一个使用当前主题的主色，另一个使用灰色。</p>
-<p>当用户点击列表项时，widget不会直接修改其<code>inCart</code>的值。相反，widget会调用其父widget给它的<code>onCartChanged</code>回调函数。 此模式可让您在widget层次结构中存储更高的状态，从而使状态持续更长的时间。在极端情况下，存储传给<a href="https://docs.flutter.io/flutter/widgets/runApp.html" target="_blank" rel="noopener"><code>runApp</code></a>应用程序的widget的状态将在的整个生命周期中持续存在。</p>
-<p>当父项收到<code>onCartChanged</code>回调时，父项将更新其内部状态，这将触发父项使用新<code>inCart</code>值重建<code>ShoppingListItem</code>新实例。 虽然父项<code>ShoppingListItem</code>在重建时创建了一个新实例，但该操作开销<strong>很小</strong>，因为Flutter框架会将新构建的widget与先前构建的widget进行比较，并仅将差异部分应用于底层<a href="https://docs.flutter.io/flutter/rendering/RenderObject-class.html" target="_blank" rel="noopener"><code>RenderObject</code></a>。</p>
-<hr>
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShoppingList</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>{</span><br><span class="line">  ShoppingList({Key key, <span class="keyword">this</span>.products}) : <span class="keyword">super</span>(key: key);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">List</span>&lt;Product&gt; products; <span class="comment">// 先作为构造函数参数传入，之后传递到 State 中</span></span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  _ShoppingListState createState() =&gt; <span class="keyword">new</span> _ShoppingListState();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_ShoppingListState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">ShoppingList</span>&gt; </span>{</span><br><span class="line">  <span class="built_in">Set</span>&lt;Product&gt; _shoppingCart = <span class="keyword">new</span> <span class="built_in">Set</span>&lt;Product&gt;(); <span class="comment">// 延长Item值生命周期</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Item 单击事件，作为参数传入 item 的 Widget 中</span></span><br><span class="line">  <span class="keyword">void</span> _handleCartChanged(Product product, <span class="built_in">bool</span> inCart) {</span><br><span class="line">    setState(() { <span class="comment">// 通知更新界面，即重新调用 build()</span></span><br><span class="line">      <span class="keyword">if</span> (inCart)</span><br><span class="line">        _shoppingCart.add(product);</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">        _shoppingCart.remove(product);</span><br><span class="line">    });</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Scaffold(</span><br><span class="line">      appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">        title: <span class="keyword">new</span> Text(<span class="string">'Shopping List'</span>),</span><br><span class="line">      ),</span><br><span class="line">      body: <span class="keyword">new</span> ListView(</span><br><span class="line">        padding: <span class="keyword">new</span> EdgeInsets.symmetric(vertical: <span class="number">8.0</span>),</span><br><span class="line">        <span class="comment">// 获取并遍历ShoppingList.products，从 Widget 中传递到 State</span></span><br><span class="line">        <span class="comment">// ☆返回单行控件，List&lt;Product&gt; =&gt; Map&lt;Widget&gt; =&gt; List&lt;Widget&gt;</span></span><br><span class="line">        children: widget.products.map((Product product) {</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> ShoppingListItem(</span><br><span class="line">            product: product,</span><br><span class="line">            inCart: _shoppingCart.contains(product),</span><br><span class="line">            onCartChanged: _handleCartChanged,</span><br><span class="line">          );</span><br><span class="line">        }).toList(),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() {</span><br><span class="line">  runApp(<span class="keyword">new</span> MaterialApp(</span><br><span class="line">    title: <span class="string">'Shopping App'</span>,</span><br><span class="line">    home: <span class="keyword">new</span> ShoppingList(</span><br><span class="line">      products: &lt;Product&gt;[ <span class="comment">// 直接拟造数据list</span></span><br><span class="line">        <span class="keyword">new</span> Product(name: <span class="string">'Eggs'</span>),</span><br><span class="line">        <span class="keyword">new</span> Product(name: <span class="string">'Flour'</span>),</span><br><span class="line">        <span class="keyword">new</span> Product(name: <span class="string">'Chocolate chips'</span>),</span><br><span class="line">      ],</span><br><span class="line">    ),</span><br><span class="line">  ));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>当这个widget的父级重建时，父级将创建一个新的<code>ShoppingList</code>实例，但是Flutter框架将重用已经在树中的<code>_ShoppingListState</code>实例，而<strong>不是再次调用</strong><a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html#createState" target="_blank" rel="noopener"><code>createState</code></a>创建一个新的。</p>
-<p>要访问当前<code>ShoppingList</code>的属性，<code>_ShoppingListState</code>可以使用它的<code>widget</code>属性。 如果父级重建并创建一个新的ShoppingList，那么 <code>_ShoppingListState</code>也将用新的<code>widget</code>值重建。如果希望在<code>widget</code>属性更改时收到通知，则可以覆盖<code>didUpdateWidget</code>函数，以便将旧的<code>oldWidget</code>与当前<code>widget</code>进行比较。</p>
-<h2 id="生命周期事件"><a href="#生命周期事件" class="headerlink" title="生命周期事件"></a>生命周期事件</h2><p>在StatefulWidget调用<code>createState</code>之后，框架将新的状态对象插入树中，然后调用状态对象的<a href="https://docs.flutter.io/flutter/widgets/State-class.html#initState" target="_blank" rel="noopener"><code>initState</code></a>。 子类化State可以重写<a href="https://docs.flutter.io/flutter/widgets/State-class.html#initState" target="_blank" rel="noopener"><code>initState</code></a>，以完成仅需要执行一次的工作。 </p>
-<h2 id="Key"><a href="#Key" class="headerlink" title="Key"></a>Key</h2><p>使用key来控制框架将在widget重建时与哪些其他widget匹配。要求两个widget具有相同的<a href="https://docs.flutter.io/flutter/widgets/Widget-class.html#key" target="_blank" rel="noopener"><code>key</code></a>和<a href="https://docs.flutter.io/flutter/widgets/Widget-class.html#runtimeType" target="_blank" rel="noopener"><code>runtimeType</code></a>。</p>
-<ul>
-<li>如果没有key，当前构建中的第一个条目将始终与前一个构建中的第一个条目同步</li>
-<li>通过给列表中的每个条目分配为“语义” key，无限列表可以更高效，因为框架将同步条目与匹配的语义key并因此具有相似（或相同）的可视外观。此外，语义上同步条目意味着在有状态子widget中，保留的状态将附加到相同的语义条目上，而不是附加到相同数字位置上的条目。</li>
-</ul>
-<h3 id="全局-Key"><a href="#全局-Key" class="headerlink" title="全局 Key"></a>全局 Key</h3><p>使用全局key来唯一标识子widget。全局key在整个widget层次结构中必须是全局唯一的，这与局部key不同，后者只需要在同级中唯一。由于它们是全局唯一的，因此可以使用全局key来检索与widget关联的状态。</p>
-<hr>
-<h2 id="零散控件笔记"><a href="#零散控件笔记" class="headerlink" title="零散控件笔记"></a>零散控件笔记</h2><h3 id="NestedScrollView"><a href="#NestedScrollView" class="headerlink" title="NestedScrollView"></a>NestedScrollView</h3><p>详细说明：<a href="https://api.flutter.dev/flutter/widgets/NestedScrollView-class.html" target="_blank" rel="noopener">NestedScrollView类</a></p>
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> _tabs = [<span class="string">'Tab1'</span>, <span class="string">'Tab2'</span>, <span class="string">'Tab3'</span>];</span><br><span class="line"></span><br><span class="line">DefaultTabController(</span><br><span class="line">  length: _tabs.length,</span><br><span class="line">  child: NestedScrollView( <span class="comment">// 滚动嵌套</span></span><br><span class="line">    headerSliverBuilder: (BuildContext context, <span class="built_in">bool</span> innerBoxIsScrolled) {</span><br><span class="line">      <span class="keyword">return</span> &lt;Widget&gt;[</span><br><span class="line">        SliverOverlapAbsorber( <span class="comment">// 水平重叠控件</span></span><br><span class="line">          handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),</span><br><span class="line">          child: SliverAppBar( <span class="comment">// 可收起的标题栏</span></span><br><span class="line">            title: <span class="keyword">const</span> Text(<span class="string">'Books'</span>), <span class="comment">// 标题栏文字</span></span><br><span class="line">            pinned: <span class="keyword">true</span>, <span class="comment">// 是否阻止标题栏向上收起</span></span><br><span class="line">            expandedHeight: <span class="number">150.0</span>, <span class="comment">// 可收起的距离</span></span><br><span class="line">            forceElevated: innerBoxIsScrolled,</span><br><span class="line">            bottom: TabBar( <span class="comment">// 添加水平Tab标签</span></span><br><span class="line">              tabs: _tabs.map((<span class="built_in">String</span> name) =&gt; Tab(text: name)).toList(),</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">        ),</span><br><span class="line">      ];</span><br><span class="line">    },</span><br><span class="line">    body: TabBarView( <span class="comment">// 可水平滑动的大页面</span></span><br><span class="line">      children: _tabs.map((<span class="built_in">String</span> name) { <span class="comment">// 添加每个Tab子页面</span></span><br><span class="line">        <span class="keyword">return</span> SafeArea(</span><br><span class="line">          top: <span class="keyword">false</span>,</span><br><span class="line">          bottom: <span class="keyword">false</span>,</span><br><span class="line">          child: Builder(</span><br><span class="line">            builder: (BuildContext context) {</span><br><span class="line">              <span class="keyword">return</span> CustomScrollView( <span class="comment">// 竖向列表框</span></span><br><span class="line">                key: PageStorageKey&lt;<span class="built_in">String</span>&gt;(name),</span><br><span class="line">                slivers: &lt;Widget&gt;[</span><br><span class="line">                  SliverOverlapInjector( <span class="comment">// 支持多个重叠手势？</span></span><br><span class="line">                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),</span><br><span class="line">                  ),</span><br><span class="line">                  SliverPadding(</span><br><span class="line">                    padding: <span class="keyword">const</span> EdgeInsets.all(<span class="number">8.0</span>),</span><br><span class="line">                    sliver: SliverFixedExtentList( <span class="comment">// 添加竖向列表框items</span></span><br><span class="line">                      itemExtent: <span class="number">48.0</span>,</span><br><span class="line">                      delegate: SliverChildBuilderDelegate(</span><br><span class="line">                            (BuildContext context, <span class="built_in">int</span> index) {</span><br><span class="line">                          <span class="keyword">return</span> ListTile(</span><br><span class="line">                            title: Text(<span class="string">'Item <span class="subst">$index</span>'</span>),</span><br><span class="line">                          );</span><br><span class="line">                        },</span><br><span class="line">                        childCount: <span class="number">30</span>,</span><br><span class="line">                      ),</span><br><span class="line">                    ),</span><br><span class="line">                  ),</span><br><span class="line">                ],</span><br><span class="line">              );</span><br><span class="line">            },</span><br><span class="line">          ),</span><br><span class="line">        );</span><br><span class="line">      }).toList(),</span><br><span class="line">    ),</span><br><span class="line">  ),</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
             <a href="/2020/02/25/Flutter学习笔记/" class="post-more waves-button">
@@ -823,35 +637,6 @@
 <li>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a> </li>
 <li>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
 </ul>
-<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><p>可以在使用pip的时候在后面加上-i参数，指定pip源<br>eg: pip install scrapy -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
-<h2 id="永久修改"><a href="#永久修改" class="headerlink" title="永久修改"></a>永久修改</h2><h3 id="linux"><a href="#linux" class="headerlink" title="linux:"></a>linux:</h3><p>修改 ~/.pip/pip.conf (没有就创建一个)， 内容如下：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="windows"><a href="#windows" class="headerlink" title="windows:"></a>windows:</h3><p>win+R 打开用户目录%HOMEPATH%，在此目录下创建 pip 文件夹，在 pip 目录下创建 pip.ini 文件, 内容如下</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">timeout = 6000</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">trusted-host = pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p>参考来源：<a href="https://blog.csdn.net/yuzaipiaofei/article/details/80891108" target="_blank" rel="noopener">https://blog.csdn.net/yuzaipiaofei/article/details/80891108</a></p>
-</blockquote>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
             <a href="/2020/02/16/PIP换源/" class="post-more waves-button">
@@ -863,6 +648,49 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/整理/">整理</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-多线程高效单例模式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/01/12/多线程高效单例模式/">多线程高效单例模式</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-01-12 14:47:00" datetime="2020-01-12T06:47:00.000Z"  itemprop="datePublished">2020-01-12</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 双检锁方式</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>{</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>{</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) {    <span class="comment">// 优化 synchronized 同步化方法效率</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) {    <span class="comment">// 保证下面线程安全</span></span><br><span class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) {</span><br><span class="line">                    instance = <span class="keyword">new</span> Singleton();   <span class="comment">// 多线程可实例化多次</span></span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2020/01/12/多线程高效单例模式/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </div>
     
@@ -900,32 +728,6 @@
 <p><strong>第二次握手</strong>：服务端发包，客户端收到了。 这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常。</p>
 <p><strong>第三次握手</strong>：客户端发包，服务端收到了。 这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。</p>
 <p>因此，需要三次握手才能确认双方的接收与发送能力是否正常。</p>
-<hr>
-<p>试想如果是用两次握手，则会出现下面这种情况：</p>
-<p>如客户端发出连接请求，但因连接请求报文丢失而未收到确认，于是客户端再重传一次连接请求。</p>
-<p>后来收到了确认，建立了连接。数据传输完毕后，就释放了连接、</p>
-<p>客户端共发出了两个连接请求报文段，其中第一个丢失，第二个到达了服务端，但是第一个丢失的报文段只是在某些网络结点长时间滞留了，延误到连接释放以后的某个时间才到达服务端；</p>
-<p>此时服务端误认为客户端又发出一次新的连接请求，于是就向客户端发出确认报文段，同意建立连接，不采用三次握手，只要服务端发出确认，就建立新的连接了；</p>
-<p>此时客户端忽略服务端发来的确认，也不发送数据，则服务端一致等待客户端发送数据，浪费资源。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
             <a href="/2019/12/05/TCP-IP三次握手为什么不能两次/" class="post-more waves-button">
@@ -969,17 +771,6 @@
 
     
         <p>在做LazyKey的时候，遇见了一个场景，光标在括号右边，需要获取改括号前面的函数名。虽然用堆栈写个语法分析器很方便，但是我就想着用正则表达式是不是更简单？</p>
-<blockquote>
-<p>坑啊， JS 不支持平衡组……</p>
-</blockquote>
-<h2 id="平衡组介绍"><a href="#平衡组介绍" class="headerlink" title="平衡组介绍"></a>平衡组介绍</h2><p>如果想要匹配<strong>可嵌套的层次性结构</strong>的话，就得使用平衡组了。举个例子吧，如何把<code>xx &lt;aa &lt;bbb&gt; &lt;bbb&gt; aa&gt; yy</code>这样的字符串里，最长的尖括号内的内容捕获出来？</p>
-<p>这里需要用到以下的语法构造：</p>
-<ul>
-<li><code>(?&lt;group&gt;)</code> 把捕获的内容命名为group,并压入堆栈</li>
-<li><code>(?&lt;-group&gt;)</code> 从堆栈上弹出最后压入堆栈的名为group的捕获内容，如果堆栈本来为空，则本分组的匹配失败</li>
-<li><code>(?(group)yes|no)</code> 如果堆栈上存在以名为group的捕获内容的话，继续匹配yes部分的表达式，否则继续匹配no部分</li>
-<li><code>(?!)</code> 顺序否定环视，由于没有后缀表达式，试图匹配总是失败</li>
-</ul>
     
         <div class="post-more-div">
             <a href="/2019/11/12/正则表达式平衡组（堆栈）/" class="post-more waves-button">
@@ -1030,9 +821,6 @@
                 </div>
                 <div class="image-caption">原图</div>
             </figure>
-
-<p>在侧边栏的按钮中添加名片、双击卡片弹出编辑窗口。</p>
-<p>为了方便，将之<strong>转移到了编辑框</strong>中，在编辑框的菜单中弹出名片操作。</p>
     
         <div class="post-more-div">
             <a href="/2019/11/07/Resize冲突/" class="post-more waves-button">
@@ -1076,145 +864,6 @@
 
     
         <figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	字段名,</span><br><span class="line">	n,</span><br><span class="line">	<span class="keyword">round</span>( n / s * <span class="number">100</span>, <span class="number">5</span> ) rat </span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span>( </span><br><span class="line">        <span class="keyword">SELECT</span> 字段名, <span class="keyword">count</span>( <span class="number">1</span> ) n <span class="keyword">FROM</span> sendsms_log </span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段名</span><br><span class="line">    ) t1</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> (</span><br><span class="line">        <span class="keyword">SELECT</span> <span class="keyword">count</span>( <span class="number">1</span> ) s <span class="keyword">FROM</span> sendsms_log</span><br><span class="line">    ) t2</span><br><span class="line">    <span class="keyword">ON</span> <span class="number">1</span> = <span class="number">1</span> </span><br><span class="line">) t</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p>where条件在两个最里面的 <code>from</code>后，都要加上，否则百分比不准确</p>
-</blockquote>
-<blockquote>
-<p>四舍五入：round 函数</p>
-</blockquote>
-<blockquote>
-<p>末尾加百分号：concat(num, ‘%’)</p>
-</blockquote>
-<blockquote>
-<p>中文按拼音排序：</p>
-<p>Oracle用函数 <code>nlssort</code></p>
-<p>MySQL：<br>编码为<code>latin1_swedish_ci</code>：<code>order by birary(字段名) asc</code><br>编码为 <code>utf8_general_ci</code>：<code>ORDER BY CONVERT( 字段名 USING gbk ) COLLATE gbk_chinese_ci ASC</code></p>
-</blockquote>
-<blockquote>
-<p>自定义枚举类型排序：<br>order by field( name, ‘value1’, ‘value2’ )</p>
-</blockquote>
-<hr>
-<p>示例：研究土壤对生长势的影响</p>
-<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	土壤名称,</span><br><span class="line">	生长势,</span><br><span class="line">	n 数量,</span><br><span class="line">	<span class="keyword">concat</span>(<span class="keyword">round</span>( n / s * <span class="number">100</span>, <span class="number">2</span> ),<span class="string">'%'</span>) 百分比</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> (</span><br><span class="line">		<span class="keyword">select</span> 土壤名称, 生长势, <span class="keyword">count</span>(<span class="number">1</span>) n <span class="keyword">from</span> <span class="string">`linan`</span></span><br><span class="line">		<span class="comment">-- where 生长场所='乡村'</span></span><br><span class="line">		<span class="keyword">group</span> <span class="keyword">by</span> 土壤名称,生长势</span><br><span class="line">		<span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">convert</span>( 土壤名称 <span class="keyword">using</span> gbk ) <span class="keyword">collate</span> gbk_chinese_ci <span class="keyword">asc</span></span><br><span class="line">	) t1 <span class="comment">-- 各分类数</span></span><br><span class="line">	<span class="keyword">inner</span> <span class="keyword">join</span> (</span><br><span class="line">		<span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>) s <span class="keyword">from</span> <span class="string">`linan`</span></span><br><span class="line"> 		<span class="comment">-- where 生长场所='乡村'</span></span><br><span class="line">	) t2 <span class="comment">-- 总数</span></span><br><span class="line">	<span class="keyword">on</span> <span class="number">1</span> = <span class="number">1</span></span><br><span class="line">) t</span><br><span class="line"><span class="comment">-- order by field(生长势, '正常株', '衰弱株', '濒危株', '死亡株')</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>显示结果：</p>
-<table>
-<thead>
-<tr>
-<th>土壤名称</th>
-<th>生长势</th>
-<th>数量</th>
-<th>百分比</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>红壤</td>
-<td>正常株</td>
-<td>7120</td>
-<td>69.95%</td>
-</tr>
-<tr>
-<td>黄壤</td>
-<td>正常株</td>
-<td>2049</td>
-<td>20.13%</td>
-</tr>
-<tr>
-<td>基性岩土</td>
-<td>正常株</td>
-<td>1</td>
-<td>0.01%</td>
-</tr>
-<tr>
-<td>石灰土</td>
-<td>正常株</td>
-<td>226</td>
-<td>2.22%</td>
-</tr>
-<tr>
-<td>水稻土</td>
-<td>正常株</td>
-<td>1</td>
-<td>0.01%</td>
-</tr>
-<tr>
-<td>紫色土</td>
-<td>正常株</td>
-<td>4</td>
-<td>0.04%</td>
-</tr>
-<tr>
-<td>红壤</td>
-<td>衰弱株</td>
-<td>507</td>
-<td>4.98%</td>
-</tr>
-<tr>
-<td>黄壤</td>
-<td>衰弱株</td>
-<td>33</td>
-<td>0.32%</td>
-</tr>
-<tr>
-<td>石灰土</td>
-<td>衰弱株</td>
-<td>4</td>
-<td>0.04%</td>
-</tr>
-<tr>
-<td>黄壤</td>
-<td>濒危株</td>
-<td>38</td>
-<td>0.37%</td>
-</tr>
-<tr>
-<td>石灰土</td>
-<td>濒危株</td>
-<td>1</td>
-<td>0.01%</td>
-</tr>
-<tr>
-<td>红壤</td>
-<td>濒危株</td>
-<td>147</td>
-<td>1.44%</td>
-</tr>
-<tr>
-<td>红壤</td>
-<td>死亡株</td>
-<td>40</td>
-<td>0.39%</td>
-</tr>
-<tr>
-<td>黄壤</td>
-<td>死亡株</td>
-<td>8</td>
-<td>0.08%</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>可通过  <code>union all</code> 来合并多个搜索结果，并且计算每个土壤中各个生长势的百分比，即有各土壤各自都是 100%</p>
-</blockquote>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
             <a href="/2019/11/03/数据库按分类排序并计算百分比/" class="post-more waves-button">
@@ -1466,50 +1115,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-GCC和G-的区别"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/09/18/GCC和G-的区别/">GCC和G++的区别</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-09-18 08:23:00" datetime="2019-09-18T00:23:00.000Z"  itemprop="datePublished">2019-09-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>gcc和g++都是GNU(组织)的一个编译器。</p>
-<p>误区一:<strong>gcc只能编译c代码,g++只能编译c++代码</strong><br><strong>两者都可以</strong>，但是请注意：<br>1<strong>.后缀为.c的，gcc把它当作是C程序，而g++当作是c++程序</strong>；后缀为.cpp的，两者都会认为是c++程序，注意，虽然<strong>c++是c的超集，但是两者对语法的要求是有区别的。C++的语法规则更加严谨一些。</strong><br>2.<strong>编译阶段，g++会调用gcc，对于c++代码，两者是等价的</strong>，但是因为<strong>gcc命令不能自动和C＋＋程序使用的库联接，所以通常用g++来完成链接</strong>，<strong>为了统一起见，干脆编译/链接统统用g++了，这就给人一种错觉，好像cpp程序只能用g++似的。</strong> </p>
-    
-        <div class="post-more-div">
-            <a href="/2019/09/18/GCC和G-的区别/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译原理/">编译原理</a></li></ul>
 
     </div>
     

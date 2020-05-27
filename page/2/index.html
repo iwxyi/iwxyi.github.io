@@ -194,6 +194,50 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-GCC和G-的区别"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/09/18/GCC和G-的区别/">GCC和G++的区别</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-09-18 08:23:00" datetime="2019-09-18T00:23:00.000Z"  itemprop="datePublished">2019-09-18</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>gcc和g++都是GNU(组织)的一个编译器。</p>
+<p>误区一:<strong>gcc只能编译c代码,g++只能编译c++代码</strong><br><strong>两者都可以</strong>，但是请注意：<br>1<strong>.后缀为.c的，gcc把它当作是C程序，而g++当作是c++程序</strong>；后缀为.cpp的，两者都会认为是c++程序，注意，虽然<strong>c++是c的超集，但是两者对语法的要求是有区别的。C++的语法规则更加严谨一些。</strong><br>2.<strong>编译阶段，g++会调用gcc，对于c++代码，两者是等价的</strong>，但是因为<strong>gcc命令不能自动和C＋＋程序使用的库联接，所以通常用g++来完成链接</strong>，<strong>为了统一起见，干脆编译/链接统统用g++了，这就给人一种错觉，好像cpp程序只能用g++似的。</strong> </p>
+    
+        <div class="post-more-div">
+            <a href="/2019/09/18/GCC和G-的区别/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译原理/">编译原理</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Qt工程转VS工程"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1079,69 +1123,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HTML表单即将提交事件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/20/HTML表单即将提交事件/">HTML表单即将提交事件</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-04-20 13:06:00" datetime="2019-04-20T05:06:00.000Z"  itemprop="datePublished">2019-04-20</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"insert.php"</span> <span class="attr">onsubmit</span>=<span class="string">"return onSubmit()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">id</span>=<span class="string">"title"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">onSubmit</span><span class="params">()</span></span></span></span><br><span class="line">    {</span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ( $(<span class="string">"#title"</span>).val(); == <span class="string">""</span> ) {</span></span><br><span class="line"><span class="actionscript">            alert(<span class="string">"请输入标题"</span>);</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> <span class="literal">true</span>;</span></span><br><span class="line">    }</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2019/04/20/HTML表单即将提交事件/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
 
     </div>
     
