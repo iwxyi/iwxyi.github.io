@@ -194,7 +194,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-Python解析网络JSON"
+            <article id="post-Qt加快编译速度"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -202,7 +202,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/04/Python解析网络JSON/">Python解析网络JSON</a>
+      <a href="/2019/01/24/Qt加快编译速度/">Qt加快编译速度</a>
     </h3>
   
 
@@ -210,149 +210,18 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2018-11-04 13:39:00" datetime="2018-11-04T05:39:00.000Z"  itemprop="datePublished">2018-11-04</time>
+        <time class="post-time" title="2019-01-24 16:58:00" datetime="2019-01-24T08:58:00.000Z"  itemprop="datePublished">2019-01-24</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line">url = <span class="string">"https://gdata.youtube.com/feeds/api.standardfeeds/top_rated?alt=json"</span></span><br><span class="line">response = urlopen(url)</span><br><span class="line">contents = response.read()</span><br><span class="line">text = contents.decode(<span class="string">'utf8'</span>)</span><br><span class="line">data = json.loads(text)</span><br><span class="line"><span class="keyword">for</span> video <span class="keyword">in</span> data[<span class="string">'feed'</span>][<span class="string">'entry'</span>][<span class="number">0</span>:<span class="number">6</span>]:</span><br><span class="line">print(video[<span class="string">'title'</span>][<span class="string">'$t'</span>])</span><br></pre></td></tr></tbody></table></figure>
+        <h2 id="设置多核编译"><a href="#设置多核编译" class="headerlink" title="设置多核编译"></a>设置多核编译</h2><p>1.查看是否已经安装了jom工具：C:\Qt\Qt5.4.1\Tools\QtCreator\bin\jom.exe</p>
+<p>2.项目添加参数-j 4【4是cpu的核数，我的是i5，只有四个核心】</p>
     
         <div class="post-more-div">
-            <a href="/2018/11/04/Python解析网络JSON/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-ViewPage模板"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/29/Android-ViewPage模板/">Android ViewPage模板</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-29 11:02:00" datetime="2018-10-29T03:02:00.000Z"  itemprop="datePublished">2018-10-29</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>多可左右滑动的分页容器模板</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/29/Android-ViewPage模板/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模板/">模板</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-Color类颜色值坑点"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/29/Android-Color类颜色值坑点/">Android Color类颜色值坑点</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-29 10:39:00" datetime="2018-10-29T02:39:00.000Z"  itemprop="datePublished">2018-10-29</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>Color.alpha 0x00~0xFF  00表示完全透明，FF表示完全不透明</p>
-<p>其中有两个方法</p>
-<p>Color.argb(int alpha, int red, int green, int blue);//设置颜色，同步设置颜色的透明度</p>
-<p>Color.rgb(int red, int green, int blue);//设置颜色，默认透明度为0xFF，完全不透明</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/29/Android-Color类颜色值坑点/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/踩坑/">踩坑</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt-QMap"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/27/Qt-QMap/">Qt QMap</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-27 17:38:00" datetime="2018-10-27T09:38:00.000Z"  itemprop="datePublished">2018-10-27</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h3 id="1-基本应用"><a href="#1-基本应用" class="headerlink" title="1. 基本应用"></a><strong>1. 基本应用</strong></h3><p>下面以“键-值”都是QString的例子说明QMap的基本使用方法。</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/27/Qt-QMap/" class="post-more waves-button">
+            <a href="/2019/01/24/Qt加快编译速度/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -369,7 +238,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-基于Qt的图像处理技术和算法"
+            <article id="post-Qt发送邮件"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -377,7 +246,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/27/基于Qt的图像处理技术和算法/">基于Qt的图像处理技术和算法</a>
+      <a href="/2019/01/23/Qt发送邮件/">Qt发送邮件</a>
     </h3>
   
 
@@ -385,17 +254,38 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2018-10-27 16:57:00" datetime="2018-10-27T08:57:00.000Z"  itemprop="datePublished">2018-10-27</time>
+        <time class="post-time" title="2019-01-23 18:47:00" datetime="2019-01-23T10:47:00.000Z"  itemprop="datePublished">2019-01-23</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>这篇文章主要阐述了如何使用Qt在像素级别上对图像进行操作，并实现了一些图像效果，这些效果主要有：灰度，模糊，锐化，添加相框，金属质感，改变图像饱和度，亮度还有白平衡。</p>
+        <p>太难了，卒</p>
+<p>参考博客:<a href="http://www.qtcn.org/bbs/read-htm-tid-56050.html" target="_blank" rel="noopener">http://www.qtcn.org/bbs/read-htm-tid-56050.html</a></p>
+<p>里面有个下载的工具包，包含了api和使用示例。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     
         <div class="post-more-div">
-            <a href="/2018/10/27/基于Qt的图像处理技术和算法/" class="post-more waves-button">
+            <a href="/2019/01/23/Qt发送邮件/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -412,7 +302,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Android-ViewPage"
+            <article id="post-Qt多显示器"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -420,7 +310,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/27/Android-ViewPage/">Android ViewPage</a>
+      <a href="/2019/01/21/Qt多显示器/">Qt多显示器</a>
     </h3>
   
 
@@ -428,339 +318,19 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2018-10-27 11:01:00" datetime="2018-10-27T03:01:00.000Z"  itemprop="datePublished">2018-10-27</time>
+        <time class="post-time" title="2019-01-21 18:46:00" datetime="2019-01-21T10:46:00.000Z"  itemprop="datePublished">2019-01-21</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <blockquote>
-<p>（注：本篇文章的例子使用的是ConstraintLayout布局方式） </p>
-</blockquote>
-<p>ViewPage有两种使用方式，一是直接加载布局文件（使用PagerAdapter），二是加载fragment（使用FragmentPagerAdapter）。</p>
+        <p>先放官方文档链接：QDesktopWidget - Qt5 Reference</p>
+<p>在只有一个显示器的时候，获得显示器分辨率的方法是</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miRPos = QApplication::desktop()-&gt;screenGeometry().width(); <span class="comment">//原来的写法,奇怪的变量名先无视</span></span><br></pre></td></tr></tbody></table></figure>
     
         <div class="post-more-div">
-            <a href="/2018/10/27/Android-ViewPage/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-Fragment用法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/23/Android-Fragment用法/">Android Fragment用法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-23 10:44:00" datetime="2018-10-23T02:44:00.000Z"  itemprop="datePublished">2018-10-23</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="Android-Fragment-简单实例"><a href="#Android-Fragment-简单实例" class="headerlink" title="Android Fragment 简单实例"></a>Android Fragment 简单实例</h2>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/23/Android-Fragment用法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-睡眠排序法Java版"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/16/睡眠排序法Java版/">睡眠排序法Java版</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-16 13:28:00" datetime="2018-10-16T05:28:00.000Z"  itemprop="datePublished">2018-10-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>基本思想：根据CPU的调度算法实现，对一组数据进行排序，不能存在负数值。</p>
-<p>这个数是多大，那么就在线程里睡眠它的10倍再加10。</p>
-<p>不是睡眠和它的数值一样大的原因是，当数值太小时，误差太大，睡眠的时间不比输出的时间少，那么就会存在不正确的输出结果。</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/16/睡眠排序法Java版/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-CardView用法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/14/Android-CardView用法/">Android CardView用法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-14 10:38:00" datetime="2018-10-14T02:38:00.000Z"  itemprop="datePublished">2018-10-14</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>今天主要是CardView的用法，CardView是在安卓5.0提出的卡片式控件。首先介绍一下它的配置。<br>在gradle文件下添加依赖库：</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/14/Android-CardView用法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-PHP调用Python并获取返回值"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/11/PHP调用Python并获取返回值/">PHP调用Python并获取返回值</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-11 16:27:00" datetime="2018-10-11T08:27:00.000Z"  itemprop="datePublished">2018-10-11</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        ## 一：php调用python脚本 并传入参数，并接收返回值
-
-<p>php调用python脚本可以用 <code>system()</code>，<code>exec()</code>和<code>passthru()</code> 函数，本篇文章主要介绍<code>exec</code> 函数</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img-blog.csdn.net/20180810085328518?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDkwNzEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/11/PHP调用Python并获取返回值/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Ubuntu安装Apache2和PHP"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/11/Ubuntu安装Apache2和PHP/">Ubuntu安装Apache2和PHP</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-11 14:04:00" datetime="2018-10-11T06:04:00.000Z"  itemprop="datePublished">2018-10-11</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="安装Apache2和PHP："><a href="#安装Apache2和PHP：" class="headerlink" title="安装Apache2和PHP："></a>安装Apache2和PHP：</h1><p><strong>安装 Apache2：</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>安装PHP模块：</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php5</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>安装Mysql</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/11/Ubuntu安装Apache2和PHP/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-DrawerLayout用法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/07/Android-DrawerLayout用法/">Android DrawerLayout用法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-07 10:41:00" datetime="2018-10-07T02:41:00.000Z"  itemprop="datePublished">2018-10-07</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p><strong>NavigationView</strong>：在Material Design中，Navigation drawer导航抽屉，被设计用于应用导航，提供了一种通用的导航方式，体现了设计的一致性。<br>而NavigationView的典型用途就是配合之前v4包的DrawerLayout，作为其中的Drawer部分，即导航菜单的本体部分。NavigationView是一个导航菜单框架，使用menu资源填充数据，使我们可以更简单高效的实现导航菜单。它提供了不错的默认样式、选中项高亮、分组单选、分组子标题、以及可选的Header。</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/07/Android-DrawerLayout用法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt仿音乐播放器托盘菜单"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/10/01/Qt仿音乐播放器托盘菜单/">Qt仿音乐播放器托盘菜单</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-01 19:13:00" datetime="2018-10-01T11:13:00.000Z"  itemprop="datePublished">2018-10-01</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>QT自定义菜单（仿音乐播放器托盘菜单）</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/10/01/Qt仿音乐播放器托盘菜单/" class="post-more waves-button">
+            <a href="/2019/01/21/Qt多显示器/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -777,7 +347,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-修电脑"
+            <article id="post-Qt窗口出现在屏幕中央（支持多显示器））"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -785,7 +355,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/24/修电脑/">修电脑</a>
+      <a href="/2019/01/21/Qt窗口出现在屏幕中央（支持多显示器））/">Qt窗口出现在屏幕中央（支持多显示器））</a>
     </h3>
   
 
@@ -793,113 +363,65 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2018-09-24 20:39:00" datetime="2018-09-24T12:39:00.000Z"  itemprop="datePublished">2018-09-24</time>
+        <time class="post-time" title="2019-01-21 16:55:00" datetime="2019-01-21T08:55:00.000Z"  itemprop="datePublished">2019-01-21</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h2 id="WIN无操作自动休眠"><a href="#WIN无操作自动休眠" class="headerlink" title="WIN无操作自动休眠"></a>WIN无操作自动休眠</h2><p>这是系统<strong>无人值守时睡眠时间</strong>的设定，默认是两分钟。</p>
-<p>解决方法：</p>
-<p><code>regedit</code>进入注册表管理器，定位到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785aaca0</code>，修改<code>attributes</code>的值为2。</p>
-<p>进入高级电源设置，在睡眠选项中会出现“无人参与系统睡眠超时”，将默认的2分钟修改成你想要的时间。</p>
-<h2 id="开关操作中心"><a href="#开关操作中心" class="headerlink" title="开关操作中心"></a>开关操作中心</h2><p><code>regedit</code>进入注册表编辑器，<code>计算机\HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>新建项<code>DisableNotificationCenter</code>，值为1时关闭操作中心。重启电脑生效。</p>
-<h2 id="开启休眠选项"><a href="#开启休眠选项" class="headerlink" title="开启休眠选项"></a>开启休眠选项</h2><p>Power Sheel(管理员) 输入 <code>powercfg /h on</code>并运行，重新打开控制面板后会出现休眠选项。</p>
-<h2 id="修改安装路径"><a href="#修改安装路径" class="headerlink" title="修改安装路径"></a>修改安装路径</h2><h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>命令行输入<code>npm config ls</code>查看 npm 当前配置</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm  config set prefix "D:\DevKits\nodejs\modules"     # 默认已有个 node_modules 文件夹 </span><br><span class="line">npm  config set cache "D:\DevKits\nodejs\node_cache"</span><br></pre></td></tr></tbody></table></figure>
+        <p>多显示器获取到的是全部屏幕的中央，有时候会卡在两个显示器的中间</p>
+<p>用以下方法解决：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    Window window;<span class="comment">//这个类继承自QWidget</span></span><br><span class="line">    window.move((app.desktop()-&gt;width()&nbsp;- window.width())&nbsp;/&nbsp;<span class="number">2</span>,&nbsp;(app.desktop()-&gt;height()&nbsp;- window.height())&nbsp;/&nbsp;<span class="number">2</span>); </span><br><span class="line">    window.show();</span><br><span class="line">    <span class="keyword">return</span> app.exec();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/21/Qt窗口出现在屏幕中央（支持多显示器））/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
 
-<h2 id="连接wifi，提示需要执行操作，并自动打开微软网站的问题"><a href="#连接wifi，提示需要执行操作，并自动打开微软网站的问题" class="headerlink" title="连接wifi，提示需要执行操作，并自动打开微软网站的问题"></a>连接wifi，提示需要执行操作，并自动打开微软网站的问题</h2><ol>
-<li>注册表键值<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet</code></li>
-<li>窗口右侧中的“EnableActiveProbing”，然后将其值更改为0，重启计算机</li>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android-ToggleButton开关设置图片"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/18/Android-ToggleButton开关设置图片/">Android ToggleButton开关设置图片</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-18 10:58:00" datetime="2019-01-18T02:58:00.000Z"  itemprop="datePublished">2019-01-18</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="图片设置开关"><a href="#图片设置开关" class="headerlink" title="图片设置开关"></a>图片设置开关</h1><ol>
+<li>准备开关不同状态的两张图片放入drawable中。</li>
+<li>xml文件中添加代码：</li>
 </ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
-            <a href="/2018/09/24/修电脑/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/">Windows</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-RecyclerView添加点击事件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/22/Android-RecyclerView添加点击事件/">Android RecyclerView添加点击事件</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-09-22 10:53:00" datetime="2018-09-22T02:53:00.000Z"  itemprop="datePublished">2018-09-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>使用 <code>Recyclerview</code> 时，如果要添加 item 的点击监听等功能，可以在 <code>Recyclerview.Adapter</code> 的 <code>onBindViewHolder</code> 中设置</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">holder.tv.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() {</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{</span><br><span class="line">            <span class="keyword">int</span> pos=holder.getLayoutPosition();</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
-
-<p>注意需要把 <code>onBindViewHolder</code> 中的 <code>holder</code> 参数改成 <code>filnal</code> 类型</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2018/09/22/Android-RecyclerView添加点击事件/" class="post-more waves-button">
+            <a href="/2019/01/18/Android-ToggleButton开关设置图片/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -916,7 +438,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Qt添加Q-OBJECT后编译出错解决方案"
+            <article id="post-ASP-NET-学习笔记"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -924,7 +446,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/21/Qt添加Q-OBJECT后编译出错解决方案/">Qt添加Q_OBJECT后编译出错解决方案</a>
+      <a href="/2019/01/15/ASP-NET-学习笔记/">ASP.NET-学习笔记</a>
     </h3>
   
 
@@ -932,17 +454,62 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2018-09-21 17:03:00" datetime="2018-09-21T09:03:00.000Z"  itemprop="datePublished">2018-09-21</time>
+        <time class="post-time" title="2019-01-15 21:11:00" datetime="2019-01-15T13:11:00.000Z"  itemprop="datePublished">2019-01-15</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>在Qt编写过程中，如多线程使用信号槽时，需要添加Q_OBJECT，但是在添加之后发现编译老会出错。如下：</p>
+        <h1 id="ASP-NET-简介"><a href="#ASP-NET-简介" class="headerlink" title="ASP.NET 简介"></a>ASP.NET 简介</h1><p>ASP.NET 是新一代的 ASP。它无法兼容经典 ASP，但 ASP.NET 可以引用 ASP。</p>
     
         <div class="post-more-div">
-            <a href="/2018/09/21/Qt添加Q-OBJECT后编译出错解决方案/" class="post-more waves-button">
+            <a href="/2019/01/15/ASP-NET-学习笔记/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ASP-NET/">ASP.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-QtextEdit高度自适应"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/15/Qt-QtextEdit高度自适应/">Qt QtextEdit高度自适应</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-15 20:03:00" datetime="2019-01-15T12:03:00.000Z"  itemprop="datePublished">2019-01-15</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit *editor = <span class="keyword">new</span> QTextEdit(<span class="keyword">this</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect(editor-&gt;document(),SIGNAL(contentsChanged()),<span class="keyword">this</span>,SLOT(textAreaChanged()));</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/15/Qt-QtextEdit高度自适应/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -959,7 +526,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Android点击图片显示像素颜色值"
+            <article id="post-安装Workerman"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -967,7 +534,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/16/Android点击图片显示像素颜色值/">Android点击图片显示像素颜色值</a>
+      <a href="/2019/01/15/安装Workerman/">安装Workerman</a>
     </h3>
   
 
@@ -975,23 +542,560 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2018-09-16 11:07:00" datetime="2018-09-16T03:07:00.000Z"  itemprop="datePublished">2018-09-16</time>
+        <time class="post-time" title="2019-01-15 16:40:00" datetime="2019-01-15T08:40:00.000Z"  itemprop="datePublished">2019-01-15</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>包含知识点：</p>
+        <ol>
+<li>首先通过 composer 安装，切换到项目根目录，输入命令</li>
+</ol>
+<p><code>composer require topthink/think-worker</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/15/安装Workerman/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Workerman/">Workerman</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt打包发布应用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/14/Qt打包发布应用/">Qt打包发布应用</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-14 17:48:00" datetime="2019-01-14T09:48:00.000Z"  itemprop="datePublished">2019-01-14</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><p>以release方式编译出可执行文件</p>
+<p>路径：<code>D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin</code></p>
+<p>命令：<code>windeployqt.exe app.exe</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/14/Qt打包发布应用/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目管理/">项目管理</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt使用HTTPS（SSL）"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/Qt使用HTTPS（SSL）/">Qt使用HTTPS（SSL）</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 19:03:00" datetime="2019-01-13T11:03:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="一、简述"><a href="#一、简述" class="headerlink" title="一、简述"></a>一、简述</h2><p>在使用Qt发送HTTP请求中一般使用的链接都是<strong>http://</strong>前缀，而有的服务器支持 <strong>https://</strong>前缀的链接，而Qt本身是支持<strong>https</strong>的，但是<strong>https访问</strong>需要用到<strong>SSL认证</strong>，而QT默认是不支持<strong>SSL认证</strong>，所以在Qt中使用<strong>https</strong>需要进行SSL认证。实现非常容易，简单几步即可完成。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/Qt使用HTTPS（SSL）/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTPS/">HTTPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt使用HTTP"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/Qt使用HTTP/">Qt使用HTTP</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 19:01:00" datetime="2019-01-13T11:01:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="一、HTTP协议"><a href="#一、HTTP协议" class="headerlink" title="一、HTTP协议"></a>一、HTTP协议</h2><p>Qt网络模块提供的API可以实现基于HTTP(Hyper Text Transport Protocol)协议的应用程序。此外, Qt还可以实现多种基于协议的应用程序, 如位于OSI 7层应用层的FTP、DNS、SNMP。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/Qt使用HTTP/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt连接MySQL"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/Qt连接MySQL/">Qt连接MySQL</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 18:59:00" datetime="2019-01-13T10:59:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>复制文件：</p>
+<p><strong>libmysql.dll</strong><br>libmysql.lib<br>mysqlclient.lib</p>
+<p>到：</p>
+<p><code>D:\Qt\Qt5.6.1\5.6\mingw49_32\bin</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/Qt连接MySQL/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt主线程中联网"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/Qt主线程中联网/">Qt主线程中联网</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 17:05:00" datetime="2019-01-13T09:05:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>在主线程中联网，不使用多线程</p>
+<p>（不会卡主线程）</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/Qt主线程中联网/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-PHP取网页源码"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/PHP取网页源码/">PHP取网页源码</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 16:11:00" datetime="2019-01-13T08:11:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="取HTTP网页源码"><a href="#取HTTP网页源码" class="headerlink" title="取HTTP网页源码"></a>取HTTP网页源码</h2><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ret = file_get_contents(<span class="string">'要采集的网页URL'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若需要从页面中获取内容，可以用正则匹配</span></span><br><span class="line">$begin=change_match_string(<span class="string">'匹配开头的字符串'</span>);</span><br><span class="line">$end=change_match_string(<span class="string">'匹配结尾的字符串'</span>);</span><br><span class="line">$p = <span class="string">"{$begin}(.*){$end}"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用正则进行匹配，[0]是全部，1开始是括号的</span></span><br><span class="line"><span class="keyword">if</span> (preg_match($p,$ret,$rs))</span><br><span class="line">	<span class="keyword">return</span> $rs[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/PHP取网页源码/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Spring框架入门"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/Spring框架入门/">Spring框架入门-学习笔记</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 13:23:00" datetime="2019-01-13T05:23:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>　　Spring框架是个轻量级的Java EE框架。所谓轻量级，是指不依赖于容器就能运行的。Struts、Hibernate也是轻量级的。 </p>
+<p>　　Spring以IoC、AOP为主要思想，其中IoC，Inversion of Control 指控制反转或反向控制。在Spring框架中我们通过配置创建类对象，由Spring在运行阶段实例化、组装对象。AOP，Aspect Oriented Programming，面向切面编程，其思想是在执行某些代码前执行另外的代码，使程序更灵活、扩展性更好，可以随便地添加、删除某些功能。Servlet中的Filter便是一种AOP思想的实现。 </p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/Spring框架入门/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt调用DLL"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/10/Qt调用DLL/">Qt调用DLL</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-10 17:49:00" datetime="2019-01-10T09:49:00.000Z"  itemprop="datePublished">2019-01-10</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="静态链接库（-lib-dll）"><a href="#静态链接库（-lib-dll）" class="headerlink" title="静态链接库（.lib+.dll）"></a>静态链接库（.lib+.dll）</h3><p>声明：** 事先我已经自己动手写了一个简单的dll文件(myDLL.dll),C版接口的。首先，从dll中导出了导入库(.lib)文件，dll中有两个函数，原型如下：</p>
+<p>   void HelloWorld();     //函数内部调用Win32 API,功能是弹出一个helloworld提示框<br>   int add(int a,int b);  //实现两个数相加，并返回结果</p>
+<p> 下面分别通过显示调用和隐式调用两种方法，来模拟Qt如何调用外部dll文件中的功能函数，follow me….</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/10/Qt调用DLL/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-Socket通信"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/08/Qt-Socket通信/">Qt Socket通信</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-08 17:46:00" datetime="2019-01-08T09:46:00.000Z"  itemprop="datePublished">2019-01-08</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>QT的TCP Socket通信仍然有服务端、客户端之分。服务端通过监听某个端口来监听是否有客户端连接到来，如果有连接到来，则建立新的SOCKET连接；客户端通过IP和PORT连接服务端，当成功建立连接之后，就可进行数据的收发了。需要注意的是，在QT中，QT把SOCKET当成输入输出流来对待的，数据的收发是通过read()和write()来进行的，需要与我们常见的send()与recv()进行区分。</p>
+<p>要在QT进行SOCKET通信，需要在 工程名.pro 文件中输入 <code>QT += network</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/08/Qt-Socket通信/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket/">Socket</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android切换Activity"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/03/Android切换Activity/">Android切换Activity并返回数据</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-03 11:19:00" datetime="2019-01-03T03:19:00.000Z"  itemprop="datePublished">2019-01-03</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="切换Activity"><a href="#切换Activity" class="headerlink" title="切换Activity"></a>切换Activity</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(LoginActivity.<span class="keyword">this</span>, MainActivity.class);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="给子Activity传递数据"><a href="#给子Activity传递数据" class="headerlink" title="给子Activity传递数据"></a>给子Activity传递数据</h2><p>如果给新启动的子Activity传递数据，只需要在Intent对象中加入key-value，key为准备传递数据的字符指示名称，value为准备传递的数据</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/03/Android切换Activity/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-QPlainTextEdit用法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/31/Qt-QPlainTextEdit用法/">Qt QPlainTextEdit用法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-31 17:40:00" datetime="2018-12-31T09:40:00.000Z"  itemprop="datePublished">2018-12-31</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>QTextEditor 和 QPlainTextEditor 在一定程度上通用的</p>
+<h2 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toPlainText();</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="设置文本"><a href="#设置文本" class="headerlink" title="设置文本"></a>设置文本</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setPlainText(QString);</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2018/12/31/Qt-QPlainTextEdit用法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-SSR-FCM"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/12/27/SSR-FCM/">SSR+FCM</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-12-27 14:03:00" datetime="2018-12-27T06:03:00.000Z"  itemprop="datePublished">2018-12-27</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="SSR-FCM"><a href="#SSR-FCM" class="headerlink" title="SSR+FCM"></a>SSR+FCM</h1><h2 id="SSR-BBR"><a href="#SSR-BBR" class="headerlink" title="SSR+BBR"></a>SSR+BBR</h2><h3 id="BBR-加速"><a href="#BBR-加速" class="headerlink" title="BBR 加速"></a>BBR 加速</h3><p>因为安装BBR重启后SSR会失效，需要重新安装，所以先安装BBR</p>
+<blockquote>
+<p>实测 vultr 使用 BBR 加速的话，会经常出现连不上的情况</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br></pre></td></tr></tbody></table></figure>
+
 <ul>
-<li>选择图片（相册+拍照）</li>
-<li>正方形裁剪</li>
-<li>图片压缩</li>
-<li>图片点击</li>
+<li>（回车）</li>
+<li>（任意按键重启）</li>
 </ul>
     
         <div class="post-more-div">
-            <a href="/2018/09/16/Android点击图片显示像素颜色值/" class="post-more waves-button">
+            <a href="/2018/12/27/SSR-FCM/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -999,164 +1103,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android读取图片颜色值"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/15/Android读取图片颜色值/">Android读取图片颜色值</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-09-15 11:12:00" datetime="2018-09-15T03:12:00.000Z"  itemprop="datePublished">2018-09-15</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>Android SDK中提供了Bitmap图片每个像素颜色读取的方法：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Bitmap src =  BitmapFactory.decodeResource(getResources(),R.drawable.imgbg);</span><br><span class="line"><span class="keyword">int</span> height = src.getHeight();</span><br><span class="line"><span class="keyword">int</span> width = src.getWidth();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; height; y++) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; width; x++) {</span><br><span class="line">        <span class="keyword">int</span> pixelColor = src.getPixel(x, y); <span class="comment">// 颜色值</span></span><br><span class="line">        <span class="keyword">int</span> A = Color.alpha(pixelColor); <span class="comment">// A R G B</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2018/09/15/Android读取图片颜色值/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt-QListView拖拽排序"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/11/Qt-QListView拖拽排序/">Qt QListView拖拽排序</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-09-11 17:37:00" datetime="2018-09-11T09:37:00.000Z"  itemprop="datePublished">2018-09-11</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="拖拽事件流程"><a href="#拖拽事件流程" class="headerlink" title="拖拽事件流程"></a>拖拽事件流程</h1>
-    
-        <div class="post-more-div">
-            <a href="/2018/09/11/Qt-QListView拖拽排序/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt-QListView实现双击编辑"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/11/Qt-QListView实现双击编辑/">Qt QListView实现双击编辑</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-09-11 17:36:00" datetime="2018-09-11T09:36:00.000Z"  itemprop="datePublished">2018-09-11</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="Delegate-部分"><a href="#Delegate-部分" class="headerlink" title="Delegate 部分"></a>Delegate 部分</h1><p>关键是重写这四个函数：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QWidget *<span class="title">createEditor</span><span class="params">(QWidget *parent, <span class="keyword">const</span> QStyleOptionViewItem &amp;option, <span class="keyword">const</span> QModelIndex	&amp;index)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setEditorData</span><span class="params">(QWidget *editor, <span class="keyword">const</span> QModelIndex &amp;index)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setModelData</span><span class="params">(QWidget *editor, QAbstractItemModel *model, <span class="keyword">const</span> QModelIndex &amp;index)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateEditorGeometry</span><span class="params">(QWidget *editor, <span class="keyword">const</span> QStyleOptionViewItem &amp;option, <span class="keyword">const</span>  QModelIndex &amp;index)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/09/11/Qt-QListView实现双击编辑/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
 
     </div>
     
@@ -1169,7 +1116,7 @@
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
     </div>
 </nav>
 

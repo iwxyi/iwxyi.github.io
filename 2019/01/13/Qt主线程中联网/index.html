@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="在主线程中联网，不使用多线程 （注意会卡主线程）">
+    <meta name="description" content="在主线程中联网，不使用多线程 （不会卡主线程）">
 <meta name="keywords" content="HTTP,多线程,C++,Qt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt主线程中联网">
 <meta property="og:url" content="http://blog.iwxyi.com/2019/01/13/Qt主线程中联网/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="在主线程中联网，不使用多线程 （注意会卡主线程）">
+<meta property="og:description" content="在主线程中联网，不使用多线程 （不会卡主线程）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T11:06:35.302Z">
+<meta property="og:updated_time" content="2021-03-24T08:49:09.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt主线程中联网">
-<meta name="twitter:description" content="在主线程中联网，不使用多线程 （注意会卡主线程）">
+<meta name="twitter:description" content="在主线程中联网，不使用多线程 （不会卡主线程）">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -221,12 +221,10 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>在主线程中联网，不使用多线程</p>
-<p>（注意会卡主线程）</p>
+<p>（不会卡主线程）</p>
 <a id="more"></a>
 
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QUrl <span class="title">url</span><span class="params">(ui-&gt;lineEdit-&gt;text())</span></span>;</span><br><span class="line">QNetworkAccessManager manager;</span><br><span class="line">QEventLoop loop;</span><br><span class="line">QTextCodec* codec;</span><br><span class="line">QNetworkReply* reply;</span><br><span class="line"></span><br><span class="line">reply = manager.get(QNetworkRequest(url));</span><br><span class="line"><span class="comment">//请求结束并下载完成后，退出子事件循环</span></span><br><span class="line">connect(reply, SIGNAL(finished()), &amp;loop, SLOT(quit()));</span><br><span class="line"><span class="comment">//开启子事件循环</span></span><br><span class="line">loop.exec();</span><br><span class="line"></span><br><span class="line">QString codeContent = reply-&gt;readAll();</span><br><span class="line"></span><br><span class="line"><span class="comment">//一定要注意编码问题，否则很容易出现乱码的  </span></span><br><span class="line"><span class="comment">//codec = QTextCodec::codecForHtml(codeContent.toAscii());</span></span><br><span class="line"><span class="comment">//codeContent = codec-&gt;toUnicode(codeContent.toAscii());</span></span><br></pre></td></tr></tbody></table></figure>
-
-<script>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QUrl <span class="title">url</span><span class="params">(ui-&gt;lineEdit-&gt;text())</span></span>;</span><br><span class="line">QNetworkAccessManager manager;</span><br><span class="line">QEventLoop loop;</span><br><span class="line">QTextCodec* codec;</span><br><span class="line">QNetworkReply* reply;</span><br><span class="line"></span><br><span class="line">reply = manager.get(QNetworkRequest(url));</span><br><span class="line"><span class="comment">//请求结束并下载完成后，退出子事件循环</span></span><br><span class="line">connect(reply, SIGNAL(finished()), &amp;loop, SLOT(quit()));</span><br><span class="line"><span class="comment">//开启子事件循环</span></span><br><span class="line">loop.exec();</span><br><span class="line"></span><br><span class="line">QString codeContent = reply-&gt;readAll();</span><br><span class="line"></span><br><span class="line"><span class="comment">//一定要注意编码问题，否则很容易出现乱码的  </span></span><br><span class="line"><span class="comment">//codec = QTextCodec::codecForHtml(codeContent.toAscii());</span></span><br><span class="line"><span class="comment">//codeContent = codec-&gt;toUnicode(codeContent.toAscii());</span></span><br></pre></td></tr></tbody></table></figure><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -251,7 +249,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T11:06:35.302Z" itemprop="dateUpdated">2019-10-13 19:06:35</time>
+    最后更新：<time datetime="2021-03-24T08:49:09.344Z" itemprop="dateUpdated">2021-03-24 16:49:09</time>
 </span>
 
 
@@ -299,7 +297,7 @@
       </li>
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/01/13/Qt主线程中联网/&title=《Qt主线程中联网》 — 云笺&source=在主线程中联网，不使用多线程
-（注意会卡主线程）" data-title=" QQ">
+（不会卡主线程）" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -482,7 +480,7 @@
       </li>
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/01/13/Qt主线程中联网/&title=《Qt主线程中联网》 — 云笺&source=在主线程中联网，不使用多线程
-（注意会卡主线程）" data-title=" QQ">
+（不会卡主线程）" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

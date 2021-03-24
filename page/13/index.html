@@ -194,7 +194,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-这样学Java不枯燥-学习笔记"
+            <article id="post-VC-ATL对象的COM组件"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -202,7 +202,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2017/10/12/这样学Java不枯燥-学习笔记/">这样学Java不枯燥-学习笔记</a>
+      <a href="/2018/06/01/VC-ATL对象的COM组件/">VC++ ATL对象的COM组件</a>
     </h3>
   
 
@@ -210,17 +210,17 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2017-10-12 20:10:00" datetime="2017-10-12T12:10:00.000Z"  itemprop="datePublished">2017-10-12</time>
+        <time class="post-time" title="2018-06-01 10:05:00" datetime="2018-06-01T02:05:00.000Z"  itemprop="datePublished">2018-06-01</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rupeng.game.GameCore;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		GameCore.start(<span class="keyword">new</span> Main());</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{ <span class="comment">// 游戏运行的函数</span></span><br><span class="line">		GameCore.alert(<span class="string">"Hello World"</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <p>使用 ATL 开发和调用 COM 组件</p>
     
         <div class="post-more-div">
-            <a href="/2017/10/12/这样学Java不枯燥-学习笔记/" class="post-more waves-button">
+            <a href="/2018/06/01/VC-ATL对象的COM组件/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -228,7 +228,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏开发/">游戏开发</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VC/">VC++</a></li></ul>
 
     </div>
     
@@ -237,7 +237,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-0x3F3F3F3F"
+            <article id="post-JSP正则表达式提取文本"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -245,7 +245,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2017/09/01/0x3F3F3F3F/">0x3F3F3F3F</a>
+      <a href="/2018/05/31/JSP正则表达式提取文本/">JSP正则表达式提取文本</a>
     </h3>
   
 
@@ -253,17 +253,37 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2017-09-01 19:40:00" datetime="2017-09-01T11:40:00.000Z"  itemprop="datePublished">2017-09-01</time>
+        <time class="post-time" title="2018-05-31 15:24:00" datetime="2018-05-31T07:24:00.000Z"  itemprop="datePublished">2018-05-31</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p><code>0x3f3f3f3f</code>的十进制是<code>1061109567</code>，是<code>10^9</code>级别的（和<code>0x7fffffff</code>一个数量级），而一般场合下的数据都是小于<code>10^9</code>的，所以它可以作为无穷大使用而不致出现数据大于无穷大的情形。 </p>
+        <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String regEx =<span class="string">"href=\"//book.qidian.com/info/(\\d+)\""</span>;</span><br><span class="line">Pattern p = Pattern.compile(regEx, Pattern.CASE_INSENSITIVE);</span><br><span class="line">Matcher m = p.matcher(str);</span><br><span class="line"><span class="keyword">if</span>(m.find()) bookID = m.group(<span class="number">1</span>); <span class="comment">// 第一个括号</span></span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     
         <div class="post-more-div">
-            <a href="/2017/09/01/0x3F3F3F3F/" class="post-more waves-button">
+            <a href="/2018/05/31/JSP正则表达式提取文本/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -271,7 +291,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li></ul>
 
     </div>
     
@@ -280,7 +300,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-平衡二叉树AVL"
+            <article id="post-JSP连接数据库"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -288,7 +308,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2017/08/04/平衡二叉树AVL/">平衡二叉树AVL</a>
+      <a href="/2018/05/30/JSP连接数据库/">JSP连接数据库</a>
     </h3>
   
 
@@ -296,32 +316,64 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2017-08-04 13:31:00" datetime="2017-08-04T05:31:00.000Z"  itemprop="datePublished">2017-08-04</time>
+        <time class="post-time" title="2018-05-30 15:16:00" datetime="2018-05-30T07:16:00.000Z"  itemprop="datePublished">2018-05-30</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        ## 二叉查找树
+        <h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>下载 Java 专用的连接 MySQL 的驱动包 JDBC (jar 包)，复制到 lib 里面</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/30/JSP连接数据库/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li></ul>
 
-<ol>
-<li>若它的左子树不为空，则左子树上所有的节点值都小于它的根节点值。</li>
-<li>若它的右子树不为空，则右子树上所有的节点值均大于它的根节点值。</li>
-<li>它的左右子树也分别可以充当为二叉查找树。</li>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-PHP设置网站虚拟目录"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/29/PHP设置网站虚拟目录/">PHP设置网站虚拟目录</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-29 16:12:00" datetime="2018-05-29T08:12:00.000Z"  itemprop="datePublished">2018-05-29</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <ol>
+<li>首先在 Apache 目录下找到 httpd.conf 文件，编辑打开。</li>
+<li>（可选）先把默认的路径注释，用 # 注释，默认路径为如下：DocumentRoot “E:/PHPSever/wamp/www/“   这是我的，因人而异，取决于你的安装目录，让它变成这样即可：#DocumentRoot “E:/PHPSever/wamp/www/“</li>
+<li>添加虚拟目录：</li>
 </ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://mmbiz.qpic.cn/mmbiz_png/gsQM61GSzIPwiaHdKCGdt0cUOibjOK2w4N1FkqhzJlkFGA1FvCWC7mwwLyZ8bPMGIhicOPNaGANYJ7DbnU7icxSKYg/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" title="">
-                </div>
-                <div class="image-caption">img</div>
-            </figure>
-
-<p>缺点：大部分节点都倾向一边的情况下时间复杂度几乎是线性的</p>
     
         <div class="post-more-div">
-            <a href="/2017/08/04/平衡二叉树AVL/" class="post-more waves-button">
+            <a href="/2018/05/29/PHP设置网站虚拟目录/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -329,7 +381,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
 
     </div>
     
@@ -338,7 +390,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-二叉树、平衡树、红黑树"
+            <article id="post-JSP数据库封装用法"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -346,7 +398,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2017/08/04/二叉树、平衡树、红黑树/">二叉树、平衡树、红黑树</a>
+      <a href="/2018/05/28/JSP数据库封装用法/">JSP数据库封装用法</a>
     </h3>
   
 
@@ -354,22 +406,20 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2017-08-04 13:29:00" datetime="2017-08-04T05:29:00.000Z"  itemprop="datePublished">2017-08-04</time>
+        <time class="post-time" title="2018-05-28 15:22:00" datetime="2018-05-28T07:22:00.000Z"  itemprop="datePublished">2018-05-28</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        ## 1、二叉查找树的缺点
-
-<p>二叉查找树，相信大家都接触过，二叉查找树的特点就是<strong>左子树的节点值比父亲节点小，而右子树的节点值比父亲节点大</strong>，如图</p>
-<p><img src="https://pic3.zhimg.com/80/v2-6e88c1ef544c6fba8dacd7ad12638e86_hd.jpg" alt="img"></p>
-<p>n 个节点的二叉查找树，正常的情况下，查找的时间复杂度为 O（logn）。</p>
-<p>之所以说是<strong>正常情况下</strong>，是因为二叉查找树有可能出现一种极端的情况，例如</p>
+        <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>声明数据库的 Javabean</p>
+<p><code>&lt;jsp:useBean id="sqlM" class="wxy.jsp.mysql.sqlBean" scope="session" /&gt;</code></p>
+<h2 id="安全检查"><a href="#安全检查" class="headerlink" title="安全检查"></a>安全检查</h2><p>检查用户名密码，如果包含特殊字符则触发 if 里面的内容<br>MSG 为占位变量，放到 HTML 里，弹出警告信息</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (sqlM.SafeCheck(username) == <span class="keyword">false</span> || sqlM.SafeCheck(password) == <span class="keyword">false</span>)</span><br><span class="line">{</span><br><span class="line">	MSG = <span class="string">"alert('非法账号/密码输入');"</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
     
         <div class="post-more-div">
-            <a href="/2017/08/04/二叉树、平衡树、红黑树/" class="post-more waves-button">
+            <a href="/2018/05/28/JSP数据库封装用法/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -377,7 +427,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li></ul>
 
     </div>
     
@@ -386,7 +436,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-PR笔记"
+            <article id="post-JSP数据库封装"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -394,7 +444,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2017/06/15/PR笔记/">PR笔记</a>
+      <a href="/2018/05/28/JSP数据库封装/">JSP数据库封装</a>
     </h3>
   
 
@@ -402,30 +452,61 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2017-06-15 20:23:00" datetime="2017-06-15T12:23:00.000Z"  itemprop="datePublished">2017-06-15</time>
+        <time class="post-time" title="2018-05-28 15:20:00" datetime="2018-05-28T07:20:00.000Z"  itemprop="datePublished">2018-05-28</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>入点出点可以循环播放</p>
-<p>源视频的入点出点设置后，可以快速拖动预览至序列</p>
-<p>片段上右键可以取消视频音频链接</p>
-<p>jkl三个键可以让源视频前、后逐帧扫描（播放）。~让播放机（源视频进入/退出差不多全屏查看）</p>
-<p>时间轴上移动片段，按住 ctrl使覆盖的片段自动往后移</p>
-<p>加好减号放大缩小时间轴</p>
-<p>播放光标在片段上，上、下按键调到片段首尾</p>
-<p>速率伸缩工具（X）可以在片段边缘拉伸片段同时修改速率</p>
-<p>序列间可以相互拖动每一个细节</p>
-<p>特效控制台添加关键帧需要在左边打开动画，才会显示按钮</p>
-<p>片段小三角代表到首尾了</p>
-<p>双击场景过渡控件可以在效果控件里面快速编辑</p>
-<p>可以将过渡特效设置为默认，然后再片段之间右键（ctrl+D，序列菜单键也有）应用视频过渡特效（用于批量）可多选后一键应用</p>
-<p>视频特效-变换-裁剪/羽化边缘/翻转 等等</p>
-<p>音频前面有个小三角，可以展开音频控制，音量线上ctrl+左键添加关键帧，上下可以移动，能调节音量响度</p>
-<p>音频下面有个主声道，可以控制所有音频轨道的声音</p>
-<p>时间重映射那里可以设置关键帧改速度，在片段上修改时需要改右边的fx使调整目标为速度。两个关键帧小片可以分开，使之变速过程线性变化；也有像钢笔工具的完全变化……</p>
+        <p>简单实用的数据库相关方法封装后的工具</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/28/JSP数据库封装/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模板/">模板</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HTML解决英文段落不换行"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/28/HTML解决英文段落不换行/">HTML解决英文段落不换行</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-28 13:09:00" datetime="2018-05-28T05:09:00.000Z"  itemprop="datePublished">2018-05-28</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>加上这2个属性其中之一，就可以实现换行了。</p>
+<ol>
+<li><code>word-break : break-all;</code> 只对英文起作用，以字母作为换行依据</li>
+<li><code>word-wrap : break-word;</code> 只对英文起作用，以单词作为换行依据</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -447,7 +528,7 @@
       </script>
     
         <div class="post-more-div">
-            <a href="/2017/06/15/PR笔记/" class="post-more waves-button">
+            <a href="/2018/05/28/HTML解决英文段落不换行/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -455,7 +536,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Premiere/">Premiere</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
 
     </div>
     
@@ -464,7 +545,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Java大数相加"
+            <article id="post-Android延迟操作"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -472,7 +553,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2017/03/05/Java大数相加/">Java大数相加示例</a>
+      <a href="/2018/05/20/Android延迟操作/">Android延迟操作</a>
     </h3>
   
 
@@ -480,17 +561,36 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2017-03-05 20:02:00" datetime="2017-03-05T12:02:00.000Z"  itemprop="datePublished">2017-03-05</time>
+        <time class="post-time" title="2018-05-20 20:11:00" datetime="2018-05-20T12:11:00.000Z"  itemprop="datePublished">2018-05-20</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>题目：两个整数和能否整除 86</p>
+        <p>延迟3秒切换窗口（闪屏）</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable() {</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        Intent mainIntent = <span class="keyword">new</span> Intent(LoadActivity.<span class="keyword">this</span>, MainActivity.class);</span><br><span class="line">        LoadActivity.<span class="keyword">this</span>.startActivity(mainIntent);</span><br><span class="line">        LoadActivity.<span class="keyword">this</span>.finish();</span><br><span class="line">    }</span><br><span class="line">}, <span class="number">3000</span>);   <span class="comment">// 3 秒</span></span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     
         <div class="post-more-div">
-            <a href="/2017/03/05/Java大数相加/" class="post-more waves-button">
+            <a href="/2018/05/20/Android延迟操作/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -498,7 +598,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 
     </div>
     
@@ -507,7 +607,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-正则二三事"
+            <article id="post-嵌套循环优化"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -515,7 +615,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2017/01/02/正则二三事/">正则二三事</a>
+      <a href="/2018/05/20/嵌套循环优化/">嵌套循环优化</a>
     </h3>
   
 
@@ -523,21 +623,18 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2017-01-02 19:40:00" datetime="2017-01-02T11:40:00.000Z"  itemprop="datePublished">2017-01-02</time>
+        <time class="post-time" title="2018-05-20 19:50:00" datetime="2018-05-20T11:50:00.000Z"  itemprop="datePublished">2018-05-20</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>一、校验数字的表达式</p>
-<p>1、 数字：<code>^[0-9]*$</code></p>
-<p>2、 n位的数字：<code>^\d{n}$</code></p>
-<p>3、 至少n位的数字：<code>^\d{n,}$</code></p>
-<p>4、 m-n位的数字：<code>^\d{m,n}$</code></p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请对以下的代码进行优化：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++)  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++)  </span><br><span class="line">            testFunction (i, j, k);</span><br></pre></td></tr></tbody></table></figure>
     
         <div class="post-more-div">
-            <a href="/2017/01/02/正则二三事/" class="post-more waves-button">
+            <a href="/2018/05/20/嵌套循环优化/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -545,7 +642,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li></ul>
 
     </div>
     
@@ -554,7 +651,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-PS笔记3"
+            <article id="post-PHP双引号内字符串用法"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -562,7 +659,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2016/08/15/PS笔记3/">PS笔记3</a>
+      <a href="/2018/05/19/PHP双引号内字符串用法/">PHP双引号内字符串用法</a>
     </h3>
   
 
@@ -570,78 +667,192 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2016-08-15 20:23:00" datetime="2016-08-15T12:23:00.000Z"  itemprop="datePublished">2016-08-15</time>
+        <time class="post-time" title="2018-05-19 16:16:00" datetime="2018-05-19T08:16:00.000Z"  itemprop="datePublished">2018-05-19</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>​RGB和CMY(K)互补，前者相加，后者相减：青、品红、黄。HSB：色相、饱和度、明度</p>
-<p>界面背景可以右键修改……</p>
-<p>背景图层默认锁定，那个锁可以拖到垃圾箱中删除</p>
-<p>可以选择多个层，在顶部工具栏“显示变换控件”，可以多个层的图片一起自由变换。对齐也是如此。（需移动工具）</p>
-<p>选择一个图层，按住shift，再点击另一个图层，可以选中这两个图层及其之间的所有图层</p>
-<p>矩形选区时shift正方形选区，椭圆相同。alt中心选择。可同时使用两键</p>
-<p>裁剪工具裁剪时可以使用“拉直”，正的区域会比原来歪的区域小一些。“删除裁剪的像素”可以删掉周围多余的</p>
-<p>裁剪顶边工具栏的设置按钮：“经典模式”（老版本）是裁剪区域不动，原图像动。“自动中心预览”可以使背景旋转大小改变，但是选择区域不变。按下鼠标旋转区域使9宫格会变成16宫格并且在正的时候变白，不正时灰</p>
-<p>环境比例构图，将重要的部位放在交叉线上。o切换辅助线种类，shift+o变换辅助线（翻转、平移）</p>
-<p>透视裁剪：一种方法扣出网格再调整，另一种方法鼠标单击，再单击拉线，四个点组成四边形。高度宽度是调整后矩形的尺寸。单击“前面的图像”，会自动填充当前的图像尺寸，接着可以到其他图像进行裁剪</p>
-<p>alt+左键，选择旋转中心</p>
-<p>切片划分，水平划分是横着切，纵向是竖着切。可以使用顶部工具栏对齐</p>
-<p>切片选择工具移动切片，会自动产生灰色的切片，这时候可以隐藏自动切片使之不可见。“提升”选项可以使自动切片变为用户切片</p>
-<p>切片选项的目标：比如：_blank，是新窗口打开网页（上方的URL选项）</p>
-<p>吸管工具可以设置取样图层，比如“当前和下方图层”。取样大小可以设置取样范围并取平均值</p>
-<p>颜色取样器可以选择4个取样点并在信息面板中显示RGB值。用清除按钮清除</p>
-<p>标尺：拉出一条标尺后会显示倾斜角，可以直接按拉直按钮拉直图层。按住alt再拉出另一条，会显示两条线的夹角，A：夹角</p>
-<p>计数可以创建计数组，还能隐藏。</p>
-<p>污点修复画笔修复脸部黑点之类。有三种方式，近似匹配不好用。也可以对所有图层取样。</p>
-<p>修复画笔按alt单击取样，再单击或按下拖拽，即可将取样的区域复制过去并与周围融合。可以设置忽略调整图层。“对齐”：修复时跟着鼠标相对移动。选择“图案”时不需要取样，直接涂抹，会根据样本图层自动变色</p>
-<p>“仿制源”面板可以设置修复画笔的旋转角度、透明度等</p>
-<p>修补工具：正常：1.源：选选区（可以直接选，也可以用选择工具选），再拖拽，将最后松开左键时的图像放到原选区中；2.目标：将选区图像拖到（复制）其他位置。透明：前后图像融合</p>
-<pre><code>内容识别：越不严格，程序会自动从周围图像填充过来。此时建议选区大一些
+        <h3 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"fdsfdsf$b\n"</span>;</span><br></pre></td></tr></tbody></table></figure>
 
-修补工具也可以用来画区域，限制修复工具的范围</code></pre><p>内容感知工具：移动：移动选区，并从相似处填充遗留的选区；扩展：复制</p>
-<p>红眼工具：红眼变黑。工具栏调瞳孔大小，越小黑色越聚集在中央。变暗两越大越黑。突然闪光会使眼睛充血红眼。</p>
-<p>画笔工具：按下1—10，直接调透明度，百分之几十。快速连续两个数字，调百分之几十几。shift+数字键调整流量。流量：颜良从笔尖流出的速度。喷枪：停顿时间越长不透明度越高（需降低流量）。透明满流量的画笔一笔画重复涂抹一处，其颜色不会变；第二次画上去，颜色加深（可以理解为上次画的颜料已经干了）。低流量一笔画重叠部分可以颜色加深。画笔的角度和圆度是改变两端形状的。间距对流量比较敏感。</p>
-<p>线性高度比高度纹理要浅。双重画笔取两种画笔的交集。</p>
-<p>铅笔工具用shift进行连接画出图像，而且画出的效果比画笔清晰。自动抹除：如果落笔的地方是前景色，那么将自动抹除前景色，用背景色代替。</p>
-<p>将图层移动到新建图层可以快速复制图层</p>
-<p>颜色替换工具用alt取色，涂抹上去替换颜色。可以在新建复制图层上涂抹，然后调整复制透明度使颜色更加柔和。模式：连续：鼠标移动替换；一次：左键按下替换；背景：仅替换背景。限制的查找边缘：尽可能保持边缘的色彩过渡</p>
-<p>混合器工具：画笔沾染颜色，与未干燥的纸上染料进行涂抹。混合：0%为画笔颜色，100%则为拖出图像颜色。潮湿：拖动出来的长度。载入：染料的量（决定能画多长距离）</p>
-<p>修复画笔在修复后会与周围环境进行融合，但是仿制图章不会。后者不可进行图案，但是模式更多</p>
-<p>图案工具：对齐：使两处的图案纹理连续、一致。印象派效果：使图案杂乱无章</p>
-<p>历史记录画笔：在图层最左侧确定“源”后，画笔涂抹能使其恢复到源图像</p>
-<p>历史记录艺术画笔：只能用于8位图像。产生画画的效果。区域：影响的区域大小。容差：允许修改的历史记录源图像与当前图像的差距，低时能到处画。</p>
-<p>橡皮擦能擦出背景色，也能擦出透明，还能抹到历史记录（需设置源，相当于历史记录画笔）。</p>
-<p>背景橡皮擦：擦除背景，能类似魔棒扩选。保护前景色：前景色。魔术橡皮擦：橡皮擦+魔棒</p>
-<p>渐变工具：仿色：防止打印时条带现象产生。透明区域：是否允许渐变中的透明</p>
-<p>使用锐化工具时尽量使用保护细节</p>
-<p>涂抹工具类似于混合器画笔。手指绘画：结合前景色进行绘画</p>
-<p>加深、减淡工具：加深变暗，减淡变量。可以设置调整高光、中间调、阴影。曝光值：效果强度。保护色调：使色彩过渡更加优秀。</p>
-<p>海绵工具：增加或减少饱和度（鲜艳）</p>
-<p>路径：锚点、片段。创拖拽创建曲线。在原点处单击，闭合曲线。直接选择工具进行编辑。添加锚点工具、删除锚点工具。自由钢笔工具：自由绘制路径。转换点工具：将有控制杆的锚点转换成没有控制杆的锚点，也可以拖动锚点将其转换成有控制杆的锚点。若开启自动添加/删除，则可以按ctrl暂时转换到直接选择工具，单击显示锚点。ctrl松开回复钢笔。alt暂时到转换点工具。移动时alt也能复制路径。约束路径拖动：拖动片段时是否不改变相邻两个片段曲线</p>
-<p>矩形工具等也可以建立矩形路径。多边形的设置中的”缩进边依据“：尖角圆弧程度。平滑拐角/平滑缩进：通过弯曲使边角/夹角顺畅。</p>
-<p>创建路径：1、单击与拖拽结合。连续点两个点可以创建直接，ctrl单击出现锚点，然后按下alt可以控制控制杆，两条重合的片段分开，即是创建不规则圆。</p>
-<pre><code>2、先单击所有拐点，创建直线路径，然后调整控制杆进行弯曲，每次只顾一边不顾另外一边。
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdsfdsf5</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/19/PHP双引号内字符串用法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
 
-3、使用相似的形状创建路径，自由变换+路径运算。ctrl+x剪切路径。若对称，则宽度、高度使用-100%则翻转</code></pre><p>画直线：shift竖直水平以及45度。拖动时shift竖直水平拖动</p>
-<p>路径面板：白色为路径内部区域，灰色为外部</p>
-<p>直接选择工具编辑路径时，减去顶层路径为内外颠倒选择区域</p>
-<p>段落面板设置段落格式。输入文字时，可单独设置光标所在段落的样式</p>
-<p>先画路径，ctrl+左键隐藏锚点。然后文字工具放在路径上，会专门复制一个路径，并使文字沿着路径排布。文字左上角可以切换横向纵向。文字路径可以编辑，两端上下移动修改起点、终点。在两端左右移动替换起点终点</p>
-<p>闭合路径中，文字工具可以直接在路径里面单击，并且约束文字排版于路径中。</p>
-<p>抓手、旋转工具：可以设置滚动/旋转所有窗口</p>
-<p>shift+ctrl+alt+e合并所有可见图层</p>
-<p>图层面板的“锁定透明像素”：只有不透明像素才能够编辑。“锁定位置”与“锁定透明像素”可一起用</p>
-<p>画笔越黑越能擦出透明蒙版。白色恢复蒙版。选择蒙版图标时切勿选择到图层！</p>
-<p>按shift单击蒙版，可以暂时停用蒙版。蒙版可以拖到垃圾桶。</p>
-<p>“斜面与浮雕”中的“描边浮雕”需要和“描边”效果一起用才会产生效果</p>
-<p>画路径-“图层-矢量路径-当前路径”，可以提取中当前路径中的颜色，其他全清空</p>
-<p>图层面板下方可以新建各种图层。选区后，为调整层，有创建蒙版，有路径；可用路径编辑工具进行调整范围</p>
-<p>新建“纯色”图层，双击缩略图可以修改颜色。</p>
-<p>新建“图案”图层，“与图层链接”：拖动图像时，上方的图案是否不随之拖动</p>
-<p>亮度/对比度 面板的 旧版：扩大调整的极限，但是看起来比较假</p>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-PHP数据库事务"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/17/PHP数据库事务/">PHP数据库事务</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-17 16:25:00" datetime="2018-05-17T08:25:00.000Z"  itemprop="datePublished">2018-05-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><strong>连接数据库</strong>：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$LinkID =mysql_connect(<span class="string">'localhost:3307'</span>,<span class="string">'root'</span>,*******);</span><br><span class="line">mysql_select_db(<span class="string">'web_his'</span>,$LinkID);</span><br><span class="line">mysql_query(<span class="string">"set names utf8"</span>);</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/17/PHP数据库事务/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android-SharedPreferences-存取-JavaBean-或-List-Bean"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/17/Android-SharedPreferences-存取-JavaBean-或-List-Bean/">Android SharedPreferences 存取 JavaBean 或 List Bean</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-17 10:55:00" datetime="2018-05-17T02:55:00.000Z"  itemprop="datePublished">2018-05-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="1-存储单个JavaBean"><a href="#1-存储单个JavaBean" class="headerlink" title="1. 存储单个JavaBean"></a><strong>1. 存储单个JavaBean</strong></h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SharedPreferences sp = getSharedPreferences("SP_PEOPLE",Activity.MODE_PRIVATE);//创建sp对象,如果有key为"SP_PEOPLE"的sp就取出，否则就创建一个此key的sp对象</span><br><span class="line">People people= new People() ;//创建javabean对象</span><br><span class="line">people.setId(1);  </span><br><span class="line">people.setName("小邵");</span><br><span class="line">Gson gson = new Gson();  </span><br><span class="line">String jsonStr=gson.toJson(people); //将对象转换成Json</span><br><span class="line">editor = sp.edit() ;</span><br><span class="line">editor.putString("KEY_PEOPLE_DATA", jsonStr) ; //存入json串</span><br><span class="line">editor.commit() ; //提交</span><br><span class="line">ShowDialog("您已经保存成功");</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/17/Android-SharedPreferences-存取-JavaBean-或-List-Bean/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-JSP使用JavaBean"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/16/JSP使用JavaBean/">JSP使用JavaBean</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-16 15:18:00" datetime="2018-05-16T07:18:00.000Z"  itemprop="datePublished">2018-05-16</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="SimpleBean-java"><a href="#SimpleBean-java" class="headerlink" title="SimpleBean.java"></a>SimpleBean.java</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> wxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleBean</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleBean</span><span class="params">()</span> </span>{ ; }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessage</span><span class="params">(String mess)</span> </span>{ message = mess; }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span></span>{ <span class="keyword">return</span> message; }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>用<strong>合适版本的javac</strong>（否则会报错）放到 <code>网站根目录/WEB-INF/class/包路径/</code> 下</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/16/JSP使用JavaBean/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android-users-permission与permission的区别"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/15/Android-users-permission与permission的区别/">Android users-permission与permission的区别</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-15 11:26:00" datetime="2018-05-15T03:26:00.000Z"  itemprop="datePublished">2018-05-15</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><code>&lt;uses-permission android:name="android.permission.CALL_PHONE" /&gt;</code><br>官方权限，会显示在应用权限那里<br>是调用别人的东西自己需要声明的权限<br>与 application 节点同级</p>
+<p><code>&lt;permission android:name="android.permission.CALL_PHONE" /&gt;</code><br>可以供其他应用使用本应用的说明<br>在 application 节点里面</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -663,7 +874,7 @@
       </script>
     
         <div class="post-more-div">
-            <a href="/2016/08/15/PS笔记3/" class="post-more waves-button">
+            <a href="/2018/05/15/Android-users-permission与permission的区别/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -671,7 +882,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PhotoShop/">PhotoShop</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 
     </div>
     
@@ -680,7 +891,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-PS笔记2"
+            <article id="post-Android-Intent拨号"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -688,7 +899,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2016/08/15/PS笔记2/">PS笔记2</a>
+      <a href="/2018/05/15/Android-Intent拨号/">Android Intent拨号</a>
     </h3>
   
 
@@ -696,74 +907,236 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2016-08-15 20:21:00" datetime="2016-08-15T12:21:00.000Z"  itemprop="datePublished">2016-08-15</time>
+        <time class="post-time" title="2018-05-15 10:45:00" datetime="2018-05-15T02:45:00.000Z"  itemprop="datePublished">2018-05-15</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>溶图时正片叠底可以去除背景的白色</p>
-<p>[缩小画笔，]放大画笔</p>
-<p>蒙版也可以用前后景色快捷键直接覆盖</p>
-<p>shift单击蒙版停用，alt单击看纯蒙版状态</p>
-<p>图层与蒙版之间的锁链会使两者无法相对位移。解除锁链后，选区，涂抹，再移动蒙版来调整区域</p>
-<p>ctrl+t：锁链时图层；无锁链：选中图层时图层，可相对位移；选中蒙版时调整蒙版可见区域</p>
-<p>ctrl+i：反相，有选区时仅调整选区。可快速颠倒蒙版里外</p>
-<p>显示太生硬额可以调整画笔硬度和透明度</p>
-<p>蒙版只看明度，大红也显示灰色</p>
-<p>ctrl+alt+g剪切蒙版：上图下形，即下面的图的形状作为蒙版，扣除那个形状。上图依旧可以加图层蒙版</p>
-<p>按住ctrl点图层图标，可以显示选区</p>
-<p>在剪切蒙版上画笔作图，即相当于直接画在图层上，什么颜色就是什么颜色</p>
-<p>快速蒙版：使选区边缘柔和一些，在通道面板查看，双击通道中的图标可以设置颜色等</p>
-<p>选区与蒙版的本质都是通道</p>
-<p>通道中有选区的话，即使是不可见的也会限制画笔的涂抹</p>
-<p>通道面板中有分离通道的选项，可以分成R、G、B三个psd_R/G/B黑白文件，然后还可以合并通道</p>
-<p>“编辑-首选项-界面-用彩色显示通道”可以使通道颜色变为彩色</p>
-<p>三原色通道可以直接分别移动（彩色残影效果），可以直接用画笔涂抹，白色为增加通道所在的颜色。，也可以调用色阶曲线。在通道中涂抹不会涂到透明像素。</p>
-<p>蒙版/通道里图像可以选取、复制粘贴到其他蒙版/通道。有些时候在通道中选区更方便</p>
-<p>吸管工具在黑白显示的通道中取到的数值为实际彩色的颜色值</p>
-<p>“选择-载入选区”可以载入选区中其他图层/通道的图像</p>
-<p>ctrl+shift+u去色</p>
-<p>选择图层前别忘了先在通道中选择回RGB四个通道</p>
-<p>“图层-新建-背景图层”可以将当前图层转化成背景图层（透明的加个背景）</p>
-<p>填充图层 与 直接新建图层 再填充的区别：填充图层双击图层图标可以快速修改，只能填充/渐变一次，每次清除上次；新建图层可以累加填充、渐变</p>
-<p>新建调整图层可以仅调整某一选区，并随时修改</p>
-<p>进行渐变时正常模式只能拉一个，绿色模式可以重复</p>
-<p>拖拽蒙版图标至另一个蒙版可以替换</p>
-<p>阈值可以直接调整图像的黑白</p>
-<p>“图层-矢量蒙版-添加矢量蒙版”与选区的区别：前者可以随意调节大小，后者边缘柔和</p>
-<p>先选区，再“路径面板下方图标-从选区生成工作路径”，可以将选区转化成路径</p>
-<p>路径栅格化可成形状</p>
-<p>路径也可以右键进行描边，同样可以设置画笔的各种属性。相比选区描边，多出各种设置来</p>
-<p>描边路径时若想要从某个部位开始，可以减去此处小小的部分（断开）</p>
-<p>形状新建后，alt拖拽鼠标新图层建新形状，可以先改变前景色，然后新形状也会变颜色</p>
-<p>选区、路径、形状，三者皆可以互相转化</p>
-<p>带矢量路径的图层，若选择图层则一起调，若选中路径则调整路径</p>
-<p>浮雕效果等可以把透明度拉低使之符合背景色</p>
-<p>先加入文字、形状等，然后ctrl左键选区，删除文字图层，路径面板新建选区路径，图层面板新建填充图层，即可创建可改变大小的填充图像，在路径面板选中后用路径选择工具调整大小</p>
-<p>文字跟随路径需要先在路径面板选中路径。使用路径选择工具修改路径上的文本大小、哪一侧等</p>
-<p>在路径外面写字顺着边缘，在闭合路径里面填充内部空白并且自动调整位置</p>
-<p>利用通道选区时可以先复制一个通道，然后ctrl+m，增加对比度</p>
-<p>“滤镜-消失点”创建透视平面（然后按ctrl并拖拽线段中间点可以创建连续的垂直平面），并将透视平面上的图片移动到另一个透视平面。选择工具时双击平面可以选中平面，可以复制粘贴。适合三维场景的贴图</p>
-<p>想要在消失点创建文字，先新建文字图层，然后选中图层进行复制，隐藏图层，选中修改的图层后在消失点界面中粘贴并且使用选区工具移动到合适的位置</p>
-<p>马赛克能和羽化一起用。想要马赛克后弄回来，可以先转化为智能对象，然后进行马赛克，会出现“马赛克”智能滤镜图层，类似蒙版，涂黑时不马赛克，涂白时马赛克。智能滤镜可以开关，也可以shift单击禁用。多个智能滤镜的先后顺序不同显示的效果不同。</p>
-<p>智能对象栅格化变回普通图层</p>
-<p>“滤镜-像素化-碎片”，上下震动效果；“彩色半调”，用CMYK四种颜色（灰度图像为大小不同的黑白点）组成图像（缩小才能看）；“彩色化”比“晶格化”柔和一些</p>
-<p>“滤镜-扭曲-极坐标”将球形（地球仪）转化成平面；“镜头校正”修改图像突出、凹进；“切变”把图像方向弄歪；“置换”就当前图层自适应选定图片；“波纹”滤镜使用前最好用椭圆选区</p>
-<p>“液化”滤镜类似于涂抹工具，但是有更多效果。旧版液化有冻结蒙版和更多功能</p>
-<p>“滤镜-杂色”各种选项能去小点</p>
-<p>使用模糊效果后，可以用历史记录画笔画出原来的部分</p>
-<p>高斯模糊时是随机模糊，表面模糊是反差小的地方模糊（可以去斑点）</p>
-<p>径向模糊有旋转和缩放两者模糊方式</p>
-<p>可以选中通道、蒙版，对其进行滤镜操作……</p>
-<p>图层面板上的“正常”拉出的框中选中“差值”，可以看到当前图层与下一个图层的区别，越白为差别越大</p>
-<p>ctrl+shift+u去色，变为黑白的</p>
-<p>锐化和模糊可以互相转化，一个事物的两个方面</p>
-<p>加“镜头光晕”滤镜时，一般新建图层，用黑色填充，然后加滤镜，图层模式选择“滤色”。这样设置可以调整透明度等</p>
-<p>“纤维”滤镜配合“模糊”（需要先把新图层填充黑色），在调整图层模式为“柔光”、“叠加”等，可以形成下雨的效果</p>
-<p>通道的图像可以直接复制到图层</p>
-<p>想要“风”滤镜向上下吹，可以先旋转画布90度，加滤镜后转回来……要是分不够大，可以多次吹风</p>
+        <h1 id="Intent-拨号"><a href="#Intent-拨号" class="headerlink" title="Intent 拨号"></a>Intent 拨号</h1><p>权限：<code>&lt;uses-permission android:name="android.permission.CALL_PHONE"</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/15/Android-Intent拨号/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-MFC常用控件"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/15/MFC常用控件/">MFC常用控件</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-15 10:10:00" datetime="2018-05-15T02:10:00.000Z"  itemprop="datePublished">2018-05-15</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="静态文本框"><a href="#静态文本框" class="headerlink" title="静态文本框"></a>静态文本框</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m_stext.SetWindowTextW(TEXT(<span class="string">"Hello"</span>));</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/15/MFC常用控件/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-VC-复制控件"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/15/VC-复制控件/">VC++复制控件</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-15 09:35:00" datetime="2018-05-15T01:35:00.000Z"  itemprop="datePublished">2018-05-15</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>vc中如何拷贝一个工程的对话框资源到另一个工程中?</p>
+<p>方法一：在你的工程中添加另一个工程的rc文件，这时资源视图中就会出现两个rc,从后加的rc中拷贝资源到你自己工程的rc中就可以了。</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/15/VC-复制控件/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VC/">VC++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-VC-动态链接库DLL"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/15/VC-动态链接库DLL/">VC++动态链接库DLL</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-15 09:32:00" datetime="2018-05-15T01:32:00.000Z"  itemprop="datePublished">2018-05-15</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="隐式链接"><a href="#隐式链接" class="headerlink" title="隐式链接"></a>隐式链接</h2><ol>
+<li>用特殊声明 <code>_declspec(dllexport)</code> 定义一个导出函数</li>
+</ol>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/15/VC-动态链接库DLL/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VC/">VC++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android动态获取权限"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/14/Android动态获取权限/">Android动态获取权限</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-14 11:11:00" datetime="2018-05-14T03:11:00.000Z"  itemprop="datePublished">2018-05-14</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>在6.0 系统中请求某些权限需要检查权限</p>
+<p>下面以拨打电话为例</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/05/14/Android动态获取权限/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Servlet找不到包"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/05/13/Servlet找不到包/">Servlet找不到包</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-05-13 15:26:00" datetime="2018-05-13T07:26:00.000Z"  itemprop="datePublished">2018-05-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>servlet-api.jar 复制到 JDK/jre/lib/ext 里面</p>
+<p>如果还不行，在把这个包放到JDK的bin里，再在命令行强行导入：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac  -classpath servlet-api.jar sortCount.java</span><br></pre></td></tr></tbody></table></figure>
+
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -785,7 +1158,7 @@
       </script>
     
         <div class="post-more-div">
-            <a href="/2016/08/15/PS笔记2/" class="post-more waves-button">
+            <a href="/2018/05/13/Servlet找不到包/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -793,172 +1166,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PhotoShop/">PhotoShop</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-PS笔记1"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2016/08/15/PS笔记1/">PS笔记1</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2016-08-15 20:20:00" datetime="2016-08-15T12:20:00.000Z"  itemprop="datePublished">2016-08-15</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>ctrl移动，空格-抓手，tab开关面板和工具栏，shift+tab开关面板 ，ctrl++放大，ctrl+-缩小，ctrl+0屏幕大小，ctrl+1实际大小</p>
-<p>shift+ctrl+i选择反向，ctrl+u色相，ctrl+alt+d羽化，ctrl+r标尺，ctrl+m曲线，ctrl+e合并</p>
-<p>放大镜工具按下alt变为缩小；修改画布大小等时按住alt使“取消”按钮变为“复位”按钮；平铺小图标或选区图像时按下alt可按住鼠标左键拖拽复制</p>
-<p>吸管工具下的标尺工具能从上方信息栏看到倾斜角度，并能直接置入“图像-画布旋转-任意角度”的输入框中以掰正方向</p>
-<p>自由变换、裁剪时 双击=enter完成</p>
-<p>透视裁剪工具可以将近大远小的平面图掰正</p>
-<p>图像拼接时可以暂时调整透明度来微调融合</p>
-<p>鼠标无法拖拽复制图片、填充无效以及复制不了粘贴不了等可能是因为图像模式，比如索引模式需设置成RGB模式</p>
-<p>先选区，然后画笔或调整色相，这样就可以限制区域</p>
-<p>在选区内部拖拽鼠标，移动工具移动选区图像，alt拖拽复制图像至新图层（背景图将不会新建图层，此时需用复制粘贴）；选择工具移动选区范围</p>
-<p>在选区外部拖拽鼠标，移动工具移动选区；选择工具单击取消选区，拖拽时shift添加选区，alt减去选区，shift+alt交叉选区</p>
-<p>选中图层，ctrl+j可将 选区图像/当前图层 复制至新图层；ctrl+e向下合并一个图层（图层名为下方图层名）</p>
-<p>shift+F5填充的内容识别可自动修改内容，可羽化</p>
-<p>shift+ctrl+l自动调色，可羽化</p>
-<p>画圆时shift正圆，alt从中心开始画；画矩形时同</p>
-<p>alt+delete/退格 前景填充选区，ctrl+delete/退格 背景填充选区；同时按住shift可复制</p>
-<p>delete删除一个套索节点，esc彻底删除套索选中</p>
-<p>自由变换可以直接翻转；shift锁定长宽比；alt围绕中心变换；可调到标尺工具画直线拉直（调整角度）</p>
-<p>先羽化再复制、填充；羽化范围是选区边缘内外；羽化10，再羽化10，范围略小于羽化20</p>
-<p>选区-羽化-选区运算，可以使同一选区羽化不同；清除时也可羽化</p>
-<p>“选择-色彩范围”、“选择-扩大选区（连续）/选区相似（不连续）”可以类似魔棒选颜色区域（前者可事先选区以限制范围并预览）</p>
-<p>“选区-调整边缘-智能半径”可以类似魔棒识别色差</p>
-<p>只有选择工具（矩形、椭圆）才有右键描边</p>
-<p>ctrl+shift+t，造次操作；组团了+shift+alt+t复制至新图层并再次操作。</p>
-<p>后退一步快捷键与QQ冲突：PS课：QQ不隐身，上课不认真</p>
-<p>将图层转换为智能对象能够帮助我们在放大照片的同时保留照片的清晰度</p>
-<p>图层模式的 正片叠底、叠加 可以使图像色彩与背景适应</p>
-<p>左右键换图层混合选项</p>
-<p>“编辑-变换-再次”能重复自由变换操作，同时按住alt可新建图层来变换</p>
-<p>“选择-修改-XX”可以调整选区边缘</p>
-<p>油漆桶工具在色板上的色块外单击可以新建色块</p>
-<p>油漆桶工具按住shift可以改变画布外面的背景</p>
-<p>渐变编辑器渐变调板的小箭头可以直接双击选颜色；上下拽动小箭头可删除小箭头</p>
-<p>所有对颜色的操作都在“图像-调整”里面</p>
-<p>直方图：明度左边最暗，右边最亮。越集中在左边说明曝光越不足。可用“图像-调整-亮度/对比度”来修改曝光不足/过度</p>
-<p>背光图可以使用“图像-调整-阴影/高光”，把暗处调亮，亮处调暗</p>
-<p>色调均化：亮的地方多就变暗，暗的地方多就变亮，灰的图不同区域调亮调暗</p>
-<p>ctrl+l色阶，输入：移动黑场小箭头越往右越黑，输出相反。输入：黑场左边的颜色变纯黑，白场反。输出：限制最黑最白的极限。输入的点对应到输出的点。（右边三个吸管可快速设置）按住alt可以通过黑白视图看改变的区域。颜色偏黑/灰(输入：黑白场调到中间=增加对比度，输出调中间=降低对比度)/白均可以用色阶来调整。输出色阶的黑场白场可以越过对方使得颜色反向。调色之前可以先选区、羽化</p>
-<p>红<del>青，绿</del>品红，蓝~黄，使用色阶灰场吸管时会增多相反颜色。（=相机的白平衡）</p>
-<p>脸红可通过色阶红通道来调节，将输入黑白场往中间移。肉色：红色调高，绿色略调高，蓝色调低。调色时可以将一个通道加（左加右减），其他两个颜色通道减小</p>
-<p>只有在通道选中（可视）的通道才能在色阶处编辑</p>
-<p>“图像-调整-曲线”有色阶的功能。曲线上拉变亮，下拉变暗。按住ctrl和左键（或直接双击）取点。将取的点拖拽至外面可以删除点。点手指按钮可以设置直接在图像上上下拖动调整曲线</p>
-<p>ctrl+u色相/饱和度，可左键按下图像左右移动调整饱和度。按下之前用ctrl可调整色相。同时按下shift可快速调整。下方的两个彩虹条之间是选择允许变色的范围，上面是原色，下面是改变后的颜色；范围条中间的两竖之间是完全变化，剩下两侧边是羽化范围。范围条可以是中间，也可以是两边（挪过头）。增加饱和度略相当于锐化</p>
-<p>“图像-调整-替换颜色”与色相/饱和度一样，只是多了黑白预览，且直接设置在容差范围内替换颜色而非范围条。吸管：shift加范围，alt减范围</p>
-<p>“图像-调整-通道混合器”可以设置RGB每个颜色的来源，即使原多色调成（输出成）某色</p>
-<p>“图像-调整-可选颜色”调整特定颜色的各偏向输出</p>
-<p>“图像-调整-照片滤镜”能够增加颜色并调整强度</p>
-<p>“图像-调整-变化”可以加深阴影/中间调/高光/饱和度的特定颜色</p>
-<p>“图像-调整-色彩平衡”可单独设置阴影/中间调/高光的RGB值</p>
-<p>“图像-调整-匹配颜色”可以是一张图片采用另一张图片的颜色（可分别建立选区。来源图片按w+j至新建图层，匹配时选择图层）</p>
-<p>“图像-调整-渐变映射-单击打开渐变编辑器”，点了黑场之后点空位置新建黑场，点白场后新建白场。色阶/色阶曲线就是分别设置RGB三个颜色通道的渐变映射</p>
-<p>“图像-调整-黑白”可以整体黑白，并且使某个颜色更白/黑一些</p>
-<p>“图像-调整-阈值”调整色阶至黑白，一般作为压线条：先用“滤镜-其他-高反差保留”，再调整阈值，可以提取线条</p>
-<p>“图像-调整-色调分离”可以快速调整颜色反差，从油画模样到真实照片。即由色块组成图像</p>
-<p>Lab通道：L：明度的过渡，a：绿色到品红的过渡，b：蓝色到黄色的过渡；（可用画笔涂抹，黑到白）</p>
-<p>RGB色彩模式依赖设备（硬件、亮度）、环境（灯光）。Lab与设备不相关，根据颜色调整颜色，且能显示所有颜色。理论上来说，Lab模式打印出来可以发光发亮。</p>
-<p>若RGB“滤镜-锐化-USM锐化”后出现不正常颜色，可以先调到Lab模式，再选中明度通道，接着锐化</p>
-<p>加强某个区域的饱和度，可以先复制图层，再调整，再用画笔调整透明度擦去</p>
-<p>可以直接在通道上上色，等同于在图层上上色。在a通道用黑笔画图像变绿，用白笔画变品红。b通道分别为蓝色、黄色</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2016/08/15/PS笔记1/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PhotoShop/">PhotoShop</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-CGI-C语言也能干大事"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2016/07/12/CGI-C语言也能干大事/">CGI-C语言也能干大事</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2016-07-12 19:42:00" datetime="2016-07-12T11:42:00.000Z"  itemprop="datePublished">2016-07-12</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="CGI-amp-DGI"><a href="#CGI-amp-DGI" class="headerlink" title="CGI &amp; DGI"></a>CGI &amp; DGI</h1><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> * qs = getenv(<span class="string">"QUERY_STRING"</span>);<span class="comment">//获取环境变量</span></span><br><span class="line"><span class="keyword">char</span> username[<span class="number">256</span>];</span><br><span class="line"><span class="built_in">sscanf</span>(qs, <span class="string">"username=%s"</span>, username);<span class="comment">//获取地址栏后面的东西</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>断点调试：<code>include \&lt;windows.h&gt;</code>，然后 <code>MessageBoxA(0,"ok","ok",0);</code></p>
-    
-        <div class="post-more-div">
-            <a href="/2016/07/12/CGI-C语言也能干大事/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CGI/">CGI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Servlet/">Servlet</a></li></ul>
 
     </div>
     
@@ -971,7 +1179,7 @@
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span>
+    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
     </div>
 </nav>
 

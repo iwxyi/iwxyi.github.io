@@ -49,7 +49,7 @@
 <meta property="og:site_name" content="云笺">
 <meta property="og:description" content="在做LazyKey的时候，遇见了一个场景，光标在括号右边，需要获取改括号前面的函数名。虽然用堆栈写个语法分析器很方便，但是我就想着用正则表达式是不是更简单？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-27T06:32:55.637Z">
+<meta property="og:updated_time" content="2021-03-24T08:51:46.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式之平衡组（堆栈）">
 <meta name="twitter:description" content="在做LazyKey的时候，遇见了一个场景，光标在括号右边，需要获取改括号前面的函数名。虽然用堆栈写个语法分析器很方便，但是我就想着用正则表达式是不是更简单？">
@@ -229,6 +229,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>在做LazyKey的时候，遇见了一个场景，光标在括号右边，需要获取改括号前面的函数名。虽然用堆栈写个语法分析器很方便，但是我就想着用正则表达式是不是更简单？</p>
 <a id="more"></a>
+
 <blockquote>
 <p>坑啊， JS 不支持平衡组……</p>
 </blockquote>
@@ -255,12 +256,12 @@
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">\(                <span class="comment">#普通字符“(”</span></span><br><span class="line">   (              <span class="comment">#分组构造，用来限定量词“*”修饰范围</span></span><br><span class="line">     (?&lt;Open&gt;\()  <span class="comment">#命名捕获组，遇到开括弧“Open”计数加1</span></span><br><span class="line">     |            <span class="comment">#分支结构</span></span><br><span class="line">     (?&lt;-Open&gt;\)) <span class="comment">#狭义平衡组，遇到闭括弧“Open”计数减1</span></span><br><span class="line">     |            <span class="comment">#分支结构</span></span><br><span class="line">     [^()]+       <span class="comment">#非括弧的其它任意字符</span></span><br><span class="line">   )*             <span class="comment">#以上子串出现0次或任意多次</span></span><br><span class="line">   (?(Open)(?!))  <span class="comment">#判断是否还有“Open”，有则说明不配对，什么都不匹配</span></span><br><span class="line">\)                <span class="comment">#普通闭括弧</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>对于一个嵌套结构而言，开始和结束标记都是确定的，对于本例开始为“(”，结束为“)”，那么接下来就是考察中间的结构，中间的字符可以划分为三类，一类是“(”，一类是“)”，其余的就是除这两个字符以外的任意字符。</p>
-<h2 id="平衡组的匹配原理-1"><a href="#平衡组的匹配原理-1" class="headerlink" title="平衡组的匹配原理"></a>平衡组的匹配原理</h2><p>1、先找到第一个<code>(</code>，作为匹配的开始。即上面的第1行，匹配了：a+<strong>(</strong>b*(c+d))/e+f-(g/(h-i))*j</p>
+<h2 id="平衡组的匹配原理-1"><a href="#平衡组的匹配原理-1" class="headerlink" title="平衡组的匹配原理"></a>平衡组的匹配原理</h2><p>1、先找到第一个<code>(</code>，作为匹配的开始。即上面的第1行，匹配了：a+==(==b*(c+d))/e+f-(g/(h-i))*j</p>
 <p>2、在第1步以后，每匹配到一个<code>(</code>，就入栈一个Open捕获组，<strong>计数加 1</strong></p>
 <p>3、在第1步以后，每匹配到一个<code>)</code>，就出栈最近入栈的Open捕获组，<strong>计数减 1</strong></p>
-<p>也就是讲，上面的第一行正则<code>\(</code>匹配了：a+<strong>(</strong>b*(c+d))/e+f-(g/(h-i))*j</p>
-<p>然后，匹配到c前面的<code>(</code>，此时，计数加1；继续匹配，匹配到d后面的<code>)</code>，计数减1；——注意喽：此时堆栈中的计数是0，正则还是会向前继续匹配的，但是，如果匹配到<code>)</code>的话，比如，这个例子中 d)<strong>)</strong> ——引擎此时将控制权交给<code>(?(Open)(?!))</code>，判断堆栈中是否为0，如果为0，则执行匹配“no”分支，由于这个条件判断结构中没有“no”分支，所以什么都不做，把控制权交给接下来的<code>\)</code></p>
-<p>这个正则表达式<code>\)</code>可匹配接下来的)，即 b)<strong>)</strong></p>
+<p>也就是讲，上面的第一行正则<code>\(</code>匹配了：a+==(==b*(c+d))/e+f-(g/(h-i))*j</p>
+<p>然后，匹配到c前面的<code>(</code>，此时，计数加1；继续匹配，匹配到d后面的<code>)</code>，计数减1；——注意喽：此时堆栈中的计数是0，正则还是会向前继续匹配的，但是，如果匹配到<code>)</code>的话，比如，这个例子中 d)==)== ——引擎此时将控制权交给<code>(?(Open)(?!))</code>，判断堆栈中是否为0，如果为0，则执行匹配“no”分支，由于这个条件判断结构中没有“no”分支，所以什么都不做，把控制权交给接下来的<code>\)</code></p>
+<p>这个正则表达式<code>\)</code>可匹配接下来的)，即 b)==)==</p>
 <p>4、后面的 <code>(?(Open)(?!))</code>用来保证堆栈中Open捕获组计数是否为0，也就是<code>(</code>和<code>)</code>是配对出现的</p>
 <p>5、最后的<code>)</code>，作为匹配的结束</p>
 <h2 id="匹配过程"><a href="#匹配过程" class="headerlink" title="匹配过程"></a>匹配过程</h2><p>首先匹配第一个<code>(</code>，然后一直匹配，直到出现以下两种情况之一时，把控制权交给<code>(?(Open)(?!))</code>：</p>
@@ -300,7 +301,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2020-05-27T06:32:55.637Z" itemprop="dateUpdated">2020-05-27 14:32:55</time>
+    最后更新：<time datetime="2021-03-24T08:51:46.357Z" itemprop="dateUpdated">2021-03-24 16:51:46</time>
 </span>
 
 

@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="CGI &amp;amp; DGI123char * qs = getenv(&quot;QUERY_STRING&quot;);//获取环境变量char username[256];sscanf(qs, &quot;username=%s&quot;, username);//获取地址栏后面的东西  断点调试：include \&amp;lt;windows.h&amp;gt;，然后 MessageBoxA(0,&quot;ok&quot;,&quot;ok&quot;,0);">
+    <meta name="description" content="CGI123char * qs = getenv(&quot;QUERY_STRING&quot;);//获取环境变量char username[256];sscanf(qs, &quot;username=%s&quot;, username);//获取地址栏后面的东西  断点调试：include &amp;lt;windows.h&amp;gt;，然后 MessageBoxA(0,&quot;ok&quot;,&quot;ok&quot;,0);让程序启动后暂停，等待着按按钮；浏览器访问">
 <meta name="keywords" content="C语言,学习笔记,CGI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CGI-C语言也能干大事">
 <meta property="og:url" content="http://blog.iwxyi.com/2016/07/12/CGI-C语言也能干大事/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="CGI &amp;amp; DGI123char * qs = getenv(&quot;QUERY_STRING&quot;);//获取环境变量char username[256];sscanf(qs, &quot;username=%s&quot;, username);//获取地址栏后面的东西  断点调试：include \&amp;lt;windows.h&amp;gt;，然后 MessageBoxA(0,&quot;ok&quot;,&quot;ok&quot;,0);">
+<meta property="og:description" content="CGI123char * qs = getenv(&quot;QUERY_STRING&quot;);//获取环境变量char username[256];sscanf(qs, &quot;username=%s&quot;, username);//获取地址栏后面的东西  断点调试：include &amp;lt;windows.h&amp;gt;，然后 MessageBoxA(0,&quot;ok&quot;,&quot;ok&quot;,0);让程序启动后暂停，等待着按按钮；浏览器访问">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T12:55:43.195Z">
+<meta property="og:updated_time" content="2021-03-24T07:28:31.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CGI-C语言也能干大事">
-<meta name="twitter:description" content="CGI &amp;amp; DGI123char * qs = getenv(&quot;QUERY_STRING&quot;);//获取环境变量char username[256];sscanf(qs, &quot;username=%s&quot;, username);//获取地址栏后面的东西  断点调试：include \&amp;lt;windows.h&amp;gt;，然后 MessageBoxA(0,&quot;ok&quot;,&quot;ok&quot;,0);">
+<meta name="twitter:description" content="CGI123char * qs = getenv(&quot;QUERY_STRING&quot;);//获取环境变量char username[256];sscanf(qs, &quot;username=%s&quot;, username);//获取地址栏后面的东西  断点调试：include &amp;lt;windows.h&amp;gt;，然后 MessageBoxA(0,&quot;ok&quot;,&quot;ok&quot;,0);让程序启动后暂停，等待着按按钮；浏览器访问">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -194,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CGI-amp-DGI"><span class="post-toc-number">1.</span> <span class="post-toc-text">CGI &amp; DGI</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MySQL-数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">MySQL 数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-MySQL"><span class="post-toc-number">3.</span> <span class="post-toc-text">C + MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用方法：需要修改三个目录，以及复制dll"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">使用方法：需要修改三个目录，以及复制dll</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#execute封装"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">execute封装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表单数据"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">表单数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#文件操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">文件操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML文件"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">HTML文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件参数"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">文件参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断有没有上传文件"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">判断有没有上传文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取扩展名"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">获取扩展名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取文件大小"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">获取文件大小</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总的操作"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">总的操作</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CGI"><span class="post-toc-number">1.</span> <span class="post-toc-text">CGI</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MySQL-数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">MySQL 数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-MySQL"><span class="post-toc-number">3.</span> <span class="post-toc-text">C + MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用方法：需要修改三个目录，以及复制dll"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">使用方法：需要修改三个目录，以及复制dll</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#execute封装"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">execute封装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表单数据"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">表单数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#文件操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">文件操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML文件"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">HTML文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件参数"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">文件参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断有没有上传文件"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">判断有没有上传文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取扩展名"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">获取扩展名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取文件大小"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">获取文件大小</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总的操作"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">总的操作</span></a></li></ol></li></ol>
         </nav>
     </aside>
    
@@ -227,11 +227,11 @@
             阅读本文可能花费您&nbsp;<span class="post-count">12</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="CGI-amp-DGI"><a href="#CGI-amp-DGI" class="headerlink" title="CGI &amp; DGI"></a>CGI &amp; DGI</h1><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> * qs = getenv(<span class="string">"QUERY_STRING"</span>);<span class="comment">//获取环境变量</span></span><br><span class="line"><span class="keyword">char</span> username[<span class="number">256</span>];</span><br><span class="line"><span class="built_in">sscanf</span>(qs, <span class="string">"username=%s"</span>, username);<span class="comment">//获取地址栏后面的东西</span></span><br></pre></td></tr></tbody></table></figure>
+            <h1 id="CGI"><a href="#CGI" class="headerlink" title="CGI"></a>CGI</h1><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> * qs = getenv(<span class="string">"QUERY_STRING"</span>);<span class="comment">//获取环境变量</span></span><br><span class="line"><span class="keyword">char</span> username[<span class="number">256</span>];</span><br><span class="line"><span class="built_in">sscanf</span>(qs, <span class="string">"username=%s"</span>, username);<span class="comment">//获取地址栏后面的东西</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>断点调试：<code>include \&lt;windows.h&gt;</code>，然后 <code>MessageBoxA(0,"ok","ok",0);</code></p>
+<p>断点调试：<code>include &lt;windows.h&gt;</code>，然后 <code>MessageBoxA(0,"ok","ok",0);</code><br>让程序启动后暂停，等待着按按钮；<br>浏览器访问CGI，窗口弹出后，在VS中“调试”→“附加到进程”，设置断点，然后在关闭消息对话框。</p>
 <a id="more"></a>
-<p>让程序启动后暂停，等待着按按钮；<br>浏览器访问CGI，窗口弹出后，在VS中“调试”→“附加到进程”，设置断点，然后在关闭消息对话框。</p>
+
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"Location:http://www.baidu.com\r\n"</span>);<span class="comment">//重定向，302 Found。注意\r\n</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Location:1.html\r\n"</span>);<span class="comment">//重定向至cgi程序同目录的1.html文件</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Content-Type:text/html;charset=gbk\r\n\r\n"</span>);<span class="comment">//改成 text/plain，为普通文本，显示HTML标签。</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>注意<code>\r\n\r\n</code>（两个），表示报文头结束了（各个报文头顺序可调换）<br>源代码中，<code>\n</code>能换行，但是浏览器上要用<code>&lt;br&gt;</code>才换行，所以用： <code>\n&lt;br&gt;</code></p>
@@ -275,7 +275,7 @@
 
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单字符通配符：_</span><br><span class="line">多字符通配符：% （可以为0个）</span><br><span class="line">select * from Persons where Name like 'T%' // 名字为 T 开头的所有</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nul 代表“不知道”，而不是“没有”。null+1 结果是 null</span><br><span class="line">select ...... name=null 或者 name != null 或者 nul=null 都没有任何返回结果</span><br><span class="line">select name+"a" from Persons</span><br><span class="line">select * from Persons where name is (not) null // 判断是不是null</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">null 代表“不知道”，而不是“没有”。null+1 结果是 null</span><br><span class="line">select ...... name=null 或者 name != null 或者 nul=null 都没有任何返回结果</span><br><span class="line">select name+"a" from Persons</span><br><span class="line">select * from Persons where name is (not) null // 判断是不是null</span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">limit 首行行号（行号从 0 开始）, 最大数目 // limit 必须放在所有语句的最后</span><br></pre></td></tr></tbody></table></figure>
 
@@ -348,7 +348,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T12:55:43.195Z" itemprop="dateUpdated">2019-10-13 20:55:43</time>
+    最后更新：<time datetime="2021-03-24T07:28:31.775Z" itemprop="dateUpdated">2021-03-24 15:28:31</time>
 </span>
 
 
@@ -395,7 +395,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2016/07/12/CGI-C语言也能干大事/&title=《CGI-C语言也能干大事》 — 云笺&source=CGI &amp; DGI123char * qs = getenv("QUERY_STRING");//获取环境变量char username[256]..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2016/07/12/CGI-C语言也能干大事/&title=《CGI-C语言也能干大事》 — 云笺&source=CGI123char * qs = getenv("QUERY_STRING");//获取环境变量char username[256];sscanf(qs..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -571,7 +571,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2016/07/12/CGI-C语言也能干大事/&title=《CGI-C语言也能干大事》 — 云笺&source=CGI &amp; DGI123char * qs = getenv("QUERY_STRING");//获取环境变量char username[256]..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2016/07/12/CGI-C语言也能干大事/&title=《CGI-C语言也能干大事》 — 云笺&source=CGI123char * qs = getenv("QUERY_STRING");//获取环境变量char username[256];sscanf(qs..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="PHP 基础教程入门输出 echo123&amp;lt;?php	echo &quot;Hello World!&quot;; ?&amp;gt;">
+    <meta name="description" content="[TOC] PHP 基础教程入门输出 echo123&amp;lt;?php	echo &quot;Hello World!&quot;; ?&amp;gt;">
 <meta name="keywords" content="PHP,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP-学习笔记">
 <meta property="og:url" content="http://blog.iwxyi.com/2018/12/18/PHP-学习笔记/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="PHP 基础教程入门输出 echo123&amp;lt;?php	echo &quot;Hello World!&quot;; ?&amp;gt;">
+<meta property="og:description" content="[TOC] PHP 基础教程入门输出 echo123&amp;lt;?php	echo &quot;Hello World!&quot;; ?&amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T08:22:31.121Z">
+<meta property="og:updated_time" content="2021-03-24T08:22:02.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP-学习笔记">
-<meta name="twitter:description" content="PHP 基础教程入门输出 echo123&amp;lt;?php	echo &quot;Hello World!&quot;; ?&amp;gt;">
+<meta name="twitter:description" content="[TOC] PHP 基础教程入门输出 echo123&amp;lt;?php	echo &quot;Hello World!&quot;; ?&amp;gt;">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -227,7 +227,8 @@
             阅读本文可能花费您&nbsp;<span class="post-count">33</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="PHP-基础教程"><a href="#PHP-基础教程" class="headerlink" title="PHP 基础教程"></a>PHP 基础教程</h1><h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h3 id="输出-echo"><a href="#输出-echo" class="headerlink" title="输出 echo"></a>输出 echo</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"Hello World!"</span>; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+            <p>[TOC]</p>
+<h1 id="PHP-基础教程"><a href="#PHP-基础教程" class="headerlink" title="PHP 基础教程"></a>PHP 基础教程</h1><h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h3 id="输出-echo"><a href="#输出-echo" class="headerlink" title="输出 echo"></a>输出 echo</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"Hello World!"</span>; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
 <a id="more"></a>
 
@@ -265,7 +266,7 @@
 <blockquote>
 <p>字符串参考手册：<em><a href="http://www.w3school.com.cn/php/php_ref_string.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/php/php_ref_string.asp</a></em></p>
 </blockquote>
-<p>*<em>stripos *</em> 不区分大小写寻找</p>
+<p><strong>stripos</strong> 不区分大小写寻找</p>
 <p><strong>注</strong>：由于strpos查找开头字符返回值为 0，且 false 的值也是 0，所以判断是否失败要用 ===</p>
 <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (strpos(<span class="string">"Hello"</span>, <span class="string">"h"</span>) === <span class="keyword">false</span>) <span class="keyword">echo</span> <span class="string">"查找失败"</span>;</span><br></pre></td></tr></tbody></table></figure>
 
@@ -292,9 +293,12 @@
 <h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p><strong>ord() 函数</strong>：字符转ASCII</p>
 <p><strong>chr() 函数</strong>：ASCII转字符</p>
 <h2 id="PHP-运算符：同C系"><a href="#PHP-运算符：同C系" class="headerlink" title="PHP 运算符：同C系"></a>PHP 运算符：同C系</h2><ul>
-<li>包括==、=+-*/%、+=、&gt;=、++自增 等<br>=== 完全相等，包括键值对的顺序相同类型相同<br>!== 不全等<br>!=和&lt;&gt;不等于<br>.        串接：    $txt1 = “Hello”   $txt2 = $txt1 . “ world!”    现在 $txt2 包含 “Hello world!”<br>.=      串接赋值：    $txt1 = “Hello”   $txt1 .= “ world!”    现在 $txt1 包含 “Hello world!”</li>
-<li>and    &amp;&amp;    与<br>or    ||    或<br>xor    异或<br>!    非</li>
-<li>if…else… 同C系语言<br>switch()…同C系语言（同样有case、break、default等），但是支持字符串<br>while(), do…while, for(;;)… 同C系语言</li>
+<li><p>包括==、=+-*/%、+=、&gt;=、++自增 等<br>=== 完全相等，包括键值对的顺序相同类型相同<br>!== 不全等<br>!=和&lt;&gt;不等于<br>.        串接：    $txt1 = “Hello”   $txt2 = $txt1 . “ world!”    现在 $txt2 包含 “Hello world!”<br>.=      串接赋值：    $txt1 = “Hello”   $txt1 .= “ world!”    现在 $txt1 包含 “Hello world!”</p>
+</li>
+<li><p>and    &amp;&amp;    与<br>or    ||    或<br>xor    异或<br>!    非</p>
+</li>
+<li><p>if…else… 同C系语言<br>switch()…同C系语言（同样有case、break、default等），但是支持字符串<br>while(), do…while, for(;;)… 同C系语言</p>
+</li>
 </ul>
 <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">    <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;=<span class="number">10</span>; $x++) {</span><br><span class="line">          <span class="keyword">echo</span> <span class="string">"数字是：$x &lt;br&gt;"</span>;  } </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
@@ -411,22 +415,16 @@
 </blockquote>
 <p>时间戳是一种字符序列，它表示具体事件发生的日期和事件。</p>
 <ul>
-<li><p>d - 表示月里的某天（01-31）</p>
-</li>
-<li><p>m - 表示月（01-12）</p>
-</li>
-<li><p>Y - 表示年（四位数）</p>
-</li>
-<li><p>1 - 表示周里的某天</p>
-</li>
-<li><p>h - 带有首位零的 12 小时小时格式</p>
-</li>
-<li><p>i - 带有首位零的分钟</p>
-</li>
-<li><p>s - 带有首位零的秒（00 -59）</p>
-</li>
-<li><p>a - 小写的午前和午后（am 或 pm）</p>
-</li>
+<li>d - 表示月里的某天（01-31）</li>
+<li>m - 表示月（01-12）</li>
+<li>Y - 表示年（四位数）</li>
+<li>1 - 表示周里的某天</li>
+</ul>
+<ul>
+<li>h - 带有首位零的 12 小时小时格式</li>
+<li>i - 带有首位零的分钟</li>
+<li>s - 带有首位零的秒（00 -59）</li>
+<li>a - 小写的午前和午后（am 或 pm）</li>
 </ul>
 <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"今天是 "</span> . date(<span class="string">"Y-m-d"</span>) . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"今天是 "</span> . date(<span class="string">"l"</span>); <span class="comment">// 这是小写的字母L</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"当前时间是 "</span> . date(<span class="string">"h:i:sa"</span>);</span><br></pre></td></tr></tbody></table></figure>
 
@@ -758,7 +756,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T08:22:31.121Z" itemprop="dateUpdated">2019-10-13 16:22:31</time>
+    最后更新：<time datetime="2021-03-24T08:22:02.227Z" itemprop="dateUpdated">2021-03-24 16:22:02</time>
 </span>
 
 
@@ -805,7 +803,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/18/PHP-学习笔记/&title=《PHP-学习笔记》 — 云笺&source=PHP 基础教程入门输出 echo123&lt;?php	echo "Hello World!"; ?&gt;" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/18/PHP-学习笔记/&title=《PHP-学习笔记》 — 云笺&source=[TOC]
+PHP 基础教程入门输出 echo123&lt;?php	echo "Hello World!"; ?&gt;" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -987,7 +986,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/18/PHP-学习笔记/&title=《PHP-学习笔记》 — 云笺&source=PHP 基础教程入门输出 echo123&lt;?php	echo "Hello World!"; ?&gt;" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/12/18/PHP-学习笔记/&title=《PHP-学习笔记》 — 云笺&source=[TOC]
+PHP 基础教程入门输出 echo123&lt;?php	echo "Hello World!"; ?&gt;" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

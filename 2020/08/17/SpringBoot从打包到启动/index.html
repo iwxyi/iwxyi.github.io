@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/">
+    
+    
+    <title>SpringBoot从打包到启动 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="Spring">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="一、创建项目创建项目一共有两种方式，下面分别进行介绍。 1，在线创建项目（1）在线创建是 Spring Boot 官方提供的一种创建方式，在浏览器中访问如下网址：  https://start.spring.io/">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot从打包到启动">
+<meta property="og:url" content="http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="一、创建项目创建项目一共有两种方式，下面分别进行介绍。 1，在线创建项目（1）在线创建是 Spring Boot 官方提供的一种创建方式，在浏览器中访问如下网址：  https://start.spring.io/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-20.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-21.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-22.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-23.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-24.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-25.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-26.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-27.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-28.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-29.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-30.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-31.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-32.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-33.png">
+<meta property="og:updated_time" content="2021-03-24T09:17:35.360Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot从打包到启动">
+<meta name="twitter:description" content="一、创建项目创建项目一共有两种方式，下面分别进行介绍。 1，在线创建项目（1）在线创建是 Spring Boot 官方提供的一种创建方式，在浏览器中访问如下网址：  https://start.spring.io/">
+<meta name="twitter:image" content="http://blog.iwxyi.com/images/pasted-20.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">小乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-link"></i>
+                    <span>相 关</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/mrxy001" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SpringBoot从打包到启动</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、创建项目"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、创建项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1，在线创建项目"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1，在线创建项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2，使用-Intellij-IDEA-创建"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2，使用 Intellij IDEA 创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、运行项目"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、运行项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1，使用-Maven-命令启动"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1，使用 Maven 命令启动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2，直接运行-main-方法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2，直接运行 main 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3，打包启动"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3，打包启动</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、一个简单的-RESTful-服务样例"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、一个简单的 RESTful 服务样例</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-SpringBoot从打包到启动"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SpringBoot从打包到启动</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2020-08-17 17:07:00" datetime="2020-08-17T09:07:00.000Z"  itemprop="datePublished">2020-08-17</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、创建项目"><a href="#一、创建项目" class="headerlink" title="一、创建项目"></a>一、创建项目</h2><p>创建项目一共有两种方式，下面分别进行介绍。</p>
+<h3 id="1，在线创建项目"><a href="#1，在线创建项目" class="headerlink" title="1，在线创建项目"></a>1，在线创建项目</h3><p>（1）在线创建是 <strong>Spring Boot</strong> 官方提供的一种创建方式，在浏览器中访问如下网址：</p>
+<ul>
+<li><a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a></li>
+</ul>
+<a id="more"></a>
+
+<p>（2）在打开的页面中我们可以选择项目的构建工具是 <strong>Maven</strong> 还是 <strong>Gradle</strong>、语言是 <strong>Java</strong> 还是其它、要使用的 <strong>Spring Boot</strong> 版本号、项目的组织 <strong>Id</strong>（包名）、模块名称以及项目的依赖。</p>
+<p>因为我要创建一个 <strong>SpringBoot</strong> 项目，所以项目依赖这块我们输入 <strong>Web</strong> 回车后进行添加。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-20.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+<p>（3）所有信息填写完毕后，点击下方的“<strong>Generate Project</strong>”按钮即可将生成的模版下载到本地，解压后使用 <strong>IDE</strong> 打开即可开始项目的开发了。</p>
+<h3 id="2，使用-Intellij-IDEA-创建"><a href="#2，使用-Intellij-IDEA-创建" class="headerlink" title="2，使用 Intellij IDEA 创建"></a>2，使用 Intellij IDEA 创建</h3><p>（1）创建项目时选择 <strong>Spring Initializr</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-21.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+<p>（2）接着输入项目的基本信息，包括组织 <strong>Id</strong>、模块名称、项目构建类型、最终生成包的类型、<strong>Java</strong> 的版本、开发语言、项目版本号、项目描述以及项目的包。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-22.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+<p>（3）接着选择项目所需要的依赖，之后 <strong>Intellij IDEA</strong> 会自动把选中的依赖添加到项目的 <strong>pom.xml</strong> 文件中。</p>
+<p>因为我要创建一个 <strong>SpringBoot</strong> 项目，所以这里我们添加了个 <strong>Web</strong> 依赖。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-23.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+<p>（4）最后一步选择好创建路径，一个可运行的 <strong>Spring Boot</strong> 项目就创建成功了。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-24.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+<h2 id="二、运行项目"><a href="#二、运行项目" class="headerlink" title="二、运行项目"></a>二、运行项目</h2><p>有三种不同的方式启动项目，下面分别进行介绍。</p>
+<h3 id="1，使用-Maven-命令启动"><a href="#1，使用-Maven-命令启动" class="headerlink" title="1，使用 Maven 命令启动"></a>1，使用 Maven 命令启动</h3><p>（1）打开终端进入项目文件夹，执行如下 <strong>mvn</strong> 命令启动项目：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn spring-boot:run</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）启动完毕后终端会显示成功信息。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-25.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+<p>（3）使用浏览器访问 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 则可显示项目主页。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-26.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+<h3 id="2，直接运行-main-方法"><a href="#2，直接运行-main-方法" class="headerlink" title="2，直接运行 main 方法"></a>2，直接运行 main 方法</h3><p>（1）在 <strong>Intellij IDEA</strong> 中右键点击 <strong>App</strong> 类，然后点击 <strong>run</strong> 按钮即可启动项目。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-27.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+<p>（2）项目启动后控制台中可以看到相关的启动信息。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-28.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+<h3 id="3，打包启动"><a href="#3，打包启动" class="headerlink" title="3，打包启动"></a>3，打包启动</h3><p><strong>Spring Boot</strong> 应用也可以直接打成 <strong>jar</strong> 包运行。在生产环境中，常常通过这样的方式来运行一个 <strong>Spring Boot</strong> 应用。</p>
+<p>（1）打开终端进入项目文件夹，执行如下 <strong>mvn</strong> 命令进行打包。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）如果使用的是 <strong>Intellij IDEA</strong>，我们还可以点击界面右侧的 <strong>Maven</strong> -&gt; <strong>Lifecycle</strong> -&gt; <strong>package</strong> 进行打包。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-29.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+<p>（3）上面打包方式的前提是项目使用了 <strong>spring-boot-starter-parent</strong> 作为 <strong>parent</strong>，不过在大部分项目中，项目的 <strong>parent</strong> 可能并不是 <strong>spring-boot-starter-parent</strong>，而是公司内部定义好的一个配置，此时 <strong>spring-boot-maven-plugin</strong> 插件并不能直接使用，我们只要做如下额外的配置即可。配置完毕后就和之前一样，可以通 <strong>Maven</strong> 命令或者 <strong>IntelliJ IDEA</strong> 中的 <strong>Maven</strong> 插件进行打包。</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>repackage<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>（4）打包完成后，在项目的 <strong>target</strong> 目录下会生成一个 <strong>jar</strong> 文件。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-30.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+<p>（5）通过 <strong>java -jar</strong> 命令可以直接启动这个 <strong>jar</strong> 文件。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar demo-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-31.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+<p>（6）我们还可以在命令后面加个 <strong>&amp;</strong>，表示后台运行。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar demo-0.0.1-SNAPSHOT.jar &amp;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（7）由于在生产环境中，<strong>Linux</strong> 大多数情况下都是远程服务器，然后使用远程工具连接 <strong>Linux</strong>。如果使用上面命令启动 <strong>JAR</strong>，一旦窗口关闭，<strong>JAR</strong> 也就停止运行了，因此一般通过如下命令启动 <strong>JAR</strong>：</p>
+<p><strong>注意</strong>：<strong>nohup</strong> 表示当窗口关闭时服务不挂起，继续在后台运行。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar demo-0.0.1-SNAPSHOT.jar &amp;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="三、一个简单的-RESTful-服务样例"><a href="#三、一个简单的-RESTful-服务样例" class="headerlink" title="三、一个简单的 RESTful 服务样例"></a>三、一个简单的 RESTful 服务样例</h2><p>（1）首先我们在项目中新建一个名为 <strong>HelloController</strong> 的 <strong>Java</strong> 类。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-32.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+<p>（2）该类里面的内容如下：</p>
+<ul>
+<li><strong>@RestController</strong> 注解：告诉 <strong>Spring</strong> 以字符串的形式渲染结果，并直接返回给调用者。该注解相当于 <strong>@ResponseBody</strong> ＋ <strong>@Controller</strong> 合在一起的作用。</li>
+<li><strong>@RequestMapping</strong> 注解：提供路由信息，它告诉 <strong>Spring</strong> 任何来自“<strong>/hello</strong>”路径的 <strong>HTTP</strong> 请求（<strong>Get</strong>）都应该被映射到 <strong>hello</strong> 方法。</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>{</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"welcome to hangge.com"</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）运行启动程序后，访问 <strong><a href="http://localhost:8080/hello" target="_blank" rel="noopener">http://localhost:8080/hello</a></strong> 就可以访问这个 <strong>controller</strong> 的功能了。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-33.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+
+
+<blockquote>
+<p>转载自：<a href="https://www.hangge.com/blog/cache/detail_2454.html" target="_blank" rel="noopener">https://www.hangge.com/blog/cache/detail_2454.html</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2021-03-24T09:17:35.360Z" itemprop="dateUpdated">2021-03-24 17:17:35</time>
+</span>
+
+
+        
+        原文链接：<a href="/2020/08/17/SpringBoot从打包到启动/" target="_blank" rel="external">http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="小乂">
+            <a>小乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/&title=《SpringBoot从打包到启动》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/&title=《SpringBoot从打包到启动》 — 云笺&source=一、创建项目创建项目一共有两种方式，下面分别进行介绍。
+1，在线创建项目（1）在线创建是 Spring Boot 官方提供的一种创建方式，在浏览器中访问如..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SpringBoot从打包到启动》 — 云笺&url=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/08/19/Lambda表达式递归/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Lambda表达式递归
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/08/17/Spring基础/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Spring基础">下一篇：Spring基础</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/&title=《SpringBoot从打包到启动》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/&title=《SpringBoot从打包到启动》 — 云笺&source=一、创建项目创建项目一共有两种方式，下面分别进行介绍。
+1，在线创建项目（1）在线创建是 Spring Boot 官方提供的一种创建方式，在浏览器中访问如..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SpringBoot从打包到启动》 — 云笺&url=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2020/08/17/SpringBoot从打包到启动/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3ay46jMBAF0Pz/TzPbllqQe8v0SODjVZQE8GFRcj0+n3gdP9bZr7//eXZV+/1tCwMD47GM43KtbG52z/Y/GBgY+zCSMHp91dkm8l+T555+j4GBgRGT8tDcUjEwMDBWAu41I8k98+diYGDszEiSyRbZHi7z8I2BgbEbI6+6///Pf9LfwMDAeBTjKFcSFmeB8lhYGBgY72bkAS7ZaD6WkTcJiuEPDAyMlzLybbXjYrMkdvZSMDAw3s1ok9X2drMBi/WCHQYGxpsYebLaJrGzYN3e4dPOd2BgYDyQ0d50vfGZhO96zAIDA2MbRhsE10cl2nZCEXwxMDBeymgTzlljYJa+5tdiYGDswJjdLomByVNuOFxiYGBsw2iDXVsUWym0fQnoGBgYr2PMhrTyq2aZdD6WgYGBsScjHzzN25YriXE0/IGBgbENow12K0X8vFR3c8MSAwPjsYw8OLZDY9chNT9oftkhBgbGqxl3NS/zoDm7NkJiYGBswGhPX3e1DZKUOEqYMTAwNmAkf21T3HtJX14rBgbGNoxZGS65Q7vROvRjYGC8lHGUq63Gz459bQEOAwPj3Yw2zM2o+QjFbDgDAwNjB8bsYetFt+smZT0IgoGBsQGjGGuII3dewmtf02nAxcDAwBg1HVfS4KKNioGBgbFQbmuPksNXg4GBsQEjSWITcHs0XD8gYmBg7MC4q4jWprXrW8fAwNiA8Q/vjNsZaGa6fgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "小乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

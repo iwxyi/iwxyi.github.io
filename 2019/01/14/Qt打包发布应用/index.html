@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="windeployqt.exe路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin 命令：windeployqt.exe app.exe">
+    <meta name="description" content="Windows以release方式编译出可执行文件 路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin 命令：windeployqt.exe app.exe">
 <meta name="keywords" content="项目管理,Qt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt打包发布应用">
 <meta property="og:url" content="http://blog.iwxyi.com/2019/01/14/Qt打包发布应用/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="windeployqt.exe路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin 命令：windeployqt.exe app.exe">
+<meta property="og:description" content="Windows以release方式编译出可执行文件 路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin 命令：windeployqt.exe app.exe">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T09:49:22.577Z">
+<meta property="og:updated_time" content="2021-03-24T08:47:14.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt打包发布应用">
-<meta name="twitter:description" content="windeployqt.exe路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin 命令：windeployqt.exe app.exe">
+<meta name="twitter:description" content="Windows以release方式编译出可执行文件 路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin 命令：windeployqt.exe app.exe">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -194,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#windeployqt-exe"><span class="post-toc-number">1.</span> <span class="post-toc-text">windeployqt.exe</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Windows"><span class="post-toc-number">1.</span> <span class="post-toc-text">Windows</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux"><span class="post-toc-number">2.</span> <span class="post-toc-text">Linux</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境库"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">环境库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中文输入法"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">中文输入法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#打包成DEB"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">打包成DEB</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mac"><span class="post-toc-number">3.</span> <span class="post-toc-text">Mac</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android"><span class="post-toc-number">4.</span> <span class="post-toc-text">Android</span></a></li></ol>
         </nav>
     </aside>
    
@@ -227,17 +227,51 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="windeployqt-exe"><a href="#windeployqt-exe" class="headerlink" title="windeployqt.exe"></a>windeployqt.exe</h2><p>路径：<code>D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin</code></p>
+            <h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><p>以release方式编译出可执行文件</p>
+<p>路径：<code>D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin</code></p>
 <p>命令：<code>windeployqt.exe app.exe</code></p>
 <a id="more"></a>
 
 <p>写作天下打包命令：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\IDE\Qt5.13.1\5.13.1\mingw73_32\bin\windeployqt.exe WriterFly.exe</span><br></pre></td></tr></tbody></table></figure>
 
+<blockquote>
+<p>exe尽量使用英文，否则可能出现<code>Cannot find GCC installation directory. g++.exe must be in the path</code>错误</p>
+</blockquote>
 <ul>
 <li>使用 UPX 压缩工具减小体积</li>
 <li>使用 Enigma Virtual Box 打包成单独一个文件</li>
 </ul>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>下载linuxdeployqt：<a href="https://github.com/probonopd/linuxdeployqt/releases" target="_blank" rel="noopener">https://github.com/probonopd/linuxdeployqt/releases</a></p>
+<p>若 <code>qmake</code> 存放路径也是 <code>/home/wu/Qt5.10.1/5.10.1/gcc_64/bin/qmake</code></p>
+<p>程序名是 <code>UbuntuApp</code> 的话，<code>cd</code> 到你 deployqt 的路径</p>
+<p>执行 <code>./linuxdeployqt UbuntuApp -qmake="/home/wu/Qt5.10.1/5.10.1/gcc_64/bin/qmake"</code></p>
+<h3 id="环境库"><a href="#环境库" class="headerlink" title="环境库"></a>环境库</h3><p>注意ldd命令没有拷贝的环境库，也就是platforms文件夹及两个链接文件</p>
+<p><a href="https://blog.csdn.net/lusanshui/article/details/84988017" target="_blank" rel="noopener">https://blog.csdn.net/lusanshui/article/details/84988017</a></p>
+<ul>
+<li><code>ln -s $PWD/libQt5XcbQpa.so.5.13.1 libQt5XcbQpa.so.5</code></li>
+<li><code>ln -s $PWD/libQt5DBus.so.5.13.1 libQt5DBus.so.5</code></li>
+</ul>
+<h3 id="中文输入法"><a href="#中文输入法" class="headerlink" title="中文输入法"></a>中文输入法</h3><p>将安装在</p>
+<blockquote>
+<p>/usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts/</p>
+</blockquote>
+<p>下的库文件</p>
+<blockquote>
+<p>libfcitxplatforminputcontextplugin.so</p>
+</blockquote>
+<p>拷贝到以下路径：</p>
+<ul>
+<li><code>~/Qt5.13.1/Tools/QtCreator/bin/plugins/platforminputcontexts/</code></li>
+<li><code>~/Qt5.13.1/5.13.1/gcc_64/plugins/platforminputcontexts/</code></li>
+</ul>
+<p>之后再<strong>重新编译</strong>、打包部署</p>
+<h3 id="打包成DEB"><a href="#打包成DEB" class="headerlink" title="打包成DEB"></a>打包成DEB</h3><p><a href="https://blog.csdn.net/weixin_39083202/article/details/106817151" target="_blank" rel="noopener">https://blog.csdn.net/weixin_39083202/article/details/106817151</a></p>
+<h1 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h1><p>直接打包成dmg文件即可。</p>
+<p>写作天下打包命令：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./macdeployqt ~/Projects/WriterFly_v2.1.0/WriterFly.app -dmg</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h1><p>直接编译成APK</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -263,7 +297,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T09:49:22.577Z" itemprop="dateUpdated">2019-10-13 17:49:22</time>
+    最后更新：<time datetime="2021-03-24T08:47:14.391Z" itemprop="dateUpdated">2021-03-24 16:47:14</time>
 </span>
 
 
@@ -310,8 +344,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/01/14/Qt打包发布应用/&title=《Qt打包发布应用》 — 云笺&source=windeployqt.exe路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin
-命令：windeployqt.exe ap..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/01/14/Qt打包发布应用/&title=《Qt打包发布应用》 — 云笺&source=Windows以release方式编译出可执行文件
+路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin
+命令：windepl..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -349,9 +384,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/01/15/安装composer/" id="post-prev" class="post-nav-link">
+      <a href="/2019/01/15/安装Workerman/" id="post-prev" class="post-nav-link">
         <h4 class="title" >
-          上一篇：安装composer
+          上一篇：安装Workerman
         </h4>
       </a>
     </div>
@@ -493,8 +528,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/01/14/Qt打包发布应用/&title=《Qt打包发布应用》 — 云笺&source=windeployqt.exe路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin
-命令：windeployqt.exe ap..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2019/01/14/Qt打包发布应用/&title=《Qt打包发布应用》 — 云笺&source=Windows以release方式编译出可执行文件
+路径：D:\IDE\Qt5.12.3\5.12.3\mingw73_32\bin
+命令：windepl..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
