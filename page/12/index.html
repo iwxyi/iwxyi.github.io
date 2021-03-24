@@ -194,6 +194,50 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Node-js添加字符串到文本文件末尾"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/07/05/Node-js添加字符串到文本文件末尾/">Node.js添加字符串到文本文件末尾</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-07-05 15:29:00" datetime="2018-07-05T07:29:00.000Z"  itemprop="datePublished">2018-07-05</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>有这么一个需求：想把input里面的内容写到outInput里面去，但是上面的方法都是把文档里面的内容重置了，只想添加，而且保留原内容怎么办呢？</p>
+<p>可以在可读流创建完毕的回调函数里面进行操作，看代码：</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/07/05/Node-js添加字符串到文本文件末尾/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-CSharp-学习笔记"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1099,51 +1143,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-JSP取网页源码"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/06/03/JSP取网页源码/">JSP取网页源码</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-06-03 15:17:00" datetime="2018-06-03T07:17:00.000Z"  itemprop="datePublished">2018-06-03</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="取网页源码"><a href="#取网页源码" class="headerlink" title="取网页源码"></a>取网页源码</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String line = <span class="string">""</span>, source = <span class="string">""</span>, url = <span class="string">"https://www.qidian.com/all"</span>;</span><br><span class="line">HttpURLConnection l_connection = (HttpURLConnection) (<span class="keyword">new</span> URL(url)).openConnection();</span><br><span class="line">l_connection.connect();</span><br><span class="line">InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(l_connection.getInputStream(), <span class="string">"UTF-8"</span>);</span><br><span class="line">BufferedReader l_reader = <span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line"><span class="keyword">while</span> ((line = l_reader.readLine()) != <span class="keyword">null</span>) source+=line;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>取源码后截取中间文本</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/06/03/JSP取网页源码/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li></ul>
 
     </div>
     
