@@ -217,82 +217,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <a id="more"></a>
-
-<h2 id="nodejs安装"><a href="#nodejs安装" class="headerlink" title="nodejs安装"></a>nodejs安装</h2><p>下载地址：<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/download/</a></p>
+        <h2 id="nodejs安装"><a href="#nodejs安装" class="headerlink" title="nodejs安装"></a>nodejs安装</h2><p>下载地址：<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/download/</a></p>
 <p>为了稳定性，建议下载node 10.17.0版本。访问<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a> 进入Previous Releases。 找到v10.17.0版本的，下载完成后， 执行安装程序，根据引导完成安装即可。</p>
-<p>安装完成之后查询node和npm的版本，确认安装是否成功。</p>
-<blockquote>
-<p>node -v<br>npm -v</p>
-</blockquote>
-<p>如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！</p>
-<h2 id="注册npm镜像"><a href="#注册npm镜像" class="headerlink" title="注册npm镜像"></a>注册npm镜像</h2><p>不建议直接将npm设置为淘宝镜像，而是注册cnpm指令。方便之后有选择性的使用npm或者cnpm</p>
-<blockquote>
-<p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p>
-</blockquote>
-<h2 id="Electron安装"><a href="#Electron安装" class="headerlink" title="Electron安装"></a>Electron安装</h2><p>国外站点速度太慢，直接使用cnpm来安装electron。<br>cnpm install -g electron</p>
-<h2 id="新建配置Electron项目"><a href="#新建配置Electron项目" class="headerlink" title="新建配置Electron项目"></a>新建配置Electron项目</h2><p>在相应目录新建项目目录</p>
-<blockquote>
-<p>mkdir eledemo</p>
-</blockquote>
-<p>进入目录</p>
-<blockquote>
-<p>cd eledemo</p>
-</blockquote>
-<p>初始化项目，创建package.json</p>
-<blockquote>
-<p>npm init -y</p>
-</blockquote>
-<p>使用VSCode打开项目文件夹</p>
-<blockquote>
-<p>code .</p>
-</blockquote>
-<p>VSCode中无法使用cnpm需要使用PowerShell进行授权<br>执行set-ExecutionPolicy RemoteSigned命令，然后选A</p>
-<p>添加electron依赖</p>
-<blockquote>
-<p>cnpm install electron -S</p>
-</blockquote>
-<p>修改package.json</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"eledemo"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"This is an electron demo project."</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"main.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: {</span><br><span class="line">    <span class="attr">"start"</span>: <span class="string">"electron ."</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">"keywords"</span>: [],</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="attr">"dependencies"</span>: {</span><br><span class="line">    <span class="attr">"electron"</span>: <span class="string">"^8.2.5"</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>新建main.js文件</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> electron = <span class="built_in">require</span>(<span class="string">'electron'</span>);</span><br><span class="line"><span class="keyword">const</span> {app, BrowserWindow} = <span class="built_in">require</span>(<span class="string">'electron'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mainWindow;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createWindow</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">// Create the browser window.</span></span><br><span class="line">    mainWindow = <span class="keyword">new</span> BrowserWindow({</span><br><span class="line">        width: <span class="number">1024</span>, </span><br><span class="line">        height: <span class="number">640</span>,</span><br><span class="line">        transparent: <span class="literal">false</span>,</span><br><span class="line">        frame: <span class="literal">true</span>,</span><br><span class="line">        resizable : <span class="literal">true</span> <span class="comment">//固定大小</span></span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> URL = url.format({</span><br><span class="line">        pathname: path.join(__dirname, <span class="string">'index.html'</span>),</span><br><span class="line">        protocol: <span class="string">'file:'</span>,</span><br><span class="line">        slashes: <span class="literal">true</span></span><br><span class="line">      })</span><br><span class="line"></span><br><span class="line">    mainWindow.loadURL(URL);</span><br><span class="line">    <span class="built_in">console</span>.log(URL);</span><br><span class="line">    mainWindow.openDevTools()</span><br><span class="line"></span><br><span class="line">    mainWindow.on(<span class="string">'closed'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">      mainWindow = <span class="literal">null</span>;</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">'ready'</span>, createWindow);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quit when all windows are closed.</span></span><br><span class="line">app.on(<span class="string">'window-all-closed'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">  <span class="comment">// On OS X it is common for applications and their menu bar</span></span><br><span class="line">  <span class="comment">// to stay active until the user quits explicitly with Cmd + Q</span></span><br><span class="line">  <span class="keyword">if</span> (process.platform !== <span class="string">'darwin'</span>) {</span><br><span class="line">    app.quit();</span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">'activate'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">  <span class="comment">// On OS X it's common to re-create a window in the app when the</span></span><br><span class="line">  <span class="comment">// dock icon is clicked and there are no other windows open.</span></span><br><span class="line">  <span class="keyword">if</span> (mainWindow === <span class="literal">null</span>) {</span><br><span class="line">    createWindow();</span><br><span class="line">  }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<p>新建index.html文件</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    hello! This is an electron project.</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>运行项目</p>
-<blockquote>
-<p>cnpm install<br>npm start</p>
-</blockquote>
-<p>添加应用图标文件logo.png<br>修改main.js文件</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createWindow</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> ico = path.join(__dirname, <span class="string">'img'</span>, <span class="string">'logo-28.png'</span>);</span><br><span class="line">    <span class="comment">// Create the browser window.</span></span><br><span class="line">    mainWindow = <span class="keyword">new</span> BrowserWindow({</span><br><span class="line">        width: <span class="number">1024</span>,</span><br><span class="line">        height: <span class="number">640</span>,</span><br><span class="line">        transparent: <span class="literal">false</span>,</span><br><span class="line">        frame: <span class="literal">true</span>,</span><br><span class="line">        icon: ico,</span><br><span class="line">        resizable: <span class="literal">true</span> <span class="comment">//固定大小</span></span><br><span class="line">    });</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="使用VSCODE调试Electron项目"><a href="#使用VSCODE调试Electron项目" class="headerlink" title="使用VSCODE调试Electron项目"></a>使用VSCODE调试Electron项目</h2><p>打开VSCODE的调试窗口，添加调试配置文件（nodejs）</p>
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">    "version": "0.2.0",</span><br><span class="line">    "configurations": [</span><br><span class="line">        {</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"node"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"Electron Main"</span>,</span><br><span class="line">            <span class="attr">"runtimeExecutable"</span>: <span class="string">"${workspaceFolder}/node_modules/.bin/electron"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"${workspaceFolder}/main.js"</span>,</span><br><span class="line">            <span class="attr">"protocol"</span>: <span class="string">"inspector"</span> //添加默认的协议是legacy，这个协议导致不进入断点</span><br><span class="line">        }</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p>转载：<a href="https://www.cnblogs.com/songhaipeng/p/12857912.html" target="_blank" rel="noopener">https://www.cnblogs.com/songhaipeng/p/12857912.html</a></p>
-</blockquote>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
             <a href="/2021/03/20/VSCode配置Electron开发环境/" class="post-more waves-button">
@@ -384,35 +310,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p> QMake本身就提供了在pro下可判断平台的变量参数，如下： </p>
+        <p>QMake本身就提供了在pro下可判断平台的变量参数，如下： </p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">macx {</span><br><span class="line"><span class="comment"># mac only</span></span><br><span class="line">}</span><br><span class="line">ios{</span><br><span class="line"><span class="comment"># ios only</span></span><br><span class="line">}</span><br><span class="line">android{</span><br><span class="line"><span class="comment"># android only</span></span><br><span class="line">}</span><br><span class="line">unix:!macx{</span><br><span class="line"><span class="comment"># linux only</span></span><br><span class="line">}</span><br><span class="line">win32 {</span><br><span class="line"><span class="comment"># windows only</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>linux</strong>(也可以作为android平台)并没有单独的参数判断，但是可以通过是否是<strong>unix</strong>并且不是<strong>mac os x</strong>来判断是在<strong>linux</strong>系统底下。</p>
-<p>若根据某些宏是否存在来执行不同的配置则可以：</p>
-<p>添加宏定义：</p>
-<p><code>DEFINES += TEST</code></p>
-<p>判断宏定义是否存在:</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">contains(DEFINES, TEST) {</span><br><span class="line">    message(<span class="string">'--&gt;&gt;(DEFINES, TEST)'</span>)</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    message(<span class="string">'--&gt;&gt;not contains (DEFINES, TEST)'</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
     
         <div class="post-more-div">
             <a href="/2021/03/14/Qt在pro文件中条件编译/" class="post-more waves-button">
@@ -711,29 +610,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <a id="more"></a>
+        <h2 id="卡在flutter-pub-get不动"><a href="#卡在flutter-pub-get不动" class="headerlink" title="卡在flutter pub get不动"></a>卡在<code>flutter pub get</code>不动</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//命令行输入</span><br><span class="line">vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line">//添加下面三行，保存</span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line">export PATH=/Users/计算机名称/flutter/bin:$PATH  //下载的flutterSDK的路径</span><br><span class="line"></span><br><span class="line">//命令行输入</span><br><span class="line">source ~/.bash_profile</span><br><span class="line">flutter -h</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHomePage</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="keyword">final</span> number = <span class="keyword">new</span> ValueNotifier(<span class="number">0</span>);<span class="comment">//值变化通知</span></span><br><span class="line"> </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">      body: ValueListenableBuilder&lt;<span class="built_in">int</span>&gt;(</span><br><span class="line">        valueListenable: number,</span><br><span class="line">        builder: (context, value, child) {</span><br><span class="line">          <span class="keyword">return</span> Center(</span><br><span class="line">            child: RaisedButton(</span><br><span class="line">              onPressed: () {</span><br><span class="line">                number.value++;<span class="comment">//触发通知</span></span><br><span class="line">              },</span><br><span class="line">              child: MyWidget(number),</span><br><span class="line">            ),</span><br><span class="line">          );</span><br><span class="line">        },</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyWidget</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="keyword">final</span> ValueListenable&lt;<span class="built_in">int</span>&gt; number;</span><br><span class="line"> </span><br><span class="line">  MyWidget(<span class="keyword">this</span>.number);</span><br><span class="line"> </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Text(number.value.toString());<span class="comment">//同步变化</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<p>运行 <code>flutter doctor</code> 命令，再 <code>package get</code></p>
     
         <div class="post-more-div">
             <a href="/2021/01/31/Flutter各种问题/" class="post-more waves-button">
@@ -1166,37 +1045,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <a id="more"></a>
-
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sapi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sphelper.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> isCreatWavFile = <span class="literal">false</span>; <span class="comment">// false播放出来，true输出到.wav音频文件</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	ISpVoice* pVoice = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">if</span> (FAILED(::CoInitialize(<span class="literal">NULL</span>)))</span><br><span class="line">		<span class="keyword">return</span> FALSE;</span><br><span class="line">	HRESULT hr = CoCreateInstance(CLSID_SpVoice, <span class="literal">NULL</span>, CLSCTX_ALL, IID_ISpVoice, (<span class="keyword">void</span>**)&amp;pVoice);</span><br><span class="line">	<span class="keyword">if</span> (SUCCEEDED(hr))</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span> (isCreatWavFile) <span class="comment">// 输出到文件（不播放）</span></span><br><span class="line">		{</span><br><span class="line">			CComPtr &lt;ISpStream&gt; cpWavStream;</span><br><span class="line">			CComPtr &lt;ISpStreamFormat&gt; cpOldStream;</span><br><span class="line">			CSpStreamFormat originalFmt;</span><br><span class="line">			pVoice-&gt;GetOutputStream(&amp;cpOldStream);</span><br><span class="line">			originalFmt.AssignFormat(cpOldStream);</span><br><span class="line">			hr = SPBindToFile(<span class="string">L"d:\\output.wav"</span>, SPFM_CREATE_ALWAYS, &amp;cpWavStream, &amp;originalFmt.FormatId(), originalFmt.WaveFormatExPtr());</span><br><span class="line">			<span class="keyword">if</span> (SUCCEEDED(hr))</span><br><span class="line">			{</span><br><span class="line">				pVoice-&gt;SetOutput(cpWavStream, TRUE);</span><br><span class="line">				WCHAR WTX[] = <span class="string">L"凡事何必都看淡，自己理解就很好，决定我们一生的，是我们的选择。我们时刻都在失去，我们努力的想去拥有更多的精彩，可惜只有两只手，所以必须学会选择，学会放弃。要清楚哪些是我们不需要的，如果心的欲望太大，什么都想抓，可能最后什么知足心灵。只平淡命运无奈"</span>;</span><br><span class="line">				pVoice-&gt;Speak(WTX, SPF_IS_XML, <span class="literal">NULL</span>);</span><br><span class="line">				pVoice-&gt;Release();</span><br><span class="line">				pVoice = <span class="literal">NULL</span>;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">else</span> <span class="comment">// 播放</span></span><br><span class="line">		{</span><br><span class="line">			hr = pVoice-&gt;Speak(<span class="string">L"Hello World"</span>, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br><span class="line">			pVoice-&gt;Release();</span><br><span class="line">			pVoice = <span class="literal">NULL</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	::CoUninitialize();</span><br><span class="line">	<span class="keyword">return</span> TRUE;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<blockquote>
-<p>如果运行过程中出现error C4996:’GetVersionExW’:被声明为已否决的错误，请请右键-项目-属性-C/C++-常规-SDL检查-否（/sdl）就可解决。</p>
-</blockquote>
-<blockquote>
-<p>转自：<a href="https://blog.csdn.net/wuquanl/article/details/79525314" target="_blank" rel="noopener">https://blog.csdn.net/wuquanl/article/details/79525314</a></p>
-</blockquote>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+        <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sapi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sphelper.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> isCreatWavFile = <span class="literal">false</span>; <span class="comment">// false播放出来，true输出到.wav音频文件</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	ISpVoice* pVoice = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">if</span> (FAILED(::CoInitialize(<span class="literal">NULL</span>)))</span><br><span class="line">		<span class="keyword">return</span> FALSE;</span><br><span class="line">	HRESULT hr = CoCreateInstance(CLSID_SpVoice, <span class="literal">NULL</span>, CLSCTX_ALL, IID_ISpVoice, (<span class="keyword">void</span>**)&amp;pVoice);</span><br><span class="line">	<span class="keyword">if</span> (SUCCEEDED(hr))</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span> (isCreatWavFile) <span class="comment">// 输出到文件（不播放）</span></span><br><span class="line">		{</span><br><span class="line">			CComPtr &lt;ISpStream&gt; cpWavStream;</span><br><span class="line">			CComPtr &lt;ISpStreamFormat&gt; cpOldStream;</span><br><span class="line">			CSpStreamFormat originalFmt;</span><br><span class="line">			pVoice-&gt;GetOutputStream(&amp;cpOldStream);</span><br><span class="line">			originalFmt.AssignFormat(cpOldStream);</span><br><span class="line">			hr = SPBindToFile(<span class="string">L"d:\\output.wav"</span>, SPFM_CREATE_ALWAYS, &amp;cpWavStream, &amp;originalFmt.FormatId(), originalFmt.WaveFormatExPtr());</span><br><span class="line">			<span class="keyword">if</span> (SUCCEEDED(hr))</span><br><span class="line">			{</span><br><span class="line">				pVoice-&gt;SetOutput(cpWavStream, TRUE);</span><br><span class="line">				WCHAR WTX[] = <span class="string">L"凡事何必都看淡，自己理解就很好，决定我们一生的，是我们的选择。我们时刻都在失去，我们努力的想去拥有更多的精彩，可惜只有两只手，所以必须学会选择，学会放弃。要清楚哪些是我们不需要的，如果心的欲望太大，什么都想抓，可能最后什么知足心灵。只平淡命运无奈"</span>;</span><br><span class="line">				pVoice-&gt;Speak(WTX, SPF_IS_XML, <span class="literal">NULL</span>);</span><br><span class="line">				pVoice-&gt;Release();</span><br><span class="line">				pVoice = <span class="literal">NULL</span>;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">else</span> <span class="comment">// 播放</span></span><br><span class="line">		{</span><br><span class="line">			hr = pVoice-&gt;Speak(<span class="string">L"Hello World"</span>, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br><span class="line">			pVoice-&gt;Release();</span><br><span class="line">			pVoice = <span class="literal">NULL</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	::CoUninitialize();</span><br><span class="line">	<span class="keyword">return</span> TRUE;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
     
         <div class="post-more-div">
             <a href="/2020/12/24/C-文字转语音并保存到文件/" class="post-more waves-button">

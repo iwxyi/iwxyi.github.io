@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="QMake本身就提供了在pro下可判断平台的变量参数，如下：  123456789101112131415macx {# mac only}ios{# ios only}android{# android only}unix:!macx{# linux only}win32 {# windows only}  linux(也可以作为android平台)并没有单独的参数判断，但是可以通过是否是un">
+    <meta name="description" content="QMake本身就提供了在pro下可判断平台的变量参数，如下：  123456789101112131415macx {# mac only}ios{# ios only}android{# android only}unix:!macx{# linux only}win32 {# windows only}">
 <meta name="keywords" content="Qt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt在pro文件中条件编译">
 <meta property="og:url" content="http://blog.iwxyi.com/2021/03/14/Qt在pro文件中条件编译/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="QMake本身就提供了在pro下可判断平台的变量参数，如下：  123456789101112131415macx {# mac only}ios{# ios only}android{# android only}unix:!macx{# linux only}win32 {# windows only}  linux(也可以作为android平台)并没有单独的参数判断，但是可以通过是否是un">
+<meta property="og:description" content="QMake本身就提供了在pro下可判断平台的变量参数，如下：  123456789101112131415macx {# mac only}ios{# ios only}android{# android only}unix:!macx{# linux only}win32 {# windows only}">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-24T08:46:16.427Z">
+<meta property="og:updated_time" content="2021-03-25T01:28:43.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt在pro文件中条件编译">
-<meta name="twitter:description" content="QMake本身就提供了在pro下可判断平台的变量参数，如下：  123456789101112131415macx {# mac only}ios{# ios only}android{# android only}unix:!macx{# linux only}win32 {# windows only}  linux(也可以作为android平台)并没有单独的参数判断，但是可以通过是否是un">
+<meta name="twitter:description" content="QMake本身就提供了在pro下可判断平台的变量参数，如下：  123456789101112131415macx {# mac only}ios{# ios only}android{# android only}unix:!macx{# linux only}win32 {# windows only}">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -220,17 +220,16 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p> QMake本身就提供了在pro下可判断平台的变量参数，如下： </p>
+            <p>QMake本身就提供了在pro下可判断平台的变量参数，如下： </p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">macx {</span><br><span class="line"><span class="comment"># mac only</span></span><br><span class="line">}</span><br><span class="line">ios{</span><br><span class="line"><span class="comment"># ios only</span></span><br><span class="line">}</span><br><span class="line">android{</span><br><span class="line"><span class="comment"># android only</span></span><br><span class="line">}</span><br><span class="line">unix:!macx{</span><br><span class="line"><span class="comment"># linux only</span></span><br><span class="line">}</span><br><span class="line">win32 {</span><br><span class="line"><span class="comment"># windows only</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
+<a id="more"></a>
 <p><strong>linux</strong>(也可以作为android平台)并没有单独的参数判断，但是可以通过是否是<strong>unix</strong>并且不是<strong>mac os x</strong>来判断是在<strong>linux</strong>系统底下。</p>
 <p>若根据某些宏是否存在来执行不同的配置则可以：</p>
 <p>添加宏定义：</p>
 <p><code>DEFINES += TEST</code></p>
 <p>判断宏定义是否存在:</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">contains(DEFINES, TEST) {</span><br><span class="line">    message(<span class="string">'--&gt;&gt;(DEFINES, TEST)'</span>)</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    message(<span class="string">'--&gt;&gt;not contains (DEFINES, TEST)'</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">contains(DEFINES, TEST) {</span><br><span class="line">    message(<span class="string">'--&gt;&gt;(DEFINES, TEST)'</span>)</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    message(<span class="string">'--&gt;&gt;not contains (DEFINES, TEST)'</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -255,7 +254,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2021-03-24T08:46:16.427Z" itemprop="dateUpdated">2021-03-24 16:46:16</time>
+    最后更新：<time datetime="2021-03-25T01:28:43.086Z" itemprop="dateUpdated">2021-03-25 09:28:43</time>
 </span>
 
 
@@ -302,7 +301,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/03/14/Qt在pro文件中条件编译/&title=《Qt在pro文件中条件编译》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/03/14/Qt在pro文件中条件编译/&title=《Qt在pro文件中条件编译》 — 云笺&source=QMake本身就提供了在pro下可判断平台的变量参数，如下： 
+123456789101112131415macx {# mac only}ios{# i..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -484,7 +484,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/03/14/Qt在pro文件中条件编译/&title=《Qt在pro文件中条件编译》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/03/14/Qt在pro文件中条件编译/&title=《Qt在pro文件中条件编译》 — 云笺&source=QMake本身就提供了在pro下可判断平台的变量参数，如下： 
+123456789101112131415macx {# mac only}ios{# i..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
