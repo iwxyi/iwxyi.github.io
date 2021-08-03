@@ -194,6 +194,742 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-一加7Pro开启全局90Hz"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/06/22/一加7Pro开启全局90Hz/">一加7Pro开启全局90Hz</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-06-22 19:57:00" datetime="2019-06-22T11:57:00.000Z"  itemprop="datePublished">2019-06-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>电脑adb：<br><code>adb shell settings put global oneplus_screen_refresh_rate 0</code></p>
+<p>本地终端：<br><code>settings put global oneplus_screen_refresh_rate 0</code></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/2019/06/22/一加7Pro开启全局90Hz/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搞机/">搞机</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt加载自定义字体"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/05/28/Qt加载自定义字体/">Qt加载自定义字体</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-05-28 17:01:00" datetime="2019-05-28T09:01:00.000Z"  itemprop="datePublished">2019-05-28</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>加载外部字体，但是会稍微影响开启速度。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/05/28/Qt加载自定义字体/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-调用Python"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/05/27/C-调用Python/">C++调用Python</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-05-27 13:35:00" datetime="2019-05-27T05:35:00.000Z"  itemprop="datePublished">2019-05-27</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><strong>Python代码</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fastText</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断小说类型的调用语句</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">judge</span><span class="params">(novel)</span>:</span></span><br><span class="line">    print(novel, <span class="string">" : "</span>, classifier.predict(<span class="string">" "</span>.join(jieba.cut(novel))))</span><br><span class="line">    <span class="keyword">return</span> str(classifier.predict(<span class="string">" "</span>.join(jieba.cut(novel)))[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># classifier = fastText.train_supervised("data/novel_names.txt", lr=0.1, wordNgrams=1, loss="hs", epoch=20)</span></span><br><span class="line"><span class="comment"># model = classifier.save_model("data/novel_names.model")</span></span><br><span class="line">classifier = fastText.load_model(<span class="string">"data/novel_names.model"</span>)</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/05/27/C-调用Python/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-FastText心得"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/05/20/FastText心得/">FastText心得</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-05-20 13:36:00" datetime="2019-05-20T05:36:00.000Z"  itemprop="datePublished">2019-05-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>方法一：手动安装</p>
+<p>下载<a href="https://github.com/xiamx/fastText/releases" target="_blank" rel="noopener">https://github.com/xiamx/fastText/releases</a>的<code>source code(zip)</code>，解压后打开，输入：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip setup.py install</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/05/20/FastText心得/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Windows下建立Linux子系统"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/05/19/Windows下建立Linux子系统/">Windows下建立Linux子系统</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-05-19 14:02:00" datetime="2019-05-19T06:02:00.000Z"  itemprop="datePublished">2019-05-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="在windows开窗口："><a href="#在windows开窗口：" class="headerlink" title="在windows开窗口："></a>在windows开窗口：</h4><p>先打开 xming，再输入：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISPLAY=:0 firefox</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/05/19/Windows下建立Linux子系统/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Git用法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/05/16/Git用法/">Git用法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-05-16 14:01:00" datetime="2019-05-16T06:01:00.000Z"  itemprop="datePublished">2019-05-16</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="Git-用法"><a href="#Git-用法" class="headerlink" title="Git 用法"></a>Git 用法</h1><h2 id="下载Git"><a href="#下载Git" class="headerlink" title="下载Git"></a>下载Git</h2><p>git-x.x.x-64-bit.exe</p>
+<p>下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+<p>一路默认安装</p>
+<blockquote>
+<p>linux下安装：<code>sudo apt-get install git</code></p>
+</blockquote>
+    
+        <div class="post-more-div">
+            <a href="/2019/05/16/Git用法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt屏蔽中文输入法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/05/05/Qt屏蔽中文输入法/">Qt屏蔽中文输入法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-05-05 20:00:00" datetime="2019-05-05T12:00:00.000Z"  itemprop="datePublished">2019-05-05</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>只在屏蔽输入法的QLineEdit上调用：</p>
+<p><code>setAttribute(Qt::WA_InputMethodEnabled, false);</code></p>
+<p>接下来就能监听到各种按键事件</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/2019/05/05/Qt屏蔽中文输入法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Python网络爬虫"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/05/02/Python网络爬虫/">Python网络爬虫</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-05-02 13:41:00" datetime="2019-05-02T05:41:00.000Z"  itemprop="datePublished">2019-05-02</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>一个提取起点小说名称的例子</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/05/02/Python网络爬虫/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Jiaba分词"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/05/02/Jiaba分词/">Jiaba分词</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-05-02 13:37:00" datetime="2019-05-02T05:37:00.000Z"  itemprop="datePublished">2019-05-02</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="Jieba"><a href="#Jieba" class="headerlink" title="Jieba"></a>Jieba</h1><p>“结巴”中文分词：做最好的 Python 中文分词组件<br>github : <a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">https://github.com/fxsjy/jieba</a></p>
+<p>特点</p>
+<ul>
+<li>支持三种分词模式<ul>
+<li>精确模式，试图将句子最精确地切开，适合文本分析；</li>
+<li>全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；</li>
+<li>搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</li>
+</ul>
+</li>
+<li>支持繁体分词</li>
+<li>支持自定义词典</li>
+<li>MIT 授权协议</li>
+</ul>
+    
+        <div class="post-more-div">
+            <a href="/2019/05/02/Jiaba分词/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-使用Telegram收发微信"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/04/30/使用Telegram收发微信/">使用Telegram收发微信</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-04-30 13:58:00" datetime="2019-04-30T05:58:00.000Z"  itemprop="datePublished">2019-04-30</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>发代号 EH Forwarder Bot（简称 EFB）是一个可扩展的聊天平台隧道框架，基于 Python 3。目前已内置了 Telegram 主端 (Master Channel) 和微信从端 (Slave Channel)，用来在 Telegram 收发微信消息。其他从端开发已在计划之中。同时 EFB 也配备了详尽的文档，欢迎有兴趣的朋友们开发自己的主端或从端，来支持更多的平台。EFB <a href="https://github.com/blueset/ehforwarderbot" target="_blank" rel="noopener">在 GitHub 中开放了源代码</a>，并且<a href="https://ehforwarderbot.readthedocs.io/" target="_blank" rel="noopener">在 Read The Docs 平台上发布的开发文档</a>（英文，<code>en-US</code>）。</p>
+<p>本文主要介绍了如何在一个虚拟服务器 (VPS) 中安装并配置 EFB、Telegram 主端和微信从端，以及如何使用 Telegram 主端来收发微信消息。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/04/30/使用Telegram收发微信/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-CSS样式表大全"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/04/24/CSS样式表大全/">CSS样式表大全</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-04-24 13:02:00" datetime="2019-04-24T05:02:00.000Z"  itemprop="datePublished">2019-04-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="一、CSS文字属性："><a href="#一、CSS文字属性：" class="headerlink" title="一、CSS文字属性："></a>一、CSS文字属性：</h2><ul>
+<li>color : #999999; /<em>文字颜色</em>/</li>
+<li>font-family : 宋体,sans-serif; /<em>文字字体</em>/</li>
+<li>font-size : 9pt; /<em>文字大小</em>/</li>
+<li>font-style:itelic; /<em>文字斜体</em>/</li></ul>
+    
+        <div class="post-more-div">
+            <a href="/2019/04/24/CSS样式表大全/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/整理/">整理</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-PHP时间戳转易读性文本"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/04/20/PHP时间戳转易读性文本/">PHP时间戳转易读性文本</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-04-20 16:13:00" datetime="2019-04-20T08:13:00.000Z"  itemprop="datePublished">2019-04-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>将两个时间戳的差（秒）转化成字符串</p>
+<p>比如“x分钟前”、“x小时前”</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/04/20/PHP时间戳转易读性文本/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HTML表单即将提交事件"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/04/20/HTML表单即将提交事件/">HTML表单即将提交事件</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-04-20 13:06:00" datetime="2019-04-20T05:06:00.000Z"  itemprop="datePublished">2019-04-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"insert.php"</span> <span class="attr">onsubmit</span>=<span class="string">"return onSubmit()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">id</span>=<span class="string">"title"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">onSubmit</span><span class="params">()</span></span></span></span><br><span class="line">    {</span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ( $(<span class="string">"#title"</span>).val(); == <span class="string">""</span> ) {</span></span><br><span class="line"><span class="actionscript">            alert(<span class="string">"请输入标题"</span>);</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> <span class="literal">true</span>;</span></span><br><span class="line">    }</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/2019/04/20/HTML表单即将提交事件/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-CSS圆角头像"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/04/20/CSS圆角头像/">CSS圆角头像</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-04-20 12:58:00" datetime="2019-04-20T04:58:00.000Z"  itemprop="datePublished">2019-04-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>CSS:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.round_icon</span>{</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">34px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">34px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/04/20/CSS圆角头像/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-new和malloc的区别"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/04/18/C-new和malloc的区别/">C++ new和malloc的10点区别</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-04-18 08:27:00" datetime="2019-04-18T00:27:00.000Z"  itemprop="datePublished">2019-04-18</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        ## 1. 申请的内存所在位置
+
+<p>new操作符从<strong>自由存储区（free store）</strong>上为对象动态分配内存空间，而malloc函数从<strong>堆</strong>上动态分配内存。自由存储区是C++基于new操作符的一个抽象概念，凡是通过new操作符进行内存申请，该内存即为自由存储区。而堆是操作系统中的术语，是操作系统所维护的一块特殊内存，用于程序的内存动态分配，C语言使用malloc从堆上分配内存，使用free释放已分配的对应内存。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/04/18/C-new和malloc的区别/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存管理/">内存管理</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-公众号token服务器配置"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -431,672 +1167,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-Android自定义输入对话框，带联网"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/21/Android自定义输入对话框，带联网/">Android自定义输入对话框，带联网</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-21 11:36:00" datetime="2019-03-21T03:36:00.000Z"  itemprop="datePublished">2019-03-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>自定义输入方式，回调方法，带输入后联网示例</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/21/Android自定义输入对话框，带联网/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android状态栏透明"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/21/Android状态栏透明/">Android状态栏透明</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-21 11:32:00" datetime="2019-03-21T03:32:00.000Z"  itemprop="datePublished">2019-03-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>Java文件：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">    <span class="comment">//透明状态栏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><br><span class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/21/Android状态栏透明/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-JS复制字符串到剪贴板"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/16/JS复制字符串到剪贴板/">JS复制字符串到剪贴板</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-16 15:37:00" datetime="2019-03-16T07:37:00.000Z"  itemprop="datePublished">2019-03-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>简单原理：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(<span class="string">"textarea"</span>);</span><br><span class="line">textArea.value = text;</span><br><span class="line">textArea.select();</span><br><span class="line"><span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.removeChild(textArea);</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/16/JS复制字符串到剪贴板/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android线性时间选择器"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/16/Android线性时间选择器/">Android线性时间选择器</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-16 11:24:00" datetime="2019-03-16T03:24:00.000Z"  itemprop="datePublished">2019-03-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>build.gradle(Module:app)</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation 'net.codecrafted:lineartimepicker:1.0.0' // 线性日期时间选择器</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/16/Android线性时间选择器/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android简单联网应用"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/16/Android简单联网应用/">Android简单联网应用</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-16 11:17:00" datetime="2019-03-16T03:17:00.000Z"  itemprop="datePublished">2019-03-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="解决Handler问题"><a href="#解决Handler问题" class="headerlink" title="解决Handler问题"></a>解决Handler问题</h2>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/16/Android简单联网应用/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android圆形头像控件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/07/Android圆形头像控件/">Android圆形头像控件</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-07 11:27:00" datetime="2019-03-07T03:27:00.000Z"  itemprop="datePublished">2019-03-07</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="1、自定义控件方式"><a href="#1、自定义控件方式" class="headerlink" title="1、自定义控件方式"></a>1、自定义控件方式</h1>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/07/Android圆形头像控件/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-PHP-Redis"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/05/PHP-Redis/">PHP Redis</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-05 16:29:00" datetime="2019-03-05T08:29:00.000Z"  itemprop="datePublished">2019-03-05</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>开始在 PHP 中使用 Redis 前， 我们需要确保已经安装了 redis 服务及 PHP redis 驱动，且你的机器上能正常使用 PHP。 接下来让我们安装 PHP redis 驱动：下载地址为:<a href="https://github.com/phpredis/phpredis/releases" target="_blank" rel="noopener"><strong>https://github.com/phpredis/phpredis/releases</strong></a>。</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/05/PHP-Redis/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AJAX"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/02/28/AJAX/">AJAX</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-02-28 15:42:00" datetime="2019-02-28T07:42:00.000Z"  itemprop="datePublished">2019-02-28</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>纯粹的 AJAX</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveInfo</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">var</span> XHR = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">var</span> FD = <span class="keyword">new</span> FormData();</span><br><span class="line">	<span class="keyword">var</span> name = <span class="built_in">document</span>.getElementById(<span class="string">"name"</span>).value;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)</span><br><span class="line">		XHR = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.ActiveXObject)</span><br><span class="line">		XHR = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">	</span><br><span class="line">	FD.append(<span class="string">"name"</span>, name);</span><br><span class="line">	</span><br><span class="line">	XHR.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">if</span> (XHR.readyState == <span class="number">4</span> &amp;&amp; XHR.status == <span class="number">200</span>)</span><br><span class="line">		{</span><br><span class="line">			<span class="keyword">var</span> text = XHR.responseText; <span class="comment">// 返回的文本</span></span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	XHR.open(<span class="string">'POST'</span>, <span class="string">'index.php'</span>, <span class="literal">true</span>)</span><br><span class="line">	XHR.send(FD);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/02/28/AJAX/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/">AJAX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Java-Lambda表达式简写"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/02/28/Java-Lambda表达式简写/">Java Lambda表达式简写</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-02-28 13:11:00" datetime="2019-02-28T05:11:00.000Z"  itemprop="datePublished">2019-02-28</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="1、取代匿名内部类"><a href="#1、取代匿名内部类" class="headerlink" title="1、取代匿名内部类"></a>1、取代匿名内部类</h2><h3 id="无参函数简写"><a href="#无参函数简写" class="headerlink" title="无参函数简写"></a>无参函数简写</h3><p>如果需要新建一个线程，一种常见的写法是这样：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JDK7 匿名内部类写法</span></span><br><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable(){<span class="comment">// 接口名</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{<span class="comment">// 方法名</span></span><br><span class="line">        System.out.println(<span class="string">"Thread run()"</span>);</span><br><span class="line">    }</span><br><span class="line">}).start();</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/02/28/Java-Lambda表达式简写/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lambda/">Lambda</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-generate生成"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/02/28/C-generate生成/">C++ generate生成</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-02-28 07:51:00" datetime="2019-02-27T23:51:00.000Z"  itemprop="datePublished">2019-02-28</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>根据首地址和尾地址来赋值：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">ForwardIterator</span>, <span class="title">class</span> <span class="title">Generator</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">generate</span>(</span></span><br><span class="line"><span class="class">	<span class="title">ForwardIterator</span> _<span class="title">First</span>,</span></span><br><span class="line"><span class="class">	<span class="title">ForwardIterator</span> _<span class="title">Last</span>,</span></span><br><span class="line"><span class="class">	<span class="title">Generator</span> _<span class="title">Gen</span></span></span><br><span class="line"><span class="class">);</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>每次调用该对象，函数为范围的每个元素调用，且不需要返回相同的值。例如，从文件读取或引用和修改本地状态。 生成器的结果类型必须可转换为可用于向前迭代器类型的值范围的。</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/02/28/C-generate生成/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android选取相册图片并压缩"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/02/27/Android选取相册图片并压缩/">Android选取相册图片并压缩</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-02-27 11:25:00" datetime="2019-02-27T03:25:00.000Z"  itemprop="datePublished">2019-02-27</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>现在手机中相机的像素越来越高因,手机照的相片就越来越来大, 我们想通过选择相册中图片来显示在界面中,或者进行分享. 因为图片太大的原因很容易造成手机出现OMM而崩溃,一些分享照片的平台对分享图片的大小也有一定的限制.所以我们就必须对从相册选出来的图片进行压缩.</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/02/27/Android选取相册图片并压缩/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android双指触摸放大图片"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/02/26/Android双指触摸放大图片/">Android双指触摸放大图片</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-02-26 11:23:00" datetime="2019-02-26T03:23:00.000Z"  itemprop="datePublished">2019-02-26</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><code>View.OnTouchListener</code>，<code>MotionEvent.ACTION_POINTER_DOWN</code>、<code>MotionEvent.ACTION_MOVE</code></p>
-    
-        <div class="post-more-div">
-            <a href="/2019/02/26/Android双指触摸放大图片/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android动态创建控件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/02/26/Android动态创建控件/">Android动态创建控件</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-02-26 11:09:00" datetime="2019-02-26T03:09:00.000Z"  itemprop="datePublished">2019-02-26</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="动态创建绝对布局的控件"><a href="#动态创建绝对布局的控件" class="headerlink" title="动态创建绝对布局的控件"></a>动态创建绝对布局的控件</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>{</span><br><span class="line">    TextView tv = <span class="keyword">new</span> TextView(<span class="keyword">this</span>);</span><br><span class="line">    tv.setText(<span class="string">"TextView的内容"</span>);</span><br><span class="line">    AbsoluteLayout.LayoutParams lp1 = <span class="keyword">new</span> AbsoluteLayout.LayoutParams(</span><br><span class="line">            ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, <span class="number">0</span>,<span class="number">100</span>);</span><br><span class="line">    absoluteLayout.addView(tv, lp1);</span><br><span class="line">    <span class="comment">//tv.layout(100, 100, 100, 100);</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果原来是 LinearLayout 等布局，则可以嵌套在一个 AbsoluteLayout 中</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/02/26/Android动态创建控件/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android等待对话框"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/02/23/Android等待对话框/">Android等待对话框</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-02-23 11:06:00" datetime="2019-02-23T03:06:00.000Z"  itemprop="datePublished">2019-02-23</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>导入包(自动)</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.app.ProgressDialog;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>声明全局变量</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> ProgressDialog progressDialog;</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/02/23/Android等待对话框/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-Toast获取全局上下文的静态方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/02/21/Android-Toast获取全局上下文的静态方法/">Android Toast获取全局上下文的静态方法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-02-21 10:57:00" datetime="2019-02-21T02:57:00.000Z"  itemprop="datePublished">2019-02-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>用这个方法，toast即可全局使用……</p>
-<p>因为发现 Log 有时候会打印不出来（强转或出错），所以就改用 toast</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/02/21/Android-Toast获取全局上下文的静态方法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
     </div>
 </nav>
 

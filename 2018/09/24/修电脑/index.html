@@ -49,7 +49,7 @@
 <meta property="og:site_name" content="云笺">
 <meta property="og:description" content="WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。 解决方法： regedit进入注册表管理器，定位到HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-27T06:08:42.197Z">
+<meta property="og:updated_time" content="2021-08-03T02:58:36.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修电脑">
 <meta name="twitter:description" content="WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。 解决方法： regedit进入注册表管理器，定位到HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785">
@@ -194,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WIN无操作自动休眠"><span class="post-toc-number">1.</span> <span class="post-toc-text">WIN无操作自动休眠</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开关操作中心"><span class="post-toc-number">2.</span> <span class="post-toc-text">开关操作中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开启休眠选项"><span class="post-toc-number">3.</span> <span class="post-toc-text">开启休眠选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改安装路径"><span class="post-toc-number">4.</span> <span class="post-toc-text">修改安装路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#npm"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">npm</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#连接wifi，提示需要执行操作，并自动打开微软网站的问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">连接wifi，提示需要执行操作，并自动打开微软网站的问题</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WIN无操作自动休眠"><span class="post-toc-number">1.</span> <span class="post-toc-text">WIN无操作自动休眠</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开关操作中心"><span class="post-toc-number">2.</span> <span class="post-toc-text">开关操作中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开启休眠选项"><span class="post-toc-number">3.</span> <span class="post-toc-text">开启休眠选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改安装路径"><span class="post-toc-number">4.</span> <span class="post-toc-text">修改安装路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#npm"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">npm</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#连接wifi，提示需要执行操作，并自动打开微软网站的问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">连接wifi，提示需要执行操作，并自动打开微软网站的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#睡眠时继续下载"><span class="post-toc-number">6.</span> <span class="post-toc-text">睡眠时继续下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看休眠最后一个唤醒源"><span class="post-toc-number">7.</span> <span class="post-toc-text">查看休眠最后一个唤醒源</span></a></li></ol>
         </nav>
     </aside>
    
@@ -224,13 +224,15 @@
         </div>
         <div class="post-count-custom">
             <i class="icon icon-lg icon-comment-o"></i>
-            阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
+            阅读本文可能花费您&nbsp;<span class="post-count">2</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="WIN无操作自动休眠"><a href="#WIN无操作自动休眠" class="headerlink" title="WIN无操作自动休眠"></a>WIN无操作自动休眠</h2><p>这是系统<strong>无人值守时睡眠时间</strong>的设定，默认是两分钟。</p>
 <p>解决方法：</p>
 <p><code>regedit</code>进入注册表管理器，定位到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785aaca0</code>，修改<code>attributes</code>的值为2。</p>
 <p>进入高级电源设置，在睡眠选项中会出现“无人参与系统睡眠超时”，将默认的2分钟修改成你想要的时间。</p>
+<a id="more"></a>
+
 <h2 id="开关操作中心"><a href="#开关操作中心" class="headerlink" title="开关操作中心"></a>开关操作中心</h2><p><code>regedit</code>进入注册表编辑器，<code>计算机\HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>新建项<code>DisableNotificationCenter</code>，值为1时关闭操作中心。重启电脑生效。</p>
 <h2 id="开启休眠选项"><a href="#开启休眠选项" class="headerlink" title="开启休眠选项"></a>开启休眠选项</h2><p>Power Sheel(管理员) 输入 <code>powercfg /h on</code>并运行，重新打开控制面板后会出现休眠选项。</p>
 <h2 id="修改安装路径"><a href="#修改安装路径" class="headerlink" title="修改安装路径"></a>修改安装路径</h2><h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>命令行输入<code>npm config ls</code>查看 npm 当前配置</p>
@@ -240,6 +242,17 @@
 <li>注册表键值<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet</code></li>
 <li>窗口右侧中的“EnableActiveProbing”，然后将其值更改为0，重启计算机</li>
 </ol>
+<h2 id="睡眠时继续下载"><a href="#睡眠时继续下载" class="headerlink" title="睡眠时继续下载"></a>睡眠时继续下载</h2><p>注册表：<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power</code></p>
+<p>查看右边窗口，是否有<code>AwayModeEnabled</code>值（离开模式）？如没有创建一个。</p>
+<p>修改该值为<code>1</code>。</p>
+<p>如果要取消，可直接删除。</p>
+<h2 id="查看休眠最后一个唤醒源"><a href="#查看休眠最后一个唤醒源" class="headerlink" title="查看休眠最后一个唤醒源"></a>查看休眠最后一个唤醒源</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powercfg -lastwake</span><br></pre></td></tr></tbody></table></figure>
+
+<p>示例问题：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">唤醒历史记录计数 - 1</span><br><span class="line">唤醒历史记录 [0]</span><br><span class="line">  唤醒源计数 - 1</span><br><span class="line">  唤醒源 [0]</span><br><span class="line">    类型: 唤醒计时器</span><br><span class="line">    所有者: [SERVICE] \Device\HarddiskVolume7\Windows\System32\svchost.exe (SystemEventsBroker)</span><br><span class="line">    所有者提供的原因: Windows 将执行“NT TASK\Microsoft\Windows\UpdateOrchestrator\Reboot_AC”计划的任务，该任务请求唤醒计算机。</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解决方法：</p>
+<p><code>组策略/计算机配置/管理模板/Windows 组件/Windows 更新</code>，双击“启用 Windows 更新电脑管理以自动唤醒系统来安装计划的更新”，选择禁用</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -265,7 +278,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2020-05-27T06:08:42.197Z" itemprop="dateUpdated">2020-05-27 14:08:42</time>
+    最后更新：<time datetime="2021-08-03T02:58:36.348Z" itemprop="dateUpdated">2021-08-03 10:58:36</time>
 </span>
 
 
@@ -312,7 +325,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/09/24/修电脑/&title=《修电脑》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/09/24/修电脑/&title=《修电脑》 — 云笺&source=WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。
+解决方法：
+regedit进入注册表管理器，定位到HKEY_LOCAL_MACHIN..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -494,7 +509,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/09/24/修电脑/&title=《修电脑》 — 云笺&source=杂而又杂的笔记与感想" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2018/09/24/修电脑/&title=《修电脑》 — 云笺&source=WIN无操作自动休眠这是系统无人值守时睡眠时间的设定，默认是两分钟。
+解决方法：
+regedit进入注册表管理器，定位到HKEY_LOCAL_MACHIN..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/">
+    
+    
+    <title>SystemC-学习笔记 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="学习笔记,C++,SystemC">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="系统级设计描述语言语言架构SystemC本质上是在C++的基础上添加的硬件扩展库和仿真核。">
+<meta name="keywords" content="学习笔记,C++,SystemC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SystemC-学习笔记">
+<meta property="og:url" content="http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="系统级设计描述语言语言架构SystemC本质上是在C++的基础上添加的硬件扩展库和仿真核。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-57.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-58.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-59.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-60.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-61.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-62.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-63.png">
+<meta property="og:image" content="http://blog.iwxyi.com/images/pasted-64.png">
+<meta property="og:updated_time" content="2021-08-03T02:32:21.705Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SystemC-学习笔记">
+<meta name="twitter:description" content="系统级设计描述语言语言架构SystemC本质上是在C++的基础上添加的硬件扩展库和仿真核。">
+<meta name="twitter:image" content="http://blog.iwxyi.com/images/pasted-57.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">小乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-link"></i>
+                    <span>相 关</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/iwxyi" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SystemC-学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#系统级设计描述语言"><span class="post-toc-number">1.</span> <span class="post-toc-text">系统级设计描述语言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语言架构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">语言架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#描述层次"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">描述层次</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本语法"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#全局函数"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">全局函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#示例：与非门"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">示例：与非门</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#仿真过程"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">仿真过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SystemC-调度器"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">SystemC 调度器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SystemC-模块"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">SystemC 模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块的端口"><span class="post-toc-number">2.5.1.</span> <span class="post-toc-text">模块的端口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#抽象端口"><span class="post-toc-number">2.5.2.</span> <span class="post-toc-text">抽象端口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#端口的读写"><span class="post-toc-number">2.5.3.</span> <span class="post-toc-text">端口的读写</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#端口和信号的多驱动处理"><span class="post-toc-number">2.5.4.</span> <span class="post-toc-text">端口和信号的多驱动处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#信号和变量"><span class="post-toc-number">2.5.5.</span> <span class="post-toc-text">信号和变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#信号和端口的关联"><span class="post-toc-number">2.5.6.</span> <span class="post-toc-text">信号和端口的关联</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数"><span class="post-toc-number">2.5.7.</span> <span class="post-toc-text">构造函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时钟模型"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">时钟模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间单位"><span class="post-toc-number">2.6.1.</span> <span class="post-toc-text">时间单位</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时间模型"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">时间模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据类型"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本数据类型"><span class="post-toc-number">2.8.1.</span> <span class="post-toc-text">基本数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四值逻辑-sc-logic"><span class="post-toc-number">2.8.2.</span> <span class="post-toc-text">四值逻辑 sc_logic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#任意宽度整型-sc-int"><span class="post-toc-number">2.8.3.</span> <span class="post-toc-text">任意宽度整型 sc_int</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户自定义类型"><span class="post-toc-number">2.8.4.</span> <span class="post-toc-text">用户自定义类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定点数据类型"><span class="post-toc-number">2.8.5.</span> <span class="post-toc-text">定点数据类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SystemC-的进程"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">SystemC 的进程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法进程-SC-METHOD"><span class="post-toc-number">2.9.1.</span> <span class="post-toc-text">方法进程 SC_METHOD</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#示例：全加器"><span class="post-toc-number">2.9.1.1.</span> <span class="post-toc-text">示例：全加器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线程进程-SC-THREAD"><span class="post-toc-number">2.9.2.</span> <span class="post-toc-text">线程进程 SC_THREAD</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#显示全加器的输入和输出结果"><span class="post-toc-number">2.9.2.1.</span> <span class="post-toc-text">显示全加器的输入和输出结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#钟控线程进程-SC-CTHREAD"><span class="post-toc-number">2.9.3.</span> <span class="post-toc-text">钟控线程进程 SC_CTHREAD</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#产生全加器的激励"><span class="post-toc-number">2.9.3.1.</span> <span class="post-toc-text">产生全加器的激励</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#有限状态机"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">有限状态机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#隐式有限状态机"><span class="post-toc-number">2.10.1.</span> <span class="post-toc-text">隐式有限状态机</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#挂起"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">挂起</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#wiat-until"><span class="post-toc-number">2.11.1.</span> <span class="post-toc-text">wiat_until()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#wait"><span class="post-toc-number">2.11.2.</span> <span class="post-toc-text">wait()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#next-trigger"><span class="post-toc-number">2.11.3.</span> <span class="post-toc-text">next_trigger()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#watching"><span class="post-toc-number">2.11.4.</span> <span class="post-toc-text">watching()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#局部-watching"><span class="post-toc-number">2.11.5.</span> <span class="post-toc-text">局部 watching()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#仿真与波形跟踪"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">仿真与波形跟踪</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建和关闭波形跟踪文件"><span class="post-toc-number">2.12.1.</span> <span class="post-toc-text">创建和关闭波形跟踪文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跟踪标量型变量和信号"><span class="post-toc-number">2.12.2.</span> <span class="post-toc-text">跟踪标量型变量和信号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跟踪聚合型变量和信号"><span class="post-toc-number">2.12.3.</span> <span class="post-toc-text">跟踪聚合型变量和信号</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#行为建模"><span class="post-toc-number">3.</span> <span class="post-toc-text">行为建模</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#端口"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">端口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#示例：RAM读写端口"><span class="post-toc-number">3.0.1.1.</span> <span class="post-toc-text">示例：RAM读写端口</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通道"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">通道</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基本通道"><span class="post-toc-number">3.0.2.1.</span> <span class="post-toc-text">基本通道</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sc-signal"><span class="post-toc-number">3.0.2.1.1.</span> <span class="post-toc-text">sc_signal</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sc-signal-rt"><span class="post-toc-number">3.0.2.1.2.</span> <span class="post-toc-text">sc_signal_rt</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sc-buffer"><span class="post-toc-number">3.0.2.1.3.</span> <span class="post-toc-text">sc_buffer</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sc-fifo"><span class="post-toc-number">3.0.2.1.4.</span> <span class="post-toc-text">sc_fifo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#示例：信源和信宿模块通过FIFO通信"><span class="post-toc-number">3.0.2.1.4.1.</span> <span class="post-toc-text">示例：信源和信宿模块通过FIFO通信</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sc-semaphore"><span class="post-toc-number">3.0.2.1.5.</span> <span class="post-toc-text">sc_semaphore</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sc-mutex"><span class="post-toc-number">3.0.2.1.6.</span> <span class="post-toc-text">sc_mutex</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#直接通道调用"><span class="post-toc-number">3.0.2.1.6.1.</span> <span class="post-toc-text">直接通道调用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分层通道"><span class="post-toc-number">3.0.2.2.</span> <span class="post-toc-text">分层通道</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#一般分层通道"><span class="post-toc-number">3.0.2.2.1.</span> <span class="post-toc-text">一般分层通道</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#合成通道"><span class="post-toc-number">3.0.2.2.2.</span> <span class="post-toc-text">合成通道</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#交易级建模"><span class="post-toc-number">4.</span> <span class="post-toc-text">交易级建模</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-SystemC-学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SystemC-学习笔记</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2021-08-02 10:24:00" datetime="2021-08-02T02:24:00.000Z"  itemprop="datePublished">2021-08-02</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">32</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="系统级设计描述语言"><a href="#系统级设计描述语言" class="headerlink" title="系统级设计描述语言"></a>系统级设计描述语言</h1><h2 id="语言架构"><a href="#语言架构" class="headerlink" title="语言架构"></a>语言架构</h2><p>SystemC本质上是在C++的基础上添加的硬件扩展库和仿真核。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[C++语言标准]--&gt;B[SystemC核心]</span><br><span class="line">A--&gt;C[数据类型]</span><br><span class="line">B--&gt;D[基本通道]</span><br><span class="line">C--&gt;D</span><br><span class="line">D--&gt;E[方法学库]</span><br><span class="line">D--&gt;F[层次Layered库]</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>方法学库<ul>
+<li>Master Lib</li>
+<li>Slave Lib</li>
+</ul>
+</li>
+<li>层次（Layered）库<ul>
+<li>Verification Lib</li>
+<li>Static Data Flow</li>
+</ul>
+</li>
+<li>基本通道<ul>
+<li>信号</li>
+<li>互斥</li>
+<li>信号量</li>
+<li>FIFO</li>
+</ul>
+</li>
+<li>SystemC 核心<ul>
+<li>模块（Module）</li>
+<li>端口（Port）</li>
+<li>进程（Process）</li>
+<li>接口（Interface）</li>
+<li>通道（Channel）</li>
+<li>事件（Event）</li>
+<li><strong>基于事件的仿真核</strong></li>
+</ul>
+</li>
+<li>数据类型<ul>
+<li>4值逻辑数据类型</li>
+<li>4值逻辑向量类型</li>
+<li>比特和比特向量</li>
+<li>任意精度整数型</li>
+<li>定点数据类型</li>
+<li><strong>C++用户自定义数据类型</strong></li>
+</ul>
+</li>
+<li>C++语言标准</li>
+</ul>
+<h2 id="描述层次"><a href="#描述层次" class="headerlink" title="描述层次"></a>描述层次</h2><p>SystemC 不仅仅是一种新的硬件描述语言，更是一种<strong>系统描述语言</strong>。</p>
+<ul>
+<li>寄存器传输级（RTL）</li>
+<li>时钟周期精确级</li>
+<li>带时间信息的编程级（PVT）</li>
+<li>编程级（PV）</li>
+<li>算法级</li>
+<li>高层</li>
+<li>底层</li>
+</ul>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><ul>
+<li>缺省时间单位为 ns，缺省时间分辨率为 1ps</li>
+<li>模块用 <code>SC_MODULE(module_name){...}</code> 来声明</li>
+<li>一个模块实际上是一个类，拥有构造函数和析构函数</li>
+<li>最顶层的函数是 <code>sc_main</code></li>
+</ul>
+<h2 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h2><ul>
+<li><code>sc_version()</code></li>
+<li><code>sc_copyright()</code></li>
+<li><code>T sc_abs(const T&amp; val)</code></li>
+<li><code>T sc_max(const T&amp; a, const T&amp; b)</code></li>
+<li><code>sc_start()</code>：开始运行仿真核</li>
+<li><code>sc_top()</code>：停止运行</li>
+</ul>
+<h2 id="示例：与非门"><a href="#示例：与非门" class="headerlink" title="示例：与非门"></a>示例：与非门</h2><p><img src="/images/pasted-57.png" alt="upload successful"></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"systemc.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明一个模块</span></span><br><span class="line">SC_MODULE(nand2)</span><br><span class="line">{</span><br><span class="line">    sc_in&lt;<span class="keyword">bool</span>&gt; A, B; <span class="comment">// 输入端口</span></span><br><span class="line">    sc_out&lt;<span class="keyword">bool</span>&gt; F;   <span class="comment">// 输出端口</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">do_nand</span><span class="params">()</span> <span class="comment">// 与非门</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        F = !(A &amp; B);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    SC_CTOR(nand2) <span class="comment">// 模块的构造函数</span></span><br><span class="line">    {</span><br><span class="line">        SC_METHOD(do_nand);</span><br><span class="line">        sensitive &lt;&lt; A &lt;&lt; B;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">SC_MODULE(tb)</span><br><span class="line">{</span><br><span class="line">    sc_out&lt;<span class="keyword">bool</span>&gt; a, b;</span><br><span class="line">    sc_in&lt;<span class="keyword">bool</span>&gt; f;</span><br><span class="line">    sc_in_clk clk;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">gen_input</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">auto</span> setAB = [&amp;](<span class="keyword">int</span> a, <span class="keyword">int</span> b) {</span><br><span class="line">            wait();</span><br><span class="line">            <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">            <span class="keyword">this</span>-&gt;b = b;</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        setAB(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        setAB(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        setAB(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">        setAB(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        setAB(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        setAB(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">display_variable</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"a="</span> &lt;&lt; a &lt;&lt; <span class="string">", b="</span> &lt;&lt; b &lt;&lt; <span class="string">", f="</span> &lt;&lt; f &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    SC_CTOR(tb)</span><br><span class="line">    {</span><br><span class="line">        SC_CTHREAD(gen_input, clk.pos());</span><br><span class="line">        SC_METHOD(display_variable);</span><br><span class="line">        sensitive &lt;&lt; f &lt;&lt; a &lt;&lt; b;</span><br><span class="line">        dont_initialize();</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主函数入口</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sc_main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    sc_signal&lt;<span class="keyword">bool</span>&gt; a, b, f;</span><br><span class="line">    <span class="function">sc_clock <span class="title">clk</span><span class="params">(<span class="string">"Clk"</span>, <span class="number">20</span>, SC_NS)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模块实例的初始化</span></span><br><span class="line">    <span class="function">nand2 <span class="title">N2</span><span class="params">(<span class="string">"Nand2"</span>)</span></span>;</span><br><span class="line">    N2.A(a);</span><br><span class="line">    N2.B(b);</span><br><span class="line">    N2.F(f);</span><br><span class="line"></span><br><span class="line">    <span class="function">tb <span class="title">tb1</span><span class="params">(<span class="string">"tb"</span>)</span></span>;</span><br><span class="line">    tb1.clk(clk);</span><br><span class="line">    tb1.a(a);</span><br><span class="line">    tb1.b(b);</span><br><span class="line">    tb1.f(f);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 连接模块的通道的初始化</span></span><br><span class="line">    sc_trace_file *tf = sc_create_vcd_trace_file(<span class="string">"Nand2"</span>);</span><br><span class="line">    sc_trace(tf, N2.A, <span class="string">"A"</span>);</span><br><span class="line">    sc_trace(tf, N2.B, <span class="string">"B"</span>);</span><br><span class="line">    sc_trace(tf, N2.F, <span class="string">"F"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置缺省时间单位</span></span><br><span class="line">    sc_start();</span><br><span class="line"></span><br><span class="line">    sc_close_vcd_trace_file(tf); <span class="comment">// 别忘了关闭</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="仿真过程"><a href="#仿真过程" class="headerlink" title="仿真过程"></a>仿真过程</h2><p>仿真过程是基于事件的，时间只前进，不后退。前进的尺度与仿真时间分辨率和时间单位有关。</p>
+<p>执行过程分三个阶段：</p>
+<ol>
+<li><p>目标描述</p>
+<ul>
+<li>模块实例和连接模块的通道的初始化</li>
+<li>设置缺省时间单位和仿真分辨率</li>
+<li>sc_clock 的初始化</li>
+<li>sc_time 类型数据的初始化</li>
+</ul>
+</li>
+<li><p>初始化</p>
+<ul>
+<li><p>整个 SystemC 仿真的执行过程由 SystemC 调度器控制，初始化是其执行的第一步</p>
+</li>
+<li><p>SystemC 核心语言库定义了三种进程：</p>
+<ul>
+<li><code>SC_METHOD</code></li>
+<li><code>SC_THREAD</code></li>
+<li><code>SC_CTHREAD</code></li>
+</ul>
+<p>在初始化阶段，缺省情况下每一个进程都被执行一次，<code>THREAD</code> 进程被执行到第一个 <code>wait*()</code> 语句</p>
+</li>
+<li><p>通过 <code>don't_initialize()</code> 函数可以关闭对进程的初始化</p>
+</li>
+<li><p>在初始化阶段，<strong>进程的初始化顺序是不确定的</strong>；但不同次执行中进程的初始化顺序是确定的。因此用不同编译器可能产生不同的运行结果。</p>
+</li>
+</ul>
+</li>
+<li><p>仿真</p>
+<ul>
+<li><p>从第一次遇到 <code>sc_start()</code> 开始到预先设定的仿真时间结束或者遇到 <code>sc_stop()</code></p>
+</li>
+<li><p>预先设定的仿真时间由 <code>sc_start()</code> 确定，如：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SC_MODULE(Example) {</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">    sc_start(<span class="number">500</span>);</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果缺省的时间单位为 ns 且代码中没有使用 <code>sc_stop()</code>，则仿真进行 500ns</p>
+</li>
+<li><p>如果 <code>sc_start()</code> 的参数为空，则仿真进行到遇到 <code>sc_stop()</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="SystemC-调度器"><a href="#SystemC-调度器" class="headerlink" title="SystemC 调度器"></a>SystemC 调度器</h2><p><code>sc_start()</code> 函数激活调度器，第一个工作是对进程的初始化。</p>
+<p>调度器控制：</p>
+<ul>
+<li>仿真时序</li>
+<li>进程的执行顺序</li>
+<li>处理仿真过程中的事件</li>
+<li>更新信号的值</li>
+</ul>
+<p>SystemC 调度器也是基于 Delta 周期的，一个 Delta 周期包括求值和更新两个阶段。</p>
+<h2 id="SystemC-模块"><a href="#SystemC-模块" class="headerlink" title="SystemC 模块"></a>SystemC 模块</h2><p>模块是最基本的单位，包含一些其他元素如：端口、内部信号、内部数据、子模块、进程、构造函数和析构函数等。这些元素共同定义模块所表达的功能。</p>
+<p>使用关键字 <code>SC_MODULE</code> 来声明一个模块，也可以用 C++ 的类来定义模块。</p>
+<h3 id="模块的端口"><a href="#模块的端口" class="headerlink" title="模块的端口"></a>模块的端口</h3><p>模块间的端口使数据能够在模块间通过，模块之间通过信号将端口连接起来。</p>
+<p>端口分为三种类型：</p>
+<ul>
+<li><strong>in</strong></li>
+<li><strong>out</strong></li>
+<li><strong>inout</strong></li>
+</ul>
+<p>如果需要将某一端口的数据赋给模块自身的其他型号，那么该端口就应该是 inout 类型。</p>
+<p>你也可以指定端口的数据类型，允许的数据类型包括<strong>C++基本数据类型</strong>如 bool、int、short、char 等或者是 <strong>SystemC 专有数据类型</strong>如 sc_int、sc_unit、sc_logic 等或<strong>用户定义的任何数据类型</strong>。</p>
+<p>下面是定义端口的示例：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sc_in&lt;packet&gt; pkt_in; <span class="comment">// 一个输入端口</span></span><br><span class="line">sc_int&lt;sc_logic&gt; a[<span class="number">32</span>]; <span class="comment">// 端口向量（如计算机的数据和地址总线）</span></span><br><span class="line">sc_signal&lt;sc_logic&gt; abus[<span class="number">16</span>]; <span class="comment">// 信号向量</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="抽象端口"><a href="#抽象端口" class="headerlink" title="抽象端口"></a>抽象端口</h3><p>SystemC 为了支持交易级建模，还支持抽象端口，示例：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class direct_if : public virtual sc_interface</span><br><span class="line">{</span><br><span class="line">public:</span><br><span class="line">	virtual bool direct_read(int* data, unsigned int address) = 0;</span><br><span class="line">	virutal bool direct_write(int* data, unsigned int address) = 0;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc_port&lt;direct_if&gt; arbiter_port; <span class="comment">// 定义类一个抽象端口</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="端口的读写"><a href="#端口的读写" class="headerlink" title="端口的读写"></a>端口的读写</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义输入端口</span></span><br><span class="line">sc_in&lt;<span class="keyword">bool</span>&gt; data_in;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以进行下面的读操作</span></span><br><span class="line"><span class="keyword">if</span> (data_in == TRUE) { ... }</span><br><span class="line"><span class="keyword">if</span> (data_in.read() == <span class="number">1</span>) { ... }</span><br><span class="line"><span class="keyword">bool</span> flag = data_in;</span><br><span class="line"><span class="keyword">bool</span> flag = data_in.read();</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义输出端口</span></span><br><span class="line">sc_out&lt;<span class="keyword">int</span>&gt; data_out;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以进行下面的写操作</span></span><br><span class="line">data_out.write(<span class="number">10</span>);</span><br><span class="line">data_out.write(data_in.read());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非法的</span></span><br><span class="line">data_out = data_in; <span class="comment">// 直接赋值是不行的，因为两者类型不同。</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="端口和信号的多驱动处理"><a href="#端口和信号的多驱动处理" class="headerlink" title="端口和信号的多驱动处理"></a>端口和信号的多驱动处理</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>Z</th>
+<th>X</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>X</td>
+<td>0</td>
+<td>X</td>
+</tr>
+<tr>
+<td>1</td>
+<td>X</td>
+<td>1</td>
+<td>1</td>
+<td>X</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>0</td>
+<td>1</td>
+<td>Z</td>
+<td>X</td>
+</tr>
+<tr>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody></table>
+<p>普通的信号是不允许多驱动的。SystemC 中引入了解析逻辑向量信号（Resolved LogicalVector signal）来解决多驱动的问题。可以使用下面的方法定义解析型端口：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sc_in_rv&lt;n&gt; x; <span class="comment">// n 比特宽的解析逻辑向量型输入端口</span></span><br><span class="line">sc_out_rv&lt;n&gt; y;</span><br><span class="line">sc_inout_rv&lt;n&gt; z;</span><br><span class="line">sc_signal_rv_&lt;n&gt; x; <span class="comment">// 宽度为 n 比特的解析型向量信号</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="信号和变量"><a href="#信号和变量" class="headerlink" title="信号和变量"></a>信号和变量</h3><ul>
+<li><p>信号不能用 in、out 或 inout 来声明，信号的传输方向取决于连接部分的端口状态。</p>
+</li>
+<li><p>信号常常被用来连接模块和用于进程间通信，变量则用于进程和模块的本地存储。</p>
+</li>
+<li><p>变量仿真的赋值是立刻发生的，没有 delta 延时；而信号和端口的值刷新要经过一个 delta 延时。</p>
+</li>
+<li><p>信号应常被综合为逻辑块间的连线；变量常被综合为逻辑块，可以是组合或者时序逻辑。</p>
+</li>
+</ul>
+<h3 id="信号和端口的关联"><a href="#信号和端口的关联" class="headerlink" title="信号和端口的关联"></a>信号和端口的关联</h3><ul>
+<li><p>关联（Association）基本等于连接（Connect），也成为了绑定（Bind）-</p>
+</li>
+<li><p>关联分为位置关联和名字关联。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc_signal&lt;<span class="keyword">bool</span>&gt; a, b, f;</span><br><span class="line"><span class="function">sc_clock <span class="title">clk</span><span class="params">(<span class="string">"Clk"</span>, <span class="number">20</span>, SC_NS)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><p>位置关联：按照端口定义的顺序一一对应<br>适合少量端口的模块，但在大量端口的模块中<strong>非常危险</strong>，因为可能不经意间修改了端口顺序</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">nand2 <span class="title">N2</span><span class="params">(<span class="string">"Nand2"</span>)</span></span>;</span><br><span class="line">N2.A(a);</span><br><span class="line">N2.B(b);</span><br><span class="line">N2.F(f);</span><br><span class="line"></span><br><span class="line"><span class="function">tb <span class="title">tb1</span><span class="params">(<span class="string">"tb"</span>)</span></span>;</span><br><span class="line">tb1.clk(clk);</span><br><span class="line">tb1.a(a);</span><br><span class="line">tb1.b(b);</span><br><span class="line">tb1.f(f);</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></tbody></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>名字关联：按照名字一一对应<br>对于大的 SystemC 项目，一般建议统一使用名字关联</p>
+  <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">nand2 <span class="title">N2</span><span class="params">(<span class="string">"Nand2"</span>)</span></span>;</span><br><span class="line">N2(a, b, f);</span><br><span class="line"></span><br><span class="line"><span class="function">tb <span class="title">tb1</span><span class="params">(<span class="string">"tb"</span>)</span></span>;</span><br><span class="line">tb1(clk, a, b, f);</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>使用 <code>SC_CTOR</code> 标识，构造函数的名字必须与模块的名字相同，用于<strong>初始化进程的类型并创建进程的敏感表</strong>。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">SC_MODULE(Tb)</span><br><span class="line">{</span><br><span class="line">    sc_out&lt;<span class="keyword">bool</span>&gt; data_source;</span><br><span class="line">    <span class="keyword">bool</span> value;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GenInput</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        data_source.write(value);</span><br><span class="line">        value = !value;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    SC_CTOR(Tb)</span><br><span class="line">    {</span><br><span class="line">        SC_METHOD(GenInput);</span><br><span class="line">        sensitive_pos &lt;&lt; clk;</span><br><span class="line">        </span><br><span class="line">        data_source.initialize(<span class="literal">true</span>); <span class="comment">// OK</span></span><br><span class="line">        value = TRUE; <span class="comment">// OK</span></span><br><span class="line">        data_source.write(TRUE); <span class="comment">// Wrong!</span></span><br><span class="line">        data_source = TRUE; <span class="comment">// Wrong!</span></span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="时钟模型"><a href="#时钟模型" class="headerlink" title="时钟模型"></a>时钟模型</h2><p>在 SystemC 中，时钟被作为一个特殊的对象处理，它就是 <code>sc_clock</code> 类。</p>
+<p>时钟端口作为一个特殊的端口，如：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc_in_clk clk1;</span><br><span class="line">sc_in&lt;<span class="keyword">bool</span>&gt; clk1; <span class="comment">// 两种方式等价</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在 SystemC2.0.1 中，sc_clock 一共有 6 个重载的构造函数，如：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc_clock(sc_module_name name, <span class="keyword">const</span> sc_time&amp; period, <span class="keyword">double</span> duty_cycle = <span class="number">0.5</span>,</span><br><span class="line">	<span class="keyword">const</span> sc_time&amp; start_time = SC_ZERO_TIME, <span class="keyword">bool</span> posedge_first = <span class="literal">true</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>定义实例：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">sc_clock <span class="title">clk1</span><span class="params">(<span class="string">"clk1"</span>, <span class="number">20</span>, <span class="number">0.5</span> <span class="number">5</span>, <span class="literal">true</span>)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-58.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">sc_clock <span class="title">clk2</span><span class="params">(<span class="string">"clk2"</span>, <span class="number">20</span>, <span class="number">0.5</span>, <span class="number">0</span>, <span class="literal">true</span>)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-59.png" alt="upload successful" title="">
+                </div>
+                <div class="image-caption">upload successful</div>
+            </figure>
+
+
+
+<p>另一种定义时钟的办法：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sc_signal&lt;<span class="keyword">bool</span>&gt; clock;</span><br><span class="line">sc_initialize();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)</span><br><span class="line">{</span><br><span class="line">    clock = <span class="number">1</span>;</span><br><span class="line">    sc_cycle(<span class="number">5</span>);</span><br><span class="line">    clock = <span class="number">0</span>;</span><br><span class="line">    sc_cycle(<span class="number">5</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>采用这种方法初始化时钟的好处是可以同时插入对其他信号的初始化：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">clock = <span class="number">1</span>;</span><br><span class="line">sc_cycle(<span class="number">2.5</span>);</span><br><span class="line">rst = <span class="number">1</span>;</span><br><span class="line">sc_cycle(<span class="number">2.5</span>);</span><br><span class="line"></span><br><span class="line">clock = <span class="number">0</span>;</span><br><span class="line">sc_cycle(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">clock = <span class="number">1</span>;</span><br><span class="line">sc_cycle(<span class="number">2.5</span>);</span><br><span class="line">rst = <span class="number">0</span>;</span><br><span class="line">sc_cycle(<span class="number">2.5</span>);</span><br><span class="line"></span><br><span class="line">clock = <span class="number">0</span>;</span><br><span class="line">sc_cycle(<span class="number">5</span>);</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">sc_clock <span class="title">clk</span><span class="params">(<span class="string">"main clock"</span>, <span class="number">10</span>, <span class="number">0.5</span>)</span></span>;</span><br><span class="line">sc_start(<span class="number">10000</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="时间单位"><a href="#时间单位" class="headerlink" title="时间单位"></a>时间单位</h3><table>
+<thead>
+<tr>
+<th>时间单位</th>
+<th>英文</th>
+<th>时间长度（秒）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SC_SEC</td>
+<td>Second</td>
+<td>1</td>
+</tr>
+<tr>
+<td>SC_MS</td>
+<td>Millisecond</td>
+<td>10<sup>-3</sup></td>
+</tr>
+<tr>
+<td>SC_US</td>
+<td>Microsecond</td>
+<td>10<sup>-6</sup></td>
+</tr>
+<tr>
+<td>SC_NS</td>
+<td>Nanosecond</td>
+<td>10<sup>-9</sup></td>
+</tr>
+<tr>
+<td>SC_PS</td>
+<td>Picosecond</td>
+<td>10<sup>-12</sup></td>
+</tr>
+<tr>
+<td>SC_FS</td>
+<td>Femtosecond</td>
+<td>10<sup>-15</sup></td>
+</tr>
+</tbody></table>
+<h2 id="时间模型"><a href="#时间模型" class="headerlink" title="时间模型"></a>时间模型</h2><p>SystemC 采用基于整数的时间模型，系统时间采用一个 64 位无符号整数来表示。</p>
+<p>时间分辨率是仿真系统能够处理的时间的最小精度，比时间分辨率更惊喜的时间将被四舍五入。</p>
+<p>假设系统的时间分辨率为 10ps，则 <code>wait(33.667, SC_NS)</code> 实际上等效于 <code>wait(33.67, SC_NS)</code>。</p>
+<hr>
+<p>SystemC <strong>缺省时间分辨率为 1ps</strong>，同时提供了 <code>sc_set_time_resolution(double, sc_time_unit)</code> 函数来修改系统的时间分辨率。如下面的代码将系统的时间分辨率设置为 10ps：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc_set_time_resolution(<span class="number">10</span>, SC_PS);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>SystemC <strong>缺省时间单位是 SC_NS</strong>，同时允许通过 <code>sc_set_default_time_unit(double, sc_time_unit)</code> 来修改缺省的时间单位。如下面的代码将时间单位设置为 100ps：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc_set_default_time_unit(<span class="number">100</span>, SC_PS);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>SystemC 对时间分辨率和时间单位的设置有以下的要求：</p>
+<ul>
+<li>必须是 10 的幂</li>
+<li>只能在仿真开始之前设置</li>
+<li>只能设置一次</li>
+<li>时间单位必须大于等于时间分辨率</li>
+<li>时间分辨率必须在任何的非零的 <code>sc_time</code> 声明之前设置</li>
+</ul>
+<p>在时间单位设置为 <code>100ps</code> 的情况下，下面的 clk1 的周期为 <code>100*100ps=1ns</code>：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">sc_clock <span class="title">clk1</span><span class="params">(<span class="string">"clk1"</span>, <span class="number">10</span>)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><table>
+<thead>
+<tr>
+<th>类型名</th>
+<th>类型说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sc_bit</td>
+<td>2 值比特数据类型</td>
+</tr>
+<tr>
+<td>sc_logic</td>
+<td>4 值比特数据类型</td>
+</tr>
+<tr>
+<td>sc_int</td>
+<td>1 到 64 比特有符号整型数据类型</td>
+</tr>
+<tr>
+<td>sc_uint</td>
+<td>1 到 64 比特无符号整型数据类型</td>
+</tr>
+<tr>
+<td>sc_bigint</td>
+<td>任意宽度的有符号整型数据类型</td>
+</tr>
+<tr>
+<td>sc_biguint</td>
+<td>任意宽度的无符号整型数据类型</td>
+</tr>
+<tr>
+<td>sc_bv</td>
+<td>任意宽度的 2 值比特向量数据类型</td>
+</tr>
+<tr>
+<td>sc_lv</td>
+<td>任意宽度的 4 值比特向量数据类型</td>
+</tr>
+<tr>
+<td>sc_fixed</td>
+<td>模板类有符号定点数据类型</td>
+</tr>
+<tr>
+<td>sc_ufixed</td>
+<td>模板类无符号定点数据类型</td>
+</tr>
+<tr>
+<td>sc_fix</td>
+<td>非模板类有符号定点数据类型</td>
+</tr>
+<tr>
+<td>sc_ufix</td>
+<td>非模板类无符号定点数据类型</td>
+</tr>
+</tbody></table>
+<h3 id="四值逻辑-sc-logic"><a href="#四值逻辑-sc-logic" class="headerlink" title="四值逻辑 sc_logic"></a>四值逻辑 sc_logic</h3><p>数字系统中最常见的四个逻辑为：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>表示</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>SC_LOGIC_0</td>
+<td>逻辑低电平</td>
+</tr>
+<tr>
+<td>1</td>
+<td>SC_LOGIC_1</td>
+<td>逻辑高电平</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>SC_LOGIC_Z</td>
+<td>高阻态</td>
+</tr>
+<tr>
+<td>X</td>
+<td>SC_LOGIC_X</td>
+<td>不定值</td>
+</tr>
+</tbody></table>
+<p>可以对 <code>sc_bit</code> / <code>sc_logic</code> 类型进行赋值。</p>
+<p>在进行代数操作时 <code>sc_bit</code> 可与 C++ 的 bool 类型混合使用，但推荐的做法是多使用 bool 型。</p>
+<p><code>sc_bit</code> 只有 0 和 1 两个值。</p>
+<p><code>sc_logic</code> 数据类型比 <code>sc_bit</code> 多两个值 X 和 Z，它所支持的运算与 <code>sc_bit</code> 一样，如下：</p>
+<ul>
+<li>位操作<ul>
+<li>与 <code>&amp;</code></li>
+<li>或 <code>|</code></li>
+<li>异或 <code>^</code></li>
+<li>取反 <code>~</code> （没有取反赋值）</li>
+</ul>
+</li>
+<li>赋值操作<ul>
+<li>与赋值 <code>&amp;=</code></li>
+<li>或赋值 <code>|=</code></li>
+<li>异或赋值 <code>^=</code></li>
+<li>直接赋值 <code>=</code></li>
+</ul>
+</li>
+<li>逻辑操作<ul>
+<li>等于 <code>==</code></li>
+<li>不等于 <code>!=</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="任意宽度整型-sc-int"><a href="#任意宽度整型-sc-int" class="headerlink" title="任意宽度整型 sc_int"></a>任意宽度整型 sc_int</h3><p>SystemC 中引入了  <code>sc_int&lt;W&gt;</code> 和 <code>sc_uint&lt;W&gt;</code> 来实现 1 到 64 比特中任意宽度的整型数据类型，W&lt;=64。以及 <code>sc_bigint</code> 和 <code>sc_biguint</code> 来实现任意宽度的整型操作。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc_int&lt;34&gt; a; // 34 位有符号整数型</span><br><span class="line">sc_uint&lt;60&gt; b; // 60 位无符号整型</span><br></pre></td></tr></tbody></table></figure>
+
+<p>除最基本操作外，还支持以下操作：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>串联</td>
+<td><code>(, )</code></td>
+<td><code>(a,b)</code> 将 a 和 b 串联起来构造更大的数</td>
+</tr>
+<tr>
+<td>范围选择</td>
+<td><code>range(left, right)</code></td>
+<td><code>a,range(x, y)</code> 选择了 a 的<strong>右数</strong>第 y+1 到第 x+1 位。Y 可以是 0</td>
+</tr>
+<tr>
+<td>位选择</td>
+<td><code>[x]</code></td>
+<td><code>a[x]</code> 选择了 a 的<strong>右数</strong>第 x+1 位</td>
+</tr>
+<tr>
+<td>自动增加</td>
+<td><code>++</code></td>
+<td></td>
+</tr>
+<tr>
+<td>自动减少</td>
+<td><code>--</code></td>
+<td></td>
+</tr>
+<tr>
+<td>位减操作</td>
+<td>如下表</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>位减操作：</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>a.and_reduce()</code></td>
+<td>返回 a 的所有位相与后得到的 bool 型数</td>
+</tr>
+<tr>
+<td><code>a.nand_reduce()</code></td>
+<td>返回 a 的所有位相与后取反得到的 bool 型数</td>
+</tr>
+<tr>
+<td><code>a.or_reduce()</code></td>
+<td>返回 a 的所有位相或后得到的 bool 型数</td>
+</tr>
+<tr>
+<td><code>a.nor_reduce()</code></td>
+<td>返回 a 的所有位相或后取反得到的 bool 型数</td>
+</tr>
+<tr>
+<td><code>a.xor_reduce()</code></td>
+<td>返回 a 的所有位相异或后得到的 bool 型数</td>
+</tr>
+</tbody></table>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sc_int&lt;<span class="number">4</span>&gt; x, y;</span><br><span class="line">sc_int&lt;<span class="number">8</span>&gt; z;</span><br><span class="line">z = (x, y); <span class="comment">// 串联</span></span><br><span class="line">x = z.range(<span class="number">7</span>, <span class="number">4</span>); <span class="comment">// z的高4位</span></span><br><span class="line"><span class="keyword">bool</span> temp = x.or_reduce(); <span class="comment">// 所有位异或</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sc_biguint&lt;<span class="number">128</span>&gt; b1;</span><br><span class="line">sc_biguint&lt;<span class="number">64</span>&gt; b2;</span><br><span class="line">sc_biguint&lt;<span class="number">152</span>&gt; b3;</span><br><span class="line">b3 = b1 * b2; <span class="comment">// 结果有192位，只有低152位被赋值给b3</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>当一个无符号整数 <code>sc_uint&lt;M&gt;</code> 被赋值给有符号整数 <code>sc_int&lt;N&gt;</code> 时，uint 首先被扩展为 64 位（高位直接填零），然后从低位开始取 N 位赋值给 sc_int。</p>
+<p>当 sc_int 被赋值给 sc_uint 时，系统首先将它按符号（负数高位填 1，正数填 0）扩展为 64 位，然后从低位开始取 M 位赋值给 sc_uint。</p>
+<h3 id="用户自定义类型"><a href="#用户自定义类型" class="headerlink" title="用户自定义类型"></a>用户自定义类型</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_LENGTH 1504</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">packet</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    sc_uint&lt;<span class="number">16</span>&gt; length;</span><br><span class="line">    <span class="keyword">char</span>[MAX_LENGTH] info;</span><br><span class="line">    sc_int&lt;<span class="number">32</span>&gt; fcs;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span> == (<span class="keyword">const</span> packet&amp; rhs) <span class="keyword">const</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">return</span> rhs.info == info</span><br><span class="line">            &amp;&amp; rhs.length == length</span><br><span class="line">            &amp;&amp; rhs.fcs == fcs;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="定点数据类型"><a href="#定点数据类型" class="headerlink" title="定点数据类型"></a>定点数据类型</h3><p><strong>四种基本定点数据类型</strong>：</p>
+<ul>
+<li><code>sc_fixed</code></li>
+<li><code>sc_ufixed</code></li>
+<li><code>sc_fix</code></li>
+<li><code>sc_ufix</code></li>
+</ul>
+<p><code>sc_fixed</code> 和 <code>sc_ufixed</code> 的参数是静态的，在程序中设定后不能再修改，而 <code>sc_fix</code> 和 <code>sc_ufix</code> 的参数是非静态的，其<strong>字长和整数部分长度可以是变量</strong>。</p>
+<p>定点数据类型的定义方法如下：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sc_fixed&lt;wl, iwl, q_mode, o_mode, n_bits&gt; x;</span><br><span class="line">sc_ufixed&lt;wl, iwl, q_mode, o_mode, n_bits&gt; y;</span><br><span class="line"><span class="function">sc_fix <span class="title">x</span><span class="params">(<span class="built_in">list</span> of option)</span></span>;</span><br><span class="line"><span class="function">sc_ufix <span class="title">y</span><span class="params">(<span class="built_in">list</span> of option)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>wl：字长，总比特数，必须大于 0</li>
+<li>iwl：整数部分字长，可以是正数、负数，也可以大于总字长</li>
+<li>q_mode：量化模式。超出精度时根据量化模式对尾数进行取舍</li>
+<li>o_mode：溢出模式。超出范围时根据溢出模式对数据进行处理</li>
+<li>n_bits：饱和比特的尾数。仅用于具有饱和行为的溢出模式下饱和比特的位数</li>
+</ul>
+<hr>
+<p><strong>量化模式</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>量化模式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SC_RND</td>
+<td>向正无穷舍入</td>
+</tr>
+<tr>
+<td>SC_RND_ZERO</td>
+<td>向 0 舍入</td>
+</tr>
+<tr>
+<td>SC_RND_MIN_INF</td>
+<td>向负无穷舍入</td>
+</tr>
+<tr>
+<td>SC_RND_INF</td>
+<td>向无穷舍入</td>
+</tr>
+<tr>
+<td>SC_RND_CONV</td>
+<td>收敛舍入</td>
+</tr>
+<tr>
+<td>SC_TRN</td>
+<td>删除舍入</td>
+</tr>
+<tr>
+<td>SC_TRN_ZERO</td>
+<td>向 0 删除舍入</td>
+</tr>
+</tbody></table>
+<p>定点数据类型的量化示例：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sc_fixed&lt;<span class="number">4</span>, <span class="number">2</span>&gt; x;</span><br><span class="line">sc_fixed&lt;<span class="number">3</span>, <span class="number">2</span>, SC_RND_ZERO, SC_SAT&gt; y;</span><br><span class="line">x = <span class="number">1.25</span>;</span><br><span class="line">y = x; <span class="comment">// 这里发生了量化</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>x 的值：二进制为 01.01，十进制为 1.25</p>
+<p>y 的值：二进制为 01.0，十进制为 1.0，q=0.5，x=2.5q</p>
+<hr>
+<p><strong>饱和模式</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>溢出模式</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SC_SAT</td>
+<td>饱和为最大最小值</td>
+</tr>
+<tr>
+<td>SC_SAT_ZERO</td>
+<td>饱和为 0</td>
+</tr>
+<tr>
+<td>SC_SAT_SYM</td>
+<td>对称饱和</td>
+</tr>
+<tr>
+<td>SC_WRAP</td>
+<td>循环饱和</td>
+</tr>
+<tr>
+<td>SC_WRAP_SM</td>
+<td>符号幅度循环饱和</td>
+</tr>
+</tbody></table>
+<p>定点数据类型饱和示例：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sc_fixed&lt;<span class="number">4</span>, <span class="number">4</span>&gt; x;</span><br><span class="line">sc_fixed&lt;<span class="number">3</span>, <span class="number">3</span>, SC_TRN, SC_SAT&gt; y;</span><br><span class="line">x = <span class="number">5</span>;</span><br><span class="line">y = x; <span class="comment">// 这里发生饱和，因为 y 的范围是 -4~3，而 x 为 5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>x 的值：二进制为 0101，十进制为 5</p>
+<p>y 的值：二进制为 011，十进制为 3，q=1</p>
+<h2 id="SystemC-的进程"><a href="#SystemC-的进程" class="headerlink" title="SystemC 的进程"></a>SystemC 的进程</h2><p>在 SystemC 中，进程是程序在并发环境中的执行过程，也是一个基本执行单位，具有动态性、并发性、独立性、异步性和结构性五大特征。</p>
+<p>基本进程有三种：</p>
+<ul>
+<li><code>SC_METHOD</code></li>
+<li><code>SC_THREAD</code></li>
+<li><code>SC_CTHREAD</code></li>
+<li><code>SC_SLAVE</code> （在 Master/Slave 库中定义的第四种进程类型）</li>
+</ul>
+<p>进程不是层次化的，不能包含或直接调用其它进程，但可以调用非进程的函数和方法。</p>
+<p>进程通常会有一个敏感表，<strong>当在敏感表中的信号上有事件发生时，进程就会被激活</strong>。信号上的事件是指信号的值的变化，如时钟的上升沿就是时钟信号从 0 变为 1。当信号上的事件发生，所有对该事件敏感的进程对会被激活。</p>
+<p>进程的敏感表在模块的构造函数内设定。</p>
+<h3 id="方法进程-SC-METHOD"><a href="#方法进程-SC-METHOD" class="headerlink" title="方法进程 SC_METHOD"></a>方法进程 SC_METHOD</h3><p>方法进程 <code>SC_METHOD</code> 是唯一的可以综合的寄存器传输级（RTL）进程。</p>
+<p>特点是<strong>当敏感表上有事件发生，它就会被调用，调用后应该立刻返回</strong>。只有该类进程返回后仿真系统的事件才有可能前进，因此该类进程中不能使用 <code>wait()</code> 这样的语句。</p>
+<h4 id="示例：全加器"><a href="#示例：全加器" class="headerlink" title="示例：全加器"></a>示例：全加器</h4><p><img src="/images/pasted-60.png" alt="upload successful"></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;systemc.h&gt;</span></span></span><br><span class="line">SC_MODULE(FullAAdder)</span><br><span class="line">{</span><br><span class="line">    sc_in&lt;sc_bit&gt; A, B, Ci;</span><br><span class="line">    sc_out&lt;sc_bit&gt; S, Co;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">do_ad</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        S = A.read() ^ B.read() ^ Ci.read();</span><br><span class="line">        Co = (A.read() &amp; B.read())</span><br><span class="line">            | (B.read() &amp; Ci.read())</span><br><span class="line">            | (A.read() &amp; Ci.read());</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    SC_CTOR(FullAdder)</span><br><span class="line">    {</span><br><span class="line">        SC_METHOD(do_add);</span><br><span class="line">        sensitive &lt;&lt; A &lt;&lt; B &lt;&lt; Ci;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="线程进程-SC-THREAD"><a href="#线程进程-SC-THREAD" class="headerlink" title="线程进程 SC_THREAD"></a>线程进程 SC_THREAD</h3><p>特点是它能够被挂起和重新激活。<strong>线程进程使用 <code>wait()</code> 挂起，当敏感表中有事件发生，线程进程被重新激活运行到遇到新的 <code>wait()</code> 语句再重新挂起。</strong></p>
+<p>线程进程不是寄存器传输级进程，一个方便的用途就是用来描述验证平台的输入激励和输出获取。</p>
+<h4 id="显示全加器的输入和输出结果"><a href="#显示全加器的输入和输出结果" class="headerlink" title="显示全加器的输入和输出结果"></a>显示全加器的输入和输出结果</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">SC_MODULE(Monitor)</span><br><span class="line">{</span><br><span class="line">    sc_in&lt;sc_bit&gt; m_a, m_b, m_cin, m_sum, m_cout;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">prc_monitor</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">        {</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; m_a.read() &lt;&lt; m_b.read() &lt;&lt; m_cin.read() &lt;&lt; <span class="string">","</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; m_sum.read() &lt;&lt; m_cout.read() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            wait();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    SC_CTOR(Monitor)</span><br><span class="line">    {</span><br><span class="line">        SC_THREAD(prc_monitor);</span><br><span class="line">        sensitive &lt;&lt; m_a, m_b, m_cin, m_sum, m_cout;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>当敏感表中的信号至少有一个值发生变化时，<code>prc_monitor</code> 就会被激活显示这时全加器的输入和输出结果。</p>
+<h3 id="钟控线程进程-SC-CTHREAD"><a href="#钟控线程进程-SC-CTHREAD" class="headerlink" title="钟控线程进程 SC_CTHREAD"></a>钟控线程进程 SC_CTHREAD</h3><p><code>SC_CTHREAD</code> 继承于 <code>SC_THREAD</code>，只能在时钟的上升沿或者下降沿被触发或者激活，这种行为更加接近实际硬件的行为。</p>
+<p><code>SC_CTHREAD</code> 的敏感表与其他类型的线程不同，它必须在指定线程名字的同时指定时钟和它的边沿。</p>
+<h4 id="产生全加器的激励"><a href="#产生全加器的激励" class="headerlink" title="产生全加器的激励"></a>产生全加器的激励</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">SC_MODULE(Driver)</span><br><span class="line">{</span><br><span class="line">    sc_in_clk clk;</span><br><span class="line">    sc_out&lt;sc_bit&gt; d_a, d_b, d_cin;</span><br><span class="line">    sc_uint&lt;<span class="number">3</span>&gt; pattern;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">prc_driver</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        pattern = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">        {</span><br><span class="line">            d_a.write((sc_bit)pattern[<span class="number">0</span>]);</span><br><span class="line">            d_b.write((sc_bit)pattern[<span class="number">1</span>]);</span><br><span class="line">            d_cin.write((sc_bit)pattern[<span class="number">2</span>]);</span><br><span class="line">            wait();</span><br><span class="line">            pattern++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    SC_CTOR(Driver)</span><br><span class="line">    {</span><br><span class="line">        SC_CTHREAD(prc_driver, clk.pos());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="有限状态机"><a href="#有限状态机" class="headerlink" title="有限状态机"></a>有限状态机</h2><p>通常意义上的有限状态机要明确定义系统的状态，一般要使用 case 语句来实现状态转移。</p>
+<p><img src="/images/pasted-61.png" alt="upload successful"></p>
+<h3 id="隐式有限状态机"><a href="#隐式有限状态机" class="headerlink" title="隐式有限状态机"></a>隐式有限状态机</h3><p>指编程中不现实定义状态机的状态，而是通过程序中的 <code>wait()</code> 语句和 <code>wait()</code> 语句中间的赋值语句来完成对状态机的描述。</p>
+<p>钟控线程进程最适合来描述隐式有限状态机。</p>
+<h2 id="挂起"><a href="#挂起" class="headerlink" title="挂起"></a>挂起</h2><h3 id="wiat-until"><a href="#wiat-until" class="headerlink" title="wiat_until()"></a>wiat_until()</h3><p>将进程挂起直到指定的表达式的值为真，只能用于线程进程和钟控线程进程。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wait_until(data.delayed() == <span class="literal">true</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>该语句中的 <code>delayed()</code> 是必须的！</strong></p>
+<p>参数必须是 <code>bool</code> 型，如：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wait_untile(clock.delayed()== <span class="literal">true</span></span><br><span class="line">           &amp;&amp; reset.delayed() == <span class="literal">false</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="wait"><a href="#wait" class="headerlink" title="wait()"></a>wait()</h3><ul>
+<li><p><code>wait()</code>：等待敏感表中有事件发生</p>
+</li>
+<li><p><code>wait(const sc_event&amp;)</code>：等待事件发生</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc_event e1;</span><br><span class="line">wait(e1);</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>wait(sc_event_or_list&amp;)</code>：等待事件之一发生</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc_event e1, e2, e3;</span><br><span class="line">wait(e1 | e2 | e3);</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>wait(sc_event_and_list&amp;)</code>：等待事件全部发生</p>
+</li>
+</ul>
+<h3 id="next-trigger"><a href="#next-trigger" class="headerlink" title="next_trigger()"></a>next_trigger()</h3><p>只能用于 <code>SC_METHOD</code> 类进程。</p>
+<p>参数与 <code>wait()</code> 的参数相同，只是分别用于不同类型的进程。</p>
+<p><code>next_trigger()</code> 调用后进程立即返回。</p>
+<h3 id="watching"><a href="#watching" class="headerlink" title="watching()"></a>watching()</h3><p>只能用于 <code>SC_CTHREAD</code> 进程。</p>
+<p><code>SC_CTHREAD</code> 进程中通常有一个死循环，但有时候需要初始化一些变量和信号，或者当某些条件满足的时候能够让进程从循环中跳出来。使用 <code>watching</code> 结构可以跳出循环。</p>
+<p><code>watching</code> 结构会不停地监视某一个条件，一旦该条件发生，则 <code>SC_CTHREAD</code> 进程就会跳出循环从进程的开始处重新执行。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">SC_MODULE(Driver)</span><br><span class="line">{</span><br><span class="line">    sc_in_clk clk;</span><br><span class="line">    sc_in&lt;<span class="keyword">bool</span>&gt; rst;</span><br><span class="line">    sc_out&lt;sc_bit&gt; d_a, d_b, d_cin;</span><br><span class="line">    sc_uint&lt;<span class="number">3</span>&gt; pattern;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">prc_driver</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">if</span> (rst.read() == <span class="literal">true</span>)</span><br><span class="line">            pattern = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">        {</span><br><span class="line">            d_a.write((sc_bit)pattern[<span class="number">0</span>]);</span><br><span class="line">            d_b.write((sc_bit)pattern[<span class="number">1</span>]);</span><br><span class="line">            d_cin.write((sc_bit)pattern[<span class="number">2</span>]);</span><br><span class="line">            wait();</span><br><span class="line">            pattern++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    SC_CTOR(Driver)</span><br><span class="line">    {</span><br><span class="line">        SC_CTHREAD(prc_driver, clk.pos());</span><br><span class="line">        <span class="comment">// 当 rst 为高，进程将会跳出循环重新执行</span></span><br><span class="line">        watching(rst.delayed() == <span class="literal">true</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="局部-watching"><a href="#局部-watching" class="headerlink" title="局部 watching()"></a>局部 watching()</h3><p>在前面的 watching 中，当 watching 的条件成立的时候，整个进程就会重新开始运行，但有的时候会只需要局部代码重新运行，这时候就需要使用局部 watching。</p>
+<h2 id="仿真与波形跟踪"><a href="#仿真与波形跟踪" class="headerlink" title="仿真与波形跟踪"></a>仿真与波形跟踪</h2><p>支持以下三种标准的波形格式：</p>
+<ul>
+<li>VCD (Value Change Dump)</li>
+<li>WIF (Waveform Intermediate Format)</li>
+<li>ISDB (Integrated Signal Data Base) （可能会被淘汰）</li>
+</ul>
+<p>只有在整个仿真期间都存在的信号和变量才能被跟踪，这与多数仿真器是一样的。它能够保证模块中的所有信号和数据成员都被跟踪。函数的本地变量只有在函数被调用期间才存在，所以不能跟踪。</p>
+<p>任何类型的信号和变量包括标量、数组和其它聚合类型（如结构 struct 类型）都能被跟踪。</p>
+<p>不同格式的波形文件可以在同一次仿真过程中同时产生，任何一个信号和变量都可以在不同格式的波形文件中不限制次数的被跟踪。</p>
+<h3 id="创建和关闭波形跟踪文件"><a href="#创建和关闭波形跟踪文件" class="headerlink" title="创建和关闭波形跟踪文件"></a>创建和关闭波形跟踪文件</h3><p>以创建 vcd 波形文件为例。下面代码生成 <code>Wave.vcd</code> 文件：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc_trace_file* my_trace_file;</span><br><span class="line">my_trace_file = sc_create_ved_trace_file(<span class="string">"Wave"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>sc_main()</code> 函数调用 <code>return</code> 之前必须关闭波形文件：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc_close_ved_trace_file(my_trace_file);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="跟踪标量型变量和信号"><a href="#跟踪标量型变量和信号" class="headerlink" title="跟踪标量型变量和信号"></a>跟踪标量型变量和信号</h3><p>创建了波形跟踪文件后，还必须告诉 SystemC 调度器到底要跟踪那些信号和变量以及被跟踪的信号和变量在波形文件中保存的名字：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sc_in&lt;<span class="keyword">int</span>&gt;datain;</span><br><span class="line">sc_out&lt;<span class="keyword">int</span>&gt; dataout;</span><br><span class="line">sc_trace(my_trace_file, datain, <span class="string">"DataIn"</span>);</span><br><span class="line">sc_trace(my_trace_file, dataout, <span class="string">"DataOut"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>trace()</code> 函数只能在所有的信号和模块已经例化、波形跟踪文件已经产生后才能调用。</p>
+<h3 id="跟踪聚合型变量和信号"><a href="#跟踪聚合型变量和信号" class="headerlink" title="跟踪聚合型变量和信号"></a>跟踪聚合型变量和信号</h3><p><code>sc_trace()</code> 函数只能跟踪标量类型的信号和变量，为了跟踪聚合类型的变量和信号，你需要重载 <code>sc_trace</code> 函数。所谓聚合类型可以是数组、向量和结构等。</p>
+<p>假设我们在设计中定义了下面的结构：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">packet</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    BYTE source_address;</span><br><span class="line">    BYTE destination_address;</span><br><span class="line">    WORD payload;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>为了跟踪 packet，我们要重载 <code>sc_trace()</code>函数。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sc_trace</span><span class="params">(sc_trace_file *tf, cont packet&amp; v, <span class="keyword">const</span> sc_string&amp; name)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    sc_trace(tf, v.source_address, name + <span class="string">".src_addr"</span>);</span><br><span class="line">    sc_trace(tf, v.destination_address, name + <span class="string">".dst_addr"</span>);</span><br><span class="line">    sc_trace(tf, v.payload, name + <span class="string">".payload"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="行为建模"><a href="#行为建模" class="headerlink" title="行为建模"></a>行为建模</h1><p>系统抽象的三个关键元素：</p>
+<ul>
+<li>行为：算法（运算、控制……）</li>
+<li>通信：各个算法模块之间的数据交互，控制配合</li>
+<li>时序：行为和通信在时间域上的协调</li>
+</ul>
+<p>在 SystemC 中，模块是行为的主要载体，通道是通信的主要载体，时序隐含在模块和通道的描述中。</p>
+<ul>
+<li>行为和通信分开</li>
+<li>支持接口方法调用</li>
+</ul>
+<p><img src="/images/pasted-62.png" alt="upload successful"></p>
+<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>端口连接模块内的进程（行为）和通道（通信）。</p>
+<p>基本的 SystemC 端口类型：</p>
+<ul>
+<li><code>sc_in&lt;T&gt;</code></li>
+<li><code>sc_out&lt;T&gt;</code></li>
+<li><code>sc_inout&lt;T&gt;</code></li>
+</ul>
+<p>为了满足行为建模的需要，允许用户自定义端口类型：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc_port&lt;InterfaceType, ChannelNumber = <span class="number">1</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一些端口定义的示例：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sc_port&lt;ram_if&gt; ram_port1; <span class="comment">// 连接到一个RAM上</span></span><br><span class="line">sc_port&lt;ram_if, N&gt; ram_portN; <span class="comment">// 可以连接到N个RAM上</span></span><br><span class="line">sc_port&lt;ram_if, <span class="number">0</span>&gt; ram_port0; <span class="comment">// 不限制所连接的RAM数量</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>可以通过 <code>ram_port0.size()</code> 得到实际连接到 ram_port0 的通道 RAM 的数量。</p>
+<hr>
+<p>端口必须与特定的通道接口相连，或者同父模块的端口相连。一个模块的端口连接到零个、一个或者多个通道，或者零个、一个或者多个父模块的端口，但必须至少连接到1个通道或者父模块的端口上。</p>
+<p>类 <code>sc_port&lt;IF，N&gt;</code> 是所有端口的基类，它是一个模板类。<code>IF</code> 是接口类型，<code>N</code> 是所连接的同一类型的通道数目，也就是接口数，它的缺省值是 <code>1</code>。</p>
+<h4 id="示例：RAM读写端口"><a href="#示例：RAM读写端口" class="headerlink" title="示例：RAM读写端口"></a>示例：RAM读写端口</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">SC_MODULE(Master)</span><br><span class="line">{</span><br><span class="line">    sc_in_clk clk;</span><br><span class="line">    sc_port&lt;ram_if&lt;<span class="keyword">int</span>&gt;&gt; ram_port; <span class="comment">// 端口实例</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> address;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">main_action</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        wait();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        address = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i++ &lt; <span class="number">100</span>)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> ((status = ram_port-&gt;write(address, data)))</span><br><span class="line">            { <span class="comment">/* ... */</span> }</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="string">"RAM write fail"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> ((status = ram_port-&gt;read(address, data)))</span><br><span class="line">            { <span class="comment">/* ... */</span> }</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">"RAM read fail"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            </span><br><span class="line">            wait();</span><br><span class="line">            address++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    SC_CTOR()</span><br><span class="line">    {</span><br><span class="line">        SC_CTHREAD(main_action, clk.pos());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h3><p>在SystemC中，接口本身只是定义了一组通信方法，而不具体负责这些方法如何实现。通道才是这些接口方法的实现者。</p>
+<p>通道可以实现一个或者多个接口，也连接一个或者多个模块。</p>
+<p>SystemC中通道分为两种：基本通道和分层通道</p>
+<ul>
+<li>基本通道不包含任何进程，也不对外展现出任何可见结构，它们也不能够直接的或者间接的调用其它基本通道。</li>
+<li>分层通道本身是一个模块，可以包含进程、子模块，也可以包含和调用其它通道。</li>
+</ul>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 端口与通道的关联</span></span><br><span class="line">source1.write_port(fifo1);</span><br><span class="line">source1.clk(clk);</span><br><span class="line">sink1.read_port(fifo1);</span><br><span class="line">sink1.clk(clk);</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="基本通道"><a href="#基本通道" class="headerlink" title="基本通道"></a>基本通道</h4><p>基本通道不包含任何进程，也不对外展现出任何可见结构，它们也不能够直接的或者间接的调用其它基本通道。</p>
+<p>SystemC2.01中定义了若干基本通道类型，它们是：</p>
+<ul>
+<li><code>sc_signal&lt;T&gt;</code></li>
+<li><code>sc_signal_rv&lt;N&gt;</code></li>
+<li><code>sc_mutex</code></li>
+<li><code>sc_fifo&lt;T&gt;</code></li>
+<li><code>sc_semaphore</code></li>
+<li><code>sc_buffer&lt;T&gt;</code></li>
+</ul>
+<h5 id="sc-signal"><a href="#sc-signal" class="headerlink" title="sc_signal"></a>sc_signal</h5><ul>
+<li><code>sc_signal&lt;T&gt;</code> 是最基本的通道，它用于连接模块的基本端口 <code>sc_in&lt;T&gt;</code>、<code>sc_out&lt;T&gt;</code> 和 <code>sc_inout&lt;T&gt;</code>。</li>
+<li>最多只有一个 <code>sc_out&lt;T&gt;</code> 或者 <code>sc_inout&lt;T&gt;</code> 可以连接到 <code>sc_signal&lt;T&gt;</code>，否则就会产生典型的多驱动情况。</li>
+<li>可以有多个 <code>sc_in&lt;T&gt;</code> 同时连接到 <code>sc_signal&lt;T&gt;</code>。</li>
+<li><code>sc_signal&lt;T&gt;</code> 继承于基本通道类，并实现了 <code>sc_signal_inout_if&lt;T&gt;</code> 接口。<code>sc_signal_inout_if&lt;T&gt;</code> 接口的最重要成员函数 <code>read()</code> 和 <code>write()</code>。</li>
+</ul>
+<h5 id="sc-signal-rt"><a href="#sc-signal-rt" class="headerlink" title="sc_signal_rt"></a>sc_signal_rt</h5><p><code>sc_signal_rv&lt;T&gt;</code> 是所谓“解析的”信号通道，与 <code>sc_signal&lt;T&gt;</code> 的不同之处是它允许同时有多个端口连接到其上并进行写操作。</p>
+<h5 id="sc-buffer"><a href="#sc-buffer" class="headerlink" title="sc_buffer"></a>sc_buffer</h5><p><code>sc_buffer&lt;T&gt;</code> 继承于 <code>sc_signal&lt;T&gt;</code>，并重载了 <code>write()</code> 和 <code>update()</code>函数。</p>
+<p><code>sc_buffer&lt;T&gt;</code> 不管 <code>write()</code> 写的数据是否与原数据相同，都要求进行数据更新；而 <code>sc_signal&lt;T&gt;</code> 首先要检查新数据是否与原数据相同，如果不同才进行更新。</p>
+<h5 id="sc-fifo"><a href="#sc-fifo" class="headerlink" title="sc_fifo"></a>sc_fifo</h5><p><img src="/images/pasted-63.png" alt="upload successful"></p>
+<ul>
+<li><code>sc_fifo&lt;T&gt;</code> 是SystemC核心语言库中已经实现了的 FIFO 通道</li>
+<li><code>write(&amp;T)</code> 代表写 FIFO 的方法。</li>
+<li><code>read()</code>是读 FIFO 的方法，它返回队头单元的数据。</li>
+<li><code>num_free()</code> 用于查询FIFO还有多少空单元。</li>
+<li><code>num_available()</code> 查询FIFO还有多少个数据可以读。</li>
+<li><code>Size</code> 代表FIFO的总单元数，对于 <code>sc_fifo</code>，<code>Size</code> 的默认值为 <code>16</code>。</li>
+</ul>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc_fifo&lt;<span class="keyword">int</span>&gt; fifo1; <span class="comment">// 默认深度为16</span></span><br><span class="line">sc_fifo&lt;packet&gt; fifo2(<span class="number">64</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h6 id="示例：信源和信宿模块通过FIFO通信"><a href="#示例：信源和信宿模块通过FIFO通信" class="headerlink" title="示例：信源和信宿模块通过FIFO通信"></a>示例：信源和信宿模块通过FIFO通信</h6><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"systemc.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 信源模块</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">source</span> :</span> <span class="keyword">public</span> sc_module</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	sc_in_clk clk;</span><br><span class="line">	sc_port&lt;sc_fifo_out_if&lt;<span class="keyword">char</span>&gt;&gt; write_port;</span><br><span class="line"></span><br><span class="line">	SC_HAS_PROCESS(source);</span><br><span class="line"></span><br><span class="line">	source(sc_module_name name) : sc_module(name)</span><br><span class="line">	{</span><br><span class="line">		SC_CTHREAD(main, clk.neg());</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">const</span> <span class="keyword">char</span> str[] = <span class="string">"For any problems, feel free to contact the author via Email: chenxiee@mails.tsinghua.edu.cn"</span>;</span><br><span class="line">		wait();</span><br><span class="line">		<span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">		{</span><br><span class="line">			<span class="keyword">if</span> (rand() &amp; <span class="number">1</span>)</span><br><span class="line">			{</span><br><span class="line">				<span class="keyword">if</span> (str[i])</span><br><span class="line">				{</span><br><span class="line">					write_port-&gt;write(str[i++]);</span><br><span class="line">					wait();</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 信宿模块</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sink</span> :</span> <span class="keyword">public</span> sc_module</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	sc_in_clk clk;</span><br><span class="line">	sc_port&lt;sc_fifo_in_if&lt;<span class="keyword">char</span>&gt;&gt; read_port;</span><br><span class="line"></span><br><span class="line">	SC_HAS_PROCESS(sink);</span><br><span class="line"></span><br><span class="line">	sink(sc_module_name name)</span><br><span class="line">	{</span><br><span class="line">		SC_CTHREAD(main, clk.neg());</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">char</span> c;</span><br><span class="line">		<span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">		{</span><br><span class="line">			<span class="keyword">if</span> (rand() &amp; <span class="number">1</span>)</span><br><span class="line">			{</span><br><span class="line">				read_port-&gt;read(c);</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; c;</span><br><span class="line">			}</span><br><span class="line">			wait();</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// Top模块</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PERIOD 20</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Top</span> :</span> <span class="keyword">public</span> sc_module</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	sc_clock clk;</span><br><span class="line">	sc_fifo&lt;<span class="keyword">char</span>&gt; fifo1;</span><br><span class="line">	source source1;</span><br><span class="line">	sink sink1;</span><br><span class="line"></span><br><span class="line">	Top(sc_module_name name, <span class="keyword">int</span> size)</span><br><span class="line">		: sc_module(name), fifo1(<span class="string">"Fifo1"</span>, size), source1(<span class="string">"source1"</span>),</span><br><span class="line">		sink1(<span class="string">"sink1"</span>), clk(<span class="string">"Clk"</span>, PERIOD, SC_NS)</span><br><span class="line">	{</span><br><span class="line">		source1.write_port(fifo1);</span><br><span class="line">		source1.clk(clk);</span><br><span class="line">		sink1.read_port(fifo1);</span><br><span class="line">		sink1.clk(clk);</span><br><span class="line">	}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sc_main</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">char</span> **)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">unsigned</span> size = <span class="number">16</span>;</span><br><span class="line">	<span class="function">Top <span class="title">top</span><span class="params">(<span class="string">"Top"</span>, size)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Testbench started, the simulation result is:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	sc_start(<span class="number">100000</span>, SC_NS);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"\n"</span></span><br><span class="line">		&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>从本例看模块、接口、端口、通道之间的关系：</p>
+<ul>
+<li>接口是一个C++抽象类，它定义了一组抽象方法，但不定义这些方法的具体实现。</li>
+<li>通道实现一个或者多个接口。也就是说，通道必须继承一个或者多个接口，这些接口中定义的抽象方法必须在通道中实现。</li>
+<li>端口总是与一定的接口类型相关联的，端口只能连接到实现了该类接口的通道上。</li>
+<li>通过端口，模块中的进程可以连接到通道并使用通道提供的方法</li>
+</ul>
+<h5 id="sc-semaphore"><a href="#sc-semaphore" class="headerlink" title="sc_semaphore"></a>sc_semaphore</h5><p>通常翻译为信号量。</p>
+<p>信号量代表可用资源实体的数量，所以可以认为信号量就是一个资源计数器，它限制的是同时使用某共享资源（也称为临界资源）的进程的数量。信号量计数的值代表的就是当前仍然可用的共享资源的数量。</p>
+<p><code>sc_semaphore</code> 实现的是 <code>sc_semaphore_if</code> 接口。</p>
+<p>其中，<code>wait()</code> 方法获得一个信号量，其作用效果是获得一份资源的使用权，使信号量计数减一，如下面的实现代码。</p>
+<h5 id="sc-mutex"><a href="#sc-mutex" class="headerlink" title="sc_mutex"></a>sc_mutex</h5><p>具有锁定和非锁定两种状态。当互斥（器）已经由另外的进程锁定，这时申请互斥的进程就会被阻塞，直到锁定互斥的进程将互斥解锁。</p>
+<h6 id="直接通道调用"><a href="#直接通道调用" class="headerlink" title="直接通道调用"></a>直接通道调用</h6><p>在同一模块内，各个进程之间也需要通信。它们可以通过共享变量、握手信号、模块内通道等方式通信。如果它们之间的通信是通过模块内通道，则此时需要进行直接通道调用。</p>
+<p>使用 <code>sc_mutex</code> 的直接通道调用的实例：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sc_in_clk clk;</span><br><span class="line">sc_out&lt;<span class="keyword">int</span>&gt; data;</span><br><span class="line">sc_mutex protect;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	wait();</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    {</span><br><span class="line">        protect.lock();</span><br><span class="line">        data.write(rand());</span><br><span class="line">        protect.unlock();</span><br><span class="line">        wait();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>另一种形式：不通过端口直接调用通道实现：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ram&lt;<span class="keyword">int</span>&gt;* ram0; <span class="comment">// 通道实例的指针</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main_action</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ...;</span><br><span class="line">    <span class="keyword">while</span> (address &lt;= end_address)</span><br><span class="line">    {</span><br><span class="line">        ram0-&gt;write(address, data); <span class="comment">// 不通过端口直接调用通道实现</span></span><br><span class="line">        wait();</span><br><span class="line">    }</span><br><span class="line">    ...;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">SC_CTOR(PortLess)</span><br><span class="line">{</span><br><span class="line">    SC_CTHREAD(main_action, clk.pos());</span><br><span class="line">    ram0 = <span class="keyword">new</span> ram&lt;<span class="keyword">int</span>&gt;(<span class="string">"RAM"</span>, <span class="number">0</span>, <span class="number">255</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="分层通道"><a href="#分层通道" class="headerlink" title="分层通道"></a>分层通道</h4><p>分层通道具有可见结构，可以包含进程，可以直接调用其它通道，它是一个实现了一个或者多个接口的模块。</p>
+<p>常见的分层通道有两种：</p>
+<ul>
+<li>一是在一个通道中直接例化并使用其它通道，被例化的通道可以是分层通道，也可以是基本通道。这种类型的通道比较常见，被称为<strong>一般分层通道</strong>；</li>
+<li>二是一个通道利用端口进行间接通道调用，调用穿越了一个以上的通道。被穿过的通道似乎被“合成”到了一起，这种通道是一种特殊的分层通道，称作<strong>合成通道</strong>（compositechannel）。合成通道间接的体现了通道的层次性。</li>
+</ul>
+<h5 id="一般分层通道"><a href="#一般分层通道" class="headerlink" title="一般分层通道"></a>一般分层通道</h5><p>凡是例化了其它通道的通道都可以归入一般分层通道之列。如下例：</p>
+<p><img src="/images/pasted-64.png" alt="upload successful"></p>
+<h5 id="合成通道"><a href="#合成通道" class="headerlink" title="合成通道"></a>合成通道</h5><p>一个模块可以利用端口穿越了一个以上的通道进行间接通道调用。被穿过的通道似乎被“合成“到了一起。</p>
+<p>我们假定设计好了一个接口类 <code>GetFIFO_if</code>，它的一个成员函数 <code>getWriteFIFO()</code> 返回的是一个 FIFO 通道的指针，如返回上节中定义的 tlm_fifo 的指针 tlm_fifo，再假设又我们实现了一个 GetFIFO 通道，data 是一个初始化了的 char 型数据。那么在 Source 模块中就可以通过下面的方式来写 FIFO：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_port-&gt;getWriteFIFO()-&gt;write(data);</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="交易级建模"><a href="#交易级建模" class="headerlink" title="交易级建模"></a>交易级建模</h1><p>SoC设计中的通信体系结构的抽象层次图：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>屏蔽的细节</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L3</td>
+<td>消息层</td>
+<td>资源共享，时序</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>交易层</td>
+<td>时钟，协议</td>
+</tr>
+<tr>
+<td>L1</td>
+<td>传输层</td>
+<td>连线，寄存器</td>
+</tr>
+<tr>
+<td>L0</td>
+<td>寄存器传输层</td>
+<td>门，门/连线延时</td>
+</tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2021-08-03T02:32:21.705Z" itemprop="dateUpdated">2021-08-03 10:32:21</time>
+</span>
+
+
+        
+        原文链接：<a href="/2021/08/02/SystemC-学习笔记/" target="_blank" rel="external">http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="小乂">
+            <a>小乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SystemC/">SystemC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/&title=《SystemC-学习笔记》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/&title=《SystemC-学习笔记》 — 云笺&source=系统级设计描述语言语言架构SystemC本质上是在C++的基础上添加的硬件扩展库和仿真核。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SystemC-学习笔记》 — 云笺&url=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/06/17/C-使用async将参数传递给函数/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：C++使用async将参数传递给函数">下一篇：C++使用async将参数传递给函数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/&title=《SystemC-学习笔记》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/&title=《SystemC-学习笔记》 — 云笺&source=系统级设计描述语言语言架构SystemC本质上是在C++的基础上添加的硬件扩展库和仿真核。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SystemC-学习笔记》 — 云笺&url=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/08/02/SystemC-学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aO3LDMAwFQN//0kqbIpIeADkzIpeVJ2OJXBcI8fl84nX8Wvk3z546e0++S3NhYGC8lnFcrusNrjc+e09yhvxsGBgY+zDOXn32OQmm14zro+dnw8DAwMgPl2yfBGsMDAyMOeP62eYhWldJDAyM3RhJEnsdOpPwmqe+X8zFMTAwXsjIq+7///kr/Q0MDIxXMY7i6pXe5u3Pm1NhYGAszeiVxp66Jk4CLgYGxj6Marl/kqYmw2HVM2BgYGAk7cbrcPzUYNnND4GBgbE0Iy/EVwNunuL2mgeFeI+BgbEQY56m5he7ZK/q3zEwMFZlTJLYyShGtZ1w8+NiYGBszOjdwarBtDoE9sdnDAyMDRi9wDc/aPVHuWlhYmBgLMqYpI7NDYrf6T2LgYGxEiO/luWDEfmwRTXpHTUvMTAwXs7It+yV+KtNgvLoBgYGxtKMvKzWO1xesMtDbTV8Y2BgrMTIWwLJUebl/iSJvRm8wMDAWI6RlOknzc5esC4PXmBgYCzK6JXSJiX+5M3lCyIGBsYGjOZIVrHdmF/4kqDffAUGBsZrGfNhiPwvTzU4y/83MDAwXsg4iisve+XZc1Kei5oBGBgYizLyNQfnZf2nkmcMDIyVGPP0dRKUe6MYGBgYezKqga86ZtEcm8ifwsDAwCg2F59tPER7YWBgYMQbzNPU5vsxMDA2YCShMG9tzscy8iCOgYGxA6M64lBOLwcFtd6FFQMDYyHGDx4ddHJb+oCnAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "小乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

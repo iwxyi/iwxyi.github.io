@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://blog.iwxyi.com/2021/01/31/Flutter各种问题/">
     
     
-    <title>Flutter各种问题 | 云笺 | 一些技术摘要和写作技巧</title>
+    <title>Flutter各种问题整理与解决 | 云笺 | 一些技术摘要和写作技巧</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
@@ -44,14 +44,14 @@
     <meta name="description" content="卡在flutter pub get不动1234567891011//命令行输入vim ~/.bash_profile//添加下面三行，保存export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cnexport PATH=/Users/计算机名">
 <meta name="keywords" content="Flutter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flutter各种问题">
+<meta property="og:title" content="Flutter各种问题整理与解决">
 <meta property="og:url" content="http://blog.iwxyi.com/2021/01/31/Flutter各种问题/index.html">
 <meta property="og:site_name" content="云笺">
 <meta property="og:description" content="卡在flutter pub get不动1234567891011//命令行输入vim ~/.bash_profile//添加下面三行，保存export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cnexport PATH=/Users/计算机名">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-25T01:29:06.355Z">
+<meta property="og:updated_time" content="2021-08-03T02:38:42.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flutter各种问题">
+<meta name="twitter:title" content="Flutter各种问题整理与解决">
 <meta name="twitter:description" content="卡在flutter pub get不动1234567891011//命令行输入vim ~/.bash_profile//添加下面三行，保存export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cnexport PATH=/Users/计算机名">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
@@ -154,7 +154,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Flutter各种问题</div>
+        <div class="flex-col header-title ellipsis">Flutter各种问题整理与解决</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -194,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#卡在flutter-pub-get不动"><span class="post-toc-number">1.</span> <span class="post-toc-text">卡在flutter pub get不动</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#卡在flutter-pub-get不动"><span class="post-toc-number">1.</span> <span class="post-toc-text">卡在flutter pub get不动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行按钮灰色：not-applicable-for-the-“main-dart”-configuration"><span class="post-toc-number">2.</span> <span class="post-toc-text">运行按钮灰色：not applicable for the “main.dart” configuration</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#java-lang-NoClassDefFoundError-Could-not-initialize-class-org-codehaus-groovy-vmplugin-v7-Java7"><span class="post-toc-number">3.</span> <span class="post-toc-text">java.lang.NoClassDefFoundError: Could not initialize class org.codehaus.groovy.vmplugin.v7.Java7</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#setState-called-after-dispose"><span class="post-toc-number">4.</span> <span class="post-toc-text">setState() called after dispose()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MissingPluginException-No-implementation-found-for-method-initialize-on-channel-dexterous-com-flutter-local-notifications"><span class="post-toc-number">5.</span> <span class="post-toc-text">MissingPluginException(No implementation found for method initialize on channel dexterous.com/flutter/local_notifications)</span></a></li></ol>
         </nav>
     </aside>
    
@@ -202,7 +202,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Flutter各种问题</h1>
+        <h1 class="post-card-title">Flutter各种问题整理与解决</h1>
         <div class="post-meta">
             <i class="icon icon-lg icon-calendar-o"></i>
             发表于
@@ -224,13 +224,30 @@
         </div>
         <div class="post-count-custom">
             <i class="icon icon-lg icon-comment-o"></i>
-            阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
+            阅读本文可能花费您&nbsp;<span class="post-count">2</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="卡在flutter-pub-get不动"><a href="#卡在flutter-pub-get不动" class="headerlink" title="卡在flutter pub get不动"></a>卡在<code>flutter pub get</code>不动</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//命令行输入</span><br><span class="line">vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line">//添加下面三行，保存</span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line">export PATH=/Users/计算机名称/flutter/bin:$PATH  //下载的flutterSDK的路径</span><br><span class="line"></span><br><span class="line">//命令行输入</span><br><span class="line">source ~/.bash_profile</span><br><span class="line">flutter -h</span><br></pre></td></tr></tbody></table></figure>
 
 <p>运行 <code>flutter doctor</code> 命令，再 <code>package get</code></p>
-<a id="more"></a><script>
+<a id="more"></a>
+
+
+
+<h2 id="运行按钮灰色：not-applicable-for-the-“main-dart”-configuration"><a href="#运行按钮灰色：not-applicable-for-the-“main-dart”-configuration" class="headerlink" title="运行按钮灰色：not applicable for the “main.dart” configuration"></a>运行按钮灰色：not applicable for the “main.dart” configuration</h2><p>是因为 Flutter SDK 没有设置：<code>File &gt; setting&gt; Language &amp; Framework &gt; flutter</code></p>
+<h2 id="java-lang-NoClassDefFoundError-Could-not-initialize-class-org-codehaus-groovy-vmplugin-v7-Java7"><a href="#java-lang-NoClassDefFoundError-Could-not-initialize-class-org-codehaus-groovy-vmplugin-v7-Java7" class="headerlink" title="java.lang.NoClassDefFoundError: Could not initialize class org.codehaus.groovy.vmplugin.v7.Java7"></a>java.lang.NoClassDefFoundError: Could not initialize class org.codehaus.groovy.vmplugin.v7.Java7</h2><p><code>目录/android/gradle/wrapper/gradle-wrapper.properties</code> 修改 <code>distributionUrl</code>属性。</p>
+<p>例如：<code>distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.2-all.zip</code> 改为 <code>distributionUrl=file:///D:/DevKits/gradle/gradle-6.4.1-all.zip</code>（这是我本地下载好了的）</p>
+<h2 id="setState-called-after-dispose"><a href="#setState-called-after-dispose" class="headerlink" title="setState() called after dispose()"></a>setState() called after dispose()</h2><p> State 对象被从对象数卸载释放之后再次调用 setState 就会报 setState() called after dispose()。 </p>
+<p> State 的 mounted 源码： </p>
+<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/// Whether this [State] object is currently in </span>a<span class="markdown"> tree.</span></span></span><br><span class="line"><span class="comment"><span class="markdown">///</span></span></span><br><span class="line"><span class="comment"><span class="markdown">/// After creating </span>a<span class="markdown"> [State] object and before calling [initState], </span>the<span class="markdown"></span></span></span><br><span class="line"><span class="comment"><span class="markdown">/// framework "mounts" </span>the<span class="markdown"> [State] object by associating it with </span>a<span class="markdown"></span></span></span><br><span class="line"><span class="comment"><span class="markdown">/// [BuildContext]. The [State] object remains mounted until </span>the<span class="markdown"> framework</span></span></span><br><span class="line"><span class="comment"><span class="markdown">/// calls [dispose], after which time </span>the<span class="markdown"> framework </span>will<span class="markdown"> never ask </span>the<span class="markdown"> [State]</span></span></span><br><span class="line"><span class="comment"><span class="markdown">/// object to [build] again.</span></span></span><br><span class="line"><span class="comment"><span class="markdown">///</span></span></span><br><span class="line"><span class="comment"><span class="markdown">/// It is </span>an<span class="markdown"> error to call [setState] unless [mounted] is true.</span></span></span><br><span class="line"><span class="built_in">bool</span> <span class="keyword">get</span> mounted =&gt; _element != <span class="keyword">null</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注释中说得很清楚：判断 State 对象现在还在不在对象树中。</p>
+<p>So，解决方案就是在 setState 之前先判断一下该 State 是否已经被释放：</p>
+<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/// 更新用户状态</span></span></span><br><span class="line"><span class="keyword">void</span> updateState(fn){</span><br><span class="line">    <span class="keyword">if</span> (mounted) {</span><br><span class="line">        setState(fn);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="MissingPluginException-No-implementation-found-for-method-initialize-on-channel-dexterous-com-flutter-local-notifications"><a href="#MissingPluginException-No-implementation-found-for-method-initialize-on-channel-dexterous-com-flutter-local-notifications" class="headerlink" title="MissingPluginException(No implementation found for method initialize on channel dexterous.com/flutter/local_notifications)"></a>MissingPluginException(No implementation found for method initialize on channel dexterous.com/flutter/local_notifications)</h2><p> 报丢失插件错误，是因为“hot reload”问题。</p>
+<p> 我们新添加的插件包就<strong>无法直接通过热重载</strong>打入手机应用包中，有的人会尝试<strong>直接点击绿色向右小三角</strong>安装，这样也是无法实现重新编译打包安装到手机的，这个时候你<strong>必须停止掉应用（红色小正方形按钮）</strong>，再重新点击安装才行。 </p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -255,7 +272,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2021-03-25T01:29:06.355Z" itemprop="dateUpdated">2021-03-25 09:29:06</time>
+    最后更新：<time datetime="2021-08-03T02:38:42.667Z" itemprop="dateUpdated">2021-08-03 10:38:42</time>
 </span>
 
 
@@ -292,7 +309,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&title=《Flutter各种问题》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&title=《Flutter各种问题整理与解决》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -302,7 +319,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&title=《Flutter各种问题》 — 云笺&source=卡在flutter pub get不动1234567891011//命令行输入vim ~/.bash_profile//添加下面三行，保存export P..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&title=《Flutter各种问题整理与解决》 — 云笺&source=卡在flutter pub get不动1234567891011//命令行输入vim ~/.bash_profile//添加下面三行，保存export P..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -312,7 +329,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flutter各种问题》 — 云笺&url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&via=http://blog.iwxyi.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flutter各种问题整理与解决》 — 云笺&url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&via=http://blog.iwxyi.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -474,7 +491,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&title=《Flutter各种问题》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&title=《Flutter各种问题整理与解决》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -484,7 +501,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&title=《Flutter各种问题》 — 云笺&source=卡在flutter pub get不动1234567891011//命令行输入vim ~/.bash_profile//添加下面三行，保存export P..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&title=《Flutter各种问题整理与解决》 — 云笺&source=卡在flutter pub get不动1234567891011//命令行输入vim ~/.bash_profile//添加下面三行，保存export P..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -494,7 +511,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flutter各种问题》 — 云笺&url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&via=http://blog.iwxyi.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flutter各种问题整理与解决》 — 云笺&url=http://blog.iwxyi.com/2021/01/31/Flutter各种问题/&via=http://blog.iwxyi.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
