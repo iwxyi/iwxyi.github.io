@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="切分部分： 1234567891011int partition(int arr[], int low, int high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;int pivot = arr[low];&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt; high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt;">
+    <meta name="description" content="切分部分： 1234567891011121314int partition(int arr[], int low, int high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;int pivot = arr[low];&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt; high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="死记硬背的快排">
 <meta property="og:url" content="http://blog.iwxyi.com/2020/03/19/死记硬背的快排/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="切分部分： 1234567891011int partition(int arr[], int low, int high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;int pivot = arr[low];&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt; high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt;">
+<meta property="og:description" content="切分部分： 1234567891011121314int partition(int arr[], int low, int high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;int pivot = arr[low];&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt; high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-24T09:47:04.124Z">
+<meta property="og:updated_time" content="2021-09-23T01:51:36.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="死记硬背的快排">
-<meta name="twitter:description" content="切分部分： 1234567891011int partition(int arr[], int low, int high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;int pivot = arr[low];&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt; high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt;">
+<meta name="twitter:description" content="切分部分： 1234567891011121314int partition(int arr[], int low, int high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;int pivot = arr[low];&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low &amp;lt; high) {&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;while (low">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -221,7 +221,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p><strong>切分</strong>部分：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>{</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">int</span> pivot = arr[low];</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high) {</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high &amp;&amp; arr[high] &gt;= pivot) high--;</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;swap(arr[low], arr[high]);</span><br><span class="line">        </span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high &amp;&amp; arr[low] &lt;= pivot) low++;</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;swap(arr[low], arr[high]);</span><br><span class="line">&nbsp;&nbsp; &nbsp;}</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">return</span> low;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>{</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">int</span> pivot = arr[low];</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high) {</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high &amp;&amp; arr[high] &gt;= pivot) high--;</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="comment">// swap(arr[low], arr[high]);</span></span><br><span class="line">        arr[low] = arr[high];</span><br><span class="line">        </span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high &amp;&amp; arr[low] &lt;= pivot) low++;</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="comment">// swap(arr[low], arr[high]);</span></span><br><span class="line">        arr[high] = arr[low];</span><br><span class="line">&nbsp;&nbsp; &nbsp;}</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">return</span> low;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <blockquote>
 <p>swap包含在头文件<code>&lt;algorithm&gt;</code>中，当然用传统<code>t = a, a = b, b = t</code>的办法也可以。</p>
@@ -231,7 +231,7 @@
 <p><strong>主体</strong>部分：</p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>{</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">if</span> (low &lt; high) {</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="keyword">int</span> pivot = partition(arr, low, high);</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;QSort(arr, low, pivot - <span class="number">1</span>); <span class="comment">//采用递归的方式对切分后的子数组排序</span></span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;QSort(arr, pivot + <span class="number">1</span>, high);</span><br><span class="line">&nbsp;&nbsp; &nbsp;}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p> 其中，参数low和high表示的是数组元素的下标，分别代表待排序数组的最左端元素和最右端元素。 </p>
+<p> 其中，参数low和high表示的是数组元素的下标，分别代表待排序数组的最左端元素和最右端元素（都包括）。 </p>
 <p><strong>样例</strong>：</p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">&nbsp;&nbsp; &nbsp;srand(time(<span class="number">0</span>));</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i != <span class="number">100</span>; i++)</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;a[i] = rand() % <span class="number">1000</span>;</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="comment">//QSort(a, 0, 100)</span></span><br><span class="line">&nbsp;&nbsp; &nbsp;QSort(a, <span class="number">0</span>, <span class="number">99</span>); <span class="comment">//拳打下标越界，脚踢死循环。</span></span><br><span class="line">    </span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i != <span class="number">100</span>; i++) {</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="keyword">if</span> ((i + <span class="number">1</span>) % <span class="number">10</span> == <span class="number">0</span>)</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&nbsp;&nbsp; &nbsp;}</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
@@ -260,7 +260,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2021-03-24T09:47:04.124Z" itemprop="dateUpdated">2021-03-24 17:47:04</time>
+    最后更新：<time datetime="2021-09-23T01:51:36.239Z" itemprop="dateUpdated">2021-09-23 09:51:36</time>
 </span>
 
 
@@ -308,7 +308,7 @@
       </li>
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2020/03/19/死记硬背的快排/&title=《死记硬背的快排》 — 云笺&source=切分部分：
-1234567891011int partition(int arr[], int low, int high) {&nbsp;&nbsp; ..." data-title=" QQ">
+1234567891011121314int partition(int arr[], int low, int high) {&nbsp;&..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -491,7 +491,7 @@
       </li>
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2020/03/19/死记硬背的快排/&title=《死记硬背的快排》 — 云笺&source=切分部分：
-1234567891011int partition(int arr[], int low, int high) {&nbsp;&nbsp; ..." data-title=" QQ">
+1234567891011121314int partition(int arr[], int low, int high) {&nbsp;&..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

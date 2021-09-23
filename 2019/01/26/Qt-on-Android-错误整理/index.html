@@ -49,7 +49,7 @@
 <meta property="og:site_name" content="云笺">
 <meta property="og:description" content="stdlib.h: No such file or directory12E:\Install\android-ndk-r16b\sources\cxx-stl\gnu-libstdc++\4.9\include\cstdlib:72: error: stdlib.h: No such file or directory #include &amp;lt;stdlib.h&amp;gt;  解决办法：换个版本的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T09:45:56.793Z">
+<meta property="og:updated_time" content="2021-09-23T01:41:15.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt on Android 错误整理">
 <meta name="twitter:description" content="stdlib.h: No such file or directory12E:\Install\android-ndk-r16b\sources\cxx-stl\gnu-libstdc++\4.9\include\cstdlib:72: error: stdlib.h: No such file or directory #include &amp;lt;stdlib.h&amp;gt;  解决办法：换个版本的">
@@ -194,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#stdlib-h-No-such-file-or-directory"><span class="post-toc-number">1.</span> <span class="post-toc-text">stdlib.h: No such file or directory</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过程试图写入的管道不存在"><span class="post-toc-number">2.</span> <span class="post-toc-text">过程试图写入的管道不存在</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#No-suitable-Java-found"><span class="post-toc-number">3.</span> <span class="post-toc-text">No suitable Java found.</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#‘android–1’-does-not-exist-in-SDK"><span class="post-toc-number">4.</span> <span class="post-toc-text">‘android–1’ does not exist in SDK</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#aidl-exe-系统找不到指定的文件"><span class="post-toc-number">5.</span> <span class="post-toc-text">aidl.exe 系统找不到指定的文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#不再支持源选项-5-1-5"><span class="post-toc-number">6.</span> <span class="post-toc-text">不再支持源选项 5 / 1.5</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#下载-Gradle-卡住"><span class="post-toc-number">7.</span> <span class="post-toc-text">下载 Gradle 卡住</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#stdlib-h-No-such-file-or-directory"><span class="post-toc-number">1.</span> <span class="post-toc-text">stdlib.h: No such file or directory</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过程试图写入的管道不存在"><span class="post-toc-number">2.</span> <span class="post-toc-text">过程试图写入的管道不存在</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#No-suitable-Java-found"><span class="post-toc-number">3.</span> <span class="post-toc-text">No suitable Java found.</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#‘android–1’-does-not-exist-in-SDK"><span class="post-toc-number">4.</span> <span class="post-toc-text">‘android–1’ does not exist in SDK</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#aidl-exe-系统找不到指定的文件"><span class="post-toc-number">5.</span> <span class="post-toc-text">aidl.exe 系统找不到指定的文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#不再支持源选项-5-1-5"><span class="post-toc-number">6.</span> <span class="post-toc-text">不再支持源选项 5 / 1.5</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#下载-Gradle-卡住"><span class="post-toc-number">7.</span> <span class="post-toc-text">下载 Gradle 卡住</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Cannot-find-the-androiddeploy-Json-file"><span class="post-toc-number">8.</span> <span class="post-toc-text">Cannot find the androiddeploy Json file</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-deploy-settings-file-not-found-not-building-an-APK"><span class="post-toc-number">9.</span> <span class="post-toc-text">Android deploy settings file not found, not building an APK.</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#路径-问题"><span class="post-toc-number">10.</span> <span class="post-toc-text">路径 // 问题</span></a></li></ol>
         </nav>
     </aside>
    
@@ -224,7 +224,7 @@
         </div>
         <div class="post-count-custom">
             <i class="icon icon-lg icon-comment-o"></i>
-            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+            阅读本文可能花费您&nbsp;<span class="post-count">6</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="stdlib-h-No-such-file-or-directory"><a href="#stdlib-h-No-such-file-or-directory" class="headerlink" title="stdlib.h: No such file or directory"></a>stdlib.h: No such file or directory</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\Install\android-ndk-r16b\sources\cxx-stl\gnu-libstdc++\4.9\include\cstdlib:72: error: stdlib.h: No such file or directory</span><br><span class="line"> #include &lt;stdlib.h&gt;</span><br></pre></td></tr></tbody></table></figure>
@@ -277,10 +277,25 @@
 <p>在 <code>\sdk\tools\ant\build.xml</code> 文件中搜索 <code>1.5</code>，改成 <code>1.8</code>。<code>1.6</code> 还是会警告过时。</p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- compilation options --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"java.encoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"java.target"</span> <span class="attr">value</span>=<span class="string">"1.5"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"java.source"</span> <span class="attr">value</span>=<span class="string">"1.5"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"java.compilerargs"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h1 id="下载-Gradle-卡住"><a href="#下载-Gradle-卡住" class="headerlink" title="下载 Gradle 卡住"></a>下载 Gradle 卡住</h1><p>1、先保证程序在windows下能正常运行，即MinGW编译通过</p>
-<p>2、进入如图位置，点击create templates,对弹出的提示确认。系统会自动建立一些配置文件</p>
-<p>3、此时，进入如下界面，点开文件build.gradle，修改如图所示，即可顺利编译成功。但记得电脑能上网。</p>
+<h1 id="下载-Gradle-卡住"><a href="#下载-Gradle-卡住" class="headerlink" title="下载 Gradle 卡住"></a>下载 Gradle 卡住</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Downloading https://services.gradle.org/distributions/gradle-4.6-bin.zip</span><br><span class="line"></span><br><span class="line">Exception in thread "main" java.net.ConnectException: Connection timed out: connect</span><br><span class="line">	at java.net.DualStackPlainSocketImpl.connect0(Native Method)</span><br><span class="line">	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)</span><br><span class="line">	......</span><br></pre></td></tr></tbody></table></figure>
+
+<p>1、先保证程序在windows下能正常运行，即MinGW编译通过</p>
+<p>2、进入“项目-Build Android APK”，点击create templates,对弹出的提示确认。系统会自动建立一些配置文件</p>
+<p>3、<strong>点开文件<code>build.gradle</code>，做如下修改，即可顺利编译成功</strong>。但记得电脑能上网。</p>
 <p>修改：屏蔽<code>jcenter()</code>  添加一行<code>maven{ url 'https://maven.aliyun.com/repository/jcenter' }</code>，记住，下面还有一个<code>jcenter()</code>,同样屏蔽处理</p>
+<h1 id="Cannot-find-the-androiddeploy-Json-file"><a href="#Cannot-find-the-androiddeploy-Json-file" class="headerlink" title="Cannot find the androiddeploy Json file"></a>Cannot find the androiddeploy Json file</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Cannot find the androiddeploy Json file.</span><br><span class="line">Error while building/deploying project Bilibili-MagicalDanmaku (kit: Android for x86 (Clang Qt 5.13.1 for Android x86))</span><br><span class="line">When executing step "Deploy to Android device"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>实测无效的：</p>
+<p><code>选项--构建与运行--Qbs--Kit 选择Android for armeabi-v7a (GCC 4.9,Qt5.10.1 for Android armv7)</code></p>
+<p>未找到原因，但发现把一些容易出兼容性问题的模块删掉之后可用。</p>
+<h1 id="Android-deploy-settings-file-not-found-not-building-an-APK"><a href="#Android-deploy-settings-file-not-found-not-building-an-APK" class="headerlink" title="Android deploy settings file not found, not building an APK."></a>Android deploy settings file not found, not building an APK.</h1><p> 这是Qt的一个小Bug,安卓配置文件不太稳定。</p>
+<p>只需要在左侧项目栏里：</p>
+<p>选定你的编译工具（编译平台），右侧选择Disable它，</p>
+<p>然后双击激活它，重新载入一下，就OK了。 </p>
+<h1 id="路径-问题"><a href="#路径-问题" class="headerlink" title="路径 // 问题"></a>路径 // 问题</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb: failed to stat E:/Projects/BilibiliLiveDanmaku_Android/android-build//build/outputs/apk/android-build-debug.apk: No such file or directory</span><br><span class="line">Installing Android package to device.</span><br><span class="line">Running command "D:/DevKits/SDK/platform-tools/adb.exe -s 192.168.91.101:5555  install -r E:/Projects/BilibiliLiveDanmaku_Android/android-build//build/outputs/apk/android-build-debug.apk"</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Installing to device failed!</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注意到 <code>E:/Projects/BilibiliLiveDanmaku_Android/android-build//build/outputs/apk/android-build-debug.apk: No such file or directory</code> 中间路径有两条 <code>//</code>，表示这个生成的文件夹是空的。</p>
+<p>同上面一个解决方案：Disable 编译工具，点击重新激活。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -306,7 +321,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2019-10-13T09:45:56.793Z" itemprop="dateUpdated">2019-10-13 17:45:56</time>
+    最后更新：<time datetime="2021-09-23T01:41:15.794Z" itemprop="dateUpdated">2021-09-23 09:41:15</time>
 </span>
 
 

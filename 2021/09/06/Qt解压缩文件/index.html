@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/">
+    
+    
+    <title>Qt解压缩文件 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="文件,Qt">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="这里使用的是 QuaZip 方案。它调用了 zlib1.dll，如果是32位，直接编译 QuaZip 即可，默认就是32位。 如果是64位，不兼容的 zlib1.dll 会导致编译失败，需要自己编译 zlib。">
+<meta name="keywords" content="文件,Qt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt解压缩文件">
+<meta property="og:url" content="http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="这里使用的是 QuaZip 方案。它调用了 zlib1.dll，如果是32位，直接编译 QuaZip 即可，默认就是32位。 如果是64位，不兼容的 zlib1.dll 会导致编译失败，需要自己编译 zlib。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315104618824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315105120568.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315105424880.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020032214391375.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315105941254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200322113711317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200322113843565.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200322115336796.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200322113933538.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200322114207795.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200322114540991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdn.net/20181011162232291?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20181011162314306?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181217151912899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181217152118112.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181217152338995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdn.net/20181011162450635?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018101116263978?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018121715285397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdn.net/20181011172842750?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181217153001113.png">
+<meta property="og:updated_time" content="2021-09-23T01:37:13.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qt解压缩文件">
+<meta name="twitter:description" content="这里使用的是 QuaZip 方案。它调用了 zlib1.dll，如果是32位，直接编译 QuaZip 即可，默认就是32位。 如果是64位，不兼容的 zlib1.dll 会导致编译失败，需要自己编译 zlib。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200315104618824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">小乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-link"></i>
+                    <span>相 关</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/iwxyi" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Qt解压缩文件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、编译Zlib"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、编译Zlib</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-官网下载zlib库"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 官网下载zlib库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-命令行编译32位dll"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.命令行编译32位dll</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-命令行编译64位dll"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.命令行编译64位dll</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、编译QuaZip"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、编译QuaZip</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Qt解压缩文件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Qt解压缩文件</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2021-09-06 09:35:00" datetime="2021-09-06T01:35:00.000Z"  itemprop="datePublished">2021-09-06</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>这里使用的是 QuaZip 方案。它调用了 zlib1.dll，如果是32位，直接编译 QuaZip 即可，默认就是32位。</p>
+<p>如果是64位，不兼容的 zlib1.dll 会导致编译失败，需要自己编译 zlib。</p>
+<a id="more"></a>
+
+<h1 id="一、编译Zlib"><a href="#一、编译Zlib" class="headerlink" title="一、编译Zlib"></a>一、编译Zlib</h1><blockquote>
+<p>转自：<a href="https://blog.csdn.net/yxy244/article/details/105024989" target="_blank" rel="noopener">https://blog.csdn.net/yxy244/article/details/105024989</a></p>
+</blockquote>
+<p><strong>编译环境：VS2017</strong></p>
+<h2 id="1-官网下载zlib库"><a href="#1-官网下载zlib库" class="headerlink" title="1. 官网下载zlib库"></a>1. 官网下载zlib库</h2><p><a href="http://www.zlib.net/" target="_blank" rel="noopener">http://www.zlib.net/</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200315104618824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>解压到一个好找的位置，这里是直接放D盘。</p>
+<h2 id="2-命令行编译32位dll"><a href="#2-命令行编译32位dll" class="headerlink" title="2.命令行编译32位dll"></a>2.命令行编译32位dll</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200315105120568.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>1.最常见的方式，开始菜单找到VS命令提示符工具，输入cd 复制粘贴zlib库的路径（你下载解压的zlib文件路径），回车切换到zlib目录下</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200315105424880.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>2.输入nmake -f win32/Makefile.msc 回车开始编译</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/2020032214391375.png" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>3.简单两步，在zlib目录下就生成了静态库和动态库了，生成的是x86版本。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200315105941254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+
+
+<h2 id="3-命令行编译64位dll"><a href="#3-命令行编译64位dll" class="headerlink" title="3.命令行编译64位dll"></a>3.命令行编译64位dll</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200322113711317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>1.编译32位用的是x86的命令提示工具，编译64位需要在开始菜单找到x64的命令提示工具，输入cd zlib库的路径，回车切换到zlib目录下</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200322113843565.png" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>2.输入 nmake -f win32/Makefile.msc AS=ml64 LOC=”-DASMV -DASMINF -I.” OBJA=”inffasx64.obj gvmat64.obj inffas8664.obj” </p>
+<p>执行编译</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200322115336796.png" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>3.如果遇到错误提示 inffasx64.obj:fatal error LNK1112:模块计算机类型“x64”与目标计算机类型“x86”冲突，</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200322113933538.png" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>先删除之前编译x86生成的obj文件，输入 del *.obj 执行删除目录下的所有obj文件
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200322114207795.png" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>\4. 再次执行 nmake -f win32/Makefile.msc AS=ml64 LOC=”-DASMV -DASMINF -I.” OBJA=”inffasx64.obj gvmat64.obj inffas8664.obj” ，顺利的话就能得到64位的静态库、动态库和导入库了。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200322114540991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4eTI0NA==,size_16,color_FFFFFF,t_70" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+
+
+<p>成功的 zlib1.dll，替换到 quazip 中的 lib/zlib1.dll。</p>
+<h1 id="二、编译QuaZip"><a href="#二、编译QuaZip" class="headerlink" title="二、编译QuaZip"></a>二、编译QuaZip</h1><blockquote>
+<p>转自：<a href="https://blog.csdn.net/xiaopei_yan/article/details/90267714" target="_blank" rel="noopener">https://blog.csdn.net/xiaopei_yan/article/details/90267714</a></p>
+</blockquote>
+<p><strong>zlib编译详见</strong><br><a href="https://blog.csdn.net/zhangxuechao_/article/details/85049711" target="_blank" rel="noopener">https://blog.csdn.net/zhangxuechao_/article/details/85049711</a></p>
+<p><strong>下载quazip</strong><br><a href="https://github.com/stachenov/quazip" target="_blank" rel="noopener">https://github.com/stachenov/quazip</a></p>
+<p><strong>也可直接下载我配置好的quazip</strong><br><a href="https://github.com/zwx230741/quazip.git" target="_blank" rel="noopener">https://github.com/zwx230741/quazip.git</a></p>
+<p><strong>加入头文件</strong><br>在quazip中创建include文件夹</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20181011162232291?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="1" title="">
+                </div>
+                <div class="image-caption">1</div>
+            </figure>
+<p>将zlib头文件拷贝到include文件夹下</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20181011162314306?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="2" title="">
+                </div>
+                <div class="image-caption">2</div>
+            </figure>
+<p><strong>加入动态库文件</strong><br>在quazip中创建lib文件夹</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181217151912899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=,size_16,color_FFFFFF,t_70" alt="1" title="">
+                </div>
+                <div class="image-caption">1</div>
+            </figure>
+<p>将zlib编译好的动态库拷贝到lib文件夹下</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181217152118112.png" alt="2" title="">
+                </div>
+                <div class="image-caption">2</div>
+            </figure>
+<p><strong>quazip工程配置</strong><br>修改quazip.pro工程文件。添加头文件路径和动态库路径</p>
+<figure class="highlight qt"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INCLUDEPATH += $$PWD/include</span><br><span class="line">LIBS += -L$$PWD/lib -lzlib1</span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181217152338995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=,size_16,color_FFFFFF,t_70" alt="3" title="">
+                </div>
+                <div class="image-caption">3</div>
+            </figure>
+<p><strong>编译动态库</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20181011162450635?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="3" title="">
+                </div>
+                <div class="image-caption">3</div>
+            </figure>
+<p><strong>不加入头文件，报以下错误</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/2018101116263978?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="4" title="">
+                </div>
+                <div class="image-caption">4</div>
+            </figure>
+
+<hr>
+<p><strong>创建测试工程quazipTest</strong><br>同理，创建include和lib目录。分别放头文件和动态库文件</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/2018121715285397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=,size_16,color_FFFFFF,t_70" alt="5" title="">
+                </div>
+                <div class="image-caption">5</div>
+            </figure>
+<p><strong>拷贝头文件</strong><br>从quazip拷贝所有头文件</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20181011172842750?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5neHVlY2hhb18=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="2" title="">
+                </div>
+                <div class="image-caption">2</div>
+            </figure>
+<p><strong>拷贝库文件</strong><br>拷贝刚刚生成的动态库文件。<code>quazipd.dll</code>是Debug生成的，<code>quazipd.dll</code>是Release生成的，<code>zlib1.dll</code>是zlib动态库</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181217153001113.png" alt="3" title="">
+                </div>
+                <div class="image-caption">3</div>
+            </figure>
+<p><strong>quazipTest工程配置</strong><br>修改quazipTest.pro工程文件。添加头文件路径和动态库路径</p>
+<figure class="highlight properties"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">INCLUDEPATH</span> <span class="string">+= $$PWD/include</span></span><br><span class="line"></span><br><span class="line"><span class="meta">CONFIG(debug,</span> <span class="string">debug|release) {</span></span><br><span class="line">    <span class="attr">LIBS</span> <span class="string">+= -L$$PWD/lib -lquazipd</span></span><br><span class="line"><span class="meta">}</span> <span class="string">else {</span></span><br><span class="line">    <span class="attr">LIBS</span> <span class="string">+= -L$$PWD/lib -lquazip</span></span><br><span class="line"><span class="attr">}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>添加压缩解压代码</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mainwindow.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;JlCompress.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    MainWindow w;</span><br><span class="line">    w.show();</span><br><span class="line"></span><br><span class="line">    JlCompress::compressDir(<span class="string">"D:/testzip/a.zip"</span>, <span class="string">"D:/testzipdir1"</span>);</span><br><span class="line">    JlCompress::extractDir(<span class="string">"D:/testzip/a.zip"</span>, <span class="string">"D:/testzipdir2"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> a.exec();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>测试好的工程：<a href="https://github.com/zwx230741/quazipTest.git" target="_blank" rel="noopener">https://github.com/zwx230741/quazipTest.git</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2021-09-23T01:37:13.009Z" itemprop="dateUpdated">2021-09-23 09:37:13</time>
+</span>
+
+
+        
+        原文链接：<a href="/2021/09/06/Qt解压缩文件/" target="_blank" rel="external">http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="小乂">
+            <a>小乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件/">文件</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/&title=《Qt解压缩文件》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/&title=《Qt解压缩文件》 — 云笺&source=这里使用的是 QuaZip 方案。它调用了 zlib1.dll，如果是32位，直接编译 QuaZip 即可，默认就是32位。
+如果是64位，不兼容的 zl..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt解压缩文件》 — 云笺&url=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/09/07/十大排序算法/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：十大排序算法
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/09/01/CentOS创建桌面快捷方式/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：CentOS创建桌面快捷方式">下一篇：CentOS创建桌面快捷方式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/&title=《Qt解压缩文件》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/&title=《Qt解压缩文件》 — 云笺&source=这里使用的是 QuaZip 方案。它调用了 zlib1.dll，如果是32位，直接编译 QuaZip 即可，默认就是32位。
+如果是64位，不兼容的 zl..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Qt解压缩文件》 — 云笺&url=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/09/06/Qt解压缩文件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aQY7CMAwFUO5/aWaLhArfdhkpycsKAU3zimTsOI9HPJ4v4/Wd90+vxvtsyV1uHhgYGMsykttXGVeLrs6QPxoMDIwTGFcR7Oo7+Tv5EpP7Xr6PgYGBEaRrvdSw+ikGBgbGhFEtg6ulMgYGBkaSxvWC7+eSNbnq5locAwNjQUYeLv//9U/6GxgYGEsxnsVR3UqrJoXNVWFgYGzNmGyl3VusJkX1lxkwMDA2ZVQPVSThcj5PHqwxMDBOYPS246vBN9+Aqz4IDAyMExjV0nS+uHnzoBzvMTAwFmc0I3SxuO2F2vzRY2Bg7M3It/4nxzKSGZJVRb8DBgbGdow8Kn+eupoOVtPT5n8IBgbGRozqllm+rGo7Mymbm51YDAyMZRm9ra556jb5T/jyO2BgYGzKmBxUnYTRefqIgYFxDmNy9KF35CIP8dH3MTAwtmbk7YFkcb32QLWZOmpkYmBgLMvIi8y8fE0aCfeGbwwMjL0Z+bZa7/bVq5qbcRgYGIcxqoHyrsMZeREbBVwMDIwDGPPDE5PWZrlRioGBcRhjUtZWG6K9NZRPt2FgYCzLeBZHj5QnkU0qBgbG1ox89Dbu5zNMklQMDIydGL3SMU8Ef9EoxcDAOJPRO51RTRl7ITi6CgMDA6OVafZgeWO1kJNiYGAczMhDc16yVg9/YGBgnMPoNQMmy6qmiVEnFgMDY1NGLyz+opP4uwNnGBgYyzL+AKGcnTvtKD3XAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "小乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
