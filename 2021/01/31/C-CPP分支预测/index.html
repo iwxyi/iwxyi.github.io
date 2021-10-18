@@ -49,16 +49,21 @@
 <meta property="og:site_name" content="云笺">
 <meta property="og:description" content="转载自知乎回答：程序喵大人 https://www.zhihu.com/question/441518636/answer/1701252133  if-else涉及到分支预测的概念。 首先看一段经典的代码，并统计它的执行时间：">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic1.zhimg.com/50/v2-8cf6c7147487fd4bb7444b4cf07554a7_hd.jpg?source=1940ef5c">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-8cf6c7147487fd4bb7444b4cf07554a7_720w.jpg?source=1940ef5c">
+<meta property="og:image" content="https://pic1.zhimg.com/50/v2-1c40b94dc8bb1984249801565feb0379_hd.jpg?source=1940ef5c">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-1c40b94dc8bb1984249801565feb0379_720w.jpg?source=1940ef5c">
+<meta property="og:image" content="https://pic1.zhimg.com/50/v2-5a64bed434696fadaefe1026269cede2_hd.jpg?source=1940ef5c">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-5a64bed434696fadaefe1026269cede2_720w.jpg?source=1940ef5c">
+<meta property="og:image" content="https://pic4.zhimg.com/50/v2-daba02b5c9769b2e956cb9113e8a8229_hd.jpg?source=1940ef5c">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-daba02b5c9769b2e956cb9113e8a8229_720w.jpg?source=1940ef5c">
+<meta property="og:image" content="https://pic4.zhimg.com/50/v2-22f81e01c5c1c479ed3a9bb4514139e5_hd.jpg?source=1940ef5c">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-22f81e01c5c1c479ed3a9bb4514139e5_720w.jpg?source=1940ef5c">
-<meta property="og:updated_time" content="2021-03-24T07:32:45.017Z">
+<meta property="og:updated_time" content="2021-09-23T02:57:44.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&amp;CPP分支预测">
 <meta name="twitter:description" content="转载自知乎回答：程序喵大人 https://www.zhihu.com/question/441518636/answer/1701252133  if-else涉及到分支预测的概念。 首先看一段经典的代码，并统计它的执行时间：">
-<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-8cf6c7147487fd4bb7444b4cf07554a7_720w.jpg?source=1940ef5c">
+<meta name="twitter:image" content="https://pic1.zhimg.com/50/v2-8cf6c7147487fd4bb7444b4cf07554a7_hd.jpg?source=1940ef5c">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -223,7 +228,7 @@
         </div>
         <div class="post-count-custom">
             <i class="icon icon-lg icon-comment-o"></i>
-            阅读本文可能花费您&nbsp;<span class="post-count">7</span>&nbsp;分钟
+            阅读本文可能花费您&nbsp;<span class="post-count">6</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <blockquote>
@@ -233,7 +238,7 @@
 <p>首先看一段经典的代码，并统计它的执行时间：</p>
 <a id="more"></a>
 
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test_predict.cc</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">unsigned</span> ARRAY_SIZE = <span class="number">50000</span>;</span><br><span class="line">    <span class="keyword">int</span> data[ARRAY_SIZE];</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">unsigned</span> DATA_STRIDE = <span class="number">256</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> c = <span class="number">0</span>; c &lt; ARRAY_SIZE; ++c) data[c] = <span class="built_in">std</span>::rand() % DATA_STRIDE;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::sort(data, data + ARRAY_SIZE);</span><br><span class="line"></span><br><span class="line">    {  <span class="comment">// 测试部分</span></span><br><span class="line">        <span class="keyword">clock_t</span> start = clock();</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">unsigned</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; ++i) {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">unsigned</span> c = <span class="number">0</span>; c &lt; ARRAY_SIZE; ++c) {</span><br><span class="line">                <span class="keyword">if</span> (data[c] &gt;= <span class="number">128</span>) sum += data[c];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> elapsedTime = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;(clock() - start) / CLOCKS_PER_SEC;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; elapsedTime &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"sum = "</span> &lt;&lt; sum &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line">~/test$ g++ test_predict.cc ;./a.out</span><br><span class="line"><span class="number">7.95312</span></span><br><span class="line">sum = <span class="number">480124300000</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test_predict.cc</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">unsigned</span> ARRAY_SIZE = <span class="number">50000</span>;</span><br><span class="line">    <span class="keyword">int</span> data[ARRAY_SIZE];</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">unsigned</span> DATA_STRIDE = <span class="number">256</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> c = <span class="number">0</span>; c &lt; ARRAY_SIZE; ++c) data[c] = <span class="built_in">std</span>::rand() % DATA_STRIDE;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::sort(data, data + ARRAY_SIZE);</span><br><span class="line"></span><br><span class="line">    {  <span class="comment">// 测试部分</span></span><br><span class="line">        <span class="keyword">clock_t</span> start = clock();</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">unsigned</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; ++i) {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">unsigned</span> c = <span class="number">0</span>; c &lt; ARRAY_SIZE; ++c) {</span><br><span class="line">                <span class="keyword">if</span> (data[c] &gt;= <span class="number">128</span>) sum += data[c];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> elapsedTime = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;(clock() - start) / CLOCKS_PER_SEC;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; elapsedTime &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"sum = "</span> &lt;&lt; sum &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">~/test$ g++ test_predict.cc ;./a.out</span><br><span class="line"><span class="number">7.95312</span></span><br><span class="line">sum = <span class="number">480124300000</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>此程序的执行时间是7.9秒，如果把排序那一行代码注释掉，即</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// std::sort(data, data + ARRAY_SIZE);</span></span><br></pre></td></tr></tbody></table></figure>
@@ -248,26 +253,47 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://pic1.zhimg.com/80/v2-8cf6c7147487fd4bb7444b4cf07554a7_720w.jpg?source=1940ef5c" alt="img](https://pic1.zhimg.com/50/v2-8cf6c7147487fd4bb7444b4cf07554a7_hd.jpg?source=1940ef5c)![img" title="">
+                    <img src="https://pic1.zhimg.com/50/v2-8cf6c7147487fd4bb7444b4cf07554a7_hd.jpg?source=1940ef5c" alt="img" title="">
                 </div>
-                <div class="image-caption">img](https://pic1.zhimg.com/50/v2-8cf6c7147487fd4bb7444b4cf07554a7_hd.jpg?source=1940ef5c)![img</div>
+                <div class="image-caption">img</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic1.zhimg.com/80/v2-8cf6c7147487fd4bb7444b4cf07554a7_720w.jpg?source=1940ef5c" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
             </figure>
 
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://pic1.zhimg.com/80/v2-1c40b94dc8bb1984249801565feb0379_720w.jpg?source=1940ef5c" alt="img](https://pic1.zhimg.com/50/v2-1c40b94dc8bb1984249801565feb0379_hd.jpg?source=1940ef5c)![img" title="">
+                    <img src="https://pic1.zhimg.com/50/v2-1c40b94dc8bb1984249801565feb0379_hd.jpg?source=1940ef5c" alt="img" title="">
                 </div>
-                <div class="image-caption">img](https://pic1.zhimg.com/50/v2-1c40b94dc8bb1984249801565feb0379_hd.jpg?source=1940ef5c)![img</div>
+                <div class="image-caption">img</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic1.zhimg.com/80/v2-1c40b94dc8bb1984249801565feb0379_720w.jpg?source=1940ef5c" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
             </figure>
 
 <p>这里的洗剪吹就相当于是三级流水线，在CPU架构中也有流水线的概念，如图：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://pic1.zhimg.com/80/v2-5a64bed434696fadaefe1026269cede2_720w.jpg?source=1940ef5c" alt="img](https://pic1.zhimg.com/50/v2-5a64bed434696fadaefe1026269cede2_hd.jpg?source=1940ef5c)![img" title="">
+                    <img src="https://pic1.zhimg.com/50/v2-5a64bed434696fadaefe1026269cede2_hd.jpg?source=1940ef5c" alt="img" title="">
                 </div>
-                <div class="image-caption">img](https://pic1.zhimg.com/50/v2-5a64bed434696fadaefe1026269cede2_hd.jpg?source=1940ef5c)![img</div>
+                <div class="image-caption">img</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic1.zhimg.com/80/v2-5a64bed434696fadaefe1026269cede2_720w.jpg?source=1940ef5c" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
             </figure>
 
 <p>在执行指令的时候一般有以下几个过程：</p>
@@ -285,11 +311,18 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://pic4.zhimg.com/80/v2-daba02b5c9769b2e956cb9113e8a8229_720w.jpg?source=1940ef5c" alt="img](https://pic4.zhimg.com/50/v2-daba02b5c9769b2e956cb9113e8a8229_hd.jpg?source=1940ef5c)![img" title="">
+                    <img src="https://pic4.zhimg.com/50/v2-daba02b5c9769b2e956cb9113e8a8229_hd.jpg?source=1940ef5c" alt="img" title="">
                 </div>
-                <div class="image-caption">img](https://pic4.zhimg.com/50/v2-daba02b5c9769b2e956cb9113e8a8229_hd.jpg?source=1940ef5c)![img</div>
-            </figure>图片取自下方参考资料中
-
+                <div class="image-caption">img</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic4.zhimg.com/80/v2-daba02b5c9769b2e956cb9113e8a8229_720w.jpg?source=1940ef5c" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+<p>图片取自下方参考资料中</p>
 <p>CPU都是多级流水线架构运行，如果分支预测成功，很多指令都提前进入流水线流程中，则流水线中指令运行的非常顺畅，而如果分支预测失败，则需要清空流水线中的那些预测出来的指令，重新加载正确的指令到流水线中执行，然而现代CPU的流水线级数非常长，分支预测失败会损失10-20个左右的时钟周期，因此对于复杂的流水线，好的分支预测方法非常重要。</p>
 <p>预测方法主要分为静态分支预测和动态分支预测：</p>
 <p><strong>静态分支预测：</strong>听名字就知道，该策略不依赖执行环境，编译器在编译时就已经对各个分支做好了预测。</p>
@@ -308,9 +341,16 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://pic4.zhimg.com/80/v2-22f81e01c5c1c479ed3a9bb4514139e5_720w.jpg?source=1940ef5c" alt="img](https://pic4.zhimg.com/50/v2-22f81e01c5c1c479ed3a9bb4514139e5_hd.jpg?source=1940ef5c)![img" title="">
+                    <img src="https://pic4.zhimg.com/50/v2-22f81e01c5c1c479ed3a9bb4514139e5_hd.jpg?source=1940ef5c" alt="img" title="">
                 </div>
-                <div class="image-caption">img](https://pic4.zhimg.com/50/v2-22f81e01c5c1c479ed3a9bb4514139e5_hd.jpg?source=1940ef5c)![img</div>
+                <div class="image-caption">img</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic4.zhimg.com/80/v2-22f81e01c5c1c479ed3a9bb4514139e5_720w.jpg?source=1940ef5c" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
             </figure>
 
 <p>条件分支的使用会影响程序执行的效率，我们平时开发过程中应该尽可能减少在程序中随意使用过多的分支，能避免则避免。</p>
@@ -339,7 +379,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2021-03-24T07:32:45.017Z" itemprop="dateUpdated">2021-03-24 15:32:45</time>
+    最后更新：<time datetime="2021-09-23T02:57:44.395Z" itemprop="dateUpdated">2021-09-23 10:57:44</time>
 </span>
 
 

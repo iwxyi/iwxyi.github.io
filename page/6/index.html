@@ -194,6 +194,92 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-数据库按分类排序并计算百分比"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/11/03/数据库按分类排序并计算百分比/">数据库按分类排序及百分比</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-11-03 14:04:00" datetime="2019-11-03T06:04:00.000Z"  itemprop="datePublished">2019-11-03</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	字段名,</span><br><span class="line">	n,</span><br><span class="line">	<span class="keyword">round</span>( n / s * <span class="number">100</span>, <span class="number">5</span> ) rat </span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span>( </span><br><span class="line">        <span class="keyword">SELECT</span> 字段名, <span class="keyword">count</span>( <span class="number">1</span> ) n <span class="keyword">FROM</span> sendsms_log </span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段名</span><br><span class="line">    ) t1</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> (</span><br><span class="line">        <span class="keyword">SELECT</span> <span class="keyword">count</span>( <span class="number">1</span> ) s <span class="keyword">FROM</span> sendsms_log</span><br><span class="line">    ) t2</span><br><span class="line">    <span class="keyword">ON</span> <span class="number">1</span> = <span class="number">1</span> </span><br><span class="line">) t</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/11/03/数据库按分类排序并计算百分比/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-VSCode调试C"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/10/19/VSCode调试C/">VSCode调试C++</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-10-19 15:34:00" datetime="2019-10-19T07:34:00.000Z"  itemprop="datePublished">2019-10-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>VSCode打开文件夹，新建<code>.vscode</code>文件夹（资源管理器不允许用户建立<code>.</code>开头的文件夹）</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/10/19/VSCode调试C/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-工厂模式"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1020,113 +1106,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt屏蔽中文输入法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/05/05/Qt屏蔽中文输入法/">Qt屏蔽中文输入法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-05-05 20:00:00" datetime="2019-05-05T12:00:00.000Z"  itemprop="datePublished">2019-05-05</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>只在屏蔽输入法的QLineEdit上调用：</p>
-<p><code>setAttribute(Qt::WA_InputMethodEnabled, false);</code></p>
-<p>接下来就能监听到各种按键事件</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2019/05/05/Qt屏蔽中文输入法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Python网络爬虫"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/05/02/Python网络爬虫/">Python网络爬虫</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-05-02 13:41:00" datetime="2019-05-02T05:41:00.000Z"  itemprop="datePublished">2019-05-02</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>一个提取起点小说名称的例子</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/05/02/Python网络爬虫/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </div>
     

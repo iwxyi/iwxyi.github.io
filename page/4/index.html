@@ -194,6 +194,96 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-查询数据库历史记录"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/09/08/查询数据库历史记录/">查询数据库历史记录</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-08 17:39:00" datetime="2020-09-08T09:39:00.000Z"  itemprop="datePublished">2020-09-08</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="正在执行"><a href="#正在执行" class="headerlink" title="正在执行"></a>正在执行</h2><p>使用processlist，但是有个弊端，就是只能查看正在执行的sql语句，对应历史记录，查看不到。好处是不用设置，不会保存。</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> information_schema;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">processlist</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或者：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.<span class="string">`PROCESSLIST`</span> <span class="keyword">where</span> info <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2020/09/08/查询数据库历史记录/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-SpringBoot使用JWT认证"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/09/06/SpringBoot使用JWT认证/">SpringBoot使用JWT认证</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-06 17:26:00" datetime="2020-09-06T09:26:00.000Z"  itemprop="datePublished">2020-09-06</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们使用JWT在用户和服务器之间传递安全可靠的信息。<br><strong>JWT的组成</strong><br> 一个JWT实际上就是一个字符串，它由三部分组成，头部、载荷与签名。简单说明就到此为止，下面我们简单介绍如何使用JWT。<br> 1、引入相关的包<br> 在pom.xml中引入JWT的包，和SpringMVC包。</p>
+    
+        <div class="post-more-div">
+            <a href="/2020/09/06/SpringBoot使用JWT认证/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-SpringBoot-RequestBody的使用"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1042,92 +1132,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Flutter可扩展列表"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/03/12/Flutter可扩展列表/">Flutter可扩展列表</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-03-12 13:22:00" datetime="2020-03-12T05:22:00.000Z"  itemprop="datePublished">2020-03-12</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>Flutter可扩展的面板</p>
-    
-        <div class="post-more-div">
-            <a href="/2020/03/12/Flutter可扩展列表/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ThinkPHP隐藏URL中index文件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/03/05/ThinkPHP隐藏URL中index文件/">ThinkPHP隐藏URL中index文件</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-03-05 13:56:00" datetime="2020-03-05T05:56:00.000Z"  itemprop="datePublished">2020-03-05</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>以<code>Apache</code>为例，需要在入口文件的同级添加<code>.htaccess</code>文件（官方默认自带了该文件），内容如下：</p>
-    
-        <div class="post-more-div">
-            <a href="/2020/03/05/ThinkPHP隐藏URL中index文件/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ThinkPHP/">ThinkPHP</a></li></ul>
 
     </div>
     

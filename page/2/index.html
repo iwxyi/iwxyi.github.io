@@ -194,6 +194,94 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-C-使用boost的share-mutex保护多线程读写"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/05/25/C-使用boost的share-mutex保护多线程读写/">C++使用boost的share_mutex保护多线程读写</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-05-25 10:44:00" datetime="2021-05-25T02:44:00.000Z"  itemprop="datePublished">2021-05-25</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>假设有用户存储DNS条目缓存的表，支持多线程读取，但在进行更新时独占访问数据结构，直到它完成了操作。使用 <code>std::mutex</code> 来保护数据结构会在其没有修改时消除并发读取数据结构的可能。这种新的互斥元通常称为<strong>读写互斥元</strong>，因为它考虑了两种不同的用法：由单个“写”线程独占访问或共享，有多个“读”线程并发访问。</p>
+<p>对于更新操作，<code>std::lock_guard&lt;boost::shared_mutex&gt;</code> 和 <code>std::unique_lock&lt;boost::shared_mutex&gt;</code> 可用于锁定，以取代相应的 <code>std::mutex</code> 特化，这确保了独占访问。那些不需要更新数据结构的线程能够转而使用 <code>boost::shared_lock&lt;boost::shared_mutex&gt;</code> 来获得共享访问，这与 <code>std::unique_lock</code> 用起来是相同的，除了多个线程在同一时间、统一 <code>boost::share_mutex</code> 上可能会有共享锁。唯一的限制是，如果<strong>任一线程拥有一个共享锁，试图独占锁的线程会被阻塞</strong>，直到其他线程全都撤回它们的锁；同样的，如果<strong>任一线程具有独占锁，其他线程都不能获取共享锁或独占锁</strong>，直到第一个线程撤回了它的锁。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/05/25/C-使用boost的share-mutex保护多线程读写/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/boost/">boost</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-锁定多个互斥元而没有死锁"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/05/25/C-锁定多个互斥元而没有死锁/">C++锁定多个互斥元而没有死锁</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-05-25 10:43:00" datetime="2021-05-25T02:43:00.000Z"  itemprop="datePublished">2021-05-25</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>为避免死锁，常用的建议是始终使用相同的顺序锁定两个互斥元，但也有例外情况，如两个线程尝试通过交换参数而在相同的两个实例之间交换数据，将产生死锁。</p>
+<p>幸运的是，C++标准库中的 <code>std::lock</code> 可以解决这一问题——<code>std::lock</code> 函数可以同时锁定两个或更多的互斥元，而没有死锁的风险。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/05/25/C-锁定多个互斥元而没有死锁/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-C-在作用域之间转移锁的所有权unique-lock"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1066,103 +1154,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Tomcat配置"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/01/30/Tomcat配置/">Tomcat配置</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-01-30 16:14:00" datetime="2021-01-30T08:14:00.000Z"  itemprop="datePublished">2021-01-30</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
-<p><a href="https://blog.csdn.net/gyshun/article/details/79582763" target="_blank" rel="noopener">https://blog.csdn.net/gyshun/article/details/79582763</a></p>
-</blockquote>
-<p>下载地址：<a href="http://tomcat.apache.org/，注意下载那个zip文件，还要注意与jdk版本吻合（参考链接:http://www.bubuko.com/infodetail-674892.html）" target="_blank" rel="noopener">http://tomcat.apache.org/，注意下载那个zip文件，还要注意与jdk版本吻合（参考链接:http://www.bubuko.com/infodetail-674892.html）</a></p>
-<p>新建环境变量<code>CATALINA_HOME</code>，变量值为解压目录，如<code>E:\tomcat</code></p>
-    
-        <div class="post-more-div">
-            <a href="/2021/01/30/Tomcat配置/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/">Tomcat</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-npm下载卡住"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/01/24/npm下载卡住/">npm下载卡住</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-01-24 16:29:00" datetime="2021-01-24T08:29:00.000Z"  itemprop="datePublished">2021-01-24</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @angular/cli</span><br></pre></td></tr></tbody></table></figure>
-
-<p>安装angular cli工具时，发现进度条一直卡住不动</p>
-<h2 id="方案一：安装cnpm镜像"><a href="#方案一：安装cnpm镜像" class="headerlink" title="方案一：安装cnpm镜像"></a>方案一：安装cnpm镜像</h2><p>这个是比较常用的方法，我首先也是使用了这个方法。cnpm的安装方法，参考<a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure>
-
-<p>cmd输入以上命令就可以了，然后输入</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g @angular/cli</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2021/01/24/npm下载卡住/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
 
     </div>
     

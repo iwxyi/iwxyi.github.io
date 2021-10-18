@@ -194,6 +194,97 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-C-多个文件共用全局变量"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/11/06/C-多个文件共用全局变量/">C++多个文件共用全局变量</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-11-06 08:01:00" datetime="2018-11-06T00:01:00.000Z"  itemprop="datePublished">2018-11-06</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>示例：</p>
+<p>头文件：<strong>state.h</strong>   源文件：<strong>state.cpp</strong><br>其它源文件：t1.cpp  t2.cpp  t3.cpp, 这些源文件都包含头文件state.h。</p>
+<p>需要定义一个全局变量供这些源文件中使用：方法如下</p>
+<p>1、在<code>state.h</code>中<strong>声明</strong>全局变量： <code>extern int a;</code></p>
+<p>2、在<code>state.cpp</code>中<strong>定义</strong>该全局变量：<code>int a =10;</code></p>
+<p>这样其它源文件就可以使用该变量啦，只需要 include 一下 <strong>state.cpp</strong></p>
+    
+        <div class="post-more-div">
+            <a href="/2018/11/06/C-多个文件共用全局变量/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-QTextEdit特定行改变指针"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2018/11/05/Qt-QTextEdit特定行改变指针/">Qt QTextEdit特定行改变指针</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2018-11-05 20:05:00" datetime="2018-11-05T12:05:00.000Z"  itemprop="datePublished">2018-11-05</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>行文本形式如下<br>&lt;&lt;word 文档标题&gt;&gt; [word 文档路径] 段落序号</p>
+    
+        <div class="post-more-div">
+            <a href="/2018/11/05/Qt-QTextEdit特定行改变指针/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-ThinkPHP-view模板用法"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1003,98 +1094,6 @@
     
         <div class="post-more-div">
             <a href="/2018/09/22/Android-RecyclerView添加点击事件/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt添加Q-OBJECT后编译出错解决方案"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/21/Qt添加Q-OBJECT后编译出错解决方案/">Qt添加Q_OBJECT后编译出错解决方案</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-09-21 17:03:00" datetime="2018-09-21T09:03:00.000Z"  itemprop="datePublished">2018-09-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>在Qt编写过程中，如多线程使用信号槽时，需要添加Q_OBJECT，但是在添加之后发现编译老会出错。如下：</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/09/21/Qt添加Q-OBJECT后编译出错解决方案/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android点击图片显示像素颜色值"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/09/16/Android点击图片显示像素颜色值/">Android点击图片显示像素颜色值</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-09-16 11:07:00" datetime="2018-09-16T03:07:00.000Z"  itemprop="datePublished">2018-09-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>包含知识点：</p>
-<ul>
-<li>选择图片（相册+拍照）</li>
-<li>正方形裁剪</li>
-<li>图片压缩</li>
-<li>图片点击</li>
-</ul>
-    
-        <div class="post-more-div">
-            <a href="/2018/09/16/Android点击图片显示像素颜色值/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>

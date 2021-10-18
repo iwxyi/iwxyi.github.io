@@ -194,6 +194,93 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-PHP-Redis"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/03/05/PHP-Redis/">PHP Redis</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-03-05 16:29:00" datetime="2019-03-05T08:29:00.000Z"  itemprop="datePublished">2019-03-05</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>开始在 PHP 中使用 Redis 前， 我们需要确保已经安装了 redis 服务及 PHP redis 驱动，且你的机器上能正常使用 PHP。 接下来让我们安装 PHP redis 驱动：下载地址为:<a href="https://github.com/phpredis/phpredis/releases" target="_blank" rel="noopener"><strong>https://github.com/phpredis/phpredis/releases</strong></a>。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/03/05/PHP-Redis/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AJAX"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/02/28/AJAX/">AJAX</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-02-28 15:42:00" datetime="2019-02-28T07:42:00.000Z"  itemprop="datePublished">2019-02-28</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>纯粹的 AJAX</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveInfo</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">var</span> XHR = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">var</span> FD = <span class="keyword">new</span> FormData();</span><br><span class="line">	<span class="keyword">var</span> name = <span class="built_in">document</span>.getElementById(<span class="string">"name"</span>).value;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)</span><br><span class="line">		XHR = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.ActiveXObject)</span><br><span class="line">		XHR = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">	</span><br><span class="line">	FD.append(<span class="string">"name"</span>, name);</span><br><span class="line">	</span><br><span class="line">	XHR.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">if</span> (XHR.readyState == <span class="number">4</span> &amp;&amp; XHR.status == <span class="number">200</span>)</span><br><span class="line">		{</span><br><span class="line">			<span class="keyword">var</span> text = XHR.responseText; <span class="comment">// 返回的文本</span></span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	XHR.open(<span class="string">'POST'</span>, <span class="string">'index.php'</span>, <span class="literal">true</span>)</span><br><span class="line">	XHR.send(FD);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/02/28/AJAX/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/">AJAX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Java-Lambda表达式简写"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -984,114 +1071,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ASP-NET/">ASP.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件/">文件</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt加快编译速度"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/01/24/Qt加快编译速度/">Qt加快编译速度</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-01-24 16:58:00" datetime="2019-01-24T08:58:00.000Z"  itemprop="datePublished">2019-01-24</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="设置多核编译"><a href="#设置多核编译" class="headerlink" title="设置多核编译"></a>设置多核编译</h2><p>1.查看是否已经安装了jom工具：C:\Qt\Qt5.4.1\Tools\QtCreator\bin\jom.exe</p>
-<p>2.项目添加参数-j 4【4是cpu的核数，我的是i5，只有四个核心】</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/01/24/Qt加快编译速度/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt发送邮件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/01/23/Qt发送邮件/">Qt发送邮件</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-01-23 18:47:00" datetime="2019-01-23T10:47:00.000Z"  itemprop="datePublished">2019-01-23</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>太难了，卒</p>
-<p>参考博客:<a href="http://www.qtcn.org/bbs/read-htm-tid-56050.html" target="_blank" rel="noopener">http://www.qtcn.org/bbs/read-htm-tid-56050.html</a></p>
-<p>里面有个下载的工具包，包含了api和使用示例。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2019/01/23/Qt发送邮件/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
 
     </div>
     
