@@ -194,6 +194,50 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-C-使用once-flag和call-once来避免数据竞争"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/">C++使用once_flag和call_once来避免数据竞争</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-05-25 10:44:00" datetime="2021-05-25T02:44:00.000Z"  itemprop="datePublished">2021-05-25</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><strong>使用互斥元进行线程安全的延迟初始化</strong></p>
+<p>像下面这段代码一样的朴素的转换，会引起使用该资源的线程产生不必要的序列化。这是因为每个线程都必须等待互斥元，以检查资源是否已经被初始化。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-C-使用boost的share-mutex保护多线程读写"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1107,53 +1151,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-CPP分支预测"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/01/31/C-CPP分支预测/">C&amp;CPP分支预测</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-01-31 15:32:00" datetime="2021-01-31T07:32:00.000Z"  itemprop="datePublished">2021-01-31</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>转载自知乎回答：程序喵大人 <a href="https://www.zhihu.com/question/441518636/answer/1701252133" target="_blank" rel="noopener">https://www.zhihu.com/question/441518636/answer/1701252133</a></p>
-</blockquote>
-<p>if-else涉及到分支预测的概念。</p>
-<p>首先看一段经典的代码，并统计它的执行时间：</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/01/31/C-CPP分支预测/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li></ul>
 
     </div>
     

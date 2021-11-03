@@ -194,6 +194,51 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Java浮点数装箱不相等问题"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/10/26/Java浮点数装箱不相等问题/">Java浮点数装箱不相等问题</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-10-26 09:33:00" datetime="2021-10-26T01:33:00.000Z"  itemprop="datePublished">2021-10-26</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">0.0</span> == -<span class="number">0.0</span>); <span class="comment">// true</span></span><br><span class="line">System.out.println(Double.compare(<span class="number">0.0</span>, -<span class="number">0.0</span>)); <span class="comment">// 1</span></span><br><span class="line">System.out.println(<span class="keyword">new</span> Double(<span class="number">0.0</span>).equals(<span class="keyword">new</span> Double(-<span class="number">0.0</span>))); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">Map&lt;Double, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="number">0.0</span>, <span class="number">1</span>);</span><br><span class="line">map.put(-<span class="number">0.0</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(map.size()); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">System.out.println((<span class="keyword">double</span>)(<span class="number">2</span>-<span class="number">2</span>)/(<span class="number">1</span>-<span class="number">2</span>)); <span class="comment">// -0.0</span></span><br><span class="line">System.out.println((<span class="keyword">double</span>)(<span class="number">3</span>-<span class="number">3</span>)/(<span class="number">2</span>-<span class="number">1</span>)); <span class="comment">// 0.0</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在集合中遇见0.0和-0.0时，由于自动装箱，导致两个在绝对数值上相等的数据，放入集合时表现出不相等。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/10/26/Java浮点数装箱不相等问题/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Flutter切换页面保留状态"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -674,6 +719,7 @@
 <p>紫色草丛：蹲下隐身后别人看不见，但是喝药会发光和有声音</p>
 <p>刷新二段跳：空中振刀、钩锁都可以刷新二段跳</p>
 <p>替换装备：捡东西按3替换装备（如高级甲换低级甲），不会被其他E给挡住</p>
+<p>绝大多数情况下优先打药，其次拉人，最后追人</p>
     
         <div class="post-more-div">
             <a href="/2021/08/29/永劫无间技巧整理/" class="post-more waves-button">
@@ -1101,50 +1147,6 @@
     
         <div class="post-more-div">
             <a href="/2021/05/25/C-多线程数据共享、互斥锁lock-guard/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-使用once-flag和call-once来避免数据竞争"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/">C++使用once_flag和call_once来避免数据竞争</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-05-25 10:44:00" datetime="2021-05-25T02:44:00.000Z"  itemprop="datePublished">2021-05-25</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><strong>使用互斥元进行线程安全的延迟初始化</strong></p>
-<p>像下面这段代码一样的朴素的转换，会引起使用该资源的线程产生不必要的序列化。这是因为每个线程都必须等待互斥元，以检查资源是否已经被初始化。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>

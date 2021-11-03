@@ -194,6 +194,54 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-死记硬背的快排"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/03/19/死记硬背的快排/">死记硬背的快排</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-03-19 17:46:00" datetime="2020-03-19T09:46:00.000Z"  itemprop="datePublished">2020-03-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><strong>切分</strong>部分：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>{</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">int</span> pivot = arr[low];</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high) {</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high &amp;&amp; arr[high] &gt;= pivot) high--;</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="comment">// swap(arr[low], arr[high]);</span></span><br><span class="line">        arr[low] = arr[high];</span><br><span class="line">        </span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="keyword">while</span> (low &lt; high &amp;&amp; arr[low] &lt;= pivot) low++;</span><br><span class="line">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="comment">// swap(arr[low], arr[high]);</span></span><br><span class="line">        arr[high] = arr[low];</span><br><span class="line">&nbsp;&nbsp; &nbsp;}</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">&nbsp;&nbsp; &nbsp;<span class="keyword">return</span> low;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>swap包含在头文件<code>&lt;algorithm&gt;</code>中，当然用传统<code>t = a, a = b, b = t</code>的办法也可以。</p>
+</blockquote>
+    
+        <div class="post-more-div">
+            <a href="/2020/03/19/死记硬背的快排/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Flutter可扩展列表"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1126,56 +1174,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Resize冲突"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/11/07/Resize冲突/">Resize冲突</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-11-07 12:57:00" datetime="2019-11-07T04:57:00.000Z"  itemprop="datePublished">2019-11-07</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="BUG-场景"><a href="#BUG-场景" class="headerlink" title="BUG 场景"></a>BUG 场景</h2><p>《写作天下》新出了名片库功能，所有的操作都在侧边栏中，包括添加名片、修改名片等。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/pasted-8.png" alt="原图" title="">
-                </div>
-                <div class="image-caption">原图</div>
-            </figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/11/07/Resize冲突/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BUG/">BUG</a></li></ul>
 
     </div>
     

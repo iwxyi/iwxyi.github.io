@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/">
+    <link rel="canonical" href="http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/">
     
     
-    <title>GAP8运行PulpOS Demo | 云笺 | 一些技术摘要和写作技巧</title>
+    <title>Java浮点数装箱不相等问题 | 云笺 | 一些技术摘要和写作技巧</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
     
     
-    <meta name="keywords" content="PulpOS">
+    <meta name="keywords" content="Java">
     
     
 
@@ -41,18 +41,18 @@
 
 
     
-    <meta name="description" content="运行 HelloWorld">
-<meta name="keywords" content="PulpOS">
+    <meta name="description" content="1234567891011System.out.println(0.0 == -0.0); // trueSystem.out.println(Double.compare(0.0, -0.0)); // 1System.out.println(new Double(0.0).equals(new Double(-0.0))); // falseMap&amp;lt;Double, Integer&amp;gt;">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GAP8运行PulpOS Demo">
-<meta property="og:url" content="http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/index.html">
+<meta property="og:title" content="Java浮点数装箱不相等问题">
+<meta property="og:url" content="http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/index.html">
 <meta property="og:site_name" content="云笺">
-<meta property="og:description" content="运行 HelloWorld">
+<meta property="og:description" content="1234567891011System.out.println(0.0 == -0.0); // trueSystem.out.println(Double.compare(0.0, -0.0)); // 1System.out.println(new Double(0.0).equals(new Double(-0.0))); // falseMap&amp;lt;Double, Integer&amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-11-03T01:33:16.491Z">
+<meta property="og:updated_time" content="2021-11-03T01:34:16.860Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GAP8运行PulpOS Demo">
-<meta name="twitter:description" content="运行 HelloWorld">
+<meta name="twitter:title" content="Java浮点数装箱不相等问题">
+<meta name="twitter:description" content="1234567891011System.out.println(0.0 == -0.0); // trueSystem.out.println(Double.compare(0.0, -0.0)); // 1System.out.println(new Double(0.0).equals(new Double(-0.0))); // falseMap&amp;lt;Double, Integer&amp;gt;">
     
         <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
     
@@ -154,7 +154,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">GAP8运行PulpOS Demo</div>
+        <div class="flex-col header-title ellipsis">Java浮点数装箱不相等问题</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -191,22 +191,15 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#运行-HelloWorld"><span class="post-toc-number">1.</span> <span class="post-toc-text">运行 HelloWorld</span></a></li></ol>
-        </nav>
-    </aside>
-   
-<article id="post-GAP8搭建PulpOS运行HelloWorld"
+<article id="post-Java浮点数装箱不相等问题"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">GAP8运行PulpOS Demo</h1>
+        <h1 class="post-card-title">Java浮点数装箱不相等问题</h1>
         <div class="post-meta">
             <i class="icon icon-lg icon-calendar-o"></i>
             发表于
-            <time class="post-time" title="2020-04-13 13:57:00" datetime="2020-04-13T05:57:00.000Z"  itemprop="datePublished">2020-04-13</time>
+            <time class="post-time" title="2021-10-26 09:33:00" datetime="2021-10-26T01:33:00.000Z"  itemprop="datePublished">2021-10-26</time>
 
             <br id="mybreak"/>
             
@@ -227,19 +220,15 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="运行-HelloWorld"><a href="#运行-HelloWorld" class="headerlink" title="运行 HelloWorld"></a>运行 HelloWorld</h1><a id="more"></a>
+            <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">0.0</span> == -<span class="number">0.0</span>); <span class="comment">// true</span></span><br><span class="line">System.out.println(Double.compare(<span class="number">0.0</span>, -<span class="number">0.0</span>)); <span class="comment">// 1</span></span><br><span class="line">System.out.println(<span class="keyword">new</span> Double(<span class="number">0.0</span>).equals(<span class="keyword">new</span> Double(-<span class="number">0.0</span>))); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">Map&lt;Double, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="number">0.0</span>, <span class="number">1</span>);</span><br><span class="line">map.put(-<span class="number">0.0</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(map.size()); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">System.out.println((<span class="keyword">double</span>)(<span class="number">2</span>-<span class="number">2</span>)/(<span class="number">1</span>-<span class="number">2</span>)); <span class="comment">// -0.0</span></span><br><span class="line">System.out.println((<span class="keyword">double</span>)(<span class="number">3</span>-<span class="number">3</span>)/(<span class="number">2</span>-<span class="number">1</span>)); <span class="comment">// 0.0</span></span><br></pre></td></tr></tbody></table></figure>
 
-<ol>
-<li><p>下载 SDK： <a href="https://github.com/GreenWaves-Technologies/gap_sdk" target="_blank" rel="noopener">https://github.com/GreenWaves-Technologies/gap_sdk</a></p>
-</li>
-<li><p>在 <code>gap_sdk</code> 文件夹下执行命令</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source sourceme.sh</span><br></pre></td></tr></tbody></table></figure>
+<p>在集合中遇见0.0和-0.0时，由于自动装箱，导致两个在绝对数值上相等的数据，放入集合时表现出不相等。</p>
+<a id="more"></a>
 
-<p>选择平台，第<code>1</code>个即可</p>
-</li>
-<li><p>运行 <code>HelloWorld</code> Demo</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd examples/native/pulpos/helloworld</span><br><span class="line">make clean all run platform=gvsoc</span><br></pre></td></tr></tbody></table></figure></li>
-</ol>
+<p>解决办法：</p>
+<p>对获得的double类型数据加上一个0.0</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Double, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="number">0.0</span>, <span class="number">1</span>);</span><br><span class="line">map.put(-<span class="number">0.0</span>+<span class="number">0.0</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(map.size()); <span class="comment">// 1</span></span><br></pre></td></tr></tbody></table></figure>
+
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -265,12 +254,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新：<time datetime="2021-11-03T01:33:16.491Z" itemprop="dateUpdated">2021-11-03 09:33:16</time>
+    最后更新：<time datetime="2021-11-03T01:34:16.860Z" itemprop="dateUpdated">2021-11-03 09:34:16</time>
 </span>
 
 
         
-        原文链接：<a href="/2020/04/13/GAP8搭建PulpOS运行HelloWorld/" target="_blank" rel="external">http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/</a>
+        原文链接：<a href="/2021/10/26/Java浮点数装箱不相等问题/" target="_blank" rel="external">http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/</a>
         
     </div>
     <footer>
@@ -292,7 +281,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PulpOS/">PulpOS</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
 
             
@@ -302,7 +291,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/&title=《GAP8运行PulpOS Demo》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/&title=《Java浮点数装箱不相等问题》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -312,22 +301,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/&title=《GAP8运行PulpOS Demo》 — 云笺&source=运行 HelloWorld" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/&title=《Java浮点数装箱不相等问题》 — 云笺&source=1234567891011System.out.println(0.0 == -0.0); // trueSystem.out.println(Doubl..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GAP8运行PulpOS Demo》 — 云笺&url=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/&via=http://blog.iwxyi.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java浮点数装箱不相等问题》 — 云笺&url=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/&via=http://blog.iwxyi.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -347,21 +336,13 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2020/06/09/Qt枚举与字符串互相转换/" id="post-prev" class="post-nav-link">
-        <h4 class="title" >
-          上一篇：Qt枚举与字符串互相转换
-        </h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/03/19/死记硬背的快排/" id="post-next" class="post-nav-link">
-        <h4 class="title" data-hover="下一篇：死记硬背的快排">下一篇：死记硬背的快排</h4>
+      <a href="/2021/10/14/Flutter切换页面保留状态/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Flutter切换页面保留状态">下一篇：Flutter切换页面保留状态</h4>
       </a>
     </div>
   
@@ -484,7 +465,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/&title=《GAP8运行PulpOS Demo》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/&title=《Java浮点数装箱不相等问题》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -494,22 +475,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/&title=《GAP8运行PulpOS Demo》 — 云笺&source=运行 HelloWorld" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/&title=《Java浮点数装箱不相等问题》 — 云笺&source=1234567891011System.out.println(0.0 == -0.0); // trueSystem.out.println(Doubl..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GAP8运行PulpOS Demo》 — 云笺&url=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/&via=http://blog.iwxyi.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java浮点数装箱不相等问题》 — 云笺&url=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/&via=http://blog.iwxyi.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2020/04/13/GAP8搭建PulpOS运行HelloWorld/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/10/26/Java浮点数装箱不相等问题/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -520,7 +501,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aQY4iMRAEQP7/6dnrSgxMZpWNOESfEBLuCh9sk67HI35+np7/v29/+zzC++/zdw0fPDw8vHXpSRHvX5+X+1x0+9tX9eDh4eHd5r1aUd+XvnmSSUnq+cOCh4eH9zW8vKAZNa8BDw8P7/t5LT551/upwcPDw/tO3mzJbkPYPHrI44ljWQseHh5ezMuX6e/5fOV+Dw8PD299q962C2xK2Vx3vawWDw8P7wJv1jg1CzJOBcF1nXh4eHjXeC0gj3dn8WvbRvDyLXh4eHhHebPQ9v2kJBO0CWSLicDDw8O7xpsFuLMQoV3i8+P76r8CHh4e3pqXBwT5FLSbSnuUf8zmAw8PD2/BO/XK/AptNolFzXh4eHgXeLPYNBn6RkNVG3ng4eHh3eC1AeupA3p+5ZY0HBRhBB4eHt6aN9skZqFD3jqQg2cbDB4eHt6ed+ra6f1CP1vKDzQr4OHh4V3jzYLaWVSxue4qols8PDy8C7xNI+kmus03j2SEY1kLHh4e3oK3iQPacfJIN496f+mMwMPDwzvKa1/ZRrdnD+7FoRwPDw/vAi/vycqj3uTQnGD2bWF4eHh4N3htFNtGErMS86n5Y5rw8PDwrvHypfanfNqIdtagUIQReHh4eGveZtA8VJ0d3NvtIT+a4+Hh4e15hXsRIszCiyhHSXrK8PDw8C7w2ouo/Tawv3KLNjA8PDy8D/LypXzTqtVuKnVAjIeHh3eUdyqWbRf6zUG8+C0eHh7eBV7+zMLc9jieby1t8wEeHh7eWV57PZ+/eLaFbEb7pVo8PDy8a7y8IWB2x/T4yFOn1Hh4eHgf5CULdBJPzCaxGAEPDw/vC3izUCAPMvKAo+i9xcPDw7vAm116zRhtq1Y+5suNAQ8PD+8oL/+Tn28beRS7DywORB54eHh4Ke8f8nwNAXk2mTIAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3awW7rMAwEwPz/T/cBPb1D7O6SVpvD+BQIjqpRAZEh9XrFz9f3czXSfv5/5H7mZPyBBw8PD2+09Kvn/p372ZLNyt9P1vNmHjw8PLxjvP0iksCw2Zr7MHM5joeHh/envByQbFO+3PZ9PDw8vE/jzTZiX1bAw8PD+zReUoxoA0Nb0t0XR/Dw8PB+h7c5lP/q88H+Hh4eHt6iq54fuPlBv0/ci9Xi4eHhHeCdK63mpdun0uLiFwMeHh7egrcpPeRXDa7CRr6tw+QbDw8P7wCvTYLba6xtGTdPlNvrC3h4eHhP8dqJ2jLEptbazh/FPTw8PLw1rw0JyUhSesi/lbflit4dHh4e3jFe8of3Jdr26M/nwcPDwzvNS47m/OCegZOl100yPDw8vGO8WRMrwexT+TZc4eHh4Z3jtSnyJplOwkZbJi7+b3h4eHiP8tql5Al0MkMecpKtjPp7eHh4eAtem0a3pY1Nyj5bz5s38fDw8B7lzdr5m6Q5DyH79hseHh7eCd6sc5Q3xvLwMLuANSsf4+Hh4e15bVLbNv7bLWvT6x82BQ8PD+8YL5/iqQLE5sJW3tLDw8PDe5bX/sifFSM27bE8bKzKuHh4eHiTusHwun/7/mw8L9fi4eHh/Q7v/piuM/QytOSHftucw8PDwzvBSxaxKRAk5Yl8/jow4OHh4R3mPXUFal8+mAWSN5/x8PDwDvDyRDlfet7gr+slo8IuHh4e3rO8r/JJ0t/20G8T8XyD8PDw8E7w9qHi9Ka05YzX7MHDw8MreZvFbRpasyDRJtx4eHh453h5ajvbstkSNyk4Hh4e3ifw8oN+VqrYFHwvV4iHh4f3MbxZI7+9XpBvwSUSDw8P7xivLUY81anfp+8/zICHh4d3gDf78uxaQHL05w2wYWEXDw8Pb877B/hsc6j9LmJ3AAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
