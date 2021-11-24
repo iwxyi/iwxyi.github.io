@@ -194,7 +194,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-SpringBoot获取Request的三种方式"
+            <article id="post-MySQL-marked-as-crashed-and-should-be-repaired"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -202,7 +202,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/09/10/SpringBoot获取Request的三种方式/">SpringBoot获取Request的三种方式</a>
+      <a href="/2021/03/08/MySQL-marked-as-crashed-and-should-be-repaired/">MySQL marked as crashed and should be repaired</a>
     </h3>
   
 
@@ -210,67 +210,17 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2020-09-10 17:27:00" datetime="2020-09-10T09:27:00.000Z"  itemprop="datePublished">2020-09-10</time>
+        <time class="post-time" title="2021-03-08 17:40:00" datetime="2021-03-08T09:40:00.000Z"  itemprop="datePublished">2021-03-08</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <ol>
-<li>通过静态方法获取</li>
-</ol>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();</span><br><span class="line"></span><br><span class="line">HttpServletRequest request = servletRequestAttributes.getRequest();</span><br><span class="line">HttpServletResponse response = servletRequestAttributes.getResponse();</span><br></pre></td></tr></tbody></table></figure>
+        <p>MySQL备份时中断，报错：<code>marked as crashed and should be repaired</code> </p>
     
         <div class="post-more-div">
-            <a href="/2020/09/10/SpringBoot获取Request的三种方式/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-查询数据库历史记录"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/09/08/查询数据库历史记录/">查询数据库历史记录</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-08 17:39:00" datetime="2020-09-08T09:39:00.000Z"  itemprop="datePublished">2020-09-08</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="正在执行"><a href="#正在执行" class="headerlink" title="正在执行"></a>正在执行</h2><p>使用processlist，但是有个弊端，就是只能查看正在执行的sql语句，对应历史记录，查看不到。好处是不用设置，不会保存。</p>
-<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> information_schema;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">processlist</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>或者：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.<span class="string">`PROCESSLIST`</span> <span class="keyword">where</span> info <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2020/09/08/查询数据库历史记录/" class="post-more waves-button">
+            <a href="/2021/03/08/MySQL-marked-as-crashed-and-should-be-repaired/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -287,7 +237,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-SpringBoot使用JWT认证"
+            <article id="post-Qt获取exe版本信息"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -295,7 +245,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/09/06/SpringBoot使用JWT认证/">SpringBoot使用JWT认证</a>
+      <a href="/2021/02/22/Qt获取exe版本信息/">Qt获取exe版本信息</a>
     </h3>
   
 
@@ -303,17 +253,18 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2020-09-06 17:26:00" datetime="2020-09-06T09:26:00.000Z"  itemprop="datePublished">2020-09-06</time>
+        <time class="post-time" title="2021-02-22 16:47:00" datetime="2021-02-22T08:47:00.000Z"  itemprop="datePublished">2021-02-22</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们使用JWT在用户和服务器之间传递安全可靠的信息。<br><strong>JWT的组成</strong><br> 一个JWT实际上就是一个字符串，它由三部分组成，头部、载荷与签名。简单说明就到此为止，下面我们简单介绍如何使用JWT。<br> 1、引入相关的包<br> 在pom.xml中引入JWT的包，和SpringMVC包。</p>
+        <p><code>pro</code>文件引入 version.lib</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unix|win32: LIBS += -lVersion</span><br></pre></td></tr></tbody></table></figure>
     
         <div class="post-more-div">
-            <a href="/2020/09/06/SpringBoot使用JWT认证/" class="post-more waves-button">
+            <a href="/2021/02/22/Qt获取exe版本信息/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -321,7 +272,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
 
     </div>
     
@@ -330,7 +281,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-SpringBoot-RequestBody的使用"
+            <article id="post-Flutter各种问题"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -338,7 +289,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/08/27/SpringBoot-RequestBody的使用/">SpringBoot@RequestBody的使用</a>
+      <a href="/2021/01/31/Flutter各种问题/">Flutter各种问题整理与解决</a>
     </h3>
   
 
@@ -346,20 +297,19 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2020-08-27 17:18:00" datetime="2020-08-27T09:18:00.000Z"  itemprop="datePublished">2020-08-27</time>
+        <time class="post-time" title="2021-01-31 16:11:00" datetime="2021-01-31T08:11:00.000Z"  itemprop="datePublished">2021-01-31</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="RequestBody的使用"><a href="#RequestBody的使用" class="headerlink" title="@RequestBody的使用"></a>@RequestBody的使用</h1><blockquote>
-<p>转载自：<a href="https://blog.csdn.net/justry_deng/article/details/80972817" target="_blank" rel="noopener">https://blog.csdn.net/justry_deng/article/details/80972817</a></p>
-</blockquote>
-<h2 id="基础知识介绍"><a href="#基础知识介绍" class="headerlink" title="基础知识介绍"></a>基础知识介绍</h2><p>@RequestBody主要用来接收前端传递给后端的json字符串中的数据的(请求体中的数据的)；GET方式无请求体，所以使用@RequestBody接收数据时，前端不能使用GET方式提交数据，而是用POST方式进行提交。在后端的同一个接收方法里，@RequestBody与@RequestParam()可以同时使用，@RequestBody最多只能有一个，而@RequestParam()可以有多个。</p>
+        <h2 id="卡在flutter-pub-get不动"><a href="#卡在flutter-pub-get不动" class="headerlink" title="卡在flutter pub get不动"></a>卡在<code>flutter pub get</code>不动</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//命令行输入</span><br><span class="line">vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line">//添加下面三行，保存</span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line">export PATH=/Users/计算机名称/flutter/bin:$PATH  //下载的flutterSDK的路径</span><br><span class="line"></span><br><span class="line">//命令行输入</span><br><span class="line">source ~/.bash_profile</span><br><span class="line">flutter -h</span><br></pre></td></tr></tbody></table></figure>
+
+<p>运行 <code>flutter doctor</code> 命令，再 <code>package get</code></p>
     
         <div class="post-more-div">
-            <a href="/2020/08/27/SpringBoot-RequestBody的使用/" class="post-more waves-button">
+            <a href="/2021/01/31/Flutter各种问题/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -367,7 +317,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
 
     </div>
     
@@ -376,7 +326,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Lambda表达式递归"
+            <article id="post-Flutter监听变量"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -384,7 +334,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/08/19/Lambda表达式递归/">Lambda表达式递归</a>
+      <a href="/2021/01/31/Flutter监听变量/">Flutter监听变量</a>
     </h3>
   
 
@@ -392,481 +342,16 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2020-08-19 15:38:00" datetime="2020-08-19T07:38:00.000Z"  itemprop="datePublished">2020-08-19</time>
+        <time class="post-time" title="2021-01-31 16:05:00" datetime="2021-01-31T08:05:00.000Z"  itemprop="datePublished">2021-01-31</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h2 id="置顶"><a href="#置顶" class="headerlink" title="置顶"></a>置顶</h2><p>一个求和方法：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">const</span> <span class="keyword">int</span>&amp;)&gt;s = [&amp;](<span class="keyword">const</span> <span class="keyword">int</span>&amp; n) {</span><br><span class="line">    <span class="keyword">return</span> n == <span class="number">1</span> ? <span class="number">1</span> : n + s(n - <span class="number">1</span>);</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+        <a id="more"></a>
 
-<p>可以直接使用</p>
-    
-        <div class="post-more-div">
-            <a href="/2020/08/19/Lambda表达式递归/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-SpringBoot从打包到启动"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/08/17/SpringBoot从打包到启动/">SpringBoot从打包到启动</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-17 17:07:00" datetime="2020-08-17T09:07:00.000Z"  itemprop="datePublished">2020-08-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="一、创建项目"><a href="#一、创建项目" class="headerlink" title="一、创建项目"></a>一、创建项目</h2><p>创建项目一共有两种方式，下面分别进行介绍。</p>
-<h3 id="1，在线创建项目"><a href="#1，在线创建项目" class="headerlink" title="1，在线创建项目"></a>1，在线创建项目</h3><p>（1）在线创建是 <strong>Spring Boot</strong> 官方提供的一种创建方式，在浏览器中访问如下网址：</p>
-<ul>
-<li><a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a></li>
-</ul>
-    
-        <div class="post-more-div">
-            <a href="/2020/08/17/SpringBoot从打包到启动/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Spring基础"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/08/17/Spring基础/">Spring基础</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-17 17:06:00" datetime="2020-08-17T09:06:00.000Z"  itemprop="datePublished">2020-08-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>[TOC]</p>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>　　Spring框架是个轻量级的Java EE框架。所谓轻量级，是指不依赖于容器就能运行的。Struts、Hibernate也是轻量级的。 </p>
-<p>　　Spring以IoC、AOP为主要思想，其中IoC，Inversion of Control 指控制反转或反向控制。在Spring框架中我们通过配置创建类对象，由Spring在运行阶段实例化、组装对象。AOP，Aspect Oriented Programming，面向切面编程，其思想是在执行某些代码前执行另外的代码，使程序更灵活、扩展性更好，可以随便地添加、删除某些功能。Servlet中的Filter便是一种AOP思想的实现。 </p>
-    
-        <div class="post-more-div">
-            <a href="/2020/08/17/Spring基础/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-杭州社保办理流程"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/08/15/杭州社保办理流程/">杭州社保办理流程</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-15 17:42:00" datetime="2020-08-15T09:42:00.000Z"  itemprop="datePublished">2020-08-15</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="社保"><a href="#社保" class="headerlink" title="社保"></a>社保</h2><ol>
-<li>登录网址：杭州政务服务网 <a href="http://www.zjzwfw.gov.cn/" target="_blank" rel="noopener">http://www.zjzwfw.gov.cn/</a></li>
-<li>切换到杭州市，部门窗口—市人力社保局</li>
-<li>底部 杭州社会保险网上服务大厅</li>
-<li>法人登录—法人数字证书登录—e照通扫码</li>
-</ol>
-    
-        <div class="post-more-div">
-            <a href="/2020/08/15/杭州社保办理流程/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社保/">社保</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Dart多态"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/08/10/Dart多态/">Dart多态</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-10 16:02:00" datetime="2020-08-10T08:02:00.000Z"  itemprop="datePublished">2020-08-10</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
-<li>使用关键字 extends 继承一个类</li>
-<li><strong>子类会继承父类可见的属性和方法，不会继承构造方法</strong></li>
-<li><strong>子类能够复写父类的方法，getter 和 setter</strong></li>
-<li>单继承，多态性</li>
-</ul>
-    
-        <div class="post-more-div">
-            <a href="/2020/08/10/Dart多态/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/">Dart</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt开发经验-飞扬青云"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/07/16/Qt开发经验-飞扬青云/">Qt开发经验-飞扬青云</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-07-16 16:41:00" datetime="2020-07-16T08:41:00.000Z"  itemprop="datePublished">2020-07-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>全部转载自： <a href="https://gitee.com/feiyangqingyun/qtkaifajingyan" target="_blank" rel="noopener">https://gitee.com/feiyangqingyun/qtkaifajingyan</a></p>
-</blockquote>
-    
-        <div class="post-more-div">
-            <a href="/2020/07/16/Qt开发经验-飞扬青云/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/整理/">整理</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C语言文件操作"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/07/16/C语言文件操作/">C语言文件操作</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-07-16 15:30:00" datetime="2020-07-16T07:30:00.000Z"  itemprop="datePublished">2020-07-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h2><p>读取文件，再写入到另一个文件里面：</p>
-<p><strong>1、获取文件大小</strong></p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FILE* fp = fopen(<span class="string">"T:/img.jpg"</span>, <span class="string">"rb"</span>);</span><br><span class="line">fseek(fp, <span class="number">0</span>, SEEK_END);</span><br><span class="line"><span class="keyword">int</span> size = ftell(fp);</span><br><span class="line">fclose(fp);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"文件大小(指针偏移计算):"</span> &lt;&lt; size; <span class="comment">// 字节大小</span></span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2020/07/16/C语言文件操作/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件操作/">文件操作</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Maven安装与配置"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/07/15/Maven安装与配置/">Maven安装与配置</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-07-15 16:52:00" datetime="2020-07-15T08:52:00.000Z"  itemprop="datePublished">2020-07-15</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="Maven安装与配置"><a href="#Maven安装与配置" class="headerlink" title="Maven安装与配置"></a>Maven安装与配置</h1><h2 id="一、需要准备的东西"><a href="#一、需要准备的东西" class="headerlink" title="一、需要准备的东西"></a>一、需要准备的东西</h2><ol>
-<li><p>JDK</p>
-</li>
-<li><p>Eclipse</p>
-</li>
-<li><p>Maven程序包</p></li></ol>
-    
-        <div class="post-more-div">
-            <a href="/2020/07/15/Maven安装与配置/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/">Maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ffmpeg无损合并视频音频"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/06/20/ffmpeg无损合并视频音频/">ffmpeg无损合并视频音频</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-06-20 17:43:00" datetime="2020-06-20T09:43:00.000Z"  itemprop="datePublished">2020-06-20</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="将音频融入视频音轨"><a href="#将音频融入视频音轨" class="headerlink" title="将音频融入视频音轨"></a>将音频融入视频音轨</h2><p>无损合并（超级超级快速）</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i %audio% -i %video% -acodec copy -vcodec copy output.mp4</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2020/06/20/ffmpeg无损合并视频音频/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ffmpeg/">ffmpeg</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Java通配符和边界"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/06/16/Java通配符和边界/">Java通配符和边界</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-06-16 16:12:00" datetime="2020-06-16T08:12:00.000Z"  itemprop="datePublished">2020-06-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <ul>
-<li>&lt;? extends T&gt;：是指 <strong>“上界通配符（Upper Bounds Wildcards）”</strong></li>
-<li>&lt;? super T&gt;：是指 <strong>“下界通配符（Lower Bounds Wildcards）”</strong></li>
-</ul>
-<h5 id="上界通配符使得支持类似下面的转换："><a href="#上界通配符使得支持类似下面的转换：" class="headerlink" title="上界通配符使得支持类似下面的转换："></a>上界通配符使得支持类似下面的转换：</h5><p><code>List&lt;Parent&gt;</code> =&gt; <code>List&lt;Base&gt;</code>  即模板类T的泛型</p>
-<p><code>Plate&lt;Apple&gt;</code> =&gt; <code>Plate&lt;Fruit&gt;</code>  ——“装水果的盘子一定能装苹果”</p>
-<p>适用于频繁往外面读取</p>
-<p>副作用是无法插入数据</p>
-    
-        <div class="post-more-div">
-            <a href="/2020/06/16/Java通配符和边界/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt各种string转换"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/06/12/Qt各种string转换/">Qt各种string转换</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-06-12 16:41:00" datetime="2020-06-12T08:41:00.000Z"  itemprop="datePublished">2020-06-12</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>TChar转QString</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> UNICODE</span></span><br><span class="line">    qs = QString::fromUtf16((ushort*)ts);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    qs = QString::fromLocal8Bit(ts);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// UNICODE</span></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHomePage</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="keyword">final</span> number = <span class="keyword">new</span> ValueNotifier(<span class="number">0</span>);<span class="comment">//值变化通知</span></span><br><span class="line"> </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">      body: ValueListenableBuilder&lt;<span class="built_in">int</span>&gt;(</span><br><span class="line">        valueListenable: number,</span><br><span class="line">        builder: (context, value, child) {</span><br><span class="line">          <span class="keyword">return</span> Center(</span><br><span class="line">            child: RaisedButton(</span><br><span class="line">              onPressed: () {</span><br><span class="line">                number.value++;<span class="comment">//触发通知</span></span><br><span class="line">              },</span><br><span class="line">              child: MyWidget(number),</span><br><span class="line">            ),</span><br><span class="line">          );</span><br><span class="line">        },</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyWidget</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="keyword">final</span> ValueListenable&lt;<span class="built_in">int</span>&gt; number;</span><br><span class="line"> </span><br><span class="line">  MyWidget(<span class="keyword">this</span>.number);</span><br><span class="line"> </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Text(number.value.toString());<span class="comment">//同步变化</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <script>
         document.querySelectorAll('.github-emoji')
@@ -889,7 +374,7 @@
       </script>
     
         <div class="post-more-div">
-            <a href="/2020/06/12/Qt各种string转换/" class="post-more waves-button">
+            <a href="/2021/01/31/Flutter监听变量/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -897,7 +382,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
 
     </div>
     
@@ -906,7 +391,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Qt嵌入桌面"
+            <article id="post-C-CPP分支预测"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -914,7 +399,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/06/12/Qt嵌入桌面/">Qt嵌入桌面</a>
+      <a href="/2021/01/31/C-CPP分支预测/">C&amp;CPP分支预测</a>
     </h3>
   
 
@@ -922,65 +407,21 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2020-06-12 16:40:00" datetime="2020-06-12T08:40:00.000Z"  itemprop="datePublished">2020-06-12</time>
+        <time class="post-time" title="2021-01-31 15:32:00" datetime="2021-01-31T07:32:00.000Z"  itemprop="datePublished">2021-01-31</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h2 id="窗口最底层："><a href="#窗口最底层：" class="headerlink" title="窗口最底层："></a>窗口最底层：</h2><p>浮在图标上面，但是Win+D会最小化窗口</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setAttribute(Qt::WA_TranslucentBackground, <span class="literal">true</span>); <span class="comment">// 按需加上</span></span><br><span class="line">setWindowFlags(Qt::FramelessWindowHint            <span class="comment">//去边框</span></span><br><span class="line">             | Qt::X11BypassWindowManagerHint     <span class="comment">//linux下脱离任务管理器</span></span><br><span class="line">             | Qt::WindowStaysOnBottomHint        <span class="comment">//最低层显示</span></span><br><span class="line">             | Qt::Tool                           <span class="comment">//不在任务栏显示</span></span><br><span class="line">              );</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2020/06/12/Qt嵌入桌面/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt设置桌面壁纸"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2020/06/12/Qt设置桌面壁纸/">Qt设置桌面壁纸</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-06-12 16:40:00" datetime="2020-06-12T08:40:00.000Z"  itemprop="datePublished">2020-06-12</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> WallPaper::setWallPaper(QString filePath)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *tmp = filePath.toStdString().c_str(); </span><br><span class="line">    <span class="built_in">std</span>::wstringstream wss;</span><br><span class="line">    wss &lt;&lt; tmp;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">wchar_t</span> *filename = wss.str().c_str();</span><br><span class="line">    <span class="keyword">if</span>( !SystemParametersInfo(SPI_SETDESKWALLPAPER, <span class="number">0</span>, (<span class="keyword">void</span>*)filename, SPIF_UPDATEINIFILE) )<span class="comment">//调用windows的API函数</span></span><br><span class="line">        qDebug(<span class="string">"设置桌面背景失败!"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p>注： win10可调用此函数实现其功能。但win7会将桌面背景变成纯黑色 </p>
+        <blockquote>
+<p>转载自知乎回答：程序喵大人 <a href="https://www.zhihu.com/question/441518636/answer/1701252133" target="_blank" rel="noopener">https://www.zhihu.com/question/441518636/answer/1701252133</a></p>
 </blockquote>
+<p>if-else涉及到分支预测的概念。</p>
+<p>首先看一段经典的代码，并统计它的执行时间：</p>
     
         <div class="post-more-div">
-            <a href="/2020/06/12/Qt设置桌面壁纸/" class="post-more waves-button">
+            <a href="/2021/01/31/C-CPP分支预测/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -988,7 +429,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li></ul>
 
     </div>
     
@@ -997,7 +438,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-C语言编译过程"
+            <article id="post-Tomcat配置"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -1005,7 +446,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/06/11/C语言编译过程/">C语言编译过程</a>
+      <a href="/2021/01/30/Tomcat配置/">Tomcat配置</a>
     </h3>
   
 
@@ -1013,27 +454,514 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2020-06-11 15:24:00" datetime="2020-06-11T07:24:00.000Z"  itemprop="datePublished">2020-06-11</time>
+        <time class="post-time" title="2021-01-30 16:14:00" datetime="2021-01-30T08:14:00.000Z"  itemprop="datePublished">2021-01-30</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="C语言编译过程"><a href="#C语言编译过程" class="headerlink" title="C语言编译过程"></a>C语言编译过程</h1><h2 id="1-预处理"><a href="#1-预处理" class="headerlink" title="1. 预处理"></a>1. 预处理</h2><p>对C源文件的伪指令（以<code>#</code>开头 ）和特殊符号进行处理</p>
-<p><strong>伪指令</strong>包括：</p>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p><a href="https://blog.csdn.net/gyshun/article/details/79582763" target="_blank" rel="noopener">https://blog.csdn.net/gyshun/article/details/79582763</a></p>
+</blockquote>
+<p>下载地址：<a href="http://tomcat.apache.org/，注意下载那个zip文件，还要注意与jdk版本吻合（参考链接:http://www.bubuko.com/infodetail-674892.html）" target="_blank" rel="noopener">http://tomcat.apache.org/，注意下载那个zip文件，还要注意与jdk版本吻合（参考链接:http://www.bubuko.com/infodetail-674892.html）</a></p>
+<p>新建环境变量<code>CATALINA_HOME</code>，变量值为解压目录，如<code>E:\tomcat</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2021/01/30/Tomcat配置/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/">Tomcat</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-npm下载卡住"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/01/24/npm下载卡住/">npm下载卡住</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-01-24 16:29:00" datetime="2021-01-24T08:29:00.000Z"  itemprop="datePublished">2021-01-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @angular/cli</span><br></pre></td></tr></tbody></table></figure>
+
+<p>安装angular cli工具时，发现进度条一直卡住不动</p>
+<h2 id="方案一：安装cnpm镜像"><a href="#方案一：安装cnpm镜像" class="headerlink" title="方案一：安装cnpm镜像"></a>方案一：安装cnpm镜像</h2><p>这个是比较常用的方法，我首先也是使用了这个方法。cnpm的安装方法，参考<a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure>
+
+<p>cmd输入以上命令就可以了，然后输入</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g @angular/cli</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2021/01/24/npm下载卡住/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Nginx反向代理其他端口"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/01/24/Nginx反向代理其他端口/">Nginx反向代理其他端口</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-01-24 16:27:00" datetime="2021-01-24T08:27:00.000Z"  itemprop="datePublished">2021-01-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>这里用的是小皮面板（PHPStudy），先添加网站。</p>
+<p>找到<code>nginx/conf/vhost/网站.conf</code>，server中原先的location全删了，改为下面：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server {</span><br><span class="line">        listen        80;</span><br><span class="line">        server_name  cloud.iwxyi.com;</span><br><span class="line">		location / {</span><br><span class="line">			proxy_pass http://iwxyi.com:5212;</span><br><span class="line">		}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2021/01/24/Nginx反向代理其他端口/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-添加文件VSCode右键菜单"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/12/28/添加文件VSCode右键菜单/">添加文件VSCode右键菜单</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-12-28 17:51:00" datetime="2020-12-28T09:51:00.000Z"  itemprop="datePublished">2020-12-28</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="添加右键打开文件"><a href="#添加右键打开文件" class="headerlink" title="添加右键打开文件"></a>添加右键打开文件</h3><p>1, Win+R 打开运行，输入<strong>regedit</strong>，打开注册表，找到<strong>HKEY_CLASSES_ROOT*\shell</strong>分支，如果没有shell分支，则在<code>*</code>下点击右键，选择“新建－项”，建立<strong>shell</strong>分支。</p>
+<p>2, 在shell下新建“VisualCode”项，在右侧窗口的“默认”键值栏内输入“用VSCode打开文件”，这是右键上显示值，也就是文字。其事可以随便写，只是为了方便记忆和分辨。</p>
+<p>3, 在“VisualCode”下再新建Command项，在右侧窗口的“默认”键值栏内输入程序所在的安装路径，我的是：<strong>“D:\Program Files (x86)\VSCode\code.exe” “%1”</strong>。其中的%1表示要打开的文件参数。</p>
+<p>4, 关闭注册表，即可生效。</p>
+    
+        <div class="post-more-div">
+            <a href="/2020/12/28/添加文件VSCode右键菜单/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Windows下安装Redis"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/12/25/Windows下安装Redis/">Windows下安装Redis</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-12-25 16:50:00" datetime="2020-12-25T08:50:00.000Z"  itemprop="datePublished">2020-12-25</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><strong>下载地址：</strong><a href="https://github.com/tporadowski/redis/releases" target="_blank" rel="noopener">https://github.com/tporadowski/redis/releases</a></p>
+<p>打开一个 <strong>cmd</strong> 窗口 使用 cd 命令切换目录到 <strong>C:\redis</strong> 运行：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server.exe redis.windows.conf</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果想方便的话，可以把 redis 的路径加到系统的环境变量里，这样就省得再输路径了，后面的那个 redis.windows.conf 可以省略，如果省略，会启用默认的。</p>
+    
+        <div class="post-more-div">
+            <a href="/2020/12/25/Windows下安装Redis/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-SpringBoot使用Redis"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/12/24/SpringBoot使用Redis/">SpringBoot使用Redis</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-12-24 17:34:00" datetime="2020-12-24T09:34:00.000Z"  itemprop="datePublished">2020-12-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.session<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-session-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-cache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2020/12/24/SpringBoot使用Redis/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-文字转语音并保存到文件"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/12/24/C-文字转语音并保存到文件/">C++文字转语音并保存到文件</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-12-24 15:35:00" datetime="2020-12-24T07:35:00.000Z"  itemprop="datePublished">2020-12-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sapi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sphelper.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> isCreatWavFile = <span class="literal">false</span>; <span class="comment">// false播放出来，true输出到.wav音频文件</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	ISpVoice* pVoice = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">if</span> (FAILED(::CoInitialize(<span class="literal">NULL</span>)))</span><br><span class="line">		<span class="keyword">return</span> FALSE;</span><br><span class="line">	HRESULT hr = CoCreateInstance(CLSID_SpVoice, <span class="literal">NULL</span>, CLSCTX_ALL, IID_ISpVoice, (<span class="keyword">void</span>**)&amp;pVoice);</span><br><span class="line">	<span class="keyword">if</span> (SUCCEEDED(hr))</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span> (isCreatWavFile) <span class="comment">// 输出到文件（不播放）</span></span><br><span class="line">		{</span><br><span class="line">			CComPtr &lt;ISpStream&gt; cpWavStream;</span><br><span class="line">			CComPtr &lt;ISpStreamFormat&gt; cpOldStream;</span><br><span class="line">			CSpStreamFormat originalFmt;</span><br><span class="line">			pVoice-&gt;GetOutputStream(&amp;cpOldStream);</span><br><span class="line">			originalFmt.AssignFormat(cpOldStream);</span><br><span class="line">			hr = SPBindToFile(<span class="string">L"d:\\output.wav"</span>, SPFM_CREATE_ALWAYS, &amp;cpWavStream, &amp;originalFmt.FormatId(), originalFmt.WaveFormatExPtr());</span><br><span class="line">			<span class="keyword">if</span> (SUCCEEDED(hr))</span><br><span class="line">			{</span><br><span class="line">				pVoice-&gt;SetOutput(cpWavStream, TRUE);</span><br><span class="line">				WCHAR WTX[] = <span class="string">L"凡事何必都看淡，自己理解就很好，决定我们一生的，是我们的选择。我们时刻都在失去，我们努力的想去拥有更多的精彩，可惜只有两只手，所以必须学会选择，学会放弃。要清楚哪些是我们不需要的，如果心的欲望太大，什么都想抓，可能最后什么知足心灵。只平淡命运无奈"</span>;</span><br><span class="line">				pVoice-&gt;Speak(WTX, SPF_IS_XML, <span class="literal">NULL</span>);</span><br><span class="line">				pVoice-&gt;Release();</span><br><span class="line">				pVoice = <span class="literal">NULL</span>;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">else</span> <span class="comment">// 播放</span></span><br><span class="line">		{</span><br><span class="line">			hr = pVoice-&gt;Speak(<span class="string">L"Hello World"</span>, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br><span class="line">			pVoice-&gt;Release();</span><br><span class="line">			pVoice = <span class="literal">NULL</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	::CoUninitialize();</span><br><span class="line">	<span class="keyword">return</span> TRUE;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2020/12/24/C-文字转语音并保存到文件/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件/">文件</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Python简单Web服务"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/12/23/Python简单Web服务/">Python简单Web服务</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-12-23 16:33:00" datetime="2020-12-23T08:33:00.000Z"  itemprop="datePublished">2020-12-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>一个非常简单的计数Web：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">cache = redis.Redis(host=<span class="string">'redis'</span>, port=<span class="number">6379</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_hit_count</span><span class="params">()</span>:</span></span><br><span class="line">    retries = <span class="number">5</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> cache.incr(<span class="string">'hits'</span>)</span><br><span class="line">        <span class="keyword">except</span> redis.exceptions.ConnectionError <span class="keyword">as</span> exc:</span><br><span class="line">            <span class="keyword">if</span> retries == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">raise</span> exc</span><br><span class="line">            retries -= <span class="number">1</span></span><br><span class="line">            time.sleep(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    count = get_hit_count()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World! I have been seen {} times.\n'</span>.format(count)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app.run(host=<span class="string">"0.0.0.0"</span>, debug=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/2020/12/23/Python简单Web服务/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AngularJS学习笔记"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/12/23/AngularJS学习笔记/">AngularJS-学习笔记</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-12-23 15:21:00" datetime="2020-12-23T07:21:00.000Z"  itemprop="datePublished">2020-12-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="简单入门"><a href="#简单入门" class="headerlink" title="简单入门"></a>简单入门</h1><h2 id="下载与使用"><a href="#下载与使用" class="headerlink" title="下载与使用"></a>下载与使用</h2><p>下载地址：<a href="https://angularjs.org，点" target="_blank" rel="noopener">https://angularjs.org，点</a> DEVELOP / Download，找到 angularjs-1.x.x.zip 为全部文件</p>
+<p>引入文件</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/angular.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2020/12/23/AngularJS学习笔记/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Thymeleaf用法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/12/22/Thymeleaf用法/">Thymeleaf用法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-12-22 17:33:00" datetime="2020-12-22T09:33:00.000Z"  itemprop="datePublished">2020-12-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>作者：纯洁的微笑<br>出处：<a href="http://www.ityouknow.com/thymeleaf/2016/09/01/构建微服务-thymeleaf使用详解.html" target="_blank" rel="noopener">http://www.ityouknow.com/</a></p>
+<h2 id="thymeleaf介绍"><a href="#thymeleaf介绍" class="headerlink" title="thymeleaf介绍"></a>thymeleaf介绍</h2><p>简单说， Thymeleaf 是一个跟 Velocity、FreeMarker 类似的模板引擎，它可以完全替代 JSP 。相较与其他的模板引擎，它有如下三个极吸引人的特点：</p>
+    
+        <div class="post-more-div">
+            <a href="/2020/12/22/Thymeleaf用法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thymeleaf/">Thymeleaf</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-服务器部署SpringBoot"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/12/20/服务器部署SpringBoot/">服务器部署SpringBoot</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-12-20 17:29:00" datetime="2020-12-20T09:29:00.000Z"  itemprop="datePublished">2020-12-20</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ul>
+<li><p>JDK包</p>
 <ul>
-<li>宏定义：<code>#define PI (3.1415)</code></li>
-<li>条件编译：<code>#if (conditions)</code></li>
-<li>头文件：<code>#include &lt;filename&gt;</code></li>
+<li>环境变量<ul>
+<li><code>CLASSPATH</code> = <code>.;%Java_Home%\bin;%Java_Home%\lib\dt.jar;%Java_Home%\lib\tools.jar</code></li>
+<li><code>Java_Home</code> = <code>D:\DevKits\JDK</code></li>
+<li><code>Path</code> += <code>D:\DevKits\JDK\bin</code></li>
 </ul>
-<p><strong>特殊符号</strong>有：<code>__func__</code>、<code>__LINE__</code>、<code>__FILE__</code>等</p>
-<blockquote>
-<p>这里不做语法的检查，仅仅替换</p>
-</blockquote>
+</li>
+</ul>
+</li>
+<li><p>maven包</p>
+<ul>
+<li>环境变量<ul>
+<li><code>Path</code> += <code>D:\DevKits\maven\bin</code></li>
+</ul>
+</li>
+<li>conf<ul>
+<li><code>/conf/settings.xml</code> 中的 <code>localRepository</code> 值改为存放 <code>repository</code> 的绝对位置</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
     
         <div class="post-more-div">
-            <a href="/2020/06/11/C语言编译过程/" class="post-more waves-button">
+            <a href="/2020/12/20/服务器部署SpringBoot/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -1041,7 +969,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译原理/">编译原理</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li></ul>
 
     </div>
     
@@ -1050,7 +978,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Qt枚举与字符串互相转换"
+            <article id="post-Qt的QDebug输出到文件"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -1058,7 +986,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/06/09/Qt枚举与字符串互相转换/">Qt枚举与字符串互相转换</a>
+      <a href="/2020/12/10/Qt的QDebug输出到文件/">Qt的QDebug输出到文件</a>
     </h3>
   
 
@@ -1066,19 +994,17 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2020-06-09 16:37:00" datetime="2020-06-09T08:37:00.000Z"  itemprop="datePublished">2020-06-09</time>
+        <time class="post-time" title="2020-12-10 16:43:00" datetime="2020-12-10T08:43:00.000Z"  itemprop="datePublished">2020-12-10</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>在QT中将枚举类型注册(QT_Q_ENUM或QT_Q_FLAG)后，就可以利用QT的元对象进行枚举类型与字符串类型转换了。</p>
-<p>代码示例：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtCore/QMetaEnum&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    QMetaEnum metaEnum = QMetaEnum::fromType&lt;Qt::Alignment&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//字符串转枚举值</span></span><br><span class="line">    Qt::Alignment alignment = (Qt::Alignment)metaEnum.keyToValue(<span class="string">"Qt::AlignLeft"</span>);</span><br><span class="line">    alignment = (Qt::Alignment)metaEnum.keysToValue(<span class="string">"Qt::AlignLeft | Qt::AlignVCenter"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//枚举值转字符串</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* s = metaEnum.valueToKey(Qt::AlignCenter);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <h1 id="qInstallMessageHandler把输出信息写入文件和显示在调试窗"><a href="#qInstallMessageHandler把输出信息写入文件和显示在调试窗" class="headerlink" title="qInstallMessageHandler把输出信息写入文件和显示在调试窗"></a>qInstallMessageHandler把输出信息写入文件和显示在调试窗</h1><p>qInstallMessageHandler来实现输出详细日志，输出文件名，行号，所在函数及事件，并写入文件。最后调用系统原来的函数，使信息像之前一样输出到调试窗口，便于开发。</p>
     
         <div class="post-more-div">
-            <a href="/2020/06/09/Qt枚举与字符串互相转换/" class="post-more waves-button">
+            <a href="/2020/12/10/Qt的QDebug输出到文件/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -1095,7 +1021,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-GAP8搭建PulpOS运行HelloWorld"
+            <article id="post-Win10资源管理器连接WebDAV"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -1103,7 +1029,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2020/04/13/GAP8搭建PulpOS运行HelloWorld/">GAP8运行PulpOS Demo</a>
+      <a href="/2020/11/28/Win10资源管理器连接WebDAV/">Win10资源管理器连接WebDAV</a>
     </h3>
   
 
@@ -1111,17 +1037,81 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2020-04-13 13:57:00" datetime="2020-04-13T05:57:00.000Z"  itemprop="datePublished">2020-04-13</time>
+        <time class="post-time" title="2020-11-28 17:49:00" datetime="2020-11-28T09:49:00.000Z"  itemprop="datePublished">2020-11-28</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="运行-HelloWorld"><a href="#运行-HelloWorld" class="headerlink" title="运行 HelloWorld"></a>运行 HelloWorld</h1>
+        <ol>
+<li>去服务里打开WebClient，改为自动启动</li>
+<li>修改注册表使得WIN同时支持http和https：定位到 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters<br>把BasicAuthLevel 值改成2，即同时支持http和https，默认只支持https，然后重启服务</li>
+<li>然后映射网络驱动器（添加网络位置）即可</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     
         <div class="post-more-div">
-            <a href="/2020/04/13/GAP8搭建PulpOS运行HelloWorld/" class="post-more waves-button">
+            <a href="/2020/11/28/Win10资源管理器连接WebDAV/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-的nullptr"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/11/19/C-的nullptr/">C++的nullptr</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-11-19 15:37:00" datetime="2020-11-19T07:37:00.000Z"  itemprop="datePublished">2020-11-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="C的NULL"><a href="#C的NULL" class="headerlink" title="C的NULL"></a>C的NULL</h3><p>在C语言中，我们使用NULL表示空指针，也就是我们可以写如下代码：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *i = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">foo_t</span> *f = <span class="literal">NULL</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>实际上在C语言中，NULL通常被定义为如下：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL ((void *)0)</span></span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2020/11/19/C-的nullptr/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -1129,7 +1119,74 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PulpOS/">PulpOS</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Windows端口被占用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/10/23/Windows端口被占用/">Windows端口被占用</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-23 17:47:00" datetime="2020-10-23T09:47:00.000Z"  itemprop="datePublished">2020-10-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>寻找端口（看结果右边列）</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | findstr 8080</span><br></pre></td></tr></tbody></table></figure>
+
+<p>强制关闭端口</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /pid 4708 /f</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/2020/10/23/Windows端口被占用/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOS/">DOS</a></li></ul>
 
     </div>
     
@@ -1142,7 +1199,7 @@
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
     </div>
 </nav>
 

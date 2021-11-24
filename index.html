@@ -194,7 +194,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-Java浮点数装箱不相等问题"
+            <article id="post-C-11智能指针unique-ptr"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -202,7 +202,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/10/26/Java浮点数装箱不相等问题/">Java浮点数装箱不相等问题</a>
+      <a href="/2021/11/23/C-11智能指针unique-ptr/">C++11智能指针unique_ptr</a>
     </h3>
   
 
@@ -210,19 +210,20 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-10-26 09:33:00" datetime="2021-10-26T01:33:00.000Z"  itemprop="datePublished">2021-10-26</time>
+        <time class="post-time" title="2021-11-23 15:14:00" datetime="2021-11-23T07:14:00.000Z"  itemprop="datePublished">2021-11-23</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">0.0</span> == -<span class="number">0.0</span>); <span class="comment">// true</span></span><br><span class="line">System.out.println(Double.compare(<span class="number">0.0</span>, -<span class="number">0.0</span>)); <span class="comment">// 1</span></span><br><span class="line">System.out.println(<span class="keyword">new</span> Double(<span class="number">0.0</span>).equals(<span class="keyword">new</span> Double(-<span class="number">0.0</span>))); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">Map&lt;Double, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="number">0.0</span>, <span class="number">1</span>);</span><br><span class="line">map.put(-<span class="number">0.0</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(map.size()); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">System.out.println((<span class="keyword">double</span>)(<span class="number">2</span>-<span class="number">2</span>)/(<span class="number">1</span>-<span class="number">2</span>)); <span class="comment">// -0.0</span></span><br><span class="line">System.out.println((<span class="keyword">double</span>)(<span class="number">3</span>-<span class="number">3</span>)/(<span class="number">2</span>-<span class="number">1</span>)); <span class="comment">// 0.0</span></span><br></pre></td></tr></tbody></table></figure>
+        <h2 id="一、unique-ptr智能指针的创建"><a href="#一、unique-ptr智能指针的创建" class="headerlink" title="一、unique_ptr智能指针的创建"></a>一、unique_ptr智能指针的创建</h2><p>和 shared_ptr 指针最大的不同之处在于，unique_ptr 指针指向的堆内存无法同其它 unique_ptr 共享，也就是说，每个 unique_ptr 指针都独自拥有对其所指堆内存空间的所有权。</p>
+<h3 id="1-构造空智能指针"><a href="#1-构造空智能指针" class="headerlink" title="1. 构造空智能指针"></a>1. 构造空智能指针</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;<span class="keyword">int</span>&gt; p1();</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;<span class="keyword">int</span>&gt; p2(<span class="literal">nullptr</span>);</span><br></pre></td></tr></tbody></table></figure>
 
-<p>在集合中遇见0.0和-0.0时，由于自动装箱，导致两个在绝对数值上相等的数据，放入集合时表现出不相等。</p>
+<h3 id="2-明确指针指向"><a href="#2-明确指针指向" class="headerlink" title="2. 明确指针指向"></a>2. 明确指针指向</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;<span class="keyword">int</span>&gt; p3(<span class="keyword">new</span> <span class="keyword">int</span>);</span><br></pre></td></tr></tbody></table></figure>
     
         <div class="post-more-div">
-            <a href="/2021/10/26/Java浮点数装箱不相等问题/" class="post-more waves-button">
+            <a href="/2021/11/23/C-11智能指针unique-ptr/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -230,7 +231,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -239,7 +240,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Flutter切换页面保留状态"
+            <article id="post-C-11智能指针weak-ptr"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -247,7 +248,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/10/14/Flutter切换页面保留状态/">Flutter切换页面保留状态</a>
+      <a href="/2021/11/23/C-11智能指针weak-ptr/">C++11智能指针weak_ptr</a>
     </h3>
   
 
@@ -255,18 +256,24 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-10-14 17:40:00" datetime="2021-10-14T09:40:00.000Z"  itemprop="datePublished">2021-10-14</time>
+        <time class="post-time" title="2021-11-23 15:14:00" datetime="2021-11-23T07:14:00.000Z"  itemprop="datePublished">2021-11-23</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>State 混入 AutomaticKeepAliveClientMixin，同时 wantKeepAlive 返回 true。</p>
-<p>这样使用 TabView 或者 PageView 切换页面时，ListView 等 Stateful 控件的状态（如滚动位置）都会保留下来。</p>
+        <h2 id="一、weak-ptr智能指针的创建"><a href="#一、weak-ptr智能指针的创建" class="headerlink" title="一、weak_ptr智能指针的创建"></a>一、weak_ptr智能指针的创建</h2><p> weak_ptr 虽然是智能指针的一种，但通常不单独使用，只能和 shared_ptr 类型指针搭配使用。借助 weak_ptr 类型指针， 我们可以获取 shared_ptr 指针的一些状态信息，比如有多少指向相同的 shared_ptr 指针、shared_ptr 指针指向的堆内存是否已经被释放等等。</p>
+<p>weak_ptr 类型指针并不会影响 shared_ptr 所指堆内存空间的引用计数。</p>
+<h3 id="1-构造空-weak-ptr-指针"><a href="#1-构造空-weak-ptr-指针" class="headerlink" title="1. 构造空 weak_ptr 指针"></a>1. 构造空 weak_ptr 指针</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::weak_ptr&lt;<span class="keyword">int</span>&gt; wp1;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-根据已有-weak-ptr-创建新的-weak-ptr-指针"><a href="#2-根据已有-weak-ptr-创建新的-weak-ptr-指针" class="headerlink" title="2. 根据已有 weak_ptr 创建新的 weak_ptr 指针"></a>2. 根据已有 weak_ptr 创建新的 weak_ptr 指针</h3><p>凭借已有的 weak_ptr 指针，可以创建一个新的 weak_ptr 指针：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::weak_ptr&lt;<span class="keyword">int</span>&gt; wp2 (wp1);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>若 wp1 为空指针，则 wp2 也为空指针；反之，如果 wp1 指向某一 shared_ptr 指针拥有的堆内存，则 wp2 也指向该块存储空间（可以访问，但无所有权）。</p>
     
         <div class="post-more-div">
-            <a href="/2021/10/14/Flutter切换页面保留状态/" class="post-more waves-button">
+            <a href="/2021/11/23/C-11智能指针weak-ptr/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -274,7 +281,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -283,7 +290,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Flutter在ListView创建时滚动到底部"
+            <article id="post-C-11智能指针shared-ptr"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -291,7 +298,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/10/13/Flutter在ListView创建时滚动到底部/">Flutter在ListView创建时滚动到底部</a>
+      <a href="/2021/11/23/C-11智能指针shared-ptr/">C++11智能指针shared_ptr</a>
     </h3>
   
 
@@ -299,37 +306,22 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-10-13 17:39:00" datetime="2021-10-13T09:39:00.000Z"  itemprop="datePublished">2021-10-13</time>
+        <time class="post-time" title="2021-11-23 15:13:00" datetime="2021-11-23T07:13:00.000Z"  itemprop="datePublished">2021-11-23</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <figure class="highlight dart"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">final</span> items = <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;.generate(<span class="number">50</span>, (i) =&gt; <span class="string">"Item <span class="subst">$i</span>"</span>);</span><br><span class="line"></span><br><span class="line">    ScrollController _controller = ScrollController();</span><br><span class="line"></span><br><span class="line">    SchedulerBinding.instance.addPostFrameCallback((_) {</span><br><span class="line">        _controller.jumpTo(_controller.position.maxScrollExtent);</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">        body: SafeArea(</span><br><span class="line">            child: ListView.builder(</span><br><span class="line">                controller: _controller,</span><br><span class="line">                itemCount: items.length,</span><br><span class="line">                itemBuilder: (context, index) {</span><br><span class="line">                    <span class="keyword">return</span> ListTile(</span><br><span class="line">                        title: Text(<span class="string">'<span class="subst">${items[index]}</span>'</span>),</span><br><span class="line">                    );</span><br><span class="line">                },</span><br><span class="line">            ),</span><br><span class="line">        ));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <h2 id="一、shared-ptr智能指针的创建"><a href="#一、shared-ptr智能指针的创建" class="headerlink" title="一、shared_ptr智能指针的创建"></a>一、shared_ptr智能指针的创建</h2><h3 id="1-构造空智能指针"><a href="#1-构造空智能指针" class="headerlink" title="1. 构造空智能指针"></a>1. 构造空智能指针</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p1;             <span class="comment">//不传入任何实参</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p2(<span class="literal">nullptr</span>);    <span class="comment">//传入空指针 nullptr</span></span><br></pre></td></tr></tbody></table></figure>
 
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<p>注意，空的 shared_ptr 指针，其初始引用计数为 0，而不是 1。</p>
+<h3 id="2-明确指针指向"><a href="#2-明确指针指向" class="headerlink" title="2. 明确指针指向"></a>2. 明确指针指向</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p3(<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">10</span>));</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p3 = <span class="built_in">std</span>::make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">10</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由此，我们就成功构建了一个 shared_ptr 智能指针，其指向一块存有 10 这个 int 类型数据的堆内存空间。</p>
     
         <div class="post-more-div">
-            <a href="/2021/10/13/Flutter在ListView创建时滚动到底部/" class="post-more waves-button">
+            <a href="/2021/11/23/C-11智能指针shared-ptr/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -337,7 +329,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -346,7 +338,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-约瑟夫环问题：一行代码递归"
+            <article id="post-C-11完美转发"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -354,7 +346,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/09/14/约瑟夫环问题：一行代码递归/">约瑟夫环问题：一行代码递归</a>
+      <a href="/2021/11/23/C-11完美转发/">C++11完美转发</a>
     </h3>
   
 
@@ -362,18 +354,17 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-09-14 09:53:00" datetime="2021-09-14T01:53:00.000Z"  itemprop="datePublished">2021-09-14</time>
+        <time class="post-time" title="2021-11-23 15:12:00" datetime="2021-11-23T07:12:00.000Z"  itemprop="datePublished">2021-11-23</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>问题描述：编号为 1-N 的 N 个士兵围坐在一起形成一个圆圈，从编号为 1 的士兵开始依次报数（1，2，3…这样依次报），数到 m 的 士兵会被杀死出列，之后的士兵再从 1 开始报数。直到最后剩下一士兵，求这个士兵的编号。</p>
-<p>解决方法：最暴力的就是用<strong>环形链表</strong>，被选中就移除，时间复杂度为 <code>O(n * m)</code>，空间复杂度是 <code>O(n)</code>。</p>
+        <p>完美转发指的是：如果 function() 函数接收到的参数 t 为左值，那么该函数传递给 otherdef() 的参数 t 也是左值；反之如果 function() 函数接收到的参数 t 为右值，那么传递给 otherdef() 函数的参数 t 也必须为右值。</p>
     
         <div class="post-more-div">
-            <a href="/2021/09/14/约瑟夫环问题：一行代码递归/" class="post-more waves-button">
+            <a href="/2021/11/23/C-11完美转发/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -381,7 +372,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -390,7 +381,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-链表翻转之K个一组：双递归"
+            <article id="post-C-11函数的引用限定符"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -398,7 +389,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/09/13/链表翻转之K个一组：双递归/">链表翻转之K个一组：双递归</a>
+      <a href="/2021/11/23/C-11函数的引用限定符/">C++11函数的引用限定符</a>
     </h3>
   
 
@@ -406,18 +397,17 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-09-13 09:52:00" datetime="2021-09-13T01:52:00.000Z"  itemprop="datePublished">2021-09-13</time>
+        <time class="post-time" title="2021-11-23 15:11:00" datetime="2021-11-23T07:11:00.000Z"  itemprop="datePublished">2021-11-23</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>例如：链表:1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;6-&gt;7-&gt;8-&gt;null, K = 3。调整后：3-&gt;2-&gt;1-&gt;6-&gt;5-&gt;4-&gt;7-&gt;8-&gt;null。</p>
-<p>其中 7，8不调整，因为不够一组。</p>
+        <p>某些场景中，我们可能需要限制调用成员函数的对象的类型（左值还是右值），为此 C++11 新添加了引用限定符。所谓引用限定符，就是在成员函数的后面添加 “&amp;” 或者 “&amp;&amp;”，从而限制调用者的类型（左值还是右值）。</p>
     
         <div class="post-more-div">
-            <a href="/2021/09/13/链表翻转之K个一组：双递归/" class="post-more waves-button">
+            <a href="/2021/11/23/C-11函数的引用限定符/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -425,7 +415,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -434,7 +424,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-使用std-conditional定义类型"
+            <article id="post-C-11移动语义move-函数"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -442,7 +432,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/09/10/使用std-conditional定义类型/">C++使用std::conditional定义类型</a>
+      <a href="/2021/11/23/C-11移动语义move-函数/">C++11移动语义move()函数</a>
     </h3>
   
 
@@ -450,21 +440,377 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-09-10 09:42:00" datetime="2021-09-10T01:42:00.000Z"  itemprop="datePublished">2021-09-10</time>
+        <time class="post-time" title="2021-11-23 15:10:00" datetime="2021-11-23T07:10:00.000Z"  itemprop="datePublished">2021-11-23</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>有时候需要根据条件进行类型定义，比如下面这种情况：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">test_struct</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">test_struct_2</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">double</span> d;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (flag)</span><br><span class="line">	<span class="keyword">typedef</span> bb::test_struct AAA;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="keyword">typedef</span> bb::test_struct_2 AAA;</span><br><span class="line"></span><br><span class="line">AAA a;</span><br></pre></td></tr></tbody></table></figure>
+        <p>移动构造函数的调用时机是：用同类的右值对象初始化新对象。当用当前类的左值对象（有名称，能获取其存储地址的实例对象）初始化同类对象时，需要用到 move() 函数，</p>
+<p>move 本意为 “移动”，但该函数并不能移动任何数据，它的功能很简单，就是将某个左值强制转化为右值。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">move( arg )</span><br></pre></td></tr></tbody></table></figure>
 
-<p>编译会报错 error: ‘AAA’ was not declared in this scope。</p>
-<p>这个时候就可以用<code>std::conditional</code>来做， 有两种方式：</p>
+<p>其中，arg 表示指定的左值对象。该函数会返回 arg 对象的右值形式。</p>
     
         <div class="post-more-div">
-            <a href="/2021/09/10/使用std-conditional定义类型/" class="post-more waves-button">
+            <a href="/2021/11/23/C-11移动语义move-函数/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-11移动构造函数"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-11移动构造函数/">C++11移动构造函数</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:09:00" datetime="2021-11-23T07:09:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>所谓移动语义，指的就是以移动而非深拷贝的方式初始化含有指针成员的类对象。简单的理解，移动语义指的就是将其他对象（通常是临时对象）拥有的内存资源“移为已用”。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-11移动构造函数/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-11右值引用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-11右值引用/">C++11右值引用</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:08:00" datetime="2021-11-23T07:08:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>右值的英文简写为“lvalue”，右值的英文简写为“rvalue”。很多人认为它们分别是”left value”、”right value” 的缩写，其实不然。lvalue 是“loactor value”的缩写，可意为存储在内存中、有明确存储地址（<strong>可寻址</strong>）的数据，而 rvalue 译为 “read value”，指的是那些可以提供数据值的数据（不一定可以寻址，例如存储于寄存器中的数据）。</p>
+<p>C++98/03 标准中只能操作左值，无法对右值添加引用（但允许使用常量左值引用操作右值），举个例子：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;a = num;		<span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">int</span> &amp;b = <span class="number">10</span>; 		<span class="comment">// 错误</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;c = num;	<span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;d = <span class="number">10</span>;	<span class="comment">// 正确</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>C++11 标准新引入了另一种引用方式，称为右值引用，用 “&amp;&amp;” 表示：</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-11右值引用/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-11非受限联合体、枚举式类"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-11非受限联合体、枚举式类/">C++11非受限联合体、枚举式类</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:08:00" datetime="2021-11-23T07:08:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>联合体（Union）是一种构造数据类型。在一个联合体内，我们可以定义多个不同类型的成员，这些成员将会共享同一块内存空间。老版本的 C++ 为了和C语言保持兼容，对联合体的数据成员的类型进行了很大程度的限制，这些限制在今天看来并没有必要，因此 C++11 取消了这些限制。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-11非受限联合体、枚举式类/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-11-constexpr和const的区别"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-11-constexpr和const的区别/">C++11 constexpr和const的区别</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:07:00" datetime="2021-11-23T07:07:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>为了解决 const 关键字的双重语义问题，而将“常量”的语义划分给了新添加的 constexpr 关键字。</p>
+<p><strong>const 表示“只读”，constexpr 表示“常量”</strong>。</p>
+<p>常量在编译阶段就能计算出来，提高程序的执行效率。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-11-constexpr和const的区别/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-11半个类型的auto"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-11半个类型的auto/">C++11半个类型的auto</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:07:00" datetime="2021-11-23T07:07:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>auto 除了可以独立使用，还可以和某些具体类型混合使用，这样 auto 表示的就是“半个”类型，而不是完整的类型。请看下面的代码：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>    x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> *p1 = &amp;x;   <span class="comment">//p1 为 int *，auto 推导为 int</span></span><br><span class="line"><span class="keyword">auto</span>  p2 = &amp;x;   <span class="comment">//p2 为 int*，auto 推导为 int*</span></span><br><span class="line"><span class="keyword">auto</span> &amp;r1 = x;   <span class="comment">//r1 为 int&amp;，auto 推导为 int</span></span><br><span class="line"><span class="keyword">auto</span>  r2 = r1;    <span class="comment">//r2 为  int，auto 推导为 int</span></span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-11半个类型的auto/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-11-tuple元组"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-11-tuple元组/">C++11 tuple元组</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:06:00" datetime="2021-11-23T07:06:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>C++11 标准新引入了一种类模板，命名为 tuple（中文可直译为元组）。tuple 最大的特点是：实例化的对象可以存储任意数量、任意类型的数据。</p>
+<p>tuple 的应用场景很广泛，例如当需要存储多个不同类型的元素时，可以使用 tuple；当函数需要返回多个数据时，可以将这些数据存储在 tuple 中，函数只需返回一个 tuple 对象即可。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-11-tuple元组/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-11-列表初始化"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-11-列表初始化/">C++11 列表初始化</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:06:00" datetime="2021-11-23T07:06:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>为了统一初始化方式，并且让初始化行为具有确定的效果，C++11 中提出了列表初始化（List-initialization）的概念。</p>
+<p>POD 类型即 plain old data 类型，简单来说，是可以直接使用 memcpy 复制的对象。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-11-列表初始化/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-POD数据类型"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-POD数据类型/">C++ POD数据类型</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:05:00" datetime="2021-11-23T07:05:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h2><p>很久很久以前，C 语言统一了江湖。几乎所有的系统底层都是用 C 写的，当时定义的基本数据类型有 int、char、float 等整数类型、浮点类型、枚举、void、指针、数组、结构等等。然后只要碰到一串 01010110010 之类的数据，编译器都可以正确的把它解析出来。</p>
+<p>那么到了 C++ 诞生之后，出现了继承、派生这样新的概念，于是就诞生了一些新的数据结构。比如某个派生类，C 语言中哪有派生的概念啊，遇到这种数据编译器就不认识了。可是我们的计算机世界里，主要的系统还是用 C 写的啊，为了和旧的 C 数据相兼容，C++ 就提出了 POD 数据结构概念。</p>
+<p>POD 是 Plain Old Data 的缩写，是 C++ 定义的一类数据结构概念，比如 int、float 等都是 POD 类型的。Plain 代表它是一个普通类型，Old 代表它是旧的，与几十年前的 C 语言兼容，那么就意味着可以使用 memcpy() 这种最原始的函数进行操作。两个系统进行交换数据，如果没有办法对数据进行语义检查和解释，那就只能以非常底层的数据形式进行交互，而拥有 POD 特征的类或者结构体通过二进制拷贝后依然能保持数据结构不变。<strong>也就是说，能用 C 的 memcpy() 等函数进行操作的类、结构体就是 POD 类型的数据</strong>。</p>
+<p>基本上谈到这个概念，一般都是说某某 class、struct、union 是不是 POD 类型的。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-POD数据类型/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -481,7 +827,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Java并发：volatile关键字解析"
+            <article id="post-C-placement-new"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -489,7 +835,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/09/10/Java并发：volatile关键字解析/">Java并发：volatile关键字解析</a>
+      <a href="/2021/11/23/C-placement-new/">C++ placement new</a>
     </h3>
   
 
@@ -497,18 +843,23 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-09-10 09:33:00" datetime="2021-09-10T01:33:00.000Z"  itemprop="datePublished">2021-09-10</time>
+        <time class="post-time" title="2021-11-23 15:05:00" datetime="2021-11-23T07:05:00.000Z"  itemprop="datePublished">2021-11-23</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>　　volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。</p>
-<p>　　volatile关键字虽然从字面上理解起来比较简单，但是要用好不是一件容易的事情。由于volatile关键字是与Java的内存模型有关的，因此在讲述volatile关键之前，我们先来了解一下与内存模型相关的概念和知识，然后分析了volatile关键字的实现原理，最后给出了几个使用volatile关键字的场景。</p>
+        <h2 id="一-new"><a href="#一-new" class="headerlink" title="一.new"></a>一.new</h2><p><code>new operator</code> 就是 new 操作符，不能被重载，假如A是一个类，那么 <code>A * a=new A;</code> 实际上执行如下3个过程。 </p>
+<ol>
+<li><strong>调用 operator new 分配内存</strong>，<code>operator new (sizeof(A))</code></li>
+<li><strong>调用构造函数生成类对象</strong>，<code>A::A()</code></li>
+<li>返回相应指针</li>
+</ol>
+<p>事实上，分配内存这一操作就是由 <code>operator new(size_t)</code> 来完成的，如果类A重载了operator new，那么将调用 <code>A::operator new(size_t )</code>，否则调用 <code>全局::operator new(size_t )</code>，后者由C++默认提供。 </p>
     
         <div class="post-more-div">
-            <a href="/2021/09/10/Java并发：volatile关键字解析/" class="post-more waves-button">
+            <a href="/2021/11/23/C-placement-new/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -516,7 +867,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
     </div>
     
@@ -525,7 +876,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-十大排序算法"
+            <article id="post-AHK脚本教程：以永劫无间为例"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -533,7 +884,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/09/07/十大排序算法/">十大排序算法</a>
+      <a href="/2021/11/21/AHK脚本教程：以永劫无间为例/">AHK脚本教程：以永劫无间为例</a>
     </h3>
   
 
@@ -541,22 +892,24 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-09-07 09:49:00" datetime="2021-09-07T01:49:00.000Z"  itemprop="datePublished">2021-09-07</time>
+        <time class="post-time" title="2021-11-21 23:30:00" datetime="2021-11-21T15:30:00.000Z"  itemprop="datePublished">2021-11-21</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h3 id="0、算法概述"><a href="#0、算法概述" class="headerlink" title="0、算法概述"></a>0、算法概述</h3><h4 id="0-1-算法分类"><a href="#0-1-算法分类" class="headerlink" title="0.1 算法分类** **"></a>0.1 算法分类** **</h4><p>十种常见排序算法可以分为两大类：</p>
-<ul>
-<li><strong>比较类排序</strong>：通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此也称为非线性时间比较类排序。</li>
-<li><strong>非比较类排序</strong>：不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线性时间运行，因此也称为线性时间非比较类排序。 </li>
-</ul>
-<p><img src="https://img2018.cnblogs.com/blog/849589/201903/849589-20190306165258970-1789860540.png" alt="img"></p>
+        <h3 id="AHK-按键宏教程"><a href="#AHK-按键宏教程" class="headerlink" title="AHK 按键宏教程"></a>AHK 按键宏教程</h3><p>一个非常提高效率的工具，一个按键就能映射到一大串很长很长的宏，懒人必备。</p>
+<p>接下来以游戏永劫无间的按键宏为例，介绍一下如何制作一套按键宏脚本。</p>
+<p>此处代码仅供研究与学习使用，禁止商用。</p>
+<h3 id="进程判断"><a href="#进程判断" class="headerlink" title="进程判断"></a>进程判断</h3><p>使用 <code>#IfWinActive</code> 来判断当前的进程</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#IfWinActive, ahk_exe NarakaBladepoint.exe</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这样当前台应用不是 <code>NarakaBladepoint.exe</code> 时当前脚本就不会生效。</p>
+<p>怎么知道是哪个类名/应用/进程？安装 AHK 后开始菜单中输入 Window Spy 就知道了。</p>
     
         <div class="post-more-div">
-            <a href="/2021/09/07/十大排序算法/" class="post-more waves-button">
+            <a href="/2021/11/21/AHK脚本教程：以永劫无间为例/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -564,7 +917,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AHK/">AHK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏/">游戏</a></li></ul>
 
     </div>
     
@@ -573,7 +926,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Qt解压缩文件"
+            <article id="post-C-11函数模板的默认参数模板"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -581,7 +934,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/09/06/Qt解压缩文件/">Qt解压缩文件</a>
+      <a href="/2021/11/18/C-11函数模板的默认参数模板/">C++11函数模板的默认参数模板</a>
     </h3>
   
 
@@ -589,18 +942,21 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-09-06 09:35:00" datetime="2021-09-06T01:35:00.000Z"  itemprop="datePublished">2021-09-06</time>
+        <time class="post-time" title="2021-11-18 15:04:00" datetime="2021-11-18T07:04:00.000Z"  itemprop="datePublished">2021-11-18</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>这里使用的是 QuaZip 方案。它调用了 zlib1.dll，如果是32位，直接编译 QuaZip 即可，默认就是32位。</p>
-<p>如果是64位，不兼容的 zlib1.dll 会导致编译失败，需要自己编译 zlib。</p>
+        <p>在 C++ 98/03 标准中，类模板可以有默认的模板参数，但是却不支持函数的默认模板参数：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U = <span class="keyword">int</span>, U N = <span class="number">0</span>&gt;</span><br><span class="line">struct Foo { };</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = <span class="keyword">int</span>&gt;  <span class="comment">// error in C++98/03: default template arguments</span></span><br><span class="line"><span class="keyword">void</span> func() { }              <span class="comment">// in C++11: T = int</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>现在这一限制在 C++11 中被解除了，上面的 func 函数在 C++11 中可以直接使用。</p>
+<p>函数模板的默认模板参数在使用规则上和其他的默认参数也有一些不同，它<strong>没有必须写在参数表最后的限制</strong>。甚至于，根据实际场景中函数模板被调用的情形，编译器还可以<strong>自行推导出部分模板参数的类型</strong>（优先于默认类型）。</p>
     
         <div class="post-more-div">
-            <a href="/2021/09/06/Qt解压缩文件/" class="post-more waves-button">
+            <a href="/2021/11/18/C-11函数模板的默认参数模板/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -608,7 +964,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件/">文件</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -617,7 +973,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-CentOS创建桌面快捷方式"
+            <article id="post-C-11可变参数模板"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -625,7 +981,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/09/01/CentOS创建桌面快捷方式/">CentOS创建桌面快捷方式</a>
+      <a href="/2021/11/18/C-11可变参数模板/">C++11可变参数模板</a>
     </h3>
   
 
@@ -633,45 +989,24 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-09-01 09:31:00" datetime="2021-09-01T01:31:00.000Z"  itemprop="datePublished">2021-09-01</time>
+        <time class="post-time" title="2021-11-18 15:04:00" datetime="2021-11-18T07:04:00.000Z"  itemprop="datePublished">2021-11-18</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p><strong>一，在桌面新建一个文件</strong></p>
-<p>文件名随意，但必须带有.desktop的后缀名。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 桌面/</span><br><span class="line">gedit app.desktop</span><br></pre></td></tr></tbody></table></figure>
+        <p>可变参数模板和普通模板的语义是一样的，只是写法上稍有区别，声明可变参数模板时需要在typename或class后面带上省略号…：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Types&gt;</span><br></pre></td></tr></tbody></table></figure>
 
-<p><strong>二，在文件中写入如下内容</strong></p>
-<figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Desktop Entry]</span></span><br><span class="line"><span class="attr">Encoding</span>=UTF-<span class="number">8</span>　　<span class="comment">#编码格式</span></span><br><span class="line"><span class="attr">Exec</span>=/home/software/app/app.sh 　　<span class="comment">#要执行程序的命令路径</span></span><br><span class="line"><span class="attr">Icon</span>=/home/software/app/app.ico　　<span class="comment">#应用程序的图标，会显示在桌面上</span></span><br><span class="line"><span class="attr">Name</span>=MyApp　　<span class="comment">#应用程序在桌面显示的名字</span></span><br><span class="line"><span class="attr">Name[en]</span>=MyApp　　<span class="comment">#英文名</span></span><br><span class="line"><span class="attr">Path</span>=/home/software/app　　<span class="comment">#应用程序的安装路径</span></span><br><span class="line"><span class="attr">Type</span>=Application　　<span class="comment">#快捷方式的类型</span></span><br><span class="line"><span class="attr">X-KDE-SubstituteUID</span>=<span class="literal">false</span>　　</span><br><span class="line"><span class="attr">X-KDE-Username</span>=root</span><br></pre></td></tr></tbody></table></figure>
+<p>其中，…可接纳的模板参数个数是0个及以上的任意数量，需要注意包括0个。</p>
+<p>若不希望产生模板参数个数为0的变长参数模板，则可以采用以下的定义：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Head, <span class="keyword">typename</span>... Tail&gt;</span><br></pre></td></tr></tbody></table></figure>
 
-<p>三，给文件赋予可执行权限</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 chmod a+x /home/username/Desktop/app.desktop</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<p>本质上，…可接纳的模板参数个数仍然是0个及以上的任意数量，但由于多了一个Head类型，由此该模板可以接纳1个及其以上的模板参数。</p>
     
         <div class="post-more-div">
-            <a href="/2021/09/01/CentOS创建桌面快捷方式/" class="post-more waves-button">
+            <a href="/2021/11/18/C-11可变参数模板/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -679,7 +1014,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -688,7 +1023,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-永劫无间技巧整理"
+            <article id="post-C-11使用using定义模板别名"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -696,7 +1031,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/08/29/永劫无间技巧整理/">永劫无间技巧整理</a>
+      <a href="/2021/11/18/C-11使用using定义模板别名/">C++11使用using定义模板别名</a>
     </h3>
   
 
@@ -704,25 +1039,20 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-08-29 09:48:00" datetime="2021-08-29T01:48:00.000Z"  itemprop="datePublished">2021-08-29</time>
+        <time class="post-time" title="2021-11-18 15:02:00" datetime="2021-11-18T07:02:00.000Z"  itemprop="datePublished">2021-11-18</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>跳跃：短按小跳（一般用于连招），长按大跳</p>
-<p>切换武器：被振刀后按住1或2（振落的槽位），滚动鼠标滚轮选择新武器（个人感觉还是Tab顺手）</p>
-<p>加速下落：在空中按住C加速下落，防止被射</p>
-<p>喝药蹲伏：修武器时不可移动，嗑药不断按C蹲伏，避免远程爆头；或者在树干上静止喝药</p>
-<p>炮台箭头：小地图上若看见炮台箭头在动，说明有人</p>
-<p>紫色草丛：蹲下隐身后别人看不见，但是喝药会发光和有声音</p>
-<p>刷新二段跳：空中振刀、钩锁都可以刷新二段跳</p>
-<p>替换装备：捡东西按3替换装备（如高级甲换低级甲），不会被其他E给挡住</p>
-<p>绝大多数情况下优先打药，其次拉人，最后追人</p>
+        <h3 id="普通类型"><a href="#普通类型" class="headerlink" title="普通类型"></a>普通类型</h3><p>using 的别名语法覆盖了 typedef 的全部功能，将这两种语法对比一下：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重定义unsigned int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="keyword">uint_t</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">uint_t</span> = <span class="keyword">unsigned</span> <span class="keyword">int</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重定义std::map</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt; <span class="keyword">map_int_t</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">map_int_t</span> = <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt;;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可以看到，在重定义普通类型上，两种使用方法的效果是等价的，唯一不同的是定义语法。</p>
     
         <div class="post-more-div">
-            <a href="/2021/08/29/永劫无间技巧整理/" class="post-more waves-button">
+            <a href="/2021/11/18/C-11使用using定义模板别名/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -730,7 +1060,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏/">游戏</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -739,7 +1069,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Qt无窗口状态下对键盘事件的监听"
+            <article id="post-C-11结合auto和decltype的返回值类型后置语法"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -747,7 +1077,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/08/26/Qt无窗口状态下对键盘事件的监听/">Qt无窗口状态下对键盘事件的监听</a>
+      <a href="/2021/11/18/C-11结合auto和decltype的返回值类型后置语法/">C++11结合auto和decltype的返回值类型后置语法</a>
     </h3>
   
 
@@ -755,22 +1085,20 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-08-26 09:39:00" datetime="2021-08-26T01:39:00.000Z"  itemprop="datePublished">2021-08-26</time>
+        <time class="post-time" title="2021-11-18 15:02:00" datetime="2021-11-18T07:02:00.000Z"  itemprop="datePublished">2021-11-18</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>需要接收键盘事件，但是又不能有界面</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">     <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">     Test *p = <span class="keyword">new</span> Test;    </span><br><span class="line">     a.installEventFilter(p);</span><br><span class="line">     <span class="keyword">return</span> a.exec();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> Test::eventFilter(QObject *obj, QEvent *event)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">if</span>(event-&gt;type() == QEvent::KeyPress)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        QKeyEvent *key=<span class="keyword">static_cast</span>&lt;QKeyEvent *&gt;(event);</span><br><span class="line">        .........</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> QObject::eventFilter(obj,event);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <p>在泛型编程中，可能需要通过参数的运算来得到返回值的类型。考虑下面这个场景：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> R, <span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span><br><span class="line"><span class="function">R <span class="title">add</span><span class="params">(T t, U u)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span> t+u;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>; <span class="keyword">float</span> b = <span class="number">2.0</span>;</span><br><span class="line"><span class="keyword">auto</span> c = add&lt;<span class="keyword">decltype</span>(a + b)&gt;(a, b);</span><br></pre></td></tr></tbody></table></figure>
 
-<p>1、首先需要在main方法中注册，使用installEventFilter方法把这个类的指针传进去</p>
-<p>2、在Test类中重写eventFilter方法，这样就可以进行监听了</p>
-<p>3、在eventFilter中进行自己的逻辑处理</p>
+<p>我们并不关心 a+b 的类型是什么，因此，只需要通过 decltype(a+b) 直接得到返回值类型即可。但是像上面这样使用十分不方便，因为外部其实并不知道参数之间应该如何运算，只有 add 函数才知道返回值应当如何推导。</p>
     
         <div class="post-more-div">
-            <a href="/2021/08/26/Qt无窗口状态下对键盘事件的监听/" class="post-more waves-button">
+            <a href="/2021/11/18/C-11结合auto和decltype的返回值类型后置语法/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -778,383 +1106,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt应用单例运行模式（文件锁方式）"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/08/26/Qt应用单例运行模式（文件锁方式）/">Qt应用单例运行模式（文件锁方式）</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-08-26 09:38:00" datetime="2021-08-26T01:38:00.000Z"  itemprop="datePublished">2021-08-26</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QLockFile *lockFile = <span class="keyword">new</span> QLockFile(<span class="string">"temp/appName.app.lock"</span>);</span><br><span class="line"><span class="keyword">if</span> (!lockFile -&gt;tryLock(<span class="number">2000</span>)) {    <span class="comment">//上锁失败，不能启动    </span></span><br><span class="line">    qDebug() &lt;&lt; <span class="string">"app is running"</span>;</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    qDebug() &lt;&lt; <span class="string">"app is not running"</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>1、QLockFile的构造函数的参数就是指定一个锁文件的地址</p>
-<p>2、tryLock的参数为等待时间</p>
-<p>3、如果程序没有启动则对文件上锁，如果启动则退出</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/08/26/Qt应用单例运行模式（文件锁方式）/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt将unicode字符串转换成中文"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/08/10/Qt将unicode字符串转换成中文/">Qt将unicode字符串转换成中文</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-08-10 09:41:00" datetime="2021-08-10T01:41:00.000Z"  itemprop="datePublished">2021-08-10</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>外部输入的 <code>\u1234</code> 在代码里相当于 <code>\\u1234</code>，只是普通的字符串，而不是 Unicode，需要单独替换一遍：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QString filename = <span class="string">"\\u6211\\u662f\\u4e2d\\u6587"</span>;</span><br><span class="line"><span class="keyword">do</span> {</span><br><span class="line">	<span class="keyword">int</span> idx = filename.indexOf(<span class="string">"\\u"</span>);</span><br><span class="line">	QString strHex = filename.mid(idx, <span class="number">6</span>);</span><br><span class="line">	strHex = strHex.replace(<span class="string">"\\u"</span>, QString());</span><br><span class="line">	<span class="keyword">int</span> nHex = strHex.toInt(<span class="number">0</span>, <span class="number">16</span>);</span><br><span class="line">	filename.replace(idx, <span class="number">6</span>, QChar(nHex));</span><br><span class="line">} <span class="keyword">while</span> (filename.indexOf(<span class="string">"\\u"</span>) != <span class="number">-1</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2021/08/10/Qt将unicode字符串转换成中文/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-MySQL设置表名不分大小写"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/08/04/MySQL设置表名不分大小写/">MySQL设置表名不分大小写</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-08-04 09:28:00" datetime="2021-08-04T01:28:00.000Z"  itemprop="datePublished">2021-08-04</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>MySQL 默认区分大小写</p>
-<p>设置为不区分:<br>在 <code>/etc/my.cnf</code> 中</p>
-<p><code>[mysqld]</code> 下加入 <code>lower_case_table_names=1</code> （1 不区分大小写；0 区分大小写）<br>重启数据库</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/08/04/MySQL设置表名不分大小写/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-SystemC-学习笔记"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/08/02/SystemC-学习笔记/">SystemC-学习笔记</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-08-02 10:24:00" datetime="2021-08-02T02:24:00.000Z"  itemprop="datePublished">2021-08-02</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="系统级设计描述语言"><a href="#系统级设计描述语言" class="headerlink" title="系统级设计描述语言"></a>系统级设计描述语言</h1><h2 id="语言架构"><a href="#语言架构" class="headerlink" title="语言架构"></a>语言架构</h2><p>SystemC本质上是在C++的基础上添加的硬件扩展库和仿真核。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/08/02/SystemC-学习笔记/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SystemC/">SystemC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-使用async将参数传递给函数"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/06/17/C-使用async将参数传递给函数/">C++使用async将参数传递给函数</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-06-17 10:47:00" datetime="2021-06-17T02:47:00.000Z"  itemprop="datePublished">2021-06-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><code>async</code>如果第一个参数是指向成员函数的指针，第二个参数则提供了用来应用该成员函数的对象（直接地，或通过指针，或封装在 <code>std::ref</code> 中），其余的参数则作为参数传递给该成员函数。否则，第二个及后续的参数将作为参数，传递给第一个参数是所指定的函数或可调用对象。和 <code>std::thread</code> 一样，如果参数是右值，则通过<strong>移动</strong>原来的参数来创建副本。这就允许使用只可移动的类型同时作为函数对象和参数。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/06/17/C-使用async将参数传递给函数/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-多线程使用condition-cariable等待线程和休眠唤醒"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/06/17/C-多线程使用condition-cariable等待线程和休眠唤醒/">C++多线程使用condition_cariable等待线程和休眠唤醒</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-06-17 10:46:00" datetime="2021-06-17T02:46:00.000Z"  itemprop="datePublished">2021-06-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>C++提供了两个条件变量的实现：<code>std::condition_variable</code> 和 <code>std::condition_variable_any</code>，这两个都在 <code>&lt;condition_variable&gt;</code> 库的头文件中声明。两者都需要和互斥元一起工作，前者仅限于 <code>std::mutex</code>，后者可以与符合称为类似互斥元的最低标准的任何东西一起工作，因此跟普遍，所以会有大小、性能或者操作系统资源方面的形式的额外代价的可能。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/06/17/C-多线程使用condition-cariable等待线程和休眠唤醒/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Vue-js-学习笔记"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/05/26/Vue-js-学习笔记/">Vue.js-学习笔记</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-05-26 10:31:00" datetime="2021-05-26T02:31:00.000Z"  itemprop="datePublished">2021-05-26</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>官方教程：<a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/</a></p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vue = <span class="keyword">new</span> Vue({</span><br><span class="line">	el: <span class="string">'#app'</span>, <span class="comment">// 选择器</span></span><br><span class="line">    data: {     <span class="comment">// 渲染的数据</span></span><br><span class="line">        str: <span class="string">' '</span>,</span><br><span class="line">        arr: [<span class="string">' '</span>, <span class="string">' '</span>, <span class="string">' '</span>],</span><br><span class="line">        arr2: [{ }, { }, { }]</span><br><span class="line">    },</span><br><span class="line">    computed: {},</span><br><span class="line">    methods: {}</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    {{str}} <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"str"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2021/05/26/Vue-js-学习笔记/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-多线程数据共享、互斥锁lock-guard"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/05/25/C-多线程数据共享、互斥锁lock-guard/">C++多线程数据共享、互斥锁lock_guard</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-05-25 10:45:00" datetime="2021-05-25T02:45:00.000Z"  itemprop="datePublished">2021-05-25</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>从整体上看，所有线程之间共享数据的问题，都是<strong>修改数据</strong>导致的。在谈到并发时，术语<strong>竞争条件</strong>通常用来表示有问题的竞争条件，良性的竞争条件没什么意思。C++标准还定义了术语<strong>数据竞争</strong>，表示因单个对象的并发修改而产生的特定类型的竞争条件，造成可怕的<strong>未定义行为</strong>。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/05/25/C-多线程数据共享、互斥锁lock-guard/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 
     </div>
     
@@ -1167,7 +1119,7 @@
     
 <nav id="page-nav">
     <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </div>
 </nav>
 

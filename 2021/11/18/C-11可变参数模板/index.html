@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/">
+    
+    
+    <title>C++11可变参数模板 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="C++11">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="可变参数模板和普通模板的语义是一样的，只是写法上稍有区别，声明可变参数模板时需要在typename或class后面带上省略号…： 1template&amp;lt;typename... Types&amp;gt;  其中，…可接纳的模板参数个数是0个及以上的任意数量，需要注意包括0个。 若不希望产生模板参数个数为0的变长参数模板，则可以采用以下的定义： 1template&amp;lt;typename Head, t">
+<meta name="keywords" content="C++11">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11可变参数模板">
+<meta property="og:url" content="http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="可变参数模板和普通模板的语义是一样的，只是写法上稍有区别，声明可变参数模板时需要在typename或class后面带上省略号…： 1template&amp;lt;typename... Types&amp;gt;  其中，…可接纳的模板参数个数是0个及以上的任意数量，需要注意包括0个。 若不希望产生模板参数个数为0的变长参数模板，则可以采用以下的定义： 1template&amp;lt;typename Head, t">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-11-24T07:04:38.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++11可变参数模板">
+<meta name="twitter:description" content="可变参数模板和普通模板的语义是一样的，只是写法上稍有区别，声明可变参数模板时需要在typename或class后面带上省略号…： 1template&amp;lt;typename... Types&amp;gt;  其中，…可接纳的模板参数个数是0个及以上的任意数量，需要注意包括0个。 若不希望产生模板参数个数为0的变长参数模板，则可以采用以下的定义： 1template&amp;lt;typename Head, t">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">小乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-link"></i>
+                    <span>相 关</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/iwxyi" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C++11可变参数模板</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数模板的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">函数模板的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类模板的使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">类模板的使用</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-C-11可变参数模板"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C++11可变参数模板</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2021-11-18 15:04:00" datetime="2021-11-18T07:04:00.000Z"  itemprop="datePublished">2021-11-18</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">7</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>可变参数模板和普通模板的语义是一样的，只是写法上稍有区别，声明可变参数模板时需要在typename或class后面带上省略号…：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Types&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其中，…可接纳的模板参数个数是0个及以上的任意数量，需要注意包括0个。</p>
+<p>若不希望产生模板参数个数为0的变长参数模板，则可以采用以下的定义：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Head, <span class="keyword">typename</span>... Tail&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>本质上，…可接纳的模板参数个数仍然是0个及以上的任意数量，但由于多了一个Head类型，由此该模板可以接纳1个及其以上的模板参数。</p>
+<a id="more"></a>
+
+<h2 id="函数模板的使用"><a href="#函数模板的使用" class="headerlink" title="函数模板的使用"></a>函数模板的使用</h2><p>在函数模板中，可变参数模板最常见的使用场景是<strong>以递归的方法取出可用参数</strong>：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>{}</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Types&amp;... args)</span> </span>{</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; firstArg &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="keyword">sizeof</span>...(args) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">	print(args...);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>通过设置…，可以向print函数传递任意个数的参数，并且各个参数的类型也是任意。也就是说，可以允许模板参数接受任意多个不同类型的不同参数。这就是不定参数的模板，格外需要关注的是，…三次出现的位置。</p>
+<p>如果如下调用print函数：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">2</span>, <span class="string">"hello"</span>, <span class="number">1</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如此调用会递归将3个参数全部打印。细心的话会发现定义了一个空的print函数，这是因为<strong>当使用可变参数的模板，需要定义一个处理最后情况的函数，如果不写，会编译错误</strong>。这种递归的方式，是不是觉得很惊艳！</p>
+<p>在不定参数的模板函数中，还可以通过如下方式获得args的参数个数：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sizeof</span>...(args)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>假设，在上面代码的基础上再加上一个模板函数如下，那么运行的结果是什么呢？</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>{}</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Types&amp;... args)</span> </span>{</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; firstArg &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="keyword">sizeof</span>...(args) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">	print(args...);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Types&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> Types&amp;... args)</span> </span>{</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"print(...)"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>{</span><br><span class="line">	print(<span class="number">2</span>, <span class="string">"hello"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>现在有一个模板函数接纳一个参数加上可变参数，还有一个模板函数直接接纳可变参数，如果调用print(2, “hello”, 1)，会发现这两个模板函数的参数格式都符合。是否会出现冲突、不冲突的话会执行哪一个呢？</p>
+<p>运行代码后的结果为：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br><span class="line">hello 1</span><br><span class="line">1 0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>从结果上可以看出，程序最终选择了一个参数加上不定参数的模板函数。也就是说，<strong>当较泛化和较特化的模板函数同时存在的时候，最终程序会执行较特化的那一个</strong>。</p>
+<p>再比如一个例子，std::max函数只可以返回两个数的较大者，如果多个数，就可以通过不定参数的模板来实现：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">my_max</span><span class="params">(T value)</span> </span>{</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt;</span><br><span class="line"><span class="function">T <span class="title">my_max</span><span class="params">(T value, Types... args)</span> </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">std</span>::max(value, my_max(args...));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>{</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; my_max(<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">6</span>) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="类模板的使用"><a href="#类模板的使用" class="headerlink" title="类模板的使用"></a>类模板的使用</h2><p>除了函数模板的使用外，类模板也可以使用不定参数的模板参数，最典型的就是<code>tuple</code>类了。其大致代码如下：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Values&gt; <span class="class"><span class="keyword">class</span> <span class="title">tuple</span>;</span></span><br><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="class"><span class="keyword">class</span> <span class="title">tuple</span>&lt;&gt; {</span>};</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Head, <span class="keyword">typename</span>... Tail&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">tuple</span>&lt;Head, Tail...&gt;</span></span><br><span class="line"><span class="class">  :</span> <span class="keyword">private</span> tuple&lt;Tail...&gt;</span><br><span class="line">{</span><br><span class="line">  <span class="keyword">typedef</span> tuple&lt;Tail...&gt; inherited;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    tuple() {}</span><br><span class="line">    tuple(Head v, Tail... vtail) : m_head(v), inherited(vtail...) {}</span><br><span class="line">    <span class="function">Head&amp; <span class="title">head</span><span class="params">()</span> </span>{<span class="keyword">return</span> m_head;}</span><br><span class="line">    <span class="function">inherited&amp; <span class="title">tail</span><span class="params">()</span> </span>{<span class="keyword">return</span> *<span class="keyword">this</span>;}</span><br><span class="line">  <span class="keyword">protected</span>:</span><br><span class="line">    Head m_head;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>{</span><br><span class="line">	tuple&lt;<span class="keyword">int</span>, <span class="keyword">float</span>, <span class="built_in">std</span>::<span class="built_in">string</span>&gt; t(<span class="number">1</span>, <span class="number">2.3</span>, <span class="string">"hello"</span>);</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; t.head() &lt;&lt; <span class="string">" "</span> &lt;&lt; t.tail().head() &lt;&lt; <span class="string">" "</span> &lt;&lt; t.tail().tail().head() &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>根据代码可以知道，<strong>tuple类继承除首之外的其他参数的子tuple类，以此类推，最终继承空参数的tuple类</strong>。继承关系可以表述为：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tuple&lt;&gt;</span><br><span class="line">      ↑</span><br><span class="line">tuple&lt;std::string&gt;</span><br><span class="line">  string "hello"</span><br><span class="line">      ↑</span><br><span class="line">tuple&lt;float, std::string&gt;</span><br><span class="line">  float 2.3</span><br><span class="line">      ↑</span><br><span class="line">tuple&lt;int, float, std::string&gt;</span><br><span class="line">  int 1</span><br></pre></td></tr></tbody></table></figure>
+
+<p>接下来考虑在内存中的分布，内存中先存储父类的变量成员，再保存子类的变量成员，也就是说，对象t按照内存分布来说；</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">┌─────────┐&lt;---- 对象指针</span><br><span class="line">|  hello  |</span><br><span class="line">|─────────|</span><br><span class="line">|  2.3    |</span><br><span class="line">|─────────|</span><br><span class="line">|  1      |</span><br><span class="line">└─────────┘</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这时候就可以知道下一句代码的含义了：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">inherited&amp; <span class="title">tail</span><span class="params">()</span> </span>{<span class="keyword">return</span> *<span class="keyword">this</span>;}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>tail()函数返回的是父类对象，父类对象和子类对象的内存起始地址其实是一样的，因此返回*this，再强行转化为inherited类型。</p>
+<p>当然，上面采用的是<strong>递归继承</strong>的方式，除此之外，还可以采用<strong>递归复合</strong>的方式：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Values&gt; <span class="class"><span class="keyword">class</span> <span class="title">tup</span>;</span></span><br><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="class"><span class="keyword">class</span> <span class="title">tup</span>&lt;&gt; {</span>};</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Head, <span class="keyword">typename</span>... Tail&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">tup</span>&lt;Head, Tail...&gt;</span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">  <span class="keyword">typedef</span> tup&lt;Tail...&gt; composited;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    tup() {}</span><br><span class="line">    tup(Head v, Tail... vtail) : m_head(v), m_tail(vtail...) {}</span><br><span class="line">    <span class="function">Head&amp; <span class="title">head</span><span class="params">()</span> </span>{<span class="keyword">return</span> m_head;}</span><br><span class="line">    <span class="function">composited&amp; <span class="title">tail</span><span class="params">()</span> </span>{<span class="keyword">return</span> m_tail;}</span><br><span class="line">  <span class="keyword">protected</span>:</span><br><span class="line">    Head m_head;</span><br><span class="line">    composited m_tail;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>两种方式在使用的过程中没有什么区别，但C++11中采用的是第一种方式(递归继承)。</p>
+<p>在上面的例子中，取出tuple中的元素是一个比较复杂的操作，需要不断地取tail，最终取head才能获得。标准库的std::tuple，对此进行简化，还提供了一些其他的函数来进行对tuple的访问。例如：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>{</span><br><span class="line">  <span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">float</span>, <span class="built_in">std</span>::<span class="built_in">string</span>&gt; t2(<span class="number">1</span>, <span class="number">2.3</span>, <span class="string">"hello"</span>);</span><br><span class="line">  <span class="built_in">std</span>::get&lt;<span class="number">0</span>&gt;(t2) = <span class="number">4</span>;                      <span class="comment">// 修改tuple内的元素</span></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::get&lt;<span class="number">0</span>&gt;(t2) &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="built_in">std</span>::get&lt;<span class="number">1</span>&gt;(t2) &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="built_in">std</span>::get&lt;<span class="number">2</span>&gt;(t2) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;    <span class="comment">// 获取tuple内的元素</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">auto</span> t3 = <span class="built_in">std</span>::make_tuple(<span class="number">2</span>, <span class="number">3.4</span>, <span class="string">"World"</span>);         <span class="comment">// make方法生成tuple对象</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::tuple_size&lt;<span class="keyword">decltype</span>(t3)&gt;::value &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;    <span class="comment">// 获取tuple对象元素的个数</span></span><br><span class="line">  <span class="built_in">std</span>::tuple_element&lt;<span class="number">1</span>, <span class="keyword">decltype</span>(t3)&gt;::type f = <span class="number">1.2</span>;          <span class="comment">// 获取tuple对象某元素的类型</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/qq_38410730/article/details/105247065" target="_blank" rel="noopener">https://blog.csdn.net/qq_38410730/article/details/105247065</a></p>
+<p><a href="https://my.oschina.net/jthmath/blog/488462" target="_blank" rel="noopener">C++标准库元组（tuple）源码浅析</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2021-11-24T07:04:38.903Z" itemprop="dateUpdated">2021-11-24 15:04:38</time>
+</span>
+
+
+        
+        原文链接：<a href="/2021/11/18/C-11可变参数模板/" target="_blank" rel="external">http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="小乂">
+            <a>小乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/&title=《C++11可变参数模板》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/&title=《C++11可变参数模板》 — 云笺&source=可变参数模板和普通模板的语义是一样的，只是写法上稍有区别，声明可变参数模板时需要在typename或class后面带上省略号…：
+1template&lt..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++11可变参数模板》 — 云笺&url=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/11/18/C-11函数模板的默认参数模板/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：C++11函数模板的默认参数模板
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/11/18/C-11使用using定义模板别名/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：C++11使用using定义模板别名">下一篇：C++11使用using定义模板别名</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/&title=《C++11可变参数模板》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/&title=《C++11可变参数模板》 — 云笺&source=可变参数模板和普通模板的语义是一样的，只是写法上稍有区别，声明可变参数模板时需要在typename或class后面带上省略号…：
+1template&lt..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++11可变参数模板》 — 云笺&url=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/11/18/C-11可变参数模板/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHklEQVR42u3aS27DMAwFwNz/0ukBCjuPpNLC0nhVGI6t0YIVP69XfL1vr+TJq2eS+8suDAyMxzKSJSbLyr/y+1f5dy+pGBgYBzCuPpx88v7J/J3JGy7vY2BgYPSCYBGDgYGBsZZxfwSsLujfAi4GBsajGPmBb1KwS+58PRfHwMB4IKO6iL/8+yv9DQwMjEcx3sUrKeKvbXxGq8LAwNiaMW9AVtuZvXZCsh4MDIwTGEl47Q1JfG+zMDAwTmDMw2Xv2Hd/v9zsxMDAOIzxITa3Cv3VNkC+reW9x8DAeCCjmo7mx8TqgMVkOzAwME5g3P8gSSmri85T31HwxcDA2ILRS0fzoDxJTQstBAwMjK0ZkyGJalktD+LN0IyBgXEYI3ldvtBqEtsM5RgYGFszqsNbk7GJaiK9oO+BgYHxcMYkUPbGJqphOnoeAwPjGMZkhqGXpk6GLTAwME5jVIck5i2BarD+sK0YGBhbM1aNXFST3rwxmfwWAwPjBEYv5PUS0bV7H/33wMDA2IhRPcYtjvHFwF0etsDAwNiCkaeg+aIXDEzkSSwGBsamjHfxyscmqiW8XtsAAwPjBEYvzPWGxvJQm5fhyjAMDIzHMqpBtlruz8two1EMDAyMAxjzlLUHXlWSw8DAwEiCby+wVjcu6qxiYGBgxAfH+ZsL4R4DA+MARl5Ky8tq84UWDp0YGBhbM/LUcZL05k3T+VcwMDA2YvwARqXbGcRyongAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "小乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

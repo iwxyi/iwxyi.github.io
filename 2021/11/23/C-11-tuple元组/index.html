@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/">
+    
+    
+    <title>C++11 tuple元组 | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="C++11">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="C++11 标准新引入了一种类模板，命名为 tuple（中文可直译为元组）。tuple 最大的特点是：实例化的对象可以存储任意数量、任意类型的数据。 tuple 的应用场景很广泛，例如当需要存储多个不同类型的元素时，可以使用 tuple；当函数需要返回多个数据时，可以将这些数据存储在 tuple 中，函数只需返回一个 tuple 对象即可。">
+<meta name="keywords" content="C++11">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11 tuple元组">
+<meta property="og:url" content="http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="C++11 标准新引入了一种类模板，命名为 tuple（中文可直译为元组）。tuple 最大的特点是：实例化的对象可以存储任意数量、任意类型的数据。 tuple 的应用场景很广泛，例如当需要存储多个不同类型的元素时，可以使用 tuple；当函数需要返回多个数据时，可以将这些数据存储在 tuple 中，函数只需返回一个 tuple 对象即可。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-11-24T07:13:15.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++11 tuple元组">
+<meta name="twitter:description" content="C++11 标准新引入了一种类模板，命名为 tuple（中文可直译为元组）。tuple 最大的特点是：实例化的对象可以存储任意数量、任意类型的数据。 tuple 的应用场景很广泛，例如当需要存储多个不同类型的元素时，可以使用 tuple；当函数需要返回多个数据时，可以将这些数据存储在 tuple 中，函数只需返回一个 tuple 对象即可。">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">小乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-link"></i>
+                    <span>相 关</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/iwxyi" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C++11 tuple元组</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tuple对象的创建"><span class="post-toc-number">1.</span> <span class="post-toc-text">tuple对象的创建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类的构造函数"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">类的构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-make-tuple-函数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2) make_tuple()函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tuple常用函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">tuple常用函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tuple函数返回多个值"><span class="post-toc-number">3.</span> <span class="post-toc-text">tuple函数返回多个值</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-C-11-tuple元组"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C++11 tuple元组</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2021-11-23 15:06:00" datetime="2021-11-23T07:06:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">7</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>C++11 标准新引入了一种类模板，命名为 tuple（中文可直译为元组）。tuple 最大的特点是：实例化的对象可以存储任意数量、任意类型的数据。</p>
+<p>tuple 的应用场景很广泛，例如当需要存储多个不同类型的元素时，可以使用 tuple；当函数需要返回多个数据时，可以将这些数据存储在 tuple 中，函数只需返回一个 tuple 对象即可。</p>
+<a id="more"></a>
+
+<h2 id="tuple对象的创建"><a href="#tuple对象的创建" class="headerlink" title="tuple对象的创建"></a>tuple对象的创建</h2><p>tuple 本质是一个以可变模板参数定义的类模板，它定义在 <code>&lt;tuple&gt;</code> 头文件并位于 std 命名空间中。因此要想使用 tuple 类模板，程序中需要首先引入以下代码：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::tuple;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>实例化 tuple 模板类对象常用的方法有两种，一种是借助该类的构造函数，另一种是借助 make_tuple() 函数。</p>
+<h3 id="类的构造函数"><a href="#类的构造函数" class="headerlink" title="类的构造函数"></a>类的构造函数</h3><p>tuple 模板类提供有很多构造函数，包括：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1) 默认构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">constexpr</span> <span class="title">tuple</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2) 拷贝构造函数</span></span><br><span class="line">tuple (<span class="keyword">const</span> tuple&amp; tpl);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3) 移动构造函数</span></span><br><span class="line">tuple (tuple&amp;&amp; tpl);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4) 隐式类型转换构造函数</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span>... <span class="title">UTypes</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">tuple</span> (<span class="title">const</span> <span class="title">tuple</span>&lt;UTypes...&gt;&amp; <span class="title">tpl</span>);</span> <span class="comment">//左值方式</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span>... <span class="title">UTypes</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">tuple</span> (<span class="title">tuple</span>&lt;UTypes...&gt;&amp;&amp; <span class="title">tpl</span>);</span>      <span class="comment">//右值方式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 5) 支持初始化列表的构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">tuple</span> <span class="params">(<span class="keyword">const</span> Types&amp;... elems)</span></span>;  <span class="comment">//左值方式</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span>... <span class="title">UTypes</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">explicit</span> <span class="title">tuple</span> (<span class="title">UTypes</span>&amp;&amp;... <span class="title">elems</span>);</span>  <span class="comment">//右值方式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 6) 将pair对象转换为tuple对象</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">U1</span>, <span class="title">class</span> <span class="title">U2</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">tuple</span> (<span class="title">const</span> <span class="title">pair</span>&lt;U1,U2&gt;&amp; <span class="title">pr</span>);</span>       <span class="comment">//左值方式</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">U1</span>, <span class="title">class</span> <span class="title">U2</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">tuple</span> (<span class="title">pair</span>&lt;U1,U2&gt;&amp;&amp; <span class="title">pr</span>);</span>            <span class="comment">//右值方式</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>举个例子：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;     // std::cout</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;        // std::tuple</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::tuple;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">char</span>&gt; first;                             <span class="comment">// 1)   first{}</span></span><br><span class="line">    <span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">char</span>&gt; second(first);                     <span class="comment">// 2)   second{}</span></span><br><span class="line">    <span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">char</span>&gt; third(<span class="built_in">std</span>::make_tuple(<span class="number">20</span>, <span class="string">'b'</span>));   <span class="comment">// 3)   third{20,'b'}</span></span><br><span class="line">    <span class="built_in">std</span>::tuple&lt;<span class="keyword">long</span>, <span class="keyword">char</span>&gt; fourth(third);                    <span class="comment">// 4)的左值方式, fourth{20,'b'}</span></span><br><span class="line">    <span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">char</span>&gt; fifth(<span class="number">10</span>, <span class="string">'a'</span>);                    <span class="comment">// 5)的右值方式, fifth{10.'a'}</span></span><br><span class="line">    <span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">char</span>&gt; sixth(<span class="built_in">std</span>::make_pair(<span class="number">30</span>, <span class="string">'c'</span>));    <span class="comment">// 6)的右值方式, sixth{30,''c}</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-make-tuple-函数"><a href="#2-make-tuple-函数" class="headerlink" title="2) make_tuple()函数"></a>2) make_tuple()函数</h3><p>上面程序中，我们已经用到了 make_tuple() 函数，它以模板的形式定义在 <code>&lt;tuple&gt;</code> 头文件中，功能是创建一个 tuple 右值对象（或者临时对象）。</p>
+<p>对于 make_tuple() 函数创建了 tuple 对象，我们可以上面程序中那样作为移动构造函数的参数，也可以这样用：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> first = <span class="built_in">std</span>::make_tuple (<span class="number">10</span>,<span class="string">'a'</span>);   <span class="comment">// tuple &lt; int, char &gt;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">0</span>; <span class="keyword">int</span> b[<span class="number">3</span>];</span><br><span class="line"><span class="keyword">auto</span> second = <span class="built_in">std</span>::make_tuple (a,b);     <span class="comment">// tuple &lt; int, int* &gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>程序中分别创建了 first 和 second 两个 tuple 对象，它们的类型可以直接用 auto 表示。</p>
+<h2 id="tuple常用函数"><a href="#tuple常用函数" class="headerlink" title="tuple常用函数"></a>tuple常用函数</h2><table>
+<thead>
+<tr>
+<th>函数或类模板</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>tup1.swap(tup2) swap(tup1, tup2)</code></td>
+<td>tup1 和 tup2 表示类型相同的两个 tuple 对象，tuple 模板类中定义有一个 swap() 成员函数，<code>&lt;tuple&gt;</code> 头文件还提供了一个同名的 swap() 全局函数。  swap() 函数的功能是交换两个 tuple 对象存储的内容。</td>
+</tr>
+<tr>
+<td><code>get&lt;num&gt;(tup)</code></td>
+<td>tup 表示某个 tuple 对象，num 是一个整数，get() 是 <code>&lt;tuple&gt;</code> 头文件提供的全局函数，功能是返回 tup 对象中第 num+1 个元素。</td>
+</tr>
+<tr>
+<td><code>tuple_size&lt;type&gt;::value</code></td>
+<td>tuple_size 是定义在 <code>&lt;tuple&gt;</code> 头文件的类模板，它只有一个成员变量 value，功能是获取某个 tuple 对象中元素的个数，type 为该tuple 对象的类型。</td>
+</tr>
+<tr>
+<td><code>tuple_element&lt;I, type&gt;::type</code></td>
+<td>tuple_element 是定义在 <code>&lt;tuple&gt;</code> 头文件的类模板，它只有一个成员变量 type，功能是获取某个 tuple 对象第 I+1 个元素的类型。</td>
+</tr>
+<tr>
+<td><code>forward_as_tuple&lt;args...&gt;</code></td>
+<td>args… 表示 tuple 对象存储的多个元素，该函数的功能是创建一个 tuple 对象，内部存储的 args… 元素都是右值引用形式的。</td>
+</tr>
+<tr>
+<td><code>tie(args...) = tup</code></td>
+<td>tup 表示某个 tuple 对象，tie() 是 <code>&lt;tuple&gt;</code> 头文件提供的，功能是将 tup 内存储的元素逐一赋值给 args… 指定的左值变量。</td>
+</tr>
+<tr>
+<td><code>tuple_cat(args...)</code></td>
+<td>args… 表示多个 tuple 对象，该函数是 <code>&lt;tuple&gt;</code> 头文件提供的，功能是创建一个 tuple 对象，此对象包含 args… 指定的所有 tuple 对象内的元素。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>tuple 模板类对赋值运算符 = 进行了重载，使得同类型的 tuple 对象可以直接赋值。此外，tuple 模板类还重载了 ==、!=、&lt;、&gt;、&gt;=、&lt;= 这几个比较运算符，同类型的 tuple 对象可以相互比较（逐个比较各个元素）。</p>
+</blockquote>
+<p>下面的程序演示了表 1 中一部分函数模板和类模板的功能：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="comment">//创建一个 tuple 对象存储 10 和 'x'</span></span><br><span class="line">    <span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">char</span>&gt; mytuple(<span class="number">10</span>, <span class="string">'x'</span>);</span><br><span class="line">    <span class="comment">//计算 mytuple 存储元素的个数</span></span><br><span class="line">    size = <span class="built_in">std</span>::tuple_size&lt;<span class="keyword">decltype</span>(mytuple)&gt;::value;</span><br><span class="line">    <span class="comment">//输出 mytuple 中存储的元素</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::get&lt;<span class="number">0</span>&gt;(mytuple) &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="built_in">std</span>::get&lt;<span class="number">1</span>&gt;(mytuple) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//修改指定的元素</span></span><br><span class="line">    <span class="built_in">std</span>::get&lt;<span class="number">0</span>&gt;(mytuple) = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::get&lt;<span class="number">0</span>&gt;(mytuple) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//使用 makde_tuple() 创建一个 tuple 对象</span></span><br><span class="line">    <span class="keyword">auto</span> bar = <span class="built_in">std</span>::make_tuple(<span class="string">"test"</span>, <span class="number">3.1</span>, <span class="number">14</span>);</span><br><span class="line">    <span class="comment">//拆解 bar 对象，分别赋值给 mystr、mydou、myint</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* mystr = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">double</span> mydou;</span><br><span class="line">    <span class="keyword">int</span> myint;</span><br><span class="line">    <span class="comment">//使用 tie() 时，如果不想接受某个元素的值，实参可以用 std::ignore 代替</span></span><br><span class="line">    <span class="built_in">std</span>::tie(mystr, mydou, myint) = bar;</span><br><span class="line">    <span class="comment">//std::tie(std::ignore, std::ignore, myint) = bar;  //只接收第 3 个整形值</span></span><br><span class="line">    <span class="comment">//将 mytuple 和 bar 中的元素整合到 1 个 tuple 对象中</span></span><br><span class="line">    <span class="keyword">auto</span> mycat = <span class="built_in">std</span>::tuple_cat(mytuple, bar);</span><br><span class="line">    size = <span class="built_in">std</span>::tuple_size&lt;<span class="keyword">decltype</span>(mycat)&gt;::value;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; size &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>程序执行结果为：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 x</span><br><span class="line">100</span><br><span class="line">5</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="tuple函数返回多个值"><a href="#tuple函数返回多个值" class="headerlink" title="tuple函数返回多个值"></a>tuple函数返回多个值</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt; // tuple头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 函数foo返回tuple类型</span></span><br><span class="line">tuple&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; foo();</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 两个不同类型的返回值a和b</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="built_in">string</span> b;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 注意tie的应用</span></span><br><span class="line">    tie(a, b) = foo();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d =&gt; %s\n"</span>, a, b.c_str());</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 注意tuple是一个可以容纳不同类型元素的容器</span></span><br><span class="line">    <span class="comment">// ，在C++11中，下面的x一般使用auto定义，这样简洁些。</span></span><br><span class="line">    tuple&lt;<span class="keyword">int</span>, <span class="built_in">string</span>, <span class="keyword">char</span>, <span class="keyword">float</span>&gt; x = make_tuple(<span class="number">2014</span>, <span class="string">"tupule"</span>, <span class="string">'x'</span>, <span class="number">5.30</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %s, %c, %.2f\n"</span>, get&lt;<span class="number">0</span>&gt;(x), get&lt;<span class="number">1</span>&gt;(x).c_str(), get&lt;<span class="number">2</span>&gt;(x), get&lt;<span class="number">3</span>&gt;(x));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">tuple&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; foo()</span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 用make_tuple来构造一个tuple</span></span><br><span class="line">    <span class="keyword">return</span> make_tuple(<span class="number">2014</span>, <span class="string">"tuple"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>转载：<a href="http://c.biancheng.net/view/8600.html" target="_blank" rel="noopener">http://c.biancheng.net/view/8600.html</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2021-11-24T07:13:15.426Z" itemprop="dateUpdated">2021-11-24 15:13:15</time>
+</span>
+
+
+        
+        原文链接：<a href="/2021/11/23/C-11-tuple元组/" target="_blank" rel="external">http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="小乂">
+            <a>小乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/&title=《C++11 tuple元组》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/&title=《C++11 tuple元组》 — 云笺&source=C++11 标准新引入了一种类模板，命名为 tuple（中文可直译为元组）。tuple 最大的特点是：实例化的对象可以存储任意数量、任意类型的数据。
+tu..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++11 tuple元组》 — 云笺&url=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/11/23/C-11半个类型的auto/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：C++11半个类型的auto
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/11/23/C-11-列表初始化/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：C++11 列表初始化">下一篇：C++11 列表初始化</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/&title=《C++11 tuple元组》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/&title=《C++11 tuple元组》 — 云笺&source=C++11 标准新引入了一种类模板，命名为 tuple（中文可直译为元组）。tuple 最大的特点是：实例化的对象可以存储任意数量、任意类型的数据。
+tu..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++11 tuple元组》 — 云笺&url=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/11/23/C-11-tuple元组/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3a3YrjMAwG0Hn/l87CXi3MNvN9cjpQ+/iqpD/xSUFIlr6+4nX9Xa+uXP+s9lvf3/1+/bGFgYHxsYzrdr26wf2Vlp3c9/73MTAwTmDcB9k8FN6H0dmjSe6CgYGB8VRqmOd1GBgYGCuMNqVb2ToGBgZGW8TOgma7ubfX4hgYGB/IaBsDv/n6jf0NDAyMD2Fc5VovWZNQXu8KAwNja8bsqGs2SNG2E/IHgYGBcQJjvaGYNAySQvSBZBEDA+MARp78tYd0eVK41DbAwMDYjjFrCayPVuTtzzd2NjAwMD6W0Z6950dms+QywmNgYBzDyIvJWYL47JAZBgbGOYw8+ZsF5feVr/+5goGBsSljdqCWg2eH+22Ix8DA2JvRlqn3YTcPysnWZ60FDAyM/RhtMZlsN//NWaL5Q2qIgYGxKSPZ0Gxsqx2/mDU4MTAw9mbkN05GK/Lw2pbHeZjGwMDYjzE7RGtHwdrSt+hpYGBgHMBIAugsfteRvhzd+OGfwcDA2IiRj0e0R/ZtydqmmxgYGGcy2vGs/JCuvV43SjEwMLZmtMfx+Y1Xit58aAwDA+MExlWulWQuD9/5o3yZ4WJgYGzEmIW59tAtb2q2wR0DA+McxkpYXAl/s8GvaOQCAwNjU0YSLpNCtA2sszZn8QYGBsZhjDYsrnyybppiYGBgPMrIxzjyUI6BgXECIy9i28+0Tc1hQomBgbE1Y1Y6PtBQjEvieiwMAwNjH8YfKPM84l5f5YMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "小乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>

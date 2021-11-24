@@ -194,7 +194,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-Git用法"
+            <article id="post-Qt一些有用的小功能"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -202,7 +202,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2019/05/16/Git用法/">Git用法</a>
+      <a href="/2019/12/17/Qt一些有用的小功能/">Qt一些有用的小功能</a>
     </h3>
   
 
@@ -210,64 +210,41 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2019-05-16 14:01:00" datetime="2019-05-16T06:01:00.000Z"  itemprop="datePublished">2019-05-16</time>
+        <time class="post-time" title="2019-12-17 16:39:00" datetime="2019-12-17T08:39:00.000Z"  itemprop="datePublished">2019-12-17</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="Git-用法"><a href="#Git-用法" class="headerlink" title="Git 用法"></a>Git 用法</h1><h2 id="下载Git"><a href="#下载Git" class="headerlink" title="下载Git"></a>下载Git</h2><p>git-x.x.x-64-bit.exe</p>
-<p>下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
-<p>一路默认安装</p>
+        <a id="more"></a>
+
+<ol>
+<li>Q_GADGET：不需要从QObject继承就可以使用Qt的Meta Object功能</li>
+<li>Q_ENUMS：对枚举对象进行反射（reflection）</li>
+<li>Q_SIGNAL：不需要signals关键字就可以将一个函数指定为singal函数</li>
+<li>Q_SLOT：不需要slots关键字就可以将一个函数指定为slot函数</li>
+<li>Q_FOREACH：Qt提供的关键字foreach在配置文件里面定义了no_keywords的时候就失效了，而Q_FOREACH宏无论何时都有效</li>
+<li>Q_FOREVER：原因同Q_FOREACH，用法和关键字forever一样</li>
+<li>qChecksum：计算基于CRC-16-CCITT算法的CRC-16校验码</li>
+<li>qCompress/qUncompress：基于zlib的算法对字节缓存区进行压缩/解压，可以自定义压缩比</li>
+<li>qDeleteAll：对容器或者迭代器中的每个对象进行delete操作</li>
+<li>qRound/qRound64：对浮点数取整，四舍五入</li>
+<li>qFuzzyCompare：线程安全的浮点数模糊比较，处理了浮点精度误差的问题</li>
+<li>qVersion：获取当前正在运行的Qt的版本号</li>
+<li>sender：在slot函数中调用可以获取发送该signal的对象。仅用于来自同一线程的Qt::DirectConnection连接的 signal。由于这种做法破坏了面向对象的原则，慎用！</li>
+<li>QSysInfo：获取当前运行的系统信息，包括版本号等，Mac/Symbian/Windows均适用</li>
+<li>QtEndian：处理不同体系架构下字节存储次序不同的问题</li>
+<li>QObject::findChildren&lt;&gt;：找出隐藏的子对象</li>
+<li>qobject_cast：不需要编译器RTTI的支持就可以实现C++标准库dynamic_cast的功能</li>
+<li>QObject::deleteLater：在事件处理循环中调用，则在事件处理循环结束时删除自己；在事件处理循环外调用，则在下一个事件处理循环开始时删除自己</li>
+<li>qPrintable：类似QString::toLocal8Bit()::constData()，但是更好记</li>
+<li>qDebug()：类似Windows下的TRACE或者OutputDebugString</li>
+<li>connect(SomeObj, SIGNAL(foo()), SIGNAL(bar())：通过一个signal自动触发另一个signal</li>
+</ol>
 <blockquote>
-<p>linux下安装：<code>sudo apt-get install git</code></p>
+<p>原文：<a href="https://www.cnblogs.com/findumars/p/7545967.html" target="_blank" rel="noopener">Qt的一些鲜为人知但是非常有用的小功能</a></p>
 </blockquote>
-    
-        <div class="post-more-div">
-            <a href="/2019/05/16/Git用法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt屏蔽中文输入法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/05/05/Qt屏蔽中文输入法/">Qt屏蔽中文输入法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-05-05 20:00:00" datetime="2019-05-05T12:00:00.000Z"  itemprop="datePublished">2019-05-05</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>只在屏蔽输入法的QLineEdit上调用：</p>
-<p><code>setAttribute(Qt::WA_InputMethodEnabled, false);</code></p>
-<p>接下来就能监听到各种按键事件</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -289,7 +266,7 @@
       </script>
     
         <div class="post-more-div">
-            <a href="/2019/05/05/Qt屏蔽中文输入法/" class="post-more waves-button">
+            <a href="/2019/12/17/Qt一些有用的小功能/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -297,7 +274,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
 
     </div>
     
@@ -306,7 +283,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Python网络爬虫"
+            <article id="post-C-中四种cast"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -314,7 +291,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2019/05/02/Python网络爬虫/">Python网络爬虫</a>
+      <a href="/2019/12/17/C-中四种cast/">C++四种cast</a>
     </h3>
   
 
@@ -322,17 +299,21 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2019-05-02 13:41:00" datetime="2019-05-02T05:41:00.000Z"  itemprop="datePublished">2019-05-02</time>
+        <time class="post-time" title="2019-12-17 16:01:00" datetime="2019-12-17T08:01:00.000Z"  itemprop="datePublished">2019-12-17</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>一个提取起点小说名称的例子</p>
+        <h2 id="static-cast-静态转换"><a href="#static-cast-静态转换" class="headerlink" title="static_cast 静态转换"></a>static_cast 静态转换</h2><ol>
+<li>主要用于<strong>内置数据类型</strong>之间的相互转换 </li>
+<li>用于自定义类时，静态转换会判断<strong>转换类型之间的关系</strong>，如果转换类型之间没有任何关系，则编译器会报错，不可转换 </li>
+<li>把<strong>void类型</strong>指针转为目标类型指针（不安全） </li>
+</ol>
     
         <div class="post-more-div">
-            <a href="/2019/05/02/Python网络爬虫/" class="post-more waves-button">
+            <a href="/2019/12/17/C-中四种cast/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -340,7 +321,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
     </div>
     
@@ -349,7 +330,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Jiaba分词"
+            <article id="post-TCP-IP三次握手为什么不能两次"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -357,7 +338,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2019/05/02/Jiaba分词/">Jiaba分词</a>
+      <a href="/2019/12/05/TCP-IP三次握手为什么不能两次/">TCP/IP三次握手为什么不能两次</a>
     </h3>
   
 
@@ -365,29 +346,351 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2019-05-02 13:37:00" datetime="2019-05-02T05:37:00.000Z"  itemprop="datePublished">2019-05-02</time>
+        <time class="post-time" title="2019-12-05 14:10:00" datetime="2019-12-05T06:10:00.000Z"  itemprop="datePublished">2019-12-05</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="Jieba"><a href="#Jieba" class="headerlink" title="Jieba"></a>Jieba</h1><p>“结巴”中文分词：做最好的 Python 中文分词组件<br>github : <a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">https://github.com/fxsjy/jieba</a></p>
-<p>特点</p>
+        <p>为什么需要三次握手，两次不行吗？</p>
+<p>弄清这个问题，我们需要先弄明白三次握手的目的是什么，能不能只用两次握手来达到同样的目的。</p>
+<p><strong>第一次握手</strong>：客户端发送网络包，服务端收到了。 这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。</p>
+<p><strong>第二次握手</strong>：服务端发包，客户端收到了。 这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常。</p>
+<p><strong>第三次握手</strong>：客户端发包，服务端收到了。 这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。</p>
+<p>因此，需要三次握手才能确认双方的接收与发送能力是否正常。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/12/05/TCP-IP三次握手为什么不能两次/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-正则表达式平衡组（堆栈）"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/11/12/正则表达式平衡组（堆栈）/">正则表达式之平衡组（堆栈）</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-11-12 14:00:00" datetime="2019-11-12T06:00:00.000Z"  itemprop="datePublished">2019-11-12</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>在做LazyKey的时候，遇见了一个场景，光标在括号右边，需要获取改括号前面的函数名。虽然用堆栈写个语法分析器很方便，但是我就想着用正则表达式是不是更简单？</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/11/12/正则表达式平衡组（堆栈）/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Resize冲突"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/11/07/Resize冲突/">Resize冲突</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-11-07 12:57:00" datetime="2019-11-07T04:57:00.000Z"  itemprop="datePublished">2019-11-07</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="BUG-场景"><a href="#BUG-场景" class="headerlink" title="BUG 场景"></a>BUG 场景</h2><p>《写作天下》新出了名片库功能，所有的操作都在侧边栏中，包括添加名片、修改名片等。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-8.png" alt="原图" title="">
+                </div>
+                <div class="image-caption">原图</div>
+            </figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/11/07/Resize冲突/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BUG/">BUG</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-数据库按分类排序并计算百分比"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/11/03/数据库按分类排序并计算百分比/">数据库按分类排序及百分比</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-11-03 14:04:00" datetime="2019-11-03T06:04:00.000Z"  itemprop="datePublished">2019-11-03</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	字段名,</span><br><span class="line">	n,</span><br><span class="line">	<span class="keyword">round</span>( n / s * <span class="number">100</span>, <span class="number">5</span> ) rat </span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span>( </span><br><span class="line">        <span class="keyword">SELECT</span> 字段名, <span class="keyword">count</span>( <span class="number">1</span> ) n <span class="keyword">FROM</span> sendsms_log </span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段名</span><br><span class="line">    ) t1</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> (</span><br><span class="line">        <span class="keyword">SELECT</span> <span class="keyword">count</span>( <span class="number">1</span> ) s <span class="keyword">FROM</span> sendsms_log</span><br><span class="line">    ) t2</span><br><span class="line">    <span class="keyword">ON</span> <span class="number">1</span> = <span class="number">1</span> </span><br><span class="line">) t</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/11/03/数据库按分类排序并计算百分比/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-VSCode调试C"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/10/19/VSCode调试C/">VSCode调试C++</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-10-19 15:34:00" datetime="2019-10-19T07:34:00.000Z"  itemprop="datePublished">2019-10-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>VSCode打开文件夹，新建<code>.vscode</code>文件夹（资源管理器不允许用户建立<code>.</code>开头的文件夹）</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/10/19/VSCode调试C/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-工厂模式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/10/12/工厂模式/">工厂模式</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-10-12 20:18:00" datetime="2019-10-12T12:18:00.000Z"  itemprop="datePublished">2019-10-12</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>在平时编程中，构建对象最常用的方式是 new 一个对象。乍一看这种做法没什么不好，而实际上这也属于一种硬编码。每 new 一个对象，相当于<strong>调用者多知道了一个类</strong>，增加了类与类之间的联系，不利于程序的松耦合。其实构建过程可以被封装起来，工厂模式便是用于封装对象的设计模式。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/10/12/工厂模式/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-单例模式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/10/12/单例模式/">单例模式</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-10-12 20:17:00" datetime="2019-10-12T12:17:00.000Z"  itemprop="datePublished">2019-10-12</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>单例模式非常常见，某个对象全局只需要一个实例时，就可以使用单例模式。它的优点也显而易见：</p>
 <ul>
-<li>支持三种分词模式<ul>
-<li>精确模式，试图将句子最精确地切开，适合文本分析；</li>
-<li>全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；</li>
-<li>搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</li>
+<li>它能够避免对象重复创建，节约空间并提升效率</li>
+<li>避免由于操作不同实例导致的逻辑错误</li>
 </ul>
-</li>
-<li>支持繁体分词</li>
-<li>支持自定义词典</li>
-<li>MIT 授权协议</li>
+<p>单例模式有两种实现方式：<strong>饿汉式</strong>和<strong>懒汉式</strong>。</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/10/12/单例模式/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-好玩的Linux命令行"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/10/05/好玩的Linux命令行/">好玩的Linux命令行</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-10-05 13:54:00" datetime="2019-10-05T05:54:00.000Z"  itemprop="datePublished">2019-10-05</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        # 呼出命令
+
+<ul>
+<li><code>moo</code></li>
+<li><code>cowsay 你要说的话</code><br><code>xcowsay 你要说的话</code></li>
+<li><code>sl</code> 蒸汽机</li>
+<li><code>oneko</code> 小猫</li>
+<li><code>cmatrix</code> 数据流雨</li>
+<li><code>aafire</code> 代码火</li>
+<li><code>xeyes</code> 两只眼睛</li>
+<li>pv 模拟人工打字<br><code>echo "要说的话" | pv -qL 10</code></li>
+<li><code>toilet Hello!</code> 字母组成文字图<br><code>toilet -f mono12 -F metal Hello!</code> 另一个风格</li>
+<li><code>bb</code> 外太空音乐</li>
+<li><code>ASCIIquarium</code> 水族箱</li>
+<li><code>asciiview 图片路径</code> 字符图（需要PNG图标）</li>
+<li><code>you-get "网址"</code> 下载网址中的视频</li>
 </ul>
     
         <div class="post-more-div">
-            <a href="/2019/05/02/Jiaba分词/" class="post-more waves-button">
+            <a href="/2019/10/05/好玩的Linux命令行/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -395,7 +698,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 
     </div>
     
@@ -404,7 +707,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-使用Telegram收发微信"
+            <article id="post-PHP-Redis函数"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -412,7 +715,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/30/使用Telegram收发微信/">使用Telegram收发微信</a>
+      <a href="/2019/09/18/PHP-Redis函数/">PHP Redis函数</a>
     </h3>
   
 
@@ -420,18 +723,18 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2019-04-30 13:58:00" datetime="2019-04-30T05:58:00.000Z"  itemprop="datePublished">2019-04-30</time>
+        <time class="post-time" title="2019-09-18 16:31:00" datetime="2019-09-18T08:31:00.000Z"  itemprop="datePublished">2019-09-18</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>发代号 EH Forwarder Bot（简称 EFB）是一个可扩展的聊天平台隧道框架，基于 Python 3。目前已内置了 Telegram 主端 (Master Channel) 和微信从端 (Slave Channel)，用来在 Telegram 收发微信消息。其他从端开发已在计划之中。同时 EFB 也配备了详尽的文档，欢迎有兴趣的朋友们开发自己的主端或从端，来支持更多的平台。EFB <a href="https://github.com/blueset/ehforwarderbot" target="_blank" rel="noopener">在 GitHub 中开放了源代码</a>，并且<a href="https://ehforwarderbot.readthedocs.io/" target="_blank" rel="noopener">在 Read The Docs 平台上发布的开发文档</a>（英文，<code>en-US</code>）。</p>
-<p>本文主要介绍了如何在一个虚拟服务器 (VPS) 中安装并配置 EFB、Telegram 主端和微信从端，以及如何使用 Telegram 主端来收发微信消息。</p>
+        <h2 id="一、简单的字符串缓存"><a href="#一、简单的字符串缓存" class="headerlink" title="一、简单的字符串缓存"></a>一、简单的字符串缓存</h2><p>比如针对一些sql查询较慢，更新不频繁的数据进行缓存。</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$redis = <span class="keyword">new</span> Redis();</span><br><span class="line">$redis-&gt;connect(<span class="string">'127.0.0.1'</span>, <span class="number">6379</span>, <span class="number">60</span>);</span><br><span class="line"> </span><br><span class="line">$sql = <span class="string">'select * from tb_order order by id desc limit 10'</span>;</span><br><span class="line"><span class="comment">//伪代码，从数据库中获取数据</span></span><br><span class="line">$data = $db-&gt;query($sql);</span><br><span class="line">$data = json_encode($data, JSON_UNESCAPED_UNICODE);</span><br><span class="line">$key = md5($sql);</span><br><span class="line"><span class="comment">//缓存数据</span></span><br><span class="line">$redis-&gt;set($key, $value, <span class="number">60</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//获取数据</span></span><br><span class="line">$data = $redis-&gt;get($key);</span><br><span class="line">print_r(json_decode($data, <span class="keyword">true</span>));</span><br></pre></td></tr></tbody></table></figure>
     
         <div class="post-more-div">
-            <a href="/2019/04/30/使用Telegram收发微信/" class="post-more waves-button">
+            <a href="/2019/09/18/PHP-Redis函数/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -439,7 +742,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
 
     </div>
     
@@ -448,7 +751,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-CSS样式表大全"
+            <article id="post-GCC和G-的区别"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -456,7 +759,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/24/CSS样式表大全/">CSS样式表大全</a>
+      <a href="/2019/09/18/GCC和G-的区别/">GCC和G++的区别</a>
     </h3>
   
 
@@ -464,21 +767,18 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2019-04-24 13:02:00" datetime="2019-04-24T05:02:00.000Z"  itemprop="datePublished">2019-04-24</time>
+        <time class="post-time" title="2019-09-18 08:23:00" datetime="2019-09-18T00:23:00.000Z"  itemprop="datePublished">2019-09-18</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h2 id="一、CSS文字属性："><a href="#一、CSS文字属性：" class="headerlink" title="一、CSS文字属性："></a>一、CSS文字属性：</h2><ul>
-<li>color : #999999; /<em>文字颜色</em>/</li>
-<li>font-family : 宋体,sans-serif; /<em>文字字体</em>/</li>
-<li>font-size : 9pt; /<em>文字大小</em>/</li>
-<li>font-style:itelic; /<em>文字斜体</em>/</li></ul>
+        <p>gcc和g++都是GNU(组织)的一个编译器。</p>
+<p>误区一:<strong>gcc只能编译c代码,g++只能编译c++代码</strong><br><strong>两者都可以</strong>，但是请注意：<br>1<strong>.后缀为.c的，gcc把它当作是C程序，而g++当作是c++程序</strong>；后缀为.cpp的，两者都会认为是c++程序，注意，虽然<strong>c++是c的超集，但是两者对语法的要求是有区别的。C++的语法规则更加严谨一些。</strong><br>2.<strong>编译阶段，g++会调用gcc，对于c++代码，两者是等价的</strong>，但是因为<strong>gcc命令不能自动和C＋＋程序使用的库联接，所以通常用g++来完成链接</strong>，<strong>为了统一起见，干脆编译/链接统统用g++了，这就给人一种错觉，好像cpp程序只能用g++似的。</strong> </p>
     
         <div class="post-more-div">
-            <a href="/2019/04/24/CSS样式表大全/" class="post-more waves-button">
+            <a href="/2019/09/18/GCC和G-的区别/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -486,7 +786,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/整理/">整理</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译原理/">编译原理</a></li></ul>
 
     </div>
     
@@ -495,7 +795,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-PHP时间戳转易读性文本"
+            <article id="post-Qt工程转VS工程"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -503,7 +803,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/20/PHP时间戳转易读性文本/">PHP时间戳转易读性文本</a>
+      <a href="/2019/09/11/Qt工程转VS工程/">Qt工程转VS工程</a>
     </h3>
   
 
@@ -511,18 +811,22 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2019-04-20 16:13:00" datetime="2019-04-20T08:13:00.000Z"  itemprop="datePublished">2019-04-20</time>
+        <time class="post-time" title="2019-09-11 18:48:00" datetime="2019-09-11T10:48:00.000Z"  itemprop="datePublished">2019-09-11</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>将两个时间戳的差（秒）转化成字符串</p>
-<p>比如“x分钟前”、“x小时前”</p>
+        <p>将pro文件转换成vcxproj，可通过VS打开：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qmake -tp vc</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我的电脑上qmake路径：<code>D:\IDE\Qt5.11.3\5.11.3\msvc2017_64\bin\qmake.exe</code></p>
+<p>如果报<code>Can not run cl</code>之类的错误，把 cl 加到环境变量中：</p>
+<p><code>D:\IDE\Visual Studio 2017 Enterprise\VC\Tools\MSVC\14.10.25017\bin\HostX64\x64</code></p>
     
         <div class="post-more-div">
-            <a href="/2019/04/20/PHP时间戳转易读性文本/" class="post-more waves-button">
+            <a href="/2019/09/11/Qt工程转VS工程/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -530,7 +834,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VS/">VS</a></li></ul>
 
     </div>
     
@@ -539,7 +843,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-HTML表单即将提交事件"
+            <article id="post-Qt自定义菜单"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -547,7 +851,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/20/HTML表单即将提交事件/">HTML表单即将提交事件</a>
+      <a href="/2019/08/28/Qt自定义菜单/">Qt自定义右键菜单和托盘菜单</a>
     </h3>
   
 
@@ -555,15 +859,276 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2019-04-20 13:06:00" datetime="2019-04-20T05:06:00.000Z"  itemprop="datePublished">2019-04-20</time>
+        <time class="post-time" title="2019-08-28 19:12:00" datetime="2019-08-28T11:12:00.000Z"  itemprop="datePublished">2019-08-28</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"insert.php"</span> <span class="attr">onsubmit</span>=<span class="string">"return onSubmit()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">id</span>=<span class="string">"title"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">onSubmit</span><span class="params">()</span></span></span></span><br><span class="line">    {</span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ( $(<span class="string">"#title"</span>).val(); == <span class="string">""</span> ) {</span></span><br><span class="line"><span class="actionscript">            alert(<span class="string">"请输入标题"</span>);</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> <span class="literal">true</span>;</span></span><br><span class="line">    }</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+        <p>自定义菜单包括右键菜单，按钮菜单和系统托盘菜单</p>
+<h2 id="一：右键菜单"><a href="#一：右键菜单" class="headerlink" title="一：右键菜单"></a>一：右键菜单</h2><p>textEdit的右键菜单，通过槽函数on_textEdit_customContextMenuRequested()实现,其中的Action是已经创建好的 </p>
+    
+        <div class="post-more-div">
+            <a href="/2019/08/28/Qt自定义菜单/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
 
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-可变长参数"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/08/11/C-可变长参数/">C++可变长参数</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-08-11 08:13:00" datetime="2019-08-11T00:13:00.000Z"  itemprop="datePublished">2019-08-11</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><code>type function(type arg1, ...) { }</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2019/08/11/C-可变长参数/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-小顶堆TopN"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/07/07/小顶堆TopN/">小顶堆TopN</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-07-07 20:48:00" datetime="2019-07-07T12:48:00.000Z"  itemprop="datePublished">2019-07-07</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>应用场景：10亿个数中取前1000大的数</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/07/07/小顶堆TopN/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-QString和unsigned-char互转"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/07/07/Qt-QString和unsigned-char互转/">Qt QString和unsigned char互转</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-07-07 17:41:00" datetime="2019-07-07T09:41:00.000Z"  itemprop="datePublished">2019-07-07</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>QString 转 char 和 unsigned char</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QString <span class="title">s</span><span class="params">(<span class="string">"tttttest"</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> len = <span class="built_in">strlen</span>((<span class="keyword">char</span> *)(s.toLatin1().data()));</span><br><span class="line"><span class="keyword">char</span> *cs = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * len);</span><br><span class="line"><span class="built_in">strcpy</span>(cs, (<span class="keyword">char</span> *)(s.toLatin1().data()));</span><br><span class="line">qDebug() &lt;&lt; <span class="string">"char*"</span> &lt;&lt; cs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> * us = (<span class="keyword">unsigned</span> <span class="keyword">char</span> *)cs;</span><br><span class="line">qDebug() &lt;&lt; <span class="string">"unsigned char:"</span> &lt;&lt; us;</span><br><span class="line"><span class="built_in">free</span>(cs);</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/07/07/Qt-QString和unsigned-char互转/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-打印丑丑的手写字体"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/06/30/打印丑丑的手写字体/">打印丑丑的手写字体</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-06-30 19:59:00" datetime="2019-06-30T11:59:00.000Z"  itemprop="datePublished">2019-06-30</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>先设置成丑的手写体<br>再运行下方随即调整行距的宏：</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/06/30/打印丑丑的手写字体/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/office/">office</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AHK鼠标X1X2按键映射"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/06/29/AHK鼠标X1X2按键映射/">AHK鼠标X1X2按键映射</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-06-29 19:55:00" datetime="2019-06-29T11:55:00.000Z"  itemprop="datePublished">2019-06-29</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>AutoHotKey 针对鼠标 X1、X2 的按键映射</p>
+<p>实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creator，按 X1 编译，X2 调试</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/06/29/AHK鼠标X1X2按键映射/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AHK/">AHK</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-一加7Pro开启全局90Hz"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/06/22/一加7Pro开启全局90Hz/">一加7Pro开启全局90Hz</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-06-22 19:57:00" datetime="2019-06-22T11:57:00.000Z"  itemprop="datePublished">2019-06-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>电脑adb：<br><code>adb shell settings put global oneplus_screen_refresh_rate 0</code></p>
+<p>本地终端：<br><code>settings put global oneplus_screen_refresh_rate 0</code></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -585,7 +1150,7 @@
       </script>
     
         <div class="post-more-div">
-            <a href="/2019/04/20/HTML表单即将提交事件/" class="post-more waves-button">
+            <a href="/2019/06/22/一加7Pro开启全局90Hz/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -593,552 +1158,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-CSS圆角头像"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/20/CSS圆角头像/">CSS圆角头像</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-04-20 12:58:00" datetime="2019-04-20T04:58:00.000Z"  itemprop="datePublished">2019-04-20</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>CSS:</p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.round_icon</span>{</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">34px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">34px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/04/20/CSS圆角头像/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-new和malloc的区别"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/18/C-new和malloc的区别/">C++ new和malloc的10点区别</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-04-18 08:27:00" datetime="2019-04-18T00:27:00.000Z"  itemprop="datePublished">2019-04-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        ## 1. 申请的内存所在位置
-
-<p>new操作符从<strong>自由存储区（free store）</strong>上为对象动态分配内存空间，而malloc函数从<strong>堆</strong>上动态分配内存。自由存储区是C++基于new操作符的一个抽象概念，凡是通过new操作符进行内存申请，该内存即为自由存储区。而堆是操作系统中的术语，是操作系统所维护的一块特殊内存，用于程序的内存动态分配，C语言使用malloc从堆上分配内存，使用free释放已分配的对应内存。</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/04/18/C-new和malloc的区别/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存管理/">内存管理</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-公众号token服务器配置"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/14/公众号token服务器配置/">公众号token服务器配置</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-04-14 20:30:00" datetime="2019-04-14T12:30:00.000Z"  itemprop="datePublished">2019-04-14</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="修改公众号的服务器配置"><a href="#修改公众号的服务器配置" class="headerlink" title="修改公众号的服务器配置"></a>修改公众号的服务器配置</h1><p><img src="/images/pasted-0.png" alt="配置"></p>
-<p>Token配置代码，文件放在对应的URL路径下</p>
-<p>微信会发送GET请求来验证</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/04/14/公众号token服务器配置/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-PHP7-0使用数据库"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/14/PHP7-0使用数据库/">PHP7.0使用数据库</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-04-14 16:20:00" datetime="2019-04-14T08:20:00.000Z"  itemprop="datePublished">2019-04-14</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$mysql_server_name=<span class="string">'localhost'</span>; <span class="comment">//改成自己的mysql数据库服务器</span></span><br><span class="line">$mysql_username=<span class="string">"root"</span>; <span class="comment">//改成自己的mysql数据库用户名</span></span><br><span class="line">$mysql_password=<span class="string">"root"</span>; <span class="comment">//改成自己的mysql数据库密码</span></span><br><span class="line">$mysql_database=<span class="string">"test"</span>; <span class="comment">//改成自己的mysql数据库名</span></span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/04/14/PHP7-0使用数据库/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C语言输出代码本身"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/08/C语言输出代码本身/">C语言输出代码本身</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-04-08 20:02:00" datetime="2019-04-08T12:02:00.000Z"  itemprop="datePublished">2019-04-08</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">main(){<span class="keyword">char</span> *s;<span class="built_in">printf</span>(s,<span class="number">34</span>,s=<span class="string">"main(){char *s;printf(s,34,s=%c%s%c,34);}"</span>,<span class="number">34</span>);}</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/04/08/C语言输出代码本身/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt获取全球唯一ID"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/04/02/Qt获取全球唯一ID/">Qt获取全球唯一ID</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-04-02 20:01:00" datetime="2019-04-02T12:01:00.000Z"  itemprop="datePublished">2019-04-02</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QUuid&gt;</span></span></span><br><span class="line">QUuid id = QUuid::createUuid();</span><br><span class="line">QString strId = id.toString();</span><br></pre></td></tr></tbody></table></figure><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2019/04/02/Qt获取全球唯一ID/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-jQuery-AJAX-Gateway上传文件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/21/jQuery-AJAX-Gateway上传文件/">jQuery+AJAX+Gateway上传文件</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-21 15:49:00" datetime="2019-03-21T07:49:00.000Z"  itemprop="datePublished">2019-03-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>本例实现了一个用于在线聊天界面发送图片的效果</p>
-<p><strong>HTML</strong>部分：</p>
-<p>新建input标签，隐藏起来</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--隐藏的表单控件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"pic"</span> <span class="attr">id</span>=<span class="string">"file"</span> <span class="attr">style</span>=<span class="string">"displace: none"</span> /&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--用来交互的加号按钮--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-add image_up t-50"</span> <span class="attr">style</span>=<span class="string">"color: #888;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/21/jQuery-AJAX-Gateway上传文件/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/">AJAX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gateway/">Gateway</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android自定义输入对话框，带联网"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/21/Android自定义输入对话框，带联网/">Android自定义输入对话框，带联网</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-21 11:36:00" datetime="2019-03-21T03:36:00.000Z"  itemprop="datePublished">2019-03-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>自定义输入方式，回调方法，带输入后联网示例</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/21/Android自定义输入对话框，带联网/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android状态栏透明"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/21/Android状态栏透明/">Android状态栏透明</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-21 11:32:00" datetime="2019-03-21T03:32:00.000Z"  itemprop="datePublished">2019-03-21</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>Java文件：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">    <span class="comment">//透明状态栏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><br><span class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/21/Android状态栏透明/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-JS复制字符串到剪贴板"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/16/JS复制字符串到剪贴板/">JS复制字符串到剪贴板</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-16 15:37:00" datetime="2019-03-16T07:37:00.000Z"  itemprop="datePublished">2019-03-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>简单原理：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(<span class="string">"textarea"</span>);</span><br><span class="line">textArea.value = text;</span><br><span class="line">textArea.select();</span><br><span class="line"><span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.removeChild(textArea);</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/16/JS复制字符串到剪贴板/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android线性时间选择器"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/16/Android线性时间选择器/">Android线性时间选择器</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-16 11:24:00" datetime="2019-03-16T03:24:00.000Z"  itemprop="datePublished">2019-03-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>build.gradle(Module:app)</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation 'net.codecrafted:lineartimepicker:1.0.0' // 线性日期时间选择器</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/16/Android线性时间选择器/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android简单联网应用"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/03/16/Android简单联网应用/">Android简单联网应用</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-03-16 11:17:00" datetime="2019-03-16T03:17:00.000Z"  itemprop="datePublished">2019-03-16</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="解决Handler问题"><a href="#解决Handler问题" class="headerlink" title="解决Handler问题"></a>解决Handler问题</h2>
-    
-        <div class="post-more-div">
-            <a href="/2019/03/16/Android简单联网应用/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搞机/">搞机</a></li></ul>
 
     </div>
     
@@ -1151,7 +1171,7 @@
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
     </div>
 </nav>
 
