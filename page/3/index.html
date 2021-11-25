@@ -194,7 +194,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-Vue-js-学习笔记"
+            <article id="post-C-使用once-flag和call-once来避免数据竞争"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -202,7 +202,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/05/26/Vue-js-学习笔记/">Vue.js-学习笔记</a>
+      <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/">C++使用once_flag和call_once来避免数据竞争</a>
     </h3>
   
 
@@ -210,65 +210,18 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-05-26 10:31:00" datetime="2021-05-26T02:31:00.000Z"  itemprop="datePublished">2021-05-26</time>
+        <time class="post-time" title="2021-05-25 10:44:00" datetime="2021-05-25T02:44:00.000Z"  itemprop="datePublished">2021-05-25</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>官方教程：<a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/</a></p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vue = <span class="keyword">new</span> Vue({</span><br><span class="line">	el: <span class="string">'#app'</span>, <span class="comment">// 选择器</span></span><br><span class="line">    data: {     <span class="comment">// 渲染的数据</span></span><br><span class="line">        str: <span class="string">' '</span>,</span><br><span class="line">        arr: [<span class="string">' '</span>, <span class="string">' '</span>, <span class="string">' '</span>],</span><br><span class="line">        arr2: [{ }, { }, { }]</span><br><span class="line">    },</span><br><span class="line">    computed: {},</span><br><span class="line">    methods: {}</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    {{str}} <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"str"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+        <p><strong>使用互斥元进行线程安全的延迟初始化</strong></p>
+<p>像下面这段代码一样的朴素的转换，会引起使用该资源的线程产生不必要的序列化。这是因为每个线程都必须等待互斥元，以检查资源是否已经被初始化。</p>
     
         <div class="post-more-div">
-            <a href="/2021/05/26/Vue-js-学习笔记/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-多线程数据共享、互斥锁lock-guard"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/05/25/C-多线程数据共享、互斥锁lock-guard/">C++多线程数据共享、互斥锁lock_guard</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-05-25 10:45:00" datetime="2021-05-25T02:45:00.000Z"  itemprop="datePublished">2021-05-25</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>从整体上看，所有线程之间共享数据的问题，都是<strong>修改数据</strong>导致的。在谈到并发时，术语<strong>竞争条件</strong>通常用来表示有问题的竞争条件，良性的竞争条件没什么意思。C++标准还定义了术语<strong>数据竞争</strong>，表示因单个对象的并发修改而产生的特定类型的竞争条件，造成可怕的<strong>未定义行为</strong>。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/05/25/C-多线程数据共享、互斥锁lock-guard/" class="post-more waves-button">
+            <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -321,50 +274,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/boost/">boost</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-使用once-flag和call-once来避免数据竞争"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/">C++使用once_flag和call_once来避免数据竞争</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-05-25 10:44:00" datetime="2021-05-25T02:44:00.000Z"  itemprop="datePublished">2021-05-25</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><strong>使用互斥元进行线程安全的延迟初始化</strong></p>
-<p>像下面这段代码一样的朴素的转换，会引起使用该资源的线程产生不必要的序列化。这是因为每个线程都必须等待互斥元，以检查资源是否已经被初始化。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
 
     </div>
     
@@ -1159,6 +1068,93 @@
                 阅读全文 »
             </a>
         </div>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-MySQL-marked-as-crashed-and-should-be-repaired"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/03/08/MySQL-marked-as-crashed-and-should-be-repaired/">MySQL marked as crashed and should be repaired</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-03-08 17:40:00" datetime="2021-03-08T09:40:00.000Z"  itemprop="datePublished">2021-03-08</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>MySQL备份时中断，报错：<code>marked as crashed and should be repaired</code> </p>
+    
+        <div class="post-more-div">
+            <a href="/2021/03/08/MySQL-marked-as-crashed-and-should-be-repaired/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt获取exe版本信息"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/02/22/Qt获取exe版本信息/">Qt获取exe版本信息</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-02-22 16:47:00" datetime="2021-02-22T08:47:00.000Z"  itemprop="datePublished">2021-02-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><code>pro</code>文件引入 version.lib</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unix|win32: LIBS += -lVersion</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2021/02/22/Qt获取exe版本信息/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
     </div>
     
 </article>
