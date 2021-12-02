@@ -194,6 +194,210 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-C-调用Python"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/12/02/C-调用Python/">C++调用Python</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-12-02 10:45:00" datetime="2021-12-02T02:45:00.000Z"  itemprop="datePublished">2021-12-02</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>以 Python38 为例，把 Python 的 <code>include</code> 和 <code>lib</code> 拷贝到自己的工程目录下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\AppData\Local\Programs\Python\Python38\include</span><br><span class="line">C:\Users\Administrator\AppData\Local\Programs\Python\Python38\libs</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>Python38 是 64 位的（x64），Python38-32 是 32 位的（x86）</p>
+<p>注意是 libs 而不是 Lib</p>
+</blockquote>
+<p>然后在工程中包括进去：</p>
+<p>Visual Studio 项目属性 - 链接器 - 常规 - 附加库目录：libs</p>
+<p><strong>测试发现调用 Python 时项目只支持 x64 Release</strong></p>
+    
+        <div class="post-more-div">
+            <a href="/2021/12/02/C-调用Python/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Linux下VSCode调试SystemC"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/12/01/Linux下VSCode调试SystemC/">Linux下VSCode调试SystemC</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-12-01 10:48:00" datetime="2021-12-01T02:48:00.000Z"  itemprop="datePublished">2021-12-01</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="制作Makefile"><a href="#制作Makefile" class="headerlink" title="制作Makefile"></a>制作Makefile</h2><figure class="highlight makefile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LIBDIR=-L/home/users/0927/systemc-2.3/lib-linux64</span><br><span class="line">INCDIR=-I/home/users/0927/systemc-2.3/<span class="keyword">include</span></span><br><span class="line">LIB=-lsystemc</span><br><span class="line"><span class="section">all:</span></span><br><span class="line">	g++ -Wall -std=c++11 -o test main.cpp <span class="variable">$(LIBDIR)</span> <span class="variable">$(INCDIR)</span> <span class="variable">$(LIB)</span></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -rf *.o</span><br></pre></td></tr></tbody></table></figure>
+
+<p>命令行使用：<code>make</code> 即可编译。</p>
+<h2 id="使用VSCode编译"><a href="#使用VSCode编译" class="headerlink" title="使用VSCode编译"></a>使用VSCode编译</h2><p>根据上面的方法，添加 <code>Makefile</code> 文件，确保 <code>make</code> 能正常编译。</p>
+<p>VSCode 打开项目文件，项目根目录添加 <code>.vscode</code> 文件夹及三个 json 文件，如下：</p>
+<ul>
+<li>.vscode/ （VSCode配置）<ul>
+<li>settings.json</li>
+<li>launch.json</li>
+<li>tasks.json</li>
+</ul>
+</li>
+<li>main.cpp （源码）</li>
+<li>Makefile</li>
+</ul>
+<p>以下仅介绍这三个文件的用法。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/12/01/Linux下VSCode调试SystemC/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Makefile/">Makefile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SystemC/">SystemC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-SystemC-Fir-Filter"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/29/SystemC-Fir-Filter/">SystemC Fir Filter</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-29 10:50:00" datetime="2021-11-29T02:50:00.000Z"  itemprop="datePublished">2021-11-29</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>基于 SystemC 的 Fir Filter 示例。</p>
+<p>有两个模块，fir 为算法实现，tb 验证数据的输入输出。</p>
+<p>使用 vld 和 rdy 来控制 fir 和 tb 之间的握手机制。</p>
+<blockquote>
+<p>视频链接：<a href="https://www.bilibili.com/video/BV1P54y1z77U?p=2" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1P54y1z77U?p=2</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">                 SYSTEM</span><br><span class="line">    tb0                          fir0</span><br><span class="line">-------------                -------------</span><br><span class="line">|           |                |           |</span><br><span class="line">|           |    sc_clock    |           |</span><br><span class="line">|       clk | &lt;------------&gt; | clk       |</span><br><span class="line">|           |                |           |</span><br><span class="line">|           |    rst_sig     |           |</span><br><span class="line">|       rst | &lt;------------&gt; | rst       |</span><br><span class="line">|           |                |           |</span><br><span class="line">|           |    inp_sig     |           |</span><br><span class="line">|       inp | &lt;------------&gt; | inp       |</span><br><span class="line">|           | &lt;rdy      vld&gt; |           |</span><br><span class="line">|           |    outp_sig    |           |</span><br><span class="line">|      outp | &lt;------------&gt; | outp      |</span><br><span class="line">|           | &lt;vld      rdy&gt; |           |</span><br><span class="line">|    tb     |                |    fir    |</span><br><span class="line">-------------                -------------</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/29/SystemC-Fir-Filter/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SystemC/">SystemC</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-SystemC开发环境搭建"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/25/SystemC开发环境搭建/">SystemC开发环境搭建</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-25 10:46:00" datetime="2021-11-25T02:46:00.000Z"  itemprop="datePublished">2021-11-25</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="安装-SystemC"><a href="#安装-SystemC" class="headerlink" title="安装 SystemC"></a>安装 SystemC</h2><p>下载并解压源文件，这里使用的是 2.3 版本。</p>
+<p>使用 Visual Studio 2017 打开 <code>systemc-2.3\msvc71\SystemC\SystemC.sln</code> 文件，并编译。</p>
+<p>常见的调整，如 <code>项目属性-&gt;常规-&gt;Windows SDK</code> 设置为 <code>10.x</code>。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/25/SystemC开发环境搭建/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SystemC/">SystemC</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-C-11智能指针shared-ptr"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -597,50 +801,6 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-C-11-列表初始化"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/11/23/C-11-列表初始化/">C++11 列表初始化</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-11-23 15:06:00" datetime="2021-11-23T07:06:00.000Z"  itemprop="datePublished">2021-11-23</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>为了统一初始化方式，并且让初始化行为具有确定的效果，C++11 中提出了列表初始化（List-initialization）的概念。</p>
-<p>POD 类型即 plain old data 类型，简单来说，是可以直接使用 memcpy 复制的对象。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/11/23/C-11-列表初始化/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-C-11-tuple元组"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -669,6 +829,50 @@
     
         <div class="post-more-div">
             <a href="/2021/11/23/C-11-tuple元组/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-11-列表初始化"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/11/23/C-11-列表初始化/">C++11列表初始化</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-11-23 15:06:00" datetime="2021-11-23T07:06:00.000Z"  itemprop="datePublished">2021-11-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>为了统一初始化方式，并且让初始化行为具有确定的效果，C++11 中提出了列表初始化（List-initialization）的概念。</p>
+<p>POD 类型即 plain old data 类型，简单来说，是可以直接使用 memcpy 复制的对象。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/11/23/C-11-列表初始化/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -926,196 +1130,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-C-11使用using定义模板别名"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/11/18/C-11使用using定义模板别名/">C++11使用using定义模板别名</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-11-18 15:02:00" datetime="2021-11-18T07:02:00.000Z"  itemprop="datePublished">2021-11-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h3 id="普通类型"><a href="#普通类型" class="headerlink" title="普通类型"></a>普通类型</h3><p>using 的别名语法覆盖了 typedef 的全部功能，将这两种语法对比一下：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重定义unsigned int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="keyword">uint_t</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">uint_t</span> = <span class="keyword">unsigned</span> <span class="keyword">int</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重定义std::map</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt; <span class="keyword">map_int_t</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">map_int_t</span> = <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt;;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>可以看到，在重定义普通类型上，两种使用方法的效果是等价的，唯一不同的是定义语法。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/11/18/C-11使用using定义模板别名/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-11结合auto和decltype的返回值类型后置语法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/11/18/C-11结合auto和decltype的返回值类型后置语法/">C++11结合auto和decltype的返回值类型后置语法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-11-18 15:02:00" datetime="2021-11-18T07:02:00.000Z"  itemprop="datePublished">2021-11-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>在泛型编程中，可能需要通过参数的运算来得到返回值的类型。考虑下面这个场景：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> R, <span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span><br><span class="line"><span class="function">R <span class="title">add</span><span class="params">(T t, U u)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span> t+u;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>; <span class="keyword">float</span> b = <span class="number">2.0</span>;</span><br><span class="line"><span class="keyword">auto</span> c = add&lt;<span class="keyword">decltype</span>(a + b)&gt;(a, b);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>我们并不关心 a+b 的类型是什么，因此，只需要通过 decltype(a+b) 直接得到返回值类型即可。但是像上面这样使用十分不方便，因为外部其实并不知道参数之间应该如何运算，只有 add 函数才知道返回值应当如何推导。</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/11/18/C-11结合auto和decltype的返回值类型后置语法/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-11-decltype类型推导"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/11/18/C-11-decltype类型推导/">C++11 decltype类型推导</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-11-18 15:01:00" datetime="2021-11-18T07:01:00.000Z"  itemprop="datePublished">2021-11-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>auto 和 decltype 关键字都可以自动推导出变量的类型，但它们的用法是有区别的：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> varname = value;</span><br><span class="line"><span class="keyword">decltype</span>(<span class="built_in">exp</span>) varname = value;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>其中，varname 表示变量名，value 表示赋给变量的值，exp 表示一个表达式。</p>
-<p>auto 根据<code>=</code>右边的初始值 value 推导出变量的类型，而 decltype 根据 exp 表达式推导出变量的类型，跟<code>=</code>右边的 value 没有关系。</p>
-<p>另外，auto 要求变量必须初始化，而 decltype 不要求。这很容易理解，auto 是根据变量的初始值来推导出变量类型的，如果不初始化，变量的类型也就无法推导了。decltype 可以写成下面的形式：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>(<span class="built_in">exp</span>) varname;</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2021/11/18/C-11-decltype类型推导/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-11-auto泛型编程"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/11/18/C-11-auto泛型编程/">C++11 auto泛型编程</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-11-18 14:58:00" datetime="2021-11-18T06:58:00.000Z"  itemprop="datePublished">2021-11-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>auto 的一个应用就是当我们不知道变量是什么类型，或者不希望指明具体类型的时候，比如泛型编程中。我们看例子：</p>
-    
-        <div class="post-more-div">
-            <a href="/2021/11/18/C-11-auto泛型编程/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </div>
 </nav>
 

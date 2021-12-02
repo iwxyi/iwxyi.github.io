@@ -194,6 +194,182 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-PHP取网页源码"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/PHP取网页源码/">PHP取网页源码</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 16:11:00" datetime="2019-01-13T08:11:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="取HTTP网页源码"><a href="#取HTTP网页源码" class="headerlink" title="取HTTP网页源码"></a>取HTTP网页源码</h2><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ret = file_get_contents(<span class="string">'要采集的网页URL'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若需要从页面中获取内容，可以用正则匹配</span></span><br><span class="line">$begin=change_match_string(<span class="string">'匹配开头的字符串'</span>);</span><br><span class="line">$end=change_match_string(<span class="string">'匹配结尾的字符串'</span>);</span><br><span class="line">$p = <span class="string">"{$begin}(.*){$end}"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用正则进行匹配，[0]是全部，1开始是括号的</span></span><br><span class="line"><span class="keyword">if</span> (preg_match($p,$ret,$rs))</span><br><span class="line">	<span class="keyword">return</span> $rs[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/PHP取网页源码/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Spring框架入门"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/13/Spring框架入门/">Spring框架入门-学习笔记</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-13 13:23:00" datetime="2019-01-13T05:23:00.000Z"  itemprop="datePublished">2019-01-13</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>　　Spring框架是个轻量级的Java EE框架。所谓轻量级，是指不依赖于容器就能运行的。Struts、Hibernate也是轻量级的。 </p>
+<p>　　Spring以IoC、AOP为主要思想，其中IoC，Inversion of Control 指控制反转或反向控制。在Spring框架中我们通过配置创建类对象，由Spring在运行阶段实例化、组装对象。AOP，Aspect Oriented Programming，面向切面编程，其思想是在执行某些代码前执行另外的代码，使程序更灵活、扩展性更好，可以随便地添加、删除某些功能。Servlet中的Filter便是一种AOP思想的实现。 </p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/13/Spring框架入门/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt调用DLL"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/10/Qt调用DLL/">Qt调用DLL</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-10 17:49:00" datetime="2019-01-10T09:49:00.000Z"  itemprop="datePublished">2019-01-10</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="静态链接库（-lib-dll）"><a href="#静态链接库（-lib-dll）" class="headerlink" title="静态链接库（.lib+.dll）"></a>静态链接库（.lib+.dll）</h3><p>声明：** 事先我已经自己动手写了一个简单的dll文件(myDLL.dll),C版接口的。首先，从dll中导出了导入库(.lib)文件，dll中有两个函数，原型如下：</p>
+<p>   void HelloWorld();     //函数内部调用Win32 API,功能是弹出一个helloworld提示框<br>   int add(int a,int b);  //实现两个数相加，并返回结果</p>
+<p> 下面分别通过显示调用和隐式调用两种方法，来模拟Qt如何调用外部dll文件中的功能函数，follow me….</p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/10/Qt调用DLL/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt-Socket通信"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/01/08/Qt-Socket通信/">Qt Socket通信</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-01-08 17:46:00" datetime="2019-01-08T09:46:00.000Z"  itemprop="datePublished">2019-01-08</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>QT的TCP Socket通信仍然有服务端、客户端之分。服务端通过监听某个端口来监听是否有客户端连接到来，如果有连接到来，则建立新的SOCKET连接；客户端通过IP和PORT连接服务端，当成功建立连接之后，就可进行数据的收发了。需要注意的是，在QT中，QT把SOCKET当成输入输出流来对待的，数据的收发是通过read()和write()来进行的，需要与我们常见的send()与recv()进行区分。</p>
+<p>要在QT进行SOCKET通信，需要在 工程名.pro 文件中输入 <code>QT += network</code></p>
+    
+        <div class="post-more-div">
+            <a href="/2019/01/08/Qt-Socket通信/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket/">Socket</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Android切换Activity"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -912,186 +1088,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-Android小知识"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/12/01/Android小知识/">Android小知识</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-12-01 10:28:00" datetime="2018-12-01T02:28:00.000Z"  itemprop="datePublished">2018-12-01</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;EditText</span><br><span class="line">     &lt;!-- 设置密码框 --&gt;</span><br><span class="line">     android:password="true"</span><br><span class="line">&lt;/EditText&gt;</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2018/12/01/Android小知识/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/整理/">整理</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Android-Fragment回退栈"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/27/Android-Fragment回退栈/">Android Fragment回退栈</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-27 10:43:00" datetime="2018-11-27T02:43:00.000Z"  itemprop="datePublished">2018-11-27</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>导语: Fragment作为Android最基本，最重要的基础概念之一，在开发中经常会和他打交道。本文从为什么出现Fragment开始，介绍了Fragment相关的方方面面，包括Fragment的基本定义及使用、回退栈的内部实现、Fragment通信、DialogFragment、ViewPager+Fragment的使用、嵌套Fragment、懒加载等。</p>
-</blockquote>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/27/Android-Fragment回退栈/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt动画"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/26/Qt动画/">Qt动画</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-26 18:44:00" datetime="2018-11-26T10:44:00.000Z"  itemprop="datePublished">2018-11-26</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="动画框架类"><a href="#动画框架类" class="headerlink" title="动画框架类"></a>动画框架类</h1><p>这些类提供了用于创建简单的和复杂的动画的框架</p>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/26/Qt动画/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ThinkPHP-Socket"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/11/25/ThinkPHP-Socket/">ThinkPHP+Socket</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-11-25 16:37:00" datetime="2018-11-25T08:37:00.000Z"  itemprop="datePublished">2018-11-25</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2>
-    
-        <div class="post-more-div">
-            <a href="/2018/11/25/ThinkPHP-Socket/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket/">Socket</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ThinkPHP/">ThinkPHP</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
     </div>
 </nav>
 

@@ -194,6 +194,230 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Flutter模板参考"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2020/01/07/Flutter模板参考/">Flutter模板参考</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-01-07 13:23:00" datetime="2020-01-07T05:23:00.000Z"  itemprop="datePublished">2020-01-07</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>Flutter最基础的空程序</p>
+    
+        <div class="post-more-div">
+            <a href="/2020/01/07/Flutter模板参考/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/">Flutter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模板/">模板</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Composer用法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/12/24/Composer用法/">Composer用法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-12-24 16:28:00" datetime="2019-12-24T08:28:00.000Z"  itemprop="datePublished">2019-12-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>这里用的是小皮面板（PHPStudy），先添加网站。</p>
+<p>找到<code>nginx/conf/vhost/网站.conf</code>，server中原先的location全删了，改为下面：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server {</span><br><span class="line">        listen        80;</span><br><span class="line">        server_name  cloud.iwxyi.com;</span><br><span class="line">		location / {</span><br><span class="line">			proxy_pass http://iwxyi.com:5212;</span><br><span class="line">		}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2019/12/24/Composer用法/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Composer/">Composer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Qt一些有用的小功能"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/12/17/Qt一些有用的小功能/">Qt一些有用的小功能</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-12-17 16:39:00" datetime="2019-12-17T08:39:00.000Z"  itemprop="datePublished">2019-12-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <a id="more"></a>
+
+<ol>
+<li>Q_GADGET：不需要从QObject继承就可以使用Qt的Meta Object功能</li>
+<li>Q_ENUMS：对枚举对象进行反射（reflection）</li>
+<li>Q_SIGNAL：不需要signals关键字就可以将一个函数指定为singal函数</li>
+<li>Q_SLOT：不需要slots关键字就可以将一个函数指定为slot函数</li>
+<li>Q_FOREACH：Qt提供的关键字foreach在配置文件里面定义了no_keywords的时候就失效了，而Q_FOREACH宏无论何时都有效</li>
+<li>Q_FOREVER：原因同Q_FOREACH，用法和关键字forever一样</li>
+<li>qChecksum：计算基于CRC-16-CCITT算法的CRC-16校验码</li>
+<li>qCompress/qUncompress：基于zlib的算法对字节缓存区进行压缩/解压，可以自定义压缩比</li>
+<li>qDeleteAll：对容器或者迭代器中的每个对象进行delete操作</li>
+<li>qRound/qRound64：对浮点数取整，四舍五入</li>
+<li>qFuzzyCompare：线程安全的浮点数模糊比较，处理了浮点精度误差的问题</li>
+<li>qVersion：获取当前正在运行的Qt的版本号</li>
+<li>sender：在slot函数中调用可以获取发送该signal的对象。仅用于来自同一线程的Qt::DirectConnection连接的 signal。由于这种做法破坏了面向对象的原则，慎用！</li>
+<li>QSysInfo：获取当前运行的系统信息，包括版本号等，Mac/Symbian/Windows均适用</li>
+<li>QtEndian：处理不同体系架构下字节存储次序不同的问题</li>
+<li>QObject::findChildren&lt;&gt;：找出隐藏的子对象</li>
+<li>qobject_cast：不需要编译器RTTI的支持就可以实现C++标准库dynamic_cast的功能</li>
+<li>QObject::deleteLater：在事件处理循环中调用，则在事件处理循环结束时删除自己；在事件处理循环外调用，则在下一个事件处理循环开始时删除自己</li>
+<li>qPrintable：类似QString::toLocal8Bit()::constData()，但是更好记</li>
+<li>qDebug()：类似Windows下的TRACE或者OutputDebugString</li>
+<li>connect(SomeObj, SIGNAL(foo()), SIGNAL(bar())：通过一个signal自动触发另一个signal</li>
+</ol>
+<blockquote>
+<p>原文：<a href="https://www.cnblogs.com/findumars/p/7545967.html" target="_blank" rel="noopener">Qt的一些鲜为人知但是非常有用的小功能</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/2019/12/17/Qt一些有用的小功能/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-中四种cast"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2019/12/17/C-中四种cast/">C++四种cast</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2019-12-17 16:01:00" datetime="2019-12-17T08:01:00.000Z"  itemprop="datePublished">2019-12-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="static-cast-静态转换"><a href="#static-cast-静态转换" class="headerlink" title="static_cast 静态转换"></a>static_cast 静态转换</h2><ol>
+<li>主要用于<strong>内置数据类型</strong>之间的相互转换 </li>
+<li>用于自定义类时，静态转换会判断<strong>转换类型之间的关系</strong>，如果转换类型之间没有任何关系，则编译器会报错，不可转换 </li>
+<li>把<strong>void类型</strong>指针转为目标类型指针（不安全） </li>
+</ol>
+    
+        <div class="post-more-div">
+            <a href="/2019/12/17/C-中四种cast/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-TCP-IP三次握手为什么不能两次"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -923,206 +1147,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-AHK鼠标X1X2按键映射"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/06/29/AHK鼠标X1X2按键映射/">AHK鼠标X1X2按键映射</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-06-29 19:55:00" datetime="2019-06-29T11:55:00.000Z"  itemprop="datePublished">2019-06-29</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>AutoHotKey 针对鼠标 X1、X2 的按键映射</p>
-<p>实现部分应用程序，包括 Android Studio、PyCharm、Idea、Qt Creator，按 X1 编译，X2 调试</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/06/29/AHK鼠标X1X2按键映射/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AHK/">AHK</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-一加7Pro开启全局90Hz"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/06/22/一加7Pro开启全局90Hz/">一加7Pro开启全局90Hz</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-06-22 19:57:00" datetime="2019-06-22T11:57:00.000Z"  itemprop="datePublished">2019-06-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>电脑adb：<br><code>adb shell settings put global oneplus_screen_refresh_rate 0</code></p>
-<p>本地终端：<br><code>settings put global oneplus_screen_refresh_rate 0</code></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2019/06/22/一加7Pro开启全局90Hz/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搞机/">搞机</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt加载自定义字体"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/05/28/Qt加载自定义字体/">Qt加载自定义字体</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-05-28 17:01:00" datetime="2019-05-28T09:01:00.000Z"  itemprop="datePublished">2019-05-28</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>加载外部字体，但是会稍微影响开启速度。</p>
-    
-        <div class="post-more-div">
-            <a href="/2019/05/28/Qt加载自定义字体/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-C-调用Python"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2019/05/27/C-调用Python/">C++调用Python</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-05-27 13:35:00" datetime="2019-05-27T05:35:00.000Z"  itemprop="datePublished">2019-05-27</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><strong>Python代码</strong></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fastText</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断小说类型的调用语句</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">judge</span><span class="params">(novel)</span>:</span></span><br><span class="line">    print(novel, <span class="string">" : "</span>, classifier.predict(<span class="string">" "</span>.join(jieba.cut(novel))))</span><br><span class="line">    <span class="keyword">return</span> str(classifier.predict(<span class="string">" "</span>.join(jieba.cut(novel)))[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># classifier = fastText.train_supervised("data/novel_names.txt", lr=0.1, wordNgrams=1, loss="hs", epoch=20)</span></span><br><span class="line"><span class="comment"># model = classifier.save_model("data/novel_names.model")</span></span><br><span class="line">classifier = fastText.load_model(<span class="string">"data/novel_names.model"</span>)</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2019/05/27/C-调用Python/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
     </div>
 </nav>
 

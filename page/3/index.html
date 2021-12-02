@@ -194,7 +194,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-C-使用once-flag和call-once来避免数据竞争"
+            <article id="post-C-使用async将参数传递给函数"
   class="article-card article-type-post" itemprop="blogPost">
 
     
@@ -202,7 +202,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/">C++使用once_flag和call_once来避免数据竞争</a>
+      <a href="/2021/06/17/C-使用async将参数传递给函数/">C++使用async将参数传递给函数</a>
     </h3>
   
 
@@ -210,18 +210,151 @@
 
 
      <div class="post-meta">
-        <time class="post-time" title="2021-05-25 10:44:00" datetime="2021-05-25T02:44:00.000Z"  itemprop="datePublished">2021-05-25</time>
+        <time class="post-time" title="2021-06-17 10:47:00" datetime="2021-06-17T02:47:00.000Z"  itemprop="datePublished">2021-06-17</time>
 
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p><strong>使用互斥元进行线程安全的延迟初始化</strong></p>
-<p>像下面这段代码一样的朴素的转换，会引起使用该资源的线程产生不必要的序列化。这是因为每个线程都必须等待互斥元，以检查资源是否已经被初始化。</p>
+        <p><code>async</code>如果第一个参数是指向成员函数的指针，第二个参数则提供了用来应用该成员函数的对象（直接地，或通过指针，或封装在 <code>std::ref</code> 中），其余的参数则作为参数传递给该成员函数。否则，第二个及后续的参数将作为参数，传递给第一个参数是所指定的函数或可调用对象。和 <code>std::thread</code> 一样，如果参数是右值，则通过<strong>移动</strong>原来的参数来创建副本。这就允许使用只可移动的类型同时作为函数对象和参数。</p>
     
         <div class="post-more-div">
-            <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/" class="post-more waves-button">
+            <a href="/2021/06/17/C-使用async将参数传递给函数/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-多线程使用condition-cariable等待线程和休眠唤醒"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/06/17/C-多线程使用condition-cariable等待线程和休眠唤醒/">C++多线程使用condition_cariable等待线程和休眠唤醒</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-06-17 10:46:00" datetime="2021-06-17T02:46:00.000Z"  itemprop="datePublished">2021-06-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>C++提供了两个条件变量的实现：<code>std::condition_variable</code> 和 <code>std::condition_variable_any</code>，这两个都在 <code>&lt;condition_variable&gt;</code> 库的头文件中声明。两者都需要和互斥元一起工作，前者仅限于 <code>std::mutex</code>，后者可以与符合称为类似互斥元的最低标准的任何东西一起工作，因此跟普遍，所以会有大小、性能或者操作系统资源方面的形式的额外代价的可能。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/06/17/C-多线程使用condition-cariable等待线程和休眠唤醒/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Vue-js-学习笔记"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/05/26/Vue-js-学习笔记/">Vue.js-学习笔记</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-05-26 10:31:00" datetime="2021-05-26T02:31:00.000Z"  itemprop="datePublished">2021-05-26</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>官方教程：<a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/</a></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vue = <span class="keyword">new</span> Vue({</span><br><span class="line">	el: <span class="string">'#app'</span>, <span class="comment">// 选择器</span></span><br><span class="line">    data: {     <span class="comment">// 渲染的数据</span></span><br><span class="line">        str: <span class="string">' '</span>,</span><br><span class="line">        arr: [<span class="string">' '</span>, <span class="string">' '</span>, <span class="string">' '</span>],</span><br><span class="line">        arr2: [{ }, { }, { }]</span><br><span class="line">    },</span><br><span class="line">    computed: {},</span><br><span class="line">    methods: {}</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    {{str}} <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"str"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+    
+        <div class="post-more-div">
+            <a href="/2021/05/26/Vue-js-学习笔记/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-多线程数据共享、互斥锁lock-guard"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/05/25/C-多线程数据共享、互斥锁lock-guard/">C++多线程数据共享、互斥锁lock_guard</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-05-25 10:45:00" datetime="2021-05-25T02:45:00.000Z"  itemprop="datePublished">2021-05-25</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>从整体上看，所有线程之间共享数据的问题，都是<strong>修改数据</strong>导致的。在谈到并发时，术语<strong>竞争条件</strong>通常用来表示有问题的竞争条件，良性的竞争条件没什么意思。C++标准还定义了术语<strong>数据竞争</strong>，表示因单个对象的并发修改而产生的特定类型的竞争条件，造成可怕的<strong>未定义行为</strong>。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/05/25/C-多线程数据共享、互斥锁lock-guard/" class="post-more waves-button">
                 阅读全文 »
             </a>
         </div>
@@ -274,6 +407,50 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/boost/">boost</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C-使用once-flag和call-once来避免数据竞争"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/">C++使用once_flag和call_once来避免数据竞争</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2021-05-25 10:44:00" datetime="2021-05-25T02:44:00.000Z"  itemprop="datePublished">2021-05-25</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><strong>使用互斥元进行线程安全的延迟初始化</strong></p>
+<p>像下面这段代码一样的朴素的转换，会引起使用该资源的线程产生不必要的序列化。这是因为每个线程都必须等待互斥元，以检查资源是否已经被初始化。</p>
+    
+        <div class="post-more-div">
+            <a href="/2021/05/25/C-使用once-flag和call-once来避免数据竞争/" class="post-more waves-button">
+                阅读全文 »
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
 
     </div>
     
@@ -951,222 +1128,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-PS照片偏黄"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/03/11/PS照片偏黄/">PS照片偏黄</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-03-11 16:31:00" datetime="2021-03-11T08:31:00.000Z"  itemprop="datePublished">2021-03-11</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>PS中照片偏黄的处理方式：</p>
-<p>按<code>Ctrl+J</code>复制一层，图像-应用图像，将RGB改为”绿“，混合模式改为”滤色“，适当调整不透明度，确定。</p>
-<p>再调出曲线，降低它的红色，适当提高一下蓝色，最后适当整体提高高度。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2021/03/11/PS照片偏黄/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PhotoShop/">PhotoShop</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Fiddler创建根证书不成功"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/03/10/Fiddler创建根证书不成功/">Fiddler创建根证书不成功</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-03-10 17:52:00" datetime="2021-03-10T09:52:00.000Z"  itemprop="datePublished">2021-03-10</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>运行命令创建证书：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">makecert.exe -r -ss my -n "CN=DO_NOT_TRUST_FiddlerRoot, O=DO_NOT_TRUST, OU=Created by http://www.fiddler2.com" -sky signature -eku 1.3.6.1.5.5.7.3.1 -h 1 -cy authority -a sha1 -m 120 -b 10/12/2026</span><br></pre></td></tr></tbody></table></figure>
-
-<p>注意最后的时间要超过安装软件的时间</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/2021/03/10/Fiddler创建根证书不成功/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-MySQL-marked-as-crashed-and-should-be-repaired"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/03/08/MySQL-marked-as-crashed-and-should-be-repaired/">MySQL marked as crashed and should be repaired</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-03-08 17:40:00" datetime="2021-03-08T09:40:00.000Z"  itemprop="datePublished">2021-03-08</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>MySQL备份时中断，报错：<code>marked as crashed and should be repaired</code> </p>
-    
-        <div class="post-more-div">
-            <a href="/2021/03/08/MySQL-marked-as-crashed-and-should-be-repaired/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Qt获取exe版本信息"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2021/02/22/Qt获取exe版本信息/">Qt获取exe版本信息</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2021-02-22 16:47:00" datetime="2021-02-22T08:47:00.000Z"  itemprop="datePublished">2021-02-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><code>pro</code>文件引入 version.lib</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unix|win32: LIBS += -lVersion</span><br></pre></td></tr></tbody></table></figure>
-    
-        <div class="post-more-div">
-            <a href="/2021/02/22/Qt获取exe版本信息/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </div>
 </nav>
 

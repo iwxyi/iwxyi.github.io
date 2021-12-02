@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://blog.iwxyi.com/2021/12/02/C-调用Python/">
+    
+    
+    <title>C++调用Python | 云笺 | 一些技术摘要和写作技巧</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="C++,Python">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="环境配置以 Python38 为例，把 Python 的 include 和 lib 拷贝到自己的工程目录下： 12C:\Users\Administrator\AppData\Local\Programs\Python\Python38\includeC:\Users\Administrator\AppData\Local\Programs\Python\Python38\libs   Pyth">
+<meta name="keywords" content="C++,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++调用Python">
+<meta property="og:url" content="http://blog.iwxyi.com/2021/12/02/C-调用Python/index.html">
+<meta property="og:site_name" content="云笺">
+<meta property="og:description" content="环境配置以 Python38 为例，把 Python 的 include 和 lib 拷贝到自己的工程目录下： 12C:\Users\Administrator\AppData\Local\Programs\Python\Python38\includeC:\Users\Administrator\AppData\Local\Programs\Python\Python38\libs   Pyth">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-12-02T02:45:13.750Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++调用Python">
+<meta name="twitter:description" content="环境配置以 Python38 为例，把 Python 的 include 和 lib 拷贝到自己的工程目录下： 12C:\Users\Administrator\AppData\Local\Programs\Python\Python38\includeC:\Users\Administrator\AppData\Local\Programs\Python\Python38\libs   Pyth">
+    
+        <link rel="alternate" type="application/atom+xml" title="云笺" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">小乂</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-link"></i>
+                    <span>相 关</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:wxy@iwxyi.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/iwxyi" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6065548594" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C++调用Python</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#环境配置"><span class="post-toc-number">1.</span> <span class="post-toc-text">环境配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错误解决"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">错误解决</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Debug-调用-Release-lib"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Debug 调用 Release lib</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无法解析的外部符号-imp-Py-Initialize"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">无法解析的外部符号 __imp__Py_Initialize</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用程序无法正常启动-0xc000007b"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">应用程序无法正常启动(0xc000007b)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检测到“RuntimeLibrary”的不匹配项-值“MT-StaticRelease”不匹配值“MD-DynamicRelease”"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">检测到“RuntimeLibrary”的不匹配项: 值“MT_StaticRelease”不匹配值“MD_DynamicRelease”</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#例子"><span class="post-toc-number">2.</span> <span class="post-toc-text">例子</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数传参"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">函数传参</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#返回值"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">返回值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#传递数组"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">传递数组</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python代码处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">Python代码处理</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-C-调用Python"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C++调用Python</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2021-12-02 10:45:00" datetime="2021-12-02T02:45:00.000Z"  itemprop="datePublished">2021-12-02</time>
+
+            <br id="mybreak"/>
+            
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Code/">Code</a></li></ul>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>以 Python38 为例，把 Python 的 <code>include</code> 和 <code>lib</code> 拷贝到自己的工程目录下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\AppData\Local\Programs\Python\Python38\include</span><br><span class="line">C:\Users\Administrator\AppData\Local\Programs\Python\Python38\libs</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>Python38 是 64 位的（x64），Python38-32 是 32 位的（x86）</p>
+<p>注意是 libs 而不是 Lib</p>
+</blockquote>
+<p>然后在工程中包括进去：</p>
+<p>Visual Studio 项目属性 - 链接器 - 常规 - 附加库目录：libs</p>
+<p><strong>测试发现调用 Python 时项目只支持 x64 Release</strong></p>
+<a id="more"></a>
+
+<h2 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h2><h3 id="Debug-调用-Release-lib"><a href="#Debug-调用-Release-lib" class="headerlink" title="Debug 调用 Release lib"></a>Debug 调用 Release lib</h3><p>Debug 模式运行调用的是带 <code>_d</code>后缀的库，无法找到。</p>
+<p><code>include/config.h</code> 中将 <code>Python38_d.lib</code> 改成 <code>Python38.lib</code>。</p>
+<p>或者把 libs 里面的 <code>Python38.lib</code> 改成 <code>Python38_d.lib</code>。</p>
+<h3 id="无法解析的外部符号-imp-Py-Initialize"><a href="#无法解析的外部符号-imp-Py-Initialize" class="headerlink" title="无法解析的外部符号 __imp__Py_Initialize"></a>无法解析的外部符号 __imp__Py_Initialize</h3><p>这是由于调用的 Python 版本与活动解决方案平台的版本不一致导致的。</p>
+<p>平台 x86（默认）对应 Python38_32 文件夹，x64 对应 Python38（默认64）文件夹。</p>
+<h3 id="应用程序无法正常启动-0xc000007b"><a href="#应用程序无法正常启动-0xc000007b" class="headerlink" title="应用程序无法正常启动(0xc000007b)"></a>应用程序无法正常启动(0xc000007b)</h3><p>通常是 32 位的目标平台用了 64 位的 lib，或者反过来。</p>
+<h3 id="检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”"><a href="#检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”" class="headerlink" title="检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”"></a>检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”</h3><p>当前工程是 Debug 版本，而引用的库文件是 Release 版本，只需要把当前的 Debug 模式改成 Release 模式就可以了。</p>
+<p>同样，如果检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”，则说明是 Release 模式引用了 Debug 的库文件</p>
+<h3 id="检测到“RuntimeLibrary”的不匹配项-值“MT-StaticRelease”不匹配值“MD-DynamicRelease”"><a href="#检测到“RuntimeLibrary”的不匹配项-值“MT-StaticRelease”不匹配值“MD-DynamicRelease”" class="headerlink" title="检测到“RuntimeLibrary”的不匹配项: 值“MT_StaticRelease”不匹配值“MD_DynamicRelease”"></a>检测到“RuntimeLibrary”的不匹配项: 值“MT_StaticRelease”不匹配值“MD_DynamicRelease”</h3><p>项目右键 - 属性 - C/C++ - 代码生成 - 运行库，改成（Release 为 MT，Debug 为 MTD）</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>Python：<code>hello.py</code> （文件名就是导入的模块名）</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Hello</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">"Hello World"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">	print(<span class="string">'add'</span>, x, <span class="string">'and'</span>, y)</span><br><span class="line">	<span class="keyword">return</span> x + y</span><br></pre></td></tr></tbody></table></figure>
+
+<p>C++：<code>main.cpp</code></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"include\Python.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 初始化 Python 环境  </span></span><br><span class="line">    Py_Initialize();</span><br><span class="line"></span><br><span class="line">    PyRun_SimpleString(<span class="string">"import sys"</span>);</span><br><span class="line">    <span class="comment">// 添加 Python 模块路径  </span></span><br><span class="line">    <span class="comment">// PyRun_SimpleString(chdir_cmd.c_str());</span></span><br><span class="line">    PyRun_SimpleString(<span class="string">"sys.path.append('./')"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 导入 Python 的 Hello 模块（文件名）</span></span><br><span class="line">    PyObject* pModule = PyImport_ImportModule(<span class="string">"hello"</span>);</span><br><span class="line">    <span class="keyword">if</span> (!pModule)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Python get module failed."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Python get module succeed."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取并调用 Python 的 Hello 函数（无参无返，直接调用）</span></span><br><span class="line">    PyObject * pFunc = <span class="literal">NULL</span>;</span><br><span class="line">    pFunc = PyObject_GetAttrString(pModule, <span class="string">"Hello"</span>);</span><br><span class="line">    PyEval_CallObject(pFunc, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取 Python 的 _add 函数  </span></span><br><span class="line">    PyObject* pv = PyObject_GetAttrString(pModule, <span class="string">"_add"</span>);</span><br><span class="line">    <span class="keyword">if</span> (!pv || !PyCallable_Check(pv))</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Can't find funftion (_add)"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Get function (_add) succeed."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化要传入的参数，args 配置成传入两个参数的模式  </span></span><br><span class="line">    PyObject* args = PyTuple_New(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">// 将 Long 型数据转换成 Python 可接收的类型  </span></span><br><span class="line">    PyObject* arg1 = PyLong_FromLong(<span class="number">4</span>);</span><br><span class="line">    PyObject* arg2 = PyLong_FromLong(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 arg1 配置为 arg 带入的第一个参数  </span></span><br><span class="line">    PyTuple_SetItem(args, <span class="number">0</span>, arg1);</span><br><span class="line">    <span class="comment">// 将 arg1 配置为 arg 带入的第二个参数  </span></span><br><span class="line">    PyTuple_SetItem(args, <span class="number">1</span>, arg2);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 传入参数调用函数，并获取返回值  </span></span><br><span class="line">    PyObject* pRet = PyObject_CallObject(pv, args);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (pRet)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 将返回值转换成long型  </span></span><br><span class="line">        <span class="keyword">long</span> result = PyLong_AsLong(pRet);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"result:"</span> &lt;&lt; result &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    Py_Finalize();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pFunc = PyObject_GetAttrString(pModule, <span class="string">"add"</span>);   <span class="comment">// Python 文件中的函数名  </span></span><br><span class="line">PyObject *pArgs = PyTuple_New(<span class="number">2</span>);                 <span class="comment">// 函数调用的参数传递均是以元组的形式打包的,2表示参数个数  </span></span><br><span class="line">PyTuple_SetItem(pArgs, <span class="number">0</span>, Py_BuildValue(<span class="string">"i"</span>, <span class="number">5</span>)); <span class="comment">// 传 int 类型参数</span></span><br><span class="line">PyTuple_SetItem(pArgs, <span class="number">1</span>, Py_BuildValue(<span class="string">"i"</span>, <span class="number">7</span>));</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PyObject* pReturn = PyObject_CallObject(pv, args);</span><br><span class="line">PyArg_Parse(pReturn, <span class="string">"i"</span>, &amp;result); <span class="comment">// 转换为 int 类型</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="传递数组"><a href="#传递数组" class="headerlink" title="传递数组"></a>传递数组</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> <span class="built_in">array</span>[] = { <span class="number">1.2</span>, <span class="number">4.5</span>, <span class="number">6.7</span>, <span class="number">8.9</span>, <span class="number">1.5</span>, <span class="number">0.5</span> };</span><br><span class="line"></span><br><span class="line">PyObject* pList = PyList_New(<span class="number">6</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; PyList_Size(pList); i++)</span><br><span class="line">{</span><br><span class="line">    PyList_SetItem(pList, i, PyFloat_FromDouble(<span class="built_in">array</span>[i]));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">PyObject* pArgs = PyTuple_New(<span class="number">1</span>);</span><br><span class="line">PyTuple_SetItem(pArgs, <span class="number">0</span>, pList);</span><br><span class="line"></span><br><span class="line">PyObject* pReturn = PyEval_CallObject(pFunc, pArgs);</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="Python代码处理"><a href="#Python代码处理" class="headerlink" title="Python代码处理"></a>Python代码处理</h1><p>在发布软件的时候，通常我们都不希望代码可以直接被别人看到。</p>
+<p>以上的 exe 要想能够单独运行，必须把 Python 脚本拷过去。为了不让别人能直接看到源码，可以拷过去生成的 <code>.pyc</code> 文件。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2021-12-02T02:45:13.750Z" itemprop="dateUpdated">2021-12-02 10:45:13</time>
+</span>
+
+
+        
+        原文链接：<a href="/2021/12/02/C-调用Python/" target="_blank" rel="external">http://blog.iwxyi.com/2021/12/02/C-调用Python/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://blog.iwxyi.com'">
+            <img src="/img/avatar.jpg" alt="小乂">
+            <a>小乂</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/12/02/C-调用Python/&title=《C++调用Python》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/12/02/C-调用Python/&title=《C++调用Python》 — 云笺&source=环境配置以 Python38 为例，把 Python 的 include 和 lib 拷贝到自己的工程目录下：
+12C:\Users\Administra..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/12/02/C-调用Python/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++调用Python》 — 云笺&url=http://blog.iwxyi.com/2021/12/02/C-调用Python/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/12/02/C-调用Python/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/12/01/Linux下VSCode调试SystemC/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Linux下VSCode调试SystemC">下一篇：Linux下VSCode调试SystemC</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "sVjY7bBJXEfCtStMqASgnlL6-gzGzoHsz",
+            appKey: "8mL43PwxikVMVpiQx4Pq7wwt",
+            avatar: "mm",
+            placeholder: "留下您宝贵的建议——",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2019
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://blog.iwxyi.com">http://blog.iwxyi.com</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.iwxyi.com/2021/12/02/C-调用Python/&title=《C++调用Python》 — 云笺&pic=http://blog.iwxyi.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.iwxyi.com/2021/12/02/C-调用Python/&title=《C++调用Python》 — 云笺&source=环境配置以 Python38 为例，把 Python 的 include 和 lib 拷贝到自己的工程目录下：
+12C:\Users\Administra..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iwxyi.com/2021/12/02/C-调用Python/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++调用Python》 — 云笺&url=http://blog.iwxyi.com/2021/12/02/C-调用Python/&via=http://blog.iwxyi.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.iwxyi.com/2021/12/02/C-调用Python/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS1KEQBAFQO9/ady6cOC9ajSCJns1oSOQLMr6fX3F5/hwfv720zfPr5b8/LaDgYHxWMZxej7dILll8v38vhcvCAMD4wWM5CFmce/8Xkn4Pn82DAwMjOTzSiI4e30YGBgYyeWSh5uFVwwMDIyVIjZPAZOwOwvoN9TiGBgYD2Tkpen/f/6T+QYGBsajGEd52qI0D5fHwsHAwNibkQe4FUySULYBFwMDA2PW/EqKz9k4M2r2YWBgbM3IG/TrKWMeZPOWHwYGxt6MdgDQLlvMhgd5olmLMTAwtmC0SeG9iV0CvpjBYmBgbMpo1ynadYf8OrMVMQwMjPcwcli77ZC8vnbY+UsRi4GBsSmjXXTI07g8rVwppDEwMN7AmDXI8rDb9sfyAefFDBYDA2MjRtvcT26ZLH4lr6MeGGBgYGzKmCVw+YPORqH19zEwMLZm5O37thnXBujzl5WnpxgYGHsz7k0H82RxNgyIxqgYGBgbMZLQ1q5iJAnfbI0jSgoxMDC2ZrTN/Rzc/lXdmMPAwHgBo22rrQfcJPmrU0MMDIxXMtoidrYwkbTPLv4lYGBgbMo4ypM/XN5Ea9tz9XwVAwPj4Yz8tLdcmU7kA9QahoGB8VjGSpBtlyfWXxkGBsabGXngm5WdbQHcIjEwMDDaIrZNK28YdmJgYGDcRJpV2NEoFAMD4wWMdsFiJa1Mkr/hJBYDA2NTRnvpdhWjKESD6y8NNTEwMJ7H+AbLB4mH2LQhpgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2019/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "小乂");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+<script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
